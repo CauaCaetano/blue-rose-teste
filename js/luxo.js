@@ -27,13 +27,15 @@
     })(el);
   }
 
-  var titulos = document.querySelectorAll('main h1, .sec-title, .lx-titulo');
   var obsT = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('lx-on'); obsT.unobserve(e.target); } });
   }, { threshold: 0.2 });
-  titulos.forEach(function (t) {
-    if (t.hasAttribute('data-ramo-titulo')) return; // esse muda de texto sozinho; não quebra
-    quebrar(t); obsT.observe(t);
+  // espera o pacote de idiomas traduzir o título inteiro antes de quebrar em palavras
+  (window.__brIdioma ? window.__brIdioma.pronto : Promise.resolve()).then(function () {
+    document.querySelectorAll('main h1, .sec-title, .lx-titulo').forEach(function (t) {
+      if (t.hasAttribute('data-ramo-titulo')) return; // esse muda de texto sozinho; não quebra
+      quebrar(t); obsT.observe(t);
+    });
   });
 
   // contadores: <b data-conta="13">13</b>
