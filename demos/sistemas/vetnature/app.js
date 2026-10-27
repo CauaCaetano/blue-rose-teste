@@ -36,9 +36,12 @@ const IC = {
   outro: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.4-7.5-10.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8C19.5 16.6 12 21 12 21z"/></svg>',
   config: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
   ia: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9zM19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></svg>',
+  avisos: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9M10 20a2.2 2.2 0 0 0 4 0"/></svg>',
+  pacotes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11H4zM2.5 5.5h19V9h-19zM12 5.5V20M12 5.5S10.5 2 8 2.5 7 5.5 12 5.5zm0 0s1.5-3.5 4-3 1 3-4 3"/></svg>',
+  clipe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m20 11.5-8.2 8.2a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.4 8.4a1.7 1.7 0 0 1-2.4-2.4l7.7-7.7"/></svg>',
   camera: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>',
 };
-const SECOES = [['hoje', 'Hoje'], ['agenda', 'Agenda'], ['pacientes', 'Pacientes'], ['tutores', 'Tutores'], ['vacinas', 'Vacinas'], ['internacao', 'Internação'], ['estetica', 'Estética'], ['exames', 'Exames'], ['estoque', 'Estoque'], ['caixa', 'Caixa'], ['relatorios', 'Relatórios'], ['config', 'Configurações']];
+const SECOES = [['hoje', 'Hoje'], ['agenda', 'Agenda'], ['pacientes', 'Pacientes'], ['tutores', 'Tutores'], ['vacinas', 'Vacinas'], ['internacao', 'Internação'], ['estetica', 'Estética'], ['exames', 'Exames'], ['estoque', 'Estoque'], ['caixa', 'Caixa'], ['pacotes', 'Pacotes'], ['avisos', 'Avisos'], ['relatorios', 'Relatórios'], ['config', 'Configurações']];
 const TIPOS = { Consulta: 160, Retorno: 0, Vacina: 0, 'Banho e tosa': 90, Cirurgia: 850, Exame: 120 };
 const SERVICOS_PADRAO = [['Consulta clínica', 160], ['Retorno (até 15 dias)', 0], ['Consulta de emergência', 280], ['Banho', 60], ['Banho e tosa', 90], ['Tosa higiênica', 45], ['Aplicação de vacina', 25], ['Hemograma', 120], ['Bioquímico (função renal)', 140], ['Ultrassom', 220], ['Raio-x', 180], ['Castração', 850], ['Limpeza de tártaro', 480], ['Diária de internação', 180], ['Microchip', 120]];
 const servicos = () => db.config.servicos;
@@ -137,8 +140,45 @@ function configPadrao() {
     horario: 'Seg a sex, 8h às 18h · sáb, 8h às 12h', diaria: 180, servicos: SERVICOS_PADRAO.map((x) => [...x]),
     ia: { modo: 'nossa', provedor: 'openai', chave: '', modelo: '' } };
 }
+const MODELOS_AVISO = {
+  vacina: 'Olá, {tutor}! Aqui é da {clinica}. A vacina {vacina} do(a) {pet} {situacao}. Quer agendar a aplicação? É só responder esta mensagem.',
+  consulta: 'Olá, {tutor}! Lembrete da {clinica}: {tipo} do(a) {pet} em {data} ({dia}) às {hora}. Se não puder vir, avise por aqui.',
+  aniversario: 'Olá, {tutor}! Toda a equipe da {clinica} deseja um feliz aniversário para o(a) {pet}! 🎉',
+  exame: 'Olá, {tutor}! O resultado do exame {exame} do(a) {pet} ficou pronto. Quer marcar o retorno para a veterinária explicar?',
+};
+// acrescenta o que veio depois (avisos, pacotes, comissões, nota fiscal, agendamento online, anexos) sem apagar os dados de quem já usa
+function completar(d) {
+  if (!d.config) d.config = configPadrao();
+  const c = d.config, h = hoje(), vets = d.vets.filter((v) => v.startsWith('Dr'));
+  c.avisos ??= { ligado: true, hora: '09:00', vacina: 7, consulta: 1, aniversario: true, exame: true, modelos: { ...MODELOS_AVISO } };
+  c.agendaOnline ??= { ligado: true, inicio: '08:00', fim: '18:00', intervalo: 30, sabado: true, tipos: ['Consulta', 'Vacina', 'Banho e tosa'] };
+  c.comissoes ??= Object.fromEntries(d.vets.map((v) => [v, v.startsWith('Dr') ? 10 : 30]));
+  c.fiscal ??= { im: '45.112-7', regime: 'Simples Nacional', codigo: '5.09 · Medicina veterinária', aliquota: 2, proxima: 1 };
+  c.pacotes ??= [
+    { id: 'pk1', tipo: 'pacote', nome: '4 banhos', servico: 'Banho', qtd: 4, valor: 200, dias: 60 },
+    { id: 'pk2', tipo: 'pacote', nome: '4 banhos e tosa', servico: 'Banho e tosa', qtd: 4, valor: 320, dias: 60 },
+    { id: 'pl1', tipo: 'plano', nome: 'Plano Saúde Essencial', valor: 89, desconto: 10, inclui: '1 consulta por mês e 10% de desconto em vacinas e exames' },
+    { id: 'pl2', tipo: 'plano', nome: 'Plano Saúde Completo', valor: 149, desconto: 20, inclui: 'Consultas à vontade, 1 banho por mês e 20% de desconto em vacinas e exames' },
+  ];
+  d.avisosEnviados ??= []; d.pedidos ??= [];
+  if (!d.contratos) {
+    const m = (id) => c.pacotes.find((x) => x.id === id), ct = (p, id, extra) => d.pets.some((x) => x.id === p) && m(id) ? [{ id: uid(), pet: p, modelo: id, tipo: m(id).tipo, nome: m(id).nome, servico: m(id).servico, qtd: m(id).qtd, valor: m(id).valor, desconto: m(id).desconto, ativo: true, ...extra }] : [];
+    d.contratos = [...ct('p5', 'pk2', { usados: 1, inicio: maisDias(h, -20), validade: maisDias(h, 40) }), ...ct('p9', 'pk1', { usados: 2, inicio: maisDias(h, -30), validade: maisDias(h, 30) }),
+      ...ct('p1', 'pl1', { inicio: maisDias(h, -25), proxima: maisDias(h, 5) }), ...ct('p7', 'pl2', { inicio: maisDias(h, -40), proxima: maisDias(h, -10) })];
+  }
+  d.vendas.forEach((v, i) => { if (v.vet === undefined) v.vet = v.itens.some((x) => /banho|tosa/i.test(x.nome)) ? (d.vets.find((x) => !x.startsWith('Dr')) || '') : (vets[i % Math.max(1, vets.length)] || ''); });
+  d.exames.forEach((e) => { e.anexos ??= []; });
+  const hemo = d.exames.find((e) => e.pet === 'p7' && e.nome === 'Hemograma completo' && e.status === 'pronto');
+  if (hemo && !hemo.anexos.length && !d.anexoExemplo) { d.anexoExemplo = true; hemo.anexos.push({ nome: 'laudo-hemograma-max.svg', dados: laudoExemplo() }); }
+  return d;
+}
+function laudoExemplo() {
+  const l = [['Hemácias', '5,9 milhões/µL', '5,5 a 8,5'], ['Hematócrito', '34%', '37 a 55'], ['Hemoglobina', '11,8 g/dL', '12 a 18'], ['Leucócitos', '9.800/µL', '6.000 a 17.000'], ['Plaquetas', '310.000/µL', '200.000 a 500.000']];
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="620" height="420" viewBox="0 0 620 420" font-family="Arial"><rect width="620" height="420" fill="#fff"/><rect width="620" height="64" fill="#214e45"/><text x="24" y="40" fill="#fff" font-size="22" font-weight="bold">Laboratório VetLab · Laudo</text><text x="24" y="100" font-size="15">Paciente: Max · canino · Pastor Alemão · tutor Ricardo Santana</text><text x="24" y="124" font-size="15">Exame: Hemograma completo</text>${l.map(([n, v, r], i) => `<text x="24" y="${170 + i * 34}" font-size="15">${n}</text><text x="250" y="${170 + i * 34}" font-size="15" font-weight="bold">${v}</text><text x="420" y="${170 + i * 34}" font-size="13" fill="#666">ref. ${r}</text>`).join('')}<text x="24" y="370" font-size="14">Conclusão: anemia leve. Leucócitos normais.</text><text x="24" y="398" font-size="12" fill="#666">Documento de exemplo da demonstração</text></svg>`;
+  return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
+}
 let db = (() => { try { return JSON.parse(localStorage.getItem(CHAVE)) || exemplo(); } catch { return exemplo(); } })();
-if (!db.config) db.config = configPadrao();
+completar(db);
 const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(db)); } catch { avisar('O navegador ficou sem espaço para guardar a demonstração. Use "Recomeçar" ou fotos menores.'); } };
 
 // ---------------------------------------------------------------- estado e ajudas
@@ -157,7 +197,7 @@ const aniversariantes = () => db.pets.map((p) => { const [, m, d] = p.nasc.split
 // ---------------------------------------------------------------- topo
 function topo() {
   $('#clinica').textContent = db.clinica;
-  const contas = { vacinas: vacPendentes().length, internacao: db.internados.reduce((n, i) => n + i.doses.filter((d) => !d.feita && d.hora <= horaAgora()).length, 0), estoque: db.estoque.filter((x) => x.qtd < x.minimo || diasAte(x.validade) <= 30).length, exames: db.exames.filter((e) => e.status === 'pronto' && !e.avisado).length, estetica: db.estetica.filter((e) => e.data === hoje() && e.status === 'pronto').length };
+  const contas = { vacinas: vacPendentes().length, internacao: db.internados.reduce((n, i) => n + i.doses.filter((d) => !d.feita && d.hora <= horaAgora()).length, 0), estoque: db.estoque.filter((x) => x.qtd < x.minimo || diasAte(x.validade) <= 30).length, exames: db.exames.filter((e) => e.status === 'pronto' && !e.avisado).length, estetica: db.estetica.filter((e) => e.data === hoje() && e.status === 'pronto').length, agenda: db.pedidos.filter((x) => x.status === 'novo').length, avisos: filaAvisos().length, pacotes: db.contratos.filter((x) => x.ativo && x.tipo === 'plano' && diasAte(x.proxima) < 0).length };
   $('#secoes').innerHTML = SECOES.map(([k, n]) => `<button type="button" data-secao="${k}" ${est.secao === k ? 'aria-current="page"' : ''}>${IC[k]}${n}${contas[k] ? `<span class="conta">${contas[k]}</span>` : ''}</button>`).join('');
 }
 
@@ -186,7 +226,7 @@ function ficha(id, atend) {
   const t = tutorDe(p), int = db.internados.find((i) => i.pet === id);
   const vencidas = db.vacinas.filter((v) => v.pet === id && v.proxima && diasAte(v.proxima) < 0);
   const deve = aReceber(t?.id).reduce((s, v) => s + total(v), 0);
-  const marc = [p.castrado ? '<span class="selo selo-aguardando">Castrado</span>' : '', p.alergias ? `<span class="selo selo-alerta">Alergia: ${esc(p.alergias)}</span>` : '', int ? `<span class="selo selo-atendimento">Internado · ${esc(int.baia)}</span>` : '', vencidas.length ? `<span class="selo selo-alerta">${vencidas.length} vacina${vencidas.length > 1 ? 's' : ''} vencida${vencidas.length > 1 ? 's' : ''}</span>` : '', deve ? `<span class="selo selo-chegou">Tutor deve ${reais(deve)}</span>` : ''].join('');
+  const marc = [p.castrado ? '<span class="selo selo-aguardando">Castrado</span>' : '', p.alergias ? `<span class="selo selo-alerta">Alergia: ${esc(p.alergias)}</span>` : '', int ? `<span class="selo selo-atendimento">Internado · ${esc(int.baia)}</span>` : '', vencidas.length ? `<span class="selo selo-alerta">${vencidas.length} vacina${vencidas.length > 1 ? 's' : ''} vencida${vencidas.length > 1 ? 's' : ''}</span>` : '', deve ? `<span class="selo selo-chegou">Tutor deve ${reais(deve)}</span>` : '', ...contratosDo(id).map((x) => `<span class="selo selo-pronto">${x.tipo === 'plano' ? esc(x.nome) : `Pacote ${esc(x.nome)}: ${x.usados} de ${x.qtd} usados`}</span>`)].join('');
   const prox = atend && { aguardando: ['chegou', 'Marcar chegada'], chegou: ['atendimento', 'Iniciar atendimento'], atendimento: ['pronto', 'Finalizar e registrar'] }[atend.status];
   const abas = [['resumo', 'Resumo'], ['prontuario', 'Prontuário'], ['vacinas', 'Vacinas'], ['exames', 'Exames'], ['peso', 'Peso'], ['documentos', 'Documentos']];
   return `<section class="cartao ficha" aria-label="Ficha de ${esc(p.nome)}">
@@ -208,7 +248,7 @@ function abaResumo(p, t) {
 }
 function abaProntuario(p) {
   const l = db.prontuarios.filter((x) => x.pet === p.id).sort((a, b) => b.data.localeCompare(a.data));
-  return l.length ? `<ol class="linha-tempo">${l.map((x) => `<li><time>${dataBR(x.data)}</time><div><b>${esc(x.diagnostico)}</b><p style="margin:2px 0 4px;color:var(--texto-2)">${esc(x.queixa)}</p><small style="color:var(--texto-3)">${esc(x.vet)} · ${x.exame.peso ?? '—'} kg · ${x.exame.temp ?? '—'} °C · FC ${x.exame.fc ?? '—'} · FR ${x.exame.fr ?? '—'}</small><p style="margin:6px 0 0;white-space:pre-wrap">${esc(x.prescricao)}</p><button class="bt bt-peq" style="margin-top:8px" data-receita="${x.id}">Imprimir receita</button></div></li>`).join('')}</ol>` : '<p class="vazio">Nenhuma consulta registrada ainda.</p>';
+  return l.length ? `<ol class="linha-tempo">${l.map((x) => `<li><time>${dataBR(x.data)}</time><div><b>${esc(x.diagnostico)}</b><p style="margin:2px 0 4px;color:var(--texto-2)">${esc(x.queixa)}</p><small style="color:var(--texto-3)">${esc(x.vet)} · ${x.exame.peso ?? '—'} kg · ${x.exame.temp ?? '—'} °C · FC ${x.exame.fc ?? '—'} · FR ${x.exame.fr ?? '—'}</small><p style="margin:6px 0 0;white-space:pre-wrap">${esc(x.prescricao)}</p><span class="acoes" style="margin-top:8px"><button class="bt bt-peq" data-receita="${x.id}">Imprimir receita</button><button class="bt bt-peq" data-receita-controle="${p.id}:${x.id}">Receita de controle especial</button></span></div></li>`).join('')}</ol>` : '<p class="vazio">Nenhuma consulta registrada ainda.</p>';
 }
 function abaVacinas(p, t) {
   const l = db.vacinas.filter((v) => v.pet === p.id).sort((a, b) => b.data.localeCompare(a.data));
@@ -233,9 +273,10 @@ function abaDocumentos(p) {
     <button class="doc" data-termo="${p.id}:cirurgia"><b>Termo de consentimento para cirurgia</b><small>Com riscos, autorização e assinatura do tutor</small></button>
     <button class="doc" data-termo="${p.id}:anestesia"><b>Termo de anestesia e sedação</b><small>Para procedimentos com sedação</small></button>
     <button class="doc" data-termo="${p.id}:internacao"><b>Termo de internação</b><small>Responsabilidade, visitas e diárias</small></button>
-    <button class="doc" data-atestado="${p.id}"><b>Atestado de saúde</b><small>Para viagem, hotel ou creche</small></button></div>`;
+    <button class="doc" data-atestado="${p.id}"><b>Atestado de saúde</b><small>Para viagem, hotel ou creche</small></button>
+    <button class="doc" data-receita-controle="${p.id}:"><b>Receita de controle especial</b><small>Para remédio controlado, em duas vias (farmácia e tutor)</small></button></div>`;
 }
-const linhaExame = (e) => { const p = pet(e.pet), st = EXAME_ST[e.status]; return `<li><div><b>${esc(e.nome)}</b><small>${esc(p?.nome)} · pedido em ${dataBR(e.data)} · ${esc(e.lab)}</small>${e.resultado ? `<p>${esc(e.resultado)}</p>` : ''}</div><div class="lado"><span class="selo ${st[1]}">${st[0]}</span>${e.status === 'solicitado' ? `<button class="bt bt-peq" data-coletar="${e.id}">Coletado</button>` : e.status === 'coletado' ? `<button class="bt bt-peq bt-pri" data-resultado="${e.id}">Lançar resultado</button>` : `<a class="bt bt-peq bt-zap" target="_blank" rel="noopener" data-avisado="${e.id}" href="${zap(tutorDe(p)?.tel, `Olá, ${primeiro(tutorDe(p)?.nome)}! O resultado do exame ${e.nome} do(a) ${p?.nome} ficou pronto. A veterinária vai te explicar no retorno; quer agendar?`)}">Avisar tutor</a>`}</div></li>`; };
+const linhaExame = (e) => { const p = pet(e.pet), st = EXAME_ST[e.status]; return `<li><div><b>${esc(e.nome)}</b><small>${esc(p?.nome)} · pedido em ${dataBR(e.data)} · ${esc(e.lab)}</small>${e.resultado ? `<p>${esc(e.resultado)}</p>` : ''}${e.anexos?.length ? `<div class="anexos">${e.anexos.map((x, k) => `<span class="anexo"><button type="button" class="link" data-ver-anexo="${e.id}:${k}">${IC.clipe}${esc(x.nome)}</button><button type="button" class="tirar-anexo" data-tirar-anexo="${e.id}:${k}" aria-label="Tirar o arquivo ${esc(x.nome)}">×</button></span>`).join('')}</div>` : ''}</div><div class="lado"><span class="selo ${st[1]}">${st[0]}</span><label class="bt bt-peq" title="Anexar PDF ou foto do laudo">${IC.clipe}Anexar<input type="file" accept="image/*,application/pdf" data-anexar="${e.id}" hidden></label>${e.status === 'solicitado' ? `<button class="bt bt-peq" data-coletar="${e.id}">Coletado</button>` : e.status === 'coletado' ? `<button class="bt bt-peq bt-pri" data-resultado="${e.id}">Lançar resultado</button>` : `<a class="bt bt-peq bt-zap" target="_blank" rel="noopener" data-avisado="${e.id}" href="${zap(tutorDe(p)?.tel, `Olá, ${primeiro(tutorDe(p)?.nome)}! O resultado do exame ${e.nome} do(a) ${p?.nome} ficou pronto. A veterinária vai te explicar no retorno; quer agendar?`)}">Avisar tutor</a>`}</div></li>`; };
 const selVac = (v) => { const d = diasAte(v.proxima); return d < 0 ? `<span class="selo selo-alerta">Vencida há ${-d} dia${d === -1 ? '' : 's'}</span>` : d <= 7 ? `<span class="selo selo-chegou">${d === 0 ? 'Hoje' : `Em ${d} dia${d === 1 ? '' : 's'}`}</span>` : `<span class="selo selo-aguardando">${dataBR(v.proxima)}</span>`; };
 const lembrete = (v) => { const p = pet(v.pet), t = tutorDe(p), d = diasAte(v.proxima); return `Olá, ${primeiro(t?.nome)}! Aqui é da ${db.clinica}. ${d < 0 ? `A vacina ${v.nome} do(a) ${p.nome} venceu em ${dataBR(v.proxima)}.` : `A vacina ${v.nome} do(a) ${p.nome} vence em ${dataBR(v.proxima)}.`} Quer que a gente agende a aplicação? É rapidinho.`; };
 
@@ -243,7 +284,7 @@ const lembrete = (v) => { const p = pet(v.pet), t = tutorDe(p), d = diasAte(v.pr
 function telaAgenda() {
   const ini = maisDias(est.dia, -((new Date(`${est.dia}T12:00:00`).getDay() + 6) % 7)); // segunda-feira
   const dias = Array.from({ length: 6 }, (_, i) => maisDias(ini, i));
-  return `<div class="cab"><div><h1>Agenda</h1><p>Semana de ${dataBR(dias[0])} a ${dataBR(dias[5])}</p></div><div class="acoes"><button class="bt" data-semana="-7">‹ Semana anterior</button><button class="bt" data-semana="0">Hoje</button><button class="bt" data-semana="7">Próxima ›</button><button class="bt bt-pri" data-agendar="">+ Agendar</button></div></div>
+  return `<div class="cab"><div><h1>Agenda</h1><p>Semana de ${dataBR(dias[0])} a ${dataBR(dias[5])}</p></div><div class="acoes"><button class="bt" data-semana="-7">‹ Semana anterior</button><button class="bt" data-semana="0">Hoje</button><button class="bt" data-semana="7">Próxima ›</button><button class="bt" data-link-agenda>Link para o tutor agendar</button><button class="bt bt-pri" data-agendar="">+ Agendar</button></div></div>${blocoPedidos()}
     <div class="semana">${dias.map((d) => { const l = db.agenda.filter((a) => a.data === d).sort((a, b) => a.hora.localeCompare(b.hora)); return `<section class="dia ${d === hoje() ? 'eh-hoje' : ''}"><h2>${diaSemana(d)} <b>${d.slice(8)}</b></h2>${l.map((a) => { const p = pet(a.pet); return `<button type="button" class="hor tipo-${a.tipo.split(' ')[0].toLowerCase()}" data-abrir-pet="${p.id}"><time>${a.hora}</time><span><b>${esc(p.nome)}</b><small>${esc(a.tipo)} · ${esc(a.vet.replace('Equipe de estética', 'Estética').replace(/^(Dra?\.) (\S+).*/, '$1 $2'))}</small></span></button>`; }).join('') || '<p class="vazio">Livre</p>'}</section>`; }).join('')}</div>`;
 }
 
@@ -319,7 +360,7 @@ function telaCaixa() {
   const formas = {}; l.forEach((v) => { formas[v.forma] = (formas[v.forma] || 0) + total(v); });
   const pend = aReceber();
   return `<div class="cab"><div><h1>Caixa do dia</h1><p>${l.length} cobrança${l.length === 1 ? '' : 's'} hoje · ${reais(pend.reduce((s, v) => s + total(v), 0))} a receber no total</p></div><button class="bt bt-pri" data-cobrar="">+ Nova cobrança</button></div>
-    <div class="duas"><section class="cartao"><div class="cartao-cab"><h2>Lançamentos de hoje</h2></div>${l.length ? `<table class="tabela empilha"><tbody>${l.map((v) => `<tr><td><b>${v.hora}</b> · ${esc(pet(v.pet)?.nome || 'Balcão')}<br><small style="color:var(--texto-2)">${v.itens.map((i) => `${esc(i.nome)}${i.qtd > 1 ? ` ×${i.qtd}` : ''}`).join(', ')}</small></td><td>${esc(v.forma)}</td><td class="num"><b>${reais(total(v))}</b></td></tr>`).join('')}</tbody></table>` : '<p class="vazio">Nada cobrado ainda hoje.</p>'}</section>
+    <div class="duas"><section class="cartao"><div class="cartao-cab"><h2>Lançamentos de hoje</h2></div>${l.length ? `<table class="tabela empilha"><tbody>${l.map((v) => `<tr><td><b>${v.hora}</b> · ${esc(pet(v.pet)?.nome || 'Balcão')}<br><small style="color:var(--texto-2)">${v.itens.map((i) => `${esc(i.nome)}${i.qtd > 1 ? ` ×${i.qtd}` : ''}`).join(', ')}</small></td><td>${esc(v.forma)}</td><td class="num"><b>${reais(total(v))}</b></td><td class="num">${v.nfse ? `<button class="bt bt-peq" data-nfse="${v.id}">Nota nº ${v.nfse.numero}</button>` : `<button class="bt bt-peq" data-nfse="${v.id}">Emitir NFS-e</button>`}</td></tr>`).join('')}</tbody></table>` : '<p class="vazio">Nada cobrado ainda hoje.</p>'}</section>
     <div style="display:grid;gap:18px"><section class="cartao"><div class="cartao-cab"><h2>Fechamento</h2></div><div class="cartao-corpo">${Object.entries(formas).map(([f, v]) => `<div class="linha-valor"><span>${esc(f)}</span><b>${reais(v)}</b></div>`).join('') || '<p class="vazio">Sem valores.</p>'}</div><div class="total"><span>Recebido hoje</span><b>${reais(l.filter((v) => v.recebido).reduce((s, v) => s + total(v), 0))}</b></div></section>
     <section class="cartao"><div class="cartao-cab"><h2>A receber (fiado)</h2></div><div class="cartao-corpo">${pend.length ? `<ul class="lista-simples">${pend.map((v) => `<li><span>${dataBR(v.data)} · ${esc(tutorDe(pet(v.pet))?.nome || 'Balcão')}</span><b>${reais(total(v))}</b><button class="bt bt-peq" data-receber="${v.id}">Recebi</button></li>`).join('')}</ul>` : '<p class="vazio">Ninguém devendo.</p>'}</div></section></div></div>`;
 }
@@ -338,12 +379,13 @@ function telaRelatorios() {
     <div class="numeros"><div class="numero destaque"><span>Faturamento recebido</span><b>${reais(fat)}</b></div><div class="numero"><span>Atendimentos cobrados</span><b>${l.length}</b></div><div class="numero"><span>Ticket médio</span><b>${reais(ticket)}</b></div><div class="numero"><span>Vacinas · consultas</span><b>${vacMes} · ${consMes}</b></div></div>
     <section class="cartao"><div class="cartao-cab"><h2>Faturamento por dia</h2></div><div class="cartao-corpo"><svg class="barras" viewBox="0 0 ${W} ${H + 22}" role="img" aria-label="Faturamento por dia nos últimos 30 dias">${porDia.map((v, i) => { const bw = W / 30 - 4, bh = Math.max(v ? 3 : 0, (v / max) * H), x = i * (W / 30) + 2; return `<rect x="${x}" y="${H - bh}" width="${bw}" height="${bh}" rx="3"><title>${dataBR(dias[i])}: ${reais(v)}</title></rect>${i % 5 === 0 ? `<text x="${i ? x + bw / 2 : x}" y="${H + 16}" text-anchor="${i ? 'middle' : 'start'}">${dataBR(dias[i]).slice(0, 5)}</text>` : ''}`; }).join('')}</svg></div></section>
     <div class="duas" style="margin-top:18px"><section class="cartao"><div class="cartao-cab"><h2>O que mais vende</h2></div><div class="cartao-corpo">${top.map(([n, v]) => `<div class="barra-h"><span>${esc(n)}</span><i style="--p:${(v / top[0][1]) * 100}%"></i><b>${reais(v)}</b></div>`).join('')}</div></section>
-    <section class="cartao"><div class="cartao-cab"><h2>Formas de pagamento</h2></div><div class="cartao-corpo">${Object.entries(formas).sort((a, b) => b[1] - a[1]).map(([f, v]) => `<div class="linha-valor"><span>${esc(f)}</span><b>${reais(v)} <small style="color:var(--texto-3)">${Math.round((v / fat) * 100)}%</small></b></div>`).join('')}</div></section></div>`;
+    <section class="cartao"><div class="cartao-cab"><h2>Formas de pagamento</h2></div><div class="cartao-corpo">${Object.entries(formas).sort((a, b) => b[1] - a[1]).map(([f, v]) => `<div class="linha-valor"><span>${esc(f)}</span><b>${reais(v)} <small style="color:var(--texto-3)">${Math.round((v / fat) * 100)}%</small></b></div>`).join('')}</div></section></div>
+    ${cartaoComissoes(l)}`;
 }
 
 
 // ---------------------------------------------------------------- CONFIGURAÇÕES
-const CFG = [['conta', 'Minha conta'], ['clinica', 'Clínica'], ['equipe', 'Equipe'], ['servicos', 'Serviços e preços'], ['ia', 'Assistente de IA'], ['dados', 'Cópia de segurança']];
+const CFG = [['conta', 'Minha conta'], ['clinica', 'Clínica'], ['equipe', 'Equipe'], ['servicos', 'Serviços e preços'], ['agendamento', 'Agendamento online'], ['comissoes', 'Comissões'], ['fiscal', 'Nota fiscal'], ['ia', 'Assistente de IA'], ['dados', 'Cópia de segurança']];
 function telaConfig() {
   const c = db.config;
   const corpo = {
@@ -361,6 +403,15 @@ function telaConfig() {
       <div class="grade-campos" data-propria ${c.ia.modo === 'propria' ? '' : 'hidden'}><label class="campo">Qual IA<select name="provedor">${[['openai', 'ChatGPT (OpenAI)'], ['gemini', 'Gemini (Google)'], ['claude', 'Claude (Anthropic)']].map(([k, n]) => `<option value="${k}" ${c.ia.provedor === k ? 'selected' : ''}>${n}</option>`).join('')}</select></label><label class="campo">Modelo (opcional)<input name="modelo" value="${esc(c.ia.modelo)}" placeholder="padrão de cada IA"></label>
       <label class="campo largo">Chave da API<input name="chave" type="password" autocomplete="off" value="${esc(c.ia.chave)}" placeholder="Cole aqui a chave da sua conta"></label><p class="nota largo">A chave fica guardada só neste navegador e vai direto para a empresa da IA que você escolheu. Onde pegar: ChatGPT em platform.openai.com/api-keys · Gemini em aistudio.google.com/apikey · Claude em console.anthropic.com.</p></div>
       <div class="acoes"><button class="bt bt-pri">Salvar</button><button type="button" class="bt" data-ia>Abrir o assistente</button></div></form>`,
+    agendamento: () => { const o = c.agendaOnline; return `<form class="cfg-form" data-salvar-cfg="agendamento"><label class="op-ia"><input type="checkbox" name="ligado" ${o.ligado ? 'checked' : ''}><span><b>Deixar o tutor pedir horário pelo link</b><small>O pedido cai na Agenda para alguém da clínica confirmar. Nada entra na agenda sem confirmação.</small></span></label>
+      <div class="grade-campos"><label class="campo">Primeiro horário<input name="inicio" type="time" value="${o.inicio}"></label><label class="campo">Último horário<input name="fim" type="time" value="${o.fim}"></label><label class="campo">De quanto em quanto tempo<select name="intervalo">${[15, 20, 30, 60].map((m) => `<option value="${m}" ${o.intervalo === m ? 'selected' : ''}>${m} minutos</option>`).join('')}</select></label><label class="campo">Sábado<select name="sabado"><option value="1">Atende (até 12h)</option><option value="" ${o.sabado ? '' : 'selected'}>Não atende</option></select></label>
+      <fieldset class="campo largo escolhas"><legend>O que o tutor pode pedir</legend>${Object.keys(TIPOS).filter((t) => t !== 'Cirurgia').map((t) => `<label><input type="checkbox" name="tipos" value="${t}" ${o.tipos.includes(t) ? 'checked' : ''}> ${t}</label>`).join('')}</fieldset></div>
+      <p class="nota">Link da clínica: <b>${esc(linkAgendar())}</b> · coloque na bio do Instagram, no Google e na mensagem automática do WhatsApp.</p><div class="acoes"><button class="bt bt-pri">Salvar</button><a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página do tutor</a></div></form>`; },
+    comissoes: () => `<form class="cfg-form" data-salvar-cfg="comissoes"><table class="tabela"><thead><tr><th>Profissional</th><th class="num">Comissão sobre os serviços (%)</th></tr></thead><tbody>${db.vets.map((v, i) => `<tr><td><b>${esc(v)}</b></td><td class="num"><input class="cel-tab num" name="c${i}" inputmode="decimal" value="${c.comissoes[v] ?? 0}"></td></tr>`).join('')}</tbody></table>
+      <p class="nota">A comissão conta só os serviços (consulta, banho, exame...). Produtos e descontos ficam de fora. O valor de cada um aparece em Relatórios.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
+    fiscal: () => `<form class="cfg-form" data-salvar-cfg="fiscal"><div class="grade-campos"><label class="campo">Inscrição municipal<input name="im" value="${esc(c.fiscal.im)}"></label><label class="campo">Regime<select name="regime">${['Simples Nacional', 'MEI', 'Lucro presumido'].map((r) => `<option ${c.fiscal.regime === r ? 'selected' : ''}>${r}</option>`).join('')}</select></label>
+      <label class="campo">Serviço (lista da LC 116)<input name="codigo" value="${esc(c.fiscal.codigo)}"></label><label class="campo">Alíquota do ISS (%)<input name="aliquota" inputmode="decimal" value="${c.fiscal.aliquota}"></label><label class="campo">Próximo número de nota<input name="proxima" type="number" min="1" value="${c.fiscal.proxima}"></label></div>
+      <p class="nota">Na versão de verdade a nota vai direto para a prefeitura da sua cidade, com o certificado digital da clínica, e o tutor recebe o PDF por e-mail ou WhatsApp. Nesta demonstração a nota sai como prévia, sem valor fiscal.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
     dados: () => `<p style="margin-top:0">Baixe uma cópia de todos os cadastros (pets, tutores, prontuários, vacinas, caixa) ou volte uma cópia que você guardou.</p><div class="acoes"><button class="bt bt-pri" data-baixar-copia>Baixar cópia (.json)</button><label class="bt">Voltar uma cópia<input type="file" accept="application/json" data-voltar-copia hidden></label><button class="bt bt-perigo" data-recomecar>Apagar tudo e voltar aos dados de exemplo</button></div>`,
   };
   return `<div class="cab"><div><h1>Configurações</h1><p>Sua conta, a clínica, a equipe, os preços e o assistente de IA.</p></div></div>
@@ -370,8 +421,12 @@ function salvarConfig(f) {
   const c = db.config, tipo = f.dataset.salvarCfg;
   if (tipo === 'conta') Object.assign(c.conta, { nome: f.nome.value.trim(), email: f.email.value.trim(), cargo: f.cargo.value.trim() });
   if (tipo === 'clinica') { db.clinica = f.clinica.value.trim() || db.clinica; Object.assign(c, { cnpj: f.cnpj.value.trim(), telefone: soDigitos(f.telefone.value), endereco: f.endereco.value.trim(), cidade: f.cidade.value.trim(), crmv: f.crmv.value.trim(), horario: f.horario.value.trim(), diaria: num(f.diaria.value) || 0 }); }
-  if (tipo === 'vet') { const n = f.nome.value.trim(); if (!n) return avisar('Escreva o nome.'); db.vets.push(f.tipo.value === 'vet' && !/^dra?\.?\s/i.test(n) ? `Dr(a). ${n}` : n); }
+  if (tipo === 'vet') { const n = f.nome.value.trim(); if (!n) return avisar('Escreva o nome.'); const nome = f.tipo.value === 'vet' && !/^dra?\.?\s/i.test(n) ? `Dr(a). ${n}` : n; db.vets.push(nome); c.comissoes[nome] ??= f.tipo.value === 'vet' ? 10 : 30; }
   if (tipo === 'servicos') { c.servicos = servicos().map((_, i) => [f[`n${i}`].value.trim(), num(f[`v${i}`].value) || 0]).filter(([n]) => n); if (f.novo_n.value.trim()) c.servicos.push([f.novo_n.value.trim(), num(f.novo_v.value) || 0]); }
+  if (tipo === 'avisos') { const m = {}; Object.keys(MODELOS_AVISO).forEach((k) => { m[k] = f[`m_${k}`].value.trim() || MODELOS_AVISO[k]; }); c.avisos = { ligado: c.avisos.ligado, hora: f.hora.value || '09:00', vacina: Number(f.vacina.value), consulta: Number(f.consulta.value), aniversario: f.aniversario.checked, exame: f.exame.checked, modelos: m }; }
+  if (tipo === 'agendamento') { const tipos = [...f.querySelectorAll('[name=tipos]:checked')].map((x) => x.value); if (!tipos.length) return avisar('Escolha pelo menos uma coisa que o tutor pode pedir.'); if (f.inicio.value >= f.fim.value) return avisar('O último horário precisa ser depois do primeiro.'); c.agendaOnline = { ligado: f.ligado.checked, inicio: f.inicio.value, fim: f.fim.value, intervalo: Number(f.intervalo.value), sabado: !!f.sabado.value, tipos }; }
+  if (tipo === 'comissoes') db.vets.forEach((v, i) => { c.comissoes[v] = Math.min(100, Math.max(0, num(f[`c${i}`].value) || 0)); });
+  if (tipo === 'fiscal') Object.assign(c.fiscal, { im: f.im.value.trim(), regime: f.regime.value, codigo: f.codigo.value.trim(), aliquota: num(f.aliquota.value) || 0, proxima: Math.max(1, Math.round(Number(f.proxima.value)) || 1) });
   if (tipo === 'ia') { c.ia = { modo: f.modo.value, provedor: f.provedor.value, modelo: f.modelo.value.trim(), chave: f.chave.value.trim() }; if (c.ia.modo === 'propria' && !c.ia.chave) avisar('Sem a chave, o assistente continua usando o Assistente VetNature.'); }
   salvar(); avisar('Salvo.'); desenhar();
 }
@@ -574,14 +629,16 @@ function abrirCobrar(petSel, itensIniciais = []) {
     <label class="campo">Serviço<select name="serv"><option value="">Escolher…</option>${servicos().map(([n, v], i) => `<option value="${i}">${esc(n)} · ${reais(v)}</option>`).join('')}</select></label>
     <label class="campo">Produto do estoque<select name="prod"><option value="">Escolher…</option>${db.estoque.filter((x) => x.qtd > 0).map((x) => `<option value="${x.id}">${esc(x.nome)} · ${reais(x.preco)}</option>`).join('')}</select></label>
     <div class="largo" data-itens></div>
-    <label class="campo">Desconto (R$)<input name="desc" inputmode="decimal" value="0"></label><label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label></div>`, '<button class="bt bt-pri">Receber</button>');
+    <label class="campo">Desconto (R$)<input name="desc" inputmode="decimal" value="0"></label><label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label>
+    <label class="campo largo">Quem atendeu (para a comissão)<select name="vet"><option value="">Ninguém (venda de balcão)</option>${db.vets.map((v) => `<option ${v === profissionalPadrao(petSel, itensIniciais) ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select></label></div>`, '<button class="bt bt-pri">Receber</button>');
   const lista = f.querySelector('[data-itens]');
   const soma = () => itens.reduce((s, i) => s + i.valor * i.qtd, 0) - (num(f.desc.value) || 0);
-  const desenhaItens = () => { lista.innerHTML = itens.length ? `<table class="tabela">${itens.map((i, k) => `<tr><td>${esc(i.nome)}</td><td class="num">${reais(i.valor)}</td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar="${k}">Tirar</button></td></tr>`).join('')}<tr><td><b>Total</b></td><td class="num"><b>${reais(soma())}</b></td><td></td></tr></table>` : '<p class="vazio" style="padding:8px">Escolha os serviços e produtos acima.</p>'; };
+  const desenhaItens = () => { lista.innerHTML = itens.length ? `<table class="tabela">${itens.map((i, k) => `<tr><td>${esc(i.nome)}</td><td class="num">${reais(i.valor)}</td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar="${k}">Tirar</button></td></tr>`).join('')}<tr><td><b>Total</b></td><td class="num"><b>${reais(soma())}</b></td><td></td></tr></table>` : '<p class="vazio" style="padding:8px">Escolha os serviços e produtos acima.</p>'; const pl = contratosDo(f.pet.value).find((x) => x.tipo === 'plano'); if (pl && itens.length) lista.insertAdjacentHTML('beforeend', `<p class="nota">${esc(pet(f.pet.value).nome)} tem o ${esc(pl.nome)}: ${pl.desconto}% de desconto. <button type="button" class="bt bt-peq" data-desc-plano="${pl.desconto}">Aplicar ${reais(itens.reduce((s, i) => s + i.valor * i.qtd, 0) * pl.desconto / 100)} de desconto</button></p>`); };
+  f.pet.onchange = desenhaItens;
   f.serv.onchange = () => { if (f.serv.value === '') return; const [n, v] = servicos()[Number(f.serv.value)]; itens.push({ nome: n, valor: v, qtd: 1 }); f.serv.value = ''; desenhaItens(); };
   f.prod.onchange = () => { const x = db.estoque.find((y) => y.id === f.prod.value); if (!x) return; itens.push({ nome: x.nome, valor: x.preco, qtd: 1, item: x.id }); f.prod.value = ''; desenhaItens(); };
   f.desc.oninput = desenhaItens;
-  lista.onclick = (e) => { const b = e.target.closest('[data-tirar]'); if (b) { itens.splice(Number(b.dataset.tirar), 1); desenhaItens(); } };
+  lista.onclick = (e) => { const b = e.target.closest('[data-tirar]'); if (b) { itens.splice(Number(b.dataset.tirar), 1); desenhaItens(); } const dp = e.target.closest('[data-desc-plano]'); if (dp) { f.desc.value = (itens.reduce((s, i) => s + i.valor * i.qtd, 0) * Number(dp.dataset.descPlano) / 100).toFixed(2).replace('.', ','); desenhaItens(); } };
   const a = !itensIniciais.length && petSel && db.agenda.find((x) => x.pet === petSel && x.data === hoje()); // o atendimento de hoje já entra na conta
   if (a && a.valor) itens.push({ nome: a.tipo === 'Consulta' ? 'Consulta clínica' : a.tipo, valor: a.valor, qtd: 1 });
   desenhaItens();
@@ -590,7 +647,7 @@ function abrirCobrar(petSel, itensIniciais = []) {
     const fiado = f.forma.value.startsWith('Fiado'); if (fiado && !f.pet.value) return avisar('Fiado precisa de um pet (para saber quem deve).');
     for (const i of itens) if (i.item) { const x = db.estoque.find((y) => y.id === i.item); if (x) x.qtd = Math.max(0, x.qtd - 1); }
     const desc = num(f.desc.value) || 0, lin = itens.map(({ nome, valor, qtd }) => ({ nome, valor, qtd })); if (desc > 0) lin.push({ nome: 'Desconto', valor: -desc, qtd: 1 });
-    db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: f.pet.value || null, itens: lin, forma: f.forma.value, recebido: !fiado });
+    db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: f.pet.value || null, itens: lin, forma: f.forma.value, recebido: !fiado, vet: f.vet.value });
     salvar(); fecharJanela(); avisar(fiado ? `Anotado no fiado: ${reais(soma())}.` : `Recebido: ${reais(soma())} no ${f.forma.value}.`); desenhar();
   };
 }
@@ -620,8 +677,12 @@ function abrirPedirExame(petSel) {
 }
 function abrirResultado(idEx) {
   const x = db.exames.find((e) => e.id === idEx);
-  const f = janela(`Resultado · ${esc(x.nome)}`, '<label class="campo">Laudo<textarea name="res" placeholder="Valores e conclusão do laboratório"></textarea></label>', '<button class="bt bt-pri">Salvar resultado</button>');
-  f.onsubmit = (e) => { e.preventDefault(); if (!f.res.value.trim()) return avisar('Escreva o resultado.'); x.resultado = f.res.value.trim(); x.status = 'pronto'; salvar(); fecharJanela(); avisar('Resultado salvo. Avise o tutor pelo WhatsApp.'); desenhar(); };
+  const f = janela(`Resultado · ${esc(x.nome)}`, '<div class="grade-campos"><label class="campo largo">Laudo<textarea name="res" placeholder="Valores e conclusão do laboratório"></textarea></label><label class="campo largo">Arquivo do laboratório (opcional)<input type="file" name="arq" accept="image/*,application/pdf"></label></div><p class="nota">Pode ser o PDF que o laboratório mandou ou uma foto do laudo. Se anexar o arquivo, o texto pode ser só a conclusão.</p>', '<button class="bt bt-pri">Salvar resultado</button>');
+  f.onsubmit = async (e) => {
+    e.preventDefault(); const arq = f.arq.files[0]; if (!f.res.value.trim() && !arq) return avisar('Escreva o resultado ou anexe o arquivo do laboratório.');
+    if (arq) { try { x.anexos.push(await lerAnexo(arq)); } catch (er) { return avisar(er.message); } }
+    x.resultado = f.res.value.trim(); x.status = 'pronto'; salvar(); fecharJanela(); avisar('Resultado salvo. Avise o tutor pelo WhatsApp.'); desenhar();
+  };
 }
 function abrirEntrada(idItem) {
   const x = db.estoque.find((y) => y.id === idItem);
@@ -653,10 +714,187 @@ function abrirVacinaManual(petSel) {
   f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Escreva o nome da vacina.'); db.vacinas.push({ id: uid(), pet: f.pet.value, nome: f.nome.value.trim() + (f.onde.value === 'fora' ? ' (outra clínica)' : ''), data: f.data.value, proxima: f.prox.value || null, lote: f.lote.value.trim() || '—' }); salvar(); fecharJanela(); avisar('Vacina registrada.'); desenhar(); };
 }
 
+
+// ---------------------------------------------------------------- AVISOS AUTOMÁTICOS
+const TIPO_AVISO = { vacina: 'Vacina', consulta: 'Lembrete de horário', aniversario: 'Aniversário', exame: 'Resultado de exame' };
+const preencher = (m, x) => m.replace(/\{(\w+)\}/g, (_, k) => x[k] ?? '');
+function filaAvisos() {
+  const c = db.config.avisos, h = hoje(), l = [], feito = new Set(db.avisosEnviados.map((x) => x.chave));
+  const add = (tipo, chave, p, dados) => { const t = tutorDe(p); if (!p || !t?.tel || feito.has(chave)) return; l.push({ tipo, chave, pet: p.id, tel: t.tel, texto: preencher(c.modelos[tipo] || MODELOS_AVISO[tipo], { tutor: primeiro(t.nome), pet: p.nome, clinica: db.clinica, ...dados }) }); };
+  if (c.vacina) db.vacinas.filter((v) => v.proxima && diasAte(v.proxima) <= c.vacina && diasAte(v.proxima) >= -30).forEach((v) => add('vacina', `vacina:${v.id}:${v.proxima}`, pet(v.pet), { vacina: v.nome, data: dataBR(v.proxima), situacao: diasAte(v.proxima) < 0 ? `venceu em ${dataBR(v.proxima)}` : `vence em ${dataBR(v.proxima)}` }));
+  if (c.consulta) { const d = maisDias(h, c.consulta); db.agenda.filter((a) => a.data === d && a.status === 'aguardando').sort((a, b) => a.hora.localeCompare(b.hora)).forEach((a) => add('consulta', `consulta:${a.id}:${a.data}${a.hora}`, pet(a.pet), { tipo: a.tipo, data: dataBR(a.data), dia: diaSemana(a.data, 'long'), hora: a.hora })); }
+  if (c.aniversario) aniversariantes().filter((x) => x.dias === 0).forEach(({ p }) => add('aniversario', `aniv:${p.id}:${h.slice(0, 4)}`, p, {}));
+  if (c.exame) db.exames.filter((e) => e.status === 'pronto' && !e.avisado).forEach((e) => add('exame', `exame:${e.id}`, pet(e.pet), { exame: e.nome }));
+  return l;
+}
+function registrarAviso(x, auto) {
+  db.avisosEnviados.push({ id: uid(), chave: x.chave, tipo: x.tipo, pet: x.pet, data: hoje(), hora: horaAgora(), auto });
+  if (x.tipo === 'exame') { const e = db.exames.find((y) => `exame:${y.id}` === x.chave); if (e) e.avisado = true; }
+}
+function telaAvisos() {
+  const c = db.config.avisos, fila = filaAvisos(), env = db.avisosEnviados.slice(-40).reverse();
+  const dias = (n, nome) => [0, 1, 2, 3, 7, 15].map((d) => `<option value="${d}" ${c[nome] === d ? 'selected' : ''}>${d ? `${d} dia${d > 1 ? 's' : ''} antes` : 'Não avisar'}</option>`).join('');
+  return `<div class="cab"><div><h1>Avisos automáticos</h1><p>${c.ligado ? `Ligado · os avisos do dia saem às ${c.hora} pelo WhatsApp da clínica` : 'Desligado · nenhum aviso sai sozinho'}</p></div><div class="acoes"><button class="bt" data-ligar-avisos>${c.ligado ? 'Desligar' : 'Ligar'}</button>${fila.length && c.ligado ? `<button class="bt bt-pri" data-simular-envio>Simular o envio de hoje (${fila.length})</button>` : ''}</div></div>
+    <p class="nota aviso-demo">Na versão de verdade estes avisos saem sozinhos, sem ninguém clicar, pela API oficial do WhatsApp (a Meta cobra alguns centavos por mensagem). Nesta demonstração você vê a fila do dia, pode mandar um por um pelo seu WhatsApp ou simular o envio automático.</p>
+    <div class="duas"><section class="cartao"><div class="cartao-cab"><h2>Na fila de hoje</h2><span class="selo selo-aguardando">${fila.length}</span></div>${fila.length ? `<ul class="lista-avisos">${fila.map((x, i) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet).nome)} · ${TIPO_AVISO[x.tipo]}</b><p>${esc(x.texto)}</p></div><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" data-enviar-aviso="${i}" href="${zap(x.tel, x.texto)}">Enviar</a></li>`).join('')}</ul>` : '<p class="vazio">Nada para avisar hoje. Tudo em dia.</p>'}</section>
+    <section class="cartao"><div class="cartao-cab"><h2>Já enviados</h2></div>${env.length ? `<ul class="lista-avisos">${env.map((x) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet)?.nome || '—')} · ${TIPO_AVISO[x.tipo]}</b><small>${dataBR(x.data)} às ${x.hora} · ${x.auto ? 'envio automático (simulação)' : 'mandado pelo WhatsApp'}</small></div></li>`).join('')}</ul>` : '<p class="vazio">Nenhum aviso enviado ainda.</p>'}</section></div>
+    <section class="cartao" style="margin-top:18px"><div class="cartao-cab"><h2>Quando e o que avisar</h2></div><div class="cartao-corpo"><form class="cfg-form" data-salvar-cfg="avisos"><div class="grade-campos">
+      <label class="campo">Horário de envio<input name="hora" type="time" value="${c.hora}"></label><label class="campo">Vacina vencendo<select name="vacina">${dias(0, 'vacina')}</select></label><label class="campo">Lembrete de consulta, retorno e banho<select name="consulta">${dias(0, 'consulta')}</select></label>
+      <fieldset class="campo escolhas"><legend>Também avisar</legend><label><input type="checkbox" name="aniversario" ${c.aniversario ? 'checked' : ''}> Aniversário do pet</label><label><input type="checkbox" name="exame" ${c.exame ? 'checked' : ''}> Resultado de exame pronto</label></fieldset>
+      ${Object.keys(MODELOS_AVISO).map((k) => `<label class="campo largo">Mensagem · ${TIPO_AVISO[k]}<textarea name="m_${k}">${esc(c.modelos[k] || MODELOS_AVISO[k])}</textarea></label>`).join('')}</div>
+      <p class="nota">Palavras trocadas na hora do envio: {tutor}, {pet}, {clinica}, {vacina}, {situacao}, {tipo}, {data}, {dia}, {hora} e {exame}.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form></div></section>`;
+}
+
+// ---------------------------------------------------------------- PACOTES E PLANOS
+const contratosDo = (idPet) => (db.contratos || []).filter((x) => x.pet === idPet && x.ativo && (x.tipo === 'plano' || (x.usados < x.qtd && x.validade >= hoje())));
+const usarPacote = (ct) => { ct.usados += 1; ct.usos = [...(ct.usos || []), hoje()]; if (ct.usados >= ct.qtd) ct.ativo = false; };
+function telaPacotes() {
+  const ativos = db.contratos.filter((x) => x.ativo), planos = ativos.filter((x) => x.tipo === 'plano'), pacs = ativos.filter((x) => x.tipo === 'pacote'), atrasados = planos.filter((x) => diasAte(x.proxima) < 0);
+  const linha = (x) => { const p = pet(x.pet); return `<tr><td><span class="com-foto">${avatar(p, 'mini')}<span><b>${esc(p?.nome)}</b><br><small style="color:var(--texto-2)">${esc(tutorDe(p)?.nome)}</small></span></span></td><td><b>${esc(x.nome)}</b><br><small style="color:var(--texto-2)">${x.tipo === 'plano' ? `${reais(x.valor)} por mês · desde ${dataBR(x.inicio)}` : `vale até ${dataBR(x.validade)}`}</small></td>
+    <td>${x.tipo === 'plano' ? (diasAte(x.proxima) < 0 ? `<span class="selo selo-alerta">Mensalidade atrasada desde ${dataBR(x.proxima)}</span>` : `<span class="selo selo-aguardando">Próxima cobrança ${dataBR(x.proxima)}</span>`) : `<div class="uso" title="${x.usados} de ${x.qtd} usados">${Array.from({ length: x.qtd }, (_, i) => `<i class="${i < x.usados ? 'usado' : ''}"></i>`).join('')}<small>${x.usados} de ${x.qtd} usados</small></div>`}</td>
+    <td class="num">${x.tipo === 'plano' ? `<button class="bt bt-peq ${diasAte(x.proxima) <= 3 ? 'bt-pri' : ''}" data-mensalidade="${x.id}">Cobrar mensalidade</button>` : `<button class="bt bt-peq" data-usar-pacote="${x.id}">Usar 1</button>`} <button class="bt bt-peq bt-perigo" data-cancelar-contrato="${x.id}">Encerrar</button></td></tr>`; };
+  return `<div class="cab"><div><h1>Pacotes e planos</h1><p>Venda pacotes de banho e planos de saúde mensais. O banho do pacote é descontado sozinho quando o pet é entregue.</p></div><div class="acoes"><button class="bt" data-novo-modelo>+ Criar pacote ou plano</button><button class="bt bt-pri" data-vender-pacote="">Vender para um cliente</button></div></div>
+    <div class="numeros"><div class="numero destaque"><span>Mensalidades por mês</span><b>${reais(planos.reduce((s, x) => s + x.valor, 0))}</b></div><div class="numero"><span>Planos ativos</span><b>${planos.length}</b></div><div class="numero"><span>Pacotes em uso</span><b>${pacs.length}</b></div><div class="numero"><span>Mensalidades atrasadas</span><b>${atrasados.length}</b></div></div>
+    <section class="cartao"><div class="cartao-cab"><h2>Clientes com pacote ou plano</h2></div>${ativos.length ? `<table class="tabela empilha tabela-pacotes"><thead><tr><th>Pet</th><th>Pacote ou plano</th><th>Situação</th><th></th></tr></thead><tbody>${ativos.sort((a, b) => (a.tipo === 'plano' ? a.proxima : a.validade).localeCompare(b.tipo === 'plano' ? b.proxima : b.validade)).map(linha).join('')}</tbody></table>` : '<p class="vazio">Nenhum cliente com pacote ou plano ainda.</p>'}</section>
+    <h2 class="sub-tit" style="margin-top:24px">O que a clínica oferece</h2><div class="modelos">${db.config.pacotes.map((m) => `<article class="modelo"><span class="selo ${m.tipo === 'plano' ? 'selo-atendimento' : 'selo-chegou'}">${m.tipo === 'plano' ? 'Plano mensal' : 'Pacote'}</span><h3>${esc(m.nome)}</h3><b class="preco">${reais(m.valor)}${m.tipo === 'plano' ? '<small>/mês</small>' : ''}</b><p>${m.tipo === 'plano' ? esc(m.inclui) : `${m.qtd}× ${esc(m.servico)} · vale ${m.dias} dias · sai a ${reais(m.valor / m.qtd)} cada`}</p><div class="acoes"><button class="bt bt-peq bt-pri" data-vender-pacote="${m.id}">Vender</button><button class="bt bt-peq bt-perigo" data-tirar-modelo="${m.id}">Tirar</button></div></article>`).join('')}</div>`;
+}
+function abrirVenderPacote(idModelo) {
+  const f = janela('Vender pacote ou plano', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(est.sel)}</select></label><label class="campo largo">Pacote ou plano<select name="modelo">${db.config.pacotes.map((m) => `<option value="${m.id}" ${m.id === idModelo ? 'selected' : ''}>${esc(m.nome)} · ${reais(m.valor)}${m.tipo === 'plano' ? ' por mês' : ''}</option>`).join('')}</select></label>
+    <label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label></div><p class="nota">O pacote é pago agora e cada uso é descontado. No plano, a primeira mensalidade é cobrada agora e a próxima fica marcada para daqui a 30 dias.</p>`, '<button class="bt bt-pri">Vender e receber</button>');
+  f.onsubmit = (e) => {
+    e.preventDefault(); const m = db.config.pacotes.find((x) => x.id === f.modelo.value), h = hoje(); if (!m) return;
+    if (db.contratos.some((x) => x.ativo && x.pet === f.pet.value && x.modelo === m.id && (x.tipo === 'plano' || x.usados < x.qtd))) return avisar(`${pet(f.pet.value).nome} já tem ${m.nome} ativo.`);
+    db.contratos.push({ id: uid(), pet: f.pet.value, modelo: m.id, tipo: m.tipo, nome: m.nome, servico: m.servico, qtd: m.qtd, valor: m.valor, desconto: m.desconto, ativo: true, inicio: h, ...(m.tipo === 'plano' ? { proxima: maisDias(h, 30) } : { usados: 0, validade: maisDias(h, m.dias) }) });
+    const fiado = f.forma.value.startsWith('Fiado');
+    db.vendas.push({ id: uid(), data: h, hora: horaAgora(), pet: f.pet.value, itens: [{ nome: m.tipo === 'plano' ? `${m.nome} (1ª mensalidade)` : `Pacote ${m.nome}`, valor: m.valor, qtd: 1 }], forma: f.forma.value, recebido: !fiado, vet: '' });
+    salvar(); fecharJanela(); est.secao = 'pacotes'; avisar(`${m.nome} vendido para ${pet(f.pet.value).nome}.`); desenhar();
+  };
+}
+function abrirNovoModelo() {
+  const f = janela('Criar pacote ou plano', `<div class="grade-campos"><label class="campo">Tipo<select name="tipo"><option value="pacote">Pacote (ex.: 4 banhos)</option><option value="plano">Plano mensal</option></select></label><label class="campo">Nome<input name="nome" placeholder="Ex.: 8 banhos"></label>
+    <label class="campo" data-so="pacote">Serviço<select name="servico">${servicos().map(([n]) => `<option>${esc(n)}</option>`).join('')}</select></label><label class="campo" data-so="pacote">Quantidade<input name="qtd" type="number" min="1" value="4"></label><label class="campo" data-so="pacote">Vale por (dias)<input name="dias" type="number" min="1" value="60"></label>
+    <label class="campo" data-so="plano" hidden>Desconto nos serviços (%)<input name="desconto" inputmode="decimal" value="10"></label><label class="campo largo" data-so="plano" hidden>O que inclui<input name="inclui" placeholder="Ex.: 1 consulta por mês e 10% de desconto"></label>
+    <label class="campo">Preço (R$)<input name="valor" inputmode="decimal"></label></div>`, '<button class="bt bt-pri">Criar</button>');
+  f.tipo.onchange = () => f.querySelectorAll('[data-so]').forEach((x) => { x.hidden = x.dataset.so !== f.tipo.value; });
+  f.onsubmit = (e) => {
+    e.preventDefault(); const valor = num(f.valor.value); if (!f.nome.value.trim() || !(valor > 0)) return avisar('Preencha o nome e o preço.');
+    db.config.pacotes.push(f.tipo.value === 'plano' ? { id: uid(), tipo: 'plano', nome: f.nome.value.trim(), valor, desconto: num(f.desconto.value) || 0, inclui: f.inclui.value.trim() || `${num(f.desconto.value) || 0}% de desconto nos serviços` } : { id: uid(), tipo: 'pacote', nome: f.nome.value.trim(), servico: f.servico.value, qtd: Math.max(1, Math.round(Number(f.qtd.value)) || 1), valor, dias: Math.max(1, Math.round(Number(f.dias.value)) || 60) });
+    salvar(); fecharJanela(); avisar('Criado. Já dá para vender.'); desenhar();
+  };
+}
+
+// ---------------------------------------------------------------- COMISSÕES
+const ehServico = (i) => i.valor > 0 && !db.estoque.some((x) => x.nome === i.nome);
+function cartaoComissoes(l) {
+  const por = {}; l.forEach((v) => { if (!v.vet) return; por[v.vet] = (por[v.vet] || 0) + v.itens.filter(ehServico).reduce((s, i) => s + i.valor * i.qtd, 0); });
+  const linhas = db.vets.map((v) => [v, por[v] || 0, db.config.comissoes[v] ?? 0]);
+  return `<section class="cartao" style="margin-top:18px"><div class="cartao-cab"><h2>Comissões dos últimos 30 dias</h2><button class="bt bt-peq" data-cfg-ir="comissoes">Mudar porcentagens</button></div><table class="tabela empilha"><thead><tr><th>Profissional</th><th class="num">Serviços feitos</th><th class="num">Comissão</th><th class="num">A pagar</th></tr></thead><tbody>${linhas.map(([v, s, p]) => `<tr><td><b>${esc(v)}</b></td><td class="num">${reais(s)}</td><td class="num">${p}%</td><td class="num"><b>${reais(s * p / 100)}</b></td></tr>`).join('')}<tr><td><b>Total</b></td><td class="num">${reais(linhas.reduce((s, x) => s + x[1], 0))}</td><td></td><td class="num"><b>${reais(linhas.reduce((s, x) => s + x[1] * x[2] / 100, 0))}</b></td></tr></tbody></table></section>`;
+}
+const profissionalPadrao = (idPet, itens = []) => itens.some((i) => /banho|tosa/i.test(i.nome)) ? db.vets.find((v) => !v.startsWith('Dr')) : (db.agenda.find((a) => a.pet === idPet && a.data === hoje())?.vet || db.vets.find((v) => v.startsWith('Dr')));
+
+// ---------------------------------------------------------------- NOTA FISCAL DE SERVIÇO (prévia)
+function abrirNFSe(idVenda) {
+  const v = db.vendas.find((x) => x.id === idVenda); if (v.nfse) return imprimirNFSe(v);
+  const serv = v.itens.filter(ehServico), base = serv.reduce((s, i) => s + i.valor * i.qtd, 0) + v.itens.filter((i) => i.valor < 0).reduce((s, i) => s + i.valor * i.qtd, 0);
+  if (!(base > 0)) return avisar('Este lançamento só tem produtos. Produto sai em cupom ou NF-e, não em nota de serviço.');
+  const t = tutorDe(pet(v.pet));
+  const f = janela('Emitir nota fiscal de serviço', `<div class="grade-campos"><label class="campo largo">Tomador (quem recebe a nota)<input name="nome" value="${esc(t?.nome || '')}"></label><label class="campo">CPF ou CNPJ<input name="doc" value="${esc(t?.cpf || '')}" placeholder="Opcional para pessoa física"></label><label class="campo">E-mail para enviar<input name="email" type="email" value="${esc(t?.email || '')}"></label></div>
+    <table class="tabela" style="margin-top:12px">${serv.map((i) => `<tr><td>${esc(i.nome)}${i.qtd > 1 ? ` ×${i.qtd}` : ''}</td><td class="num">${reais(i.valor * i.qtd)}</td></tr>`).join('')}<tr><td><b>Valor da nota</b></td><td class="num"><b>${reais(base)}</b></td></tr><tr><td>ISS (${db.config.fiscal.aliquota}%)</td><td class="num">${reais(base * db.config.fiscal.aliquota / 100)}</td></tr></table>
+    <p class="nota">Demonstração: a nota sai como prévia, sem valor fiscal. Na versão de verdade ela vai para a prefeitura e o tutor recebe o PDF.</p>`, '<button class="bt bt-pri">Emitir</button>');
+  f.onsubmit = (e) => {
+    e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome do tomador.');
+    const fis = db.config.fiscal; v.nfse = { numero: fis.proxima, data: hoje(), hora: horaAgora(), tomador: f.nome.value.trim(), doc: f.doc.value.trim(), email: f.email.value.trim(), base, iss: base * fis.aliquota / 100, itens: serv.map(({ nome, valor, qtd }) => ({ nome, valor, qtd })), codigo: `${uid()}${uid()}`.toUpperCase().slice(0, 12) };
+    fis.proxima += 1; if (t && f.doc.value.trim() && !t.cpf) t.cpf = f.doc.value.trim();
+    salvar(); fecharJanela(); avisar(`Nota nº ${v.nfse.numero} emitida (prévia).`); desenhar(); imprimirNFSe(v);
+  };
+}
+function imprimirNFSe(v) {
+  const n = v.nfse, fis = db.config.fiscal;
+  imprimir(`NFS-e nº ${n.numero}`, `<p style="background:#fbe4e5;color:#8a1f27;padding:8px 12px;border-radius:6px"><b>Prévia da demonstração · sem valor fiscal</b></p>
+    <table><tr><th>Número</th><td>${n.numero}</td><th>Emissão</th><td>${dataBR(n.data)} ${n.hora}</td></tr><tr><th>Código de verificação</th><td colspan="3">${n.codigo}</td></tr></table>
+    <h2>Prestador</h2><p>${esc(db.clinica)} · CNPJ ${esc(db.config.cnpj)} · Inscrição municipal ${esc(fis.im)}<br>${esc(db.config.endereco)} · ${esc(db.config.cidade)} · ${esc(fis.regime)}</p>
+    <h2>Tomador</h2><p>${esc(n.tomador)}${n.doc ? ` · ${esc(n.doc)}` : ''}${n.email ? ` · ${esc(n.email)}` : ''}</p>
+    <h2>Discriminação dos serviços</h2><table><tr><th>Serviço</th><th>Qtd.</th><th>Valor</th></tr>${n.itens.map((i) => `<tr><td>${esc(i.nome)}</td><td>${i.qtd}</td><td>${reais(i.valor * i.qtd)}</td></tr>`).join('')}</table>
+    <p>Serviço: ${esc(fis.codigo)}</p><table><tr><th>Valor dos serviços</th><td>${reais(n.base)}</td><th>Alíquota ISS</th><td>${fis.aliquota}%</td><th>Valor do ISS</th><td>${reais(n.iss)}</td></tr></table>`);
+}
+
+// ---------------------------------------------------------------- RECEITA DE CONTROLE ESPECIAL
+function abrirReceitaControle(idPet, idPr) {
+  const p = pet(idPet), pr = db.prontuarios.find((x) => x.id === idPr);
+  const f = janela(`Receita de controle especial · ${esc(p.nome)}`, `<div class="grade-campos"><label class="campo largo">Medicamento e concentração<input name="med" placeholder="Ex.: Tramadol 50 mg"></label><label class="campo">Quantidade (número e por extenso)<input name="qtd" placeholder="Ex.: 10 (dez) comprimidos"></label>
+    <label class="campo">Veterinário<select name="vet">${db.vets.filter((v) => v.startsWith('Dr')).map((v) => `<option ${v === pr?.vet ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select></label><label class="campo largo">Modo de usar<textarea name="uso" placeholder="Dose, horário e por quantos dias">${esc(pr?.prescricao || '')}</textarea></label></div>
+    <p class="nota">Sai em duas vias: a 1ª fica na farmácia e a 2ª com o tutor. A farmácia preenche a parte do comprador e do fornecedor.</p>`, '<button class="bt bt-pri">Imprimir as duas vias</button>');
+  f.onsubmit = (e) => {
+    e.preventDefault(); if (!f.med.value.trim() || !f.qtd.value.trim() || !f.uso.value.trim()) return avisar('Preencha o medicamento, a quantidade e o modo de usar.');
+    const t = tutorDe(p), c = db.config, linha = (r) => `<tr><td style="width:38%">${r}</td><td>&nbsp;</td></tr>`;
+    const via = (n, quem) => `<section style="border:1.5px solid #214e45;border-radius:8px;padding:16px 18px;margin-bottom:22px;page-break-inside:avoid"><h2 style="margin-top:0">Receituário de controle especial · ${n}ª via (${quem})</h2>
+      <table><tr><th colspan="2">Identificação do emitente</th></tr><tr><td>Nome</td><td>${esc(f.vet.value)}</td></tr><tr><td>CRMV</td><td>${esc(c.crmv)}</td></tr><tr><td>Endereço</td><td>${esc(db.clinica)} · ${esc(c.endereco)} · ${esc(c.cidade)}</td></tr><tr><td>Telefone</td><td>${esc(telBR(c.telefone))}</td></tr></table>
+      ${cabPet(p)}<p><b>Endereço do tutor:</b> ${esc(t?.end || '________________________________')}</p>
+      <h2>Prescrição</h2><p><b>${esc(f.med.value.trim())}</b> · ${esc(f.qtd.value.trim())}</p><p style="white-space:pre-wrap">${esc(f.uso.value.trim())}</p>
+      <div class="assin" style="margin-top:44px"><div>${esc(f.vet.value)} · ${esc(c.crmv)}<br>Data: ${dataBR(hoje())}</div></div>
+      <div style="display:flex;gap:16px;margin-top:22px"><table style="flex:1"><tr><th colspan="2">Identificação do comprador</th></tr>${['Nome', 'RG', 'Endereço', 'Cidade', 'Telefone'].map(linha).join('')}</table><table style="flex:1"><tr><th colspan="2">Identificação do fornecedor</th></tr>${['Farmacêutico(a)', 'Assinatura', 'Data'].map(linha).join('')}</table></div></section>`;
+    fecharJanela(); imprimir(`Receita de controle especial · ${p.nome}`, `${via(1, 'farmácia')}${via(2, 'tutor')}`);
+  };
+}
+
+// ---------------------------------------------------------------- ANEXOS DE EXAME (PDF ou foto)
+function lerAnexo(arq) {
+  return new Promise((ok, erro) => {
+    if (!arq) return erro(new Error('Escolha um arquivo.'));
+    if (arq.type === 'application/pdf') { if (arq.size > 1.5e6) return erro(new Error('PDF grande demais para a demonstração (até 1,5 MB). Na versão de verdade não tem esse limite.')); const r = new FileReader(); r.onload = () => ok({ nome: arq.name, dados: r.result }); r.onerror = () => erro(new Error('Não consegui ler o PDF.')); return r.readAsDataURL(arq); }
+    if (!arq.type.startsWith('image/')) return erro(new Error('Anexe um PDF ou uma foto.'));
+    const img = new Image(), url = URL.createObjectURL(arq);
+    img.onload = () => { const k = Math.min(1, 1600 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url); ok({ nome: arq.name.replace(/\.\w+$/, '.jpg'), dados: c.toDataURL('image/jpeg', .82) }); };
+    img.onerror = () => erro(new Error('Não consegui abrir essa imagem.')); img.src = url;
+  });
+}
+function verAnexo(x) {
+  const [cab, b64] = x.dados.split(','), tipo = cab.match(/:(.*?);/)[1], bin = atob(b64), u8 = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  if (!window.open(URL.createObjectURL(new Blob([u8], { type: tipo })), '_blank')) avisar('Libere as janelas do navegador para ver o arquivo.');
+}
+
+// ---------------------------------------------------------------- AGENDAMENTO ONLINE
+const FILA_PEDIDOS = 'vetnature-pedidos-demo';
+const linkAgendar = () => new URL('agendar.html', location.href).href;
+function trazerPedidos() {
+  let novos = []; try { novos = JSON.parse(localStorage.getItem(FILA_PEDIDOS)) || []; localStorage.removeItem(FILA_PEDIDOS); } catch { /* sem armazenamento */ }
+  if (novos.length) { db.pedidos.push(...novos); salvar(); }
+  return novos.length;
+}
+function blocoPedidos() {
+  const l = db.pedidos.filter((x) => x.status === 'novo').sort((a, b) => (a.data + a.hora).localeCompare(b.data + b.hora));
+  if (!l.length) return '';
+  return `<section class="cartao pedidos"><div class="cartao-cab"><h2>Pedidos pelo link · ${l.length} esperando confirmação</h2></div><ul class="lista-avisos">${l.map((x) => `<li><div class="avatar mini">${IC[x.especie] || IC.outro}</div><div><b>${esc(x.pet)} · ${esc(x.tipo)} · ${dataBR(x.data)} (${diaSemana(x.data)}) às ${x.hora}</b><small>${esc(x.nome)} · ${esc(telBR(x.tel))}${x.obs ? ` · “${esc(x.obs)}”` : ''}</small></div><span class="acoes"><button class="bt bt-peq bt-pri" data-confirmar-pedido="${x.id}">Confirmar</button><button class="bt bt-peq" data-recusar-pedido="${x.id}">Recusar</button></span></li>`).join('')}</ul></section>`;
+}
+function confirmarPedido(id) {
+  const x = db.pedidos.find((y) => y.id === id);
+  let t = db.tutores.find((y) => soDigitos(y.tel) === soDigitos(x.tel));
+  if (!t) { t = { id: uid(), nome: x.nome, tel: soDigitos(x.tel), end: '' }; db.tutores.push(t); }
+  let p = db.pets.find((y) => y.tutor === t.id && sem(y.nome) === sem(x.pet));
+  if (!p) { p = { id: uid(), tutor: t.id, nome: x.pet, especie: x.especie, raca: 'SRD', sexo: 'Não informado', nasc: maisDias(hoje(), -365), castrado: false, alergias: '', pelagem: '', microchip: '', obs: 'Cadastro feito pelo agendamento online: confirme raça, sexo e idade na chegada.', foto: '', pesos: [] }; db.pets.push(p); }
+  const estetica = /banho|tosa/i.test(x.tipo), opcoes = db.vets.filter((v) => (estetica ? !v.startsWith('Dr') : v.startsWith('Dr')));
+  const vet = opcoes.find((v) => !db.agenda.some((a) => a.data === x.data && a.hora === x.hora && a.vet === v)) || opcoes[0] || db.vets[0];
+  db.agenda.push({ id: uid(), data: x.data, hora: x.hora, pet: p.id, tipo: x.tipo, vet, status: 'aguardando', valor: TIPOS[x.tipo] ?? 0 });
+  x.status = 'confirmado'; salvar(); desenhar(); avisar(`Confirmado: ${p.nome} em ${dataBR(x.data)} às ${x.hora} com ${vet}.`);
+  window.open(zap(x.tel, `Olá, ${primeiro(x.nome)}! Seu pedido está confirmado: ${x.tipo} do(a) ${x.pet} na ${db.clinica} em ${dataBR(x.data)} (${diaSemana(x.data, 'long')}) às ${x.hora}. Até lá!`), '_blank', 'noopener');
+}
+function recusarPedido(id) {
+  const x = db.pedidos.find((y) => y.id === id); if (!confirm(`Recusar o pedido de ${x.nome}?`)) return;
+  x.status = 'recusado'; salvar(); desenhar();
+  window.open(zap(x.tel, `Olá, ${primeiro(x.nome)}! Aqui é da ${db.clinica}. Infelizmente não temos ${x.hora} livre em ${dataBR(x.data)}. Podemos ver outro horário para o(a) ${x.pet}?`), '_blank', 'noopener');
+}
+function abrirLinkAgenda() {
+  const url = linkAgendar(), msg = `Agora dá para marcar horário na ${db.clinica} pelo celular, a qualquer hora: ${url}`;
+  const f = janela('Link para o tutor agendar', `<p style="margin-top:0">O tutor escolhe o dia e o horário livre; o pedido aparece aqui na Agenda para vocês confirmarem.</p><label class="campo">Link<input name="link" value="${esc(url)}" readonly></label>
+    ${db.config.agendaOnline.ligado ? '' : '<p class="nota">O agendamento online está desligado. Ligue em Configurações · Agendamento online.</p>'}`, `<a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página</a><a class="bt bt-zap" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">Mandar no WhatsApp</a><button class="bt bt-pri">Copiar link</button>`);
+  f.onsubmit = async (e) => { e.preventDefault(); try { await navigator.clipboard.writeText(url); avisar('Link copiado.'); } catch { f.link.select(); avisar('Selecionei o link: é só copiar.'); } };
+}
+
 // ---------------------------------------------------------------- desenho e cliques
 function desenhar() {
   topo();
-  $('#tela').innerHTML = ({ hoje: telaHoje, agenda: telaAgenda, pacientes: telaPacientes, tutores: telaTutores, vacinas: telaVacinas, internacao: telaInternacao, estetica: telaEstetica, exames: telaExames, estoque: telaEstoque, caixa: telaCaixa, relatorios: telaRelatorios, config: telaConfig })[est.secao]();
+  $('#tela').innerHTML = ({ hoje: telaHoje, agenda: telaAgenda, pacientes: telaPacientes, tutores: telaTutores, vacinas: telaVacinas, internacao: telaInternacao, estetica: telaEstetica, exames: telaExames, estoque: telaEstoque, caixa: telaCaixa, relatorios: telaRelatorios, config: telaConfig, avisos: telaAvisos, pacotes: telaPacotes })[est.secao]();
 }
 const irPet = (id) => { est.secao = 'pacientes'; est.sel = id; est.aba = 'resumo'; est.busca = ''; desenhar(); scrollTo({ top: 0 }); };
 document.addEventListener('click', (e) => {
@@ -691,7 +929,7 @@ document.addEventListener('click', (e) => {
   if (d.alta) { const i = db.internados.find((x) => x.id === d.alta); if (!confirm(`Dar alta para ${pet(i.pet).nome}?`)) return; const diarias = Math.max(1, diasAte(hoje()) - diasAte(i.entrada) + 1); db.internados = db.internados.filter((x) => x.id !== d.alta); salvar(); desenhar(); return abrirCobrar(i.pet, [{ nome: 'Diária de internação', valor: db.config.diaria || 180, qtd: diarias }]); }
   if (d.banho !== undefined) return abrirBanho(d.banho || est.sel);
   if (d.etapa) { const x = db.estetica.find((y) => y.id === d.etapa); x.status = ESTETICA[ESTETICA.findIndex(([k]) => k === x.status) + 1][0]; salvar(); return desenhar(); }
-  if (d.entregue) { const x = db.estetica.find((y) => y.id === d.entregue); db.estetica = db.estetica.filter((y) => y.id !== d.entregue); salvar(); desenhar(); return abrirCobrar(x.pet, [{ nome: x.servico, valor: (servicos().find(([n]) => n === x.servico) || [0, 60])[1], qtd: 1 }]); }
+  if (d.entregue) { const x = db.estetica.find((y) => y.id === d.entregue); db.estetica = db.estetica.filter((y) => y.id !== d.entregue); const ct = contratosDo(x.pet).find((c) => c.tipo === 'pacote' && c.servico === x.servico); if (ct) { usarPacote(ct); salvar(); desenhar(); return avisar(`${pet(x.pet).nome}: usado 1 do pacote ${ct.nome} (${ct.qtd - ct.usados} restante${ct.qtd - ct.usados === 1 ? '' : 's'}). Nada a cobrar.`); } salvar(); desenhar(); return abrirCobrar(x.pet, [{ nome: x.servico, valor: (servicos().find(([n]) => n === x.servico) || [0, 60])[1], qtd: 1 }]); }
   if (d.pedirExame !== undefined) return abrirPedirExame(d.pedirExame || est.sel);
   if (d.coletar) { db.exames.find((x) => x.id === d.coletar).status = 'coletado'; salvar(); return desenhar(); }
   if (d.resultado) return abrirResultado(d.resultado);
@@ -703,6 +941,23 @@ document.addEventListener('click', (e) => {
   if (d.editarTutor) return abrirTutor(d.editarTutor);
   if (d.vacinaManual !== undefined) return abrirVacinaManual(d.vacinaManual || est.sel);
   if (d.cfg) { est.cfg = d.cfg; return desenhar(); }
+  if (d.cfgIr) { est.secao = 'config'; est.cfg = d.cfgIr; return desenhar(); }
+  if (d.receitaControle) { const [id, pr] = d.receitaControle.split(':'); return abrirReceitaControle(id, pr); }
+  if (d.verAnexo) { const [id, k] = d.verAnexo.split(':'); return verAnexo(db.exames.find((x) => x.id === id).anexos[Number(k)]); }
+  if (d.tirarAnexo) { const [id, k] = d.tirarAnexo.split(':'), x = db.exames.find((y) => y.id === id); if (!confirm(`Tirar o arquivo ${x.anexos[Number(k)].nome}?`)) return; x.anexos.splice(Number(k), 1); salvar(); return desenhar(); }
+  if (d.nfse) return abrirNFSe(d.nfse);
+  if (d.enviarAviso !== undefined) { const x = filaAvisos()[Number(d.enviarAviso)]; if (x) { registrarAviso(x, false); salvar(); setTimeout(desenhar, 50); } return; }
+  if (d.simularEnvio !== undefined) { const l = filaAvisos(); l.forEach((x) => registrarAviso(x, true)); salvar(); avisar(`${l.length} aviso${l.length === 1 ? '' : 's'} enviado${l.length === 1 ? '' : 's'} (simulação).`); return desenhar(); }
+  if (d.ligarAvisos !== undefined) { db.config.avisos.ligado = !db.config.avisos.ligado; salvar(); return desenhar(); }
+  if (d.venderPacote !== undefined) return abrirVenderPacote(d.venderPacote);
+  if (d.novoModelo !== undefined) return abrirNovoModelo();
+  if (d.tirarModelo) { if (!confirm('Tirar este pacote ou plano da lista? Quem já comprou continua com ele.')) return; db.config.pacotes = db.config.pacotes.filter((x) => x.id !== d.tirarModelo); salvar(); return desenhar(); }
+  if (d.usarPacote) { const ct = db.contratos.find((x) => x.id === d.usarPacote); usarPacote(ct); salvar(); avisar(`Usado 1 de ${ct.nome} (${ct.qtd - ct.usados} restante${ct.qtd - ct.usados === 1 ? '' : 's'}).`); return desenhar(); }
+  if (d.mensalidade) { const ct = db.contratos.find((x) => x.id === d.mensalidade); db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: ct.pet, itens: [{ nome: `${ct.nome} (mensalidade)`, valor: ct.valor, qtd: 1 }], forma: 'PIX', recebido: true, vet: '' }); ct.proxima = maisDias(diasAte(ct.proxima) < -30 ? hoje() : ct.proxima, 30); salvar(); avisar(`Mensalidade recebida: ${reais(ct.valor)}. Próxima em ${dataBR(ct.proxima)}.`); return desenhar(); }
+  if (d.cancelarContrato) { const ct = db.contratos.find((x) => x.id === d.cancelarContrato); if (!confirm(`Encerrar ${ct.nome} de ${pet(ct.pet)?.nome}?`)) return; ct.ativo = false; salvar(); return desenhar(); }
+  if (d.linkAgenda !== undefined) return abrirLinkAgenda();
+  if (d.confirmarPedido) return confirmarPedido(d.confirmarPedido);
+  if (d.recusarPedido) return recusarPedido(d.recusarPedido);
   if (d.conta !== undefined) { est.secao = 'config'; est.cfg = 'conta'; return desenhar(); }
   if (d.ia !== undefined) return abrirIA();
   if (d.fecharIa !== undefined) { $('#painel-ia').hidden = true; return; }
@@ -710,7 +965,7 @@ document.addEventListener('click', (e) => {
   if (d.tirarVet) { db.vets.splice(Number(d.tirarVet), 1); salvar(); return desenhar(); }
   if (d.tirarServ) { db.config.servicos.splice(Number(d.tirarServ), 1); salvar(); return desenhar(); }
   if (d.baixarCopia !== undefined) { const u = URL.createObjectURL(new Blob([JSON.stringify(db, null, 1)], { type: 'application/json' })); const l = document.createElement('a'); l.href = u; l.download = `vetnature-copia-${hoje()}.json`; l.click(); URL.revokeObjectURL(u); return; }
-  if (d.recomecar !== undefined) { if (!confirm('Apagar as mudanças e voltar aos dados de exemplo?')) return; db = exemplo(); salvar(); est.sel = null; est.secao = 'hoje'; est.tutor = null; return desenhar(); }
+  if (d.recomecar !== undefined) { if (!confirm('Apagar as mudanças e voltar aos dados de exemplo?')) return; db = completar(exemplo()); salvar(); est.sel = null; est.secao = 'hoje'; est.tutor = null; return desenhar(); }
 });
 document.addEventListener('submit', (e) => {
   const f = e.target;
@@ -719,9 +974,13 @@ document.addEventListener('submit', (e) => {
 });
 document.addEventListener('change', (e) => {
   if (e.target.name === 'modo' && e.target.closest('[data-salvar-cfg="ia"]')) e.target.form.querySelector('[data-propria]').hidden = e.target.value !== 'propria';
-  if (e.target.matches('[data-voltar-copia]')) { const r = new FileReader(); r.onload = () => { try { const n = JSON.parse(r.result); if (!n.pets || !n.tutores) throw 0; db = n; if (!db.config) db.config = configPadrao(); salvar(); avisar('Cópia de segurança restaurada.'); desenhar(); } catch { avisar('Esse arquivo não é uma cópia do VetNature.'); } }; r.readAsText(e.target.files[0]); }
+  if (e.target.matches('[data-anexar]')) { const x = db.exames.find((y) => y.id === e.target.dataset.anexar); lerAnexo(e.target.files[0]).then((an) => { x.anexos.push(an); salvar(); avisar(`Arquivo anexado ao exame ${x.nome}.`); desenhar(); }).catch((er) => avisar(er.message)); return; }
+  if (e.target.matches('[data-voltar-copia]')) { const r = new FileReader(); r.onload = () => { try { const n = JSON.parse(r.result); if (!n.pets || !n.tutores) throw 0; db = completar(n); salvar(); avisar('Cópia de segurança restaurada.'); desenhar(); } catch { avisar('Esse arquivo não é uma cópia do VetNature.'); } }; r.readAsText(e.target.files[0]); }
 });
 $('#janela').addEventListener('click', (e) => { if (e.target.id === 'janela') fecharJanela(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#janela').hidden) fecharJanela(); });
 $('#busca').addEventListener('input', (e) => { est.busca = e.target.value; est.secao = 'pacientes'; const l = db.pets.filter((p) => `${p.nome} ${tutorDe(p)?.nome}`.toLowerCase().includes(est.busca.toLowerCase())); est.sel = l.length === 1 ? l[0].id : est.sel; desenhar(); });
+// pedido feito na página do tutor (outra aba) aparece na hora
+addEventListener('storage', (e) => { if (e.key === FILA_PEDIDOS && e.newValue && trazerPedidos()) { avisar('Chegou um pedido de agendamento pelo link.'); desenhar(); } });
+trazerPedidos();
 desenhar();

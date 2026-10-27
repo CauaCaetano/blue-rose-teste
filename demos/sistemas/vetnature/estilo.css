@@ -302,4 +302,37 @@ main { padding: clamp(16px, 2.4vw, 28px); max-width: 1500px; margin: 0; }
 @media (max-width: 900px) { .cfg { grid-template-columns: 1fr; } .cfg-menu { position: static; display: flex; overflow-x: auto; } .cfg-menu button { white-space: nowrap; } .linha-form { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .bt-ia { padding: 8px 10px; font-size: 0; gap: 0; } .bt-ia svg { width: 18px; height: 18px; } }
 
-@media (max-width: 1360px) and (min-width: 701px) { .secoes button svg { display: none; } }
+@media (max-width: 1360px) and (min-width: 701px) { .secoes button svg { display: none; } .secoes button { padding: 7px 7px; } }
+
+/* bloco 2: avisos, pacotes, anexos, pedidos online */
+.aviso-demo { margin: 0 0 18px; }
+.lista-avisos { list-style: none; margin: 0; padding: 0; }
+.lista-avisos li { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: start; padding: 12px 16px; border-bottom: 1px solid var(--linha); }
+.lista-avisos li:last-child { border-bottom: 0; }
+.lista-avisos p { margin: 3px 0 0; color: var(--texto-2); font-size: 13px; }
+.lista-avisos small { display: block; color: var(--texto-2); }
+.pedidos { margin-bottom: 18px; border-color: var(--royal-2); box-shadow: inset 4px 0 0 var(--royal-2); }
+.escolhas { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; align-content: start; }
+.escolhas legend { padding: 0; margin-bottom: 6px; }
+.escolhas label { display: inline-flex; gap: 6px; align-items: center; color: var(--texto); font-weight: 400; font-size: 14px; }
+.uso { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.uso i { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid var(--royal-2); }
+.uso i.usado { background: var(--royal-2); }
+.uso small { margin-left: 6px; color: var(--texto-2); }
+.modelos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.modelo { background: var(--papel); border: 1px solid var(--linha); border-radius: var(--raio); padding: 16px; display: grid; gap: 6px; align-content: start; }
+.modelo h3 { margin: 4px 0 0; font: 600 17px var(--tit); color: var(--marinho); }
+.modelo .preco { font: 600 22px var(--tit); color: var(--royal); }
+.modelo .preco small { font: 400 13px var(--sans); color: var(--texto-2); }
+.modelo p { margin: 0; color: var(--texto-2); font-size: 13px; }
+.modelo .selo { justify-self: start; }
+.anexos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.anexo { display: inline-flex; align-items: center; gap: 2px; padding: 3px 4px 3px 10px; border-radius: 999px; background: var(--creme); border: 1px solid var(--linha); font-size: 12.5px; }
+.anexo .link { display: inline-flex; align-items: center; gap: 4px; }
+.anexo svg, .lado label svg { width: 14px; height: 14px; }
+.tirar-anexo { border: 0; background: none; cursor: pointer; color: var(--texto-3); font-size: 16px; line-height: 1; padding: 0 6px; }
+.tirar-anexo:hover { color: var(--alerta); }
+@media (max-width: 700px) { .lista-avisos li { grid-template-columns: 34px 1fr; } .lista-avisos li > :last-child:not(div) { grid-column: 2; justify-self: start; } }
+.nota { overflow-wrap: anywhere; }
+.escolhas { min-width: 0; }
+@media (max-width: 700px) { .tabela.empilha.tabela-pacotes tr { grid-template-columns: 1fr; gap: 6px; } .tabela-pacotes td.num { text-align: left; } }
