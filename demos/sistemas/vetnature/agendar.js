@@ -14,7 +14,7 @@ const hora = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m %
 
 const db = ler(CHAVE, null);
 const cfg = db?.config?.agendaOnline || { ligado: true, inicio: '08:00', fim: '18:00', intervalo: 30, sabado: true, tipos: ['Consulta', 'Vacina', 'Banho e tosa'] };
-const clinica = db?.clinica || 'Clínica Veterinária Bem-Estar Animal', telClinica = db?.config?.telefone || '16991230000';
+const clinica = db?.clinica || 'Clínica Veterinária Bem-Estar Animal', telClinica = db?.config?.telefone || '00900000000';
 const vets = (db?.vets || ['Dra. Paula Andrade', 'Dr. Rafael Mota', 'Equipe de estética']);
 const st = { nome: '', tel: '', pet: '', especie: 'cao', tipo: cfg.tipos[0], data: '', hora: '', obs: '' };
 
@@ -50,7 +50,7 @@ function desenhar() {
     <section class="passo"><h2>Qual horário?</h2><div class="chips">${hs.some((x) => x.livre) ? hs.map((x) => `<button type="button" data-hora="${x.h}" aria-pressed="${st.hora === x.h}" ${x.livre ? '' : 'disabled aria-label="' + x.h + ' ocupado"'}>${x.h}</button>`).join('') : '<p class="vazio">Sem horário livre neste dia. Escolha outro.</p>'}</div></section>
     <section class="passo grade-campos"><h2 class="largo" style="margin:0">Seus dados e do pet</h2>
       <label class="campo largo">Seu nome<input name="nome" autocomplete="name" value="${esc(st.nome)}"></label>
-      <label class="campo largo">WhatsApp<input name="tel" inputmode="tel" autocomplete="tel" placeholder="(16) 99999-9999" value="${esc(st.tel)}"></label>
+      <label class="campo largo">WhatsApp<input name="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 90000-0000" value="${esc(st.tel)}"></label>
       <label class="campo">Nome do pet<input name="pet" value="${esc(st.pet)}"></label>
       <label class="campo">É um<select name="especie">${[['cao', 'Cão'], ['gato', 'Gato'], ['outro', 'Outro']].map(([v, n]) => `<option value="${v}" ${st.especie === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
       <label class="campo largo">Quer contar algo? (opcional)<textarea name="obs" placeholder="Ex.: está vomitando desde ontem">${esc(st.obs)}</textarea></label></section>
@@ -67,6 +67,15 @@ document.addEventListener('click', (e) => {
   if (b.dataset.dia) st.data = b.dataset.dia;
   if (b.dataset.hora) st.hora = b.dataset.hora;
   desenhar();
+// demonstração: o link do WhatsApp mostra a mensagem em vez de abrir o app
+document.addEventListener('click', (e) => {
+  const l = e.target.closest('a[href*="wa.me/"]'); if (!l) return; e.preventDefault();
+  const msg = new URL(l.href).searchParams.get('text') || '';
+  const el = document.createElement('div'); el.className = 'zap-fundo';
+  el.innerHTML = `<div class="zap" role="dialog" aria-modal="true" aria-label="Simulação do WhatsApp"><div class="zap-cab"><span class="zap-foto">${esc(clinica[0])}</span><span><b>${esc(clinica)}</b><small>número de exemplo</small></span><button type="button" class="fechar" aria-label="Fechar">×</button></div><div class="zap-conversa"><div class="zap-msg">${esc(msg || 'Olá!')}<span class="zap-hora">agora <span>✓✓</span></span></div></div><p class="zap-nota"><b>Simulação.</b> Nada foi enviado. De verdade, a conversa abre no WhatsApp da clínica.</p><div class="zap-pe"><button type="button" class="bt bt-pri">Fechar</button></div></div>`;
+  el.addEventListener('click', (ev) => { if (ev.target === el || ev.target.closest('.fechar, .bt-pri')) el.remove(); });
+  document.body.append(el); el.querySelector('.bt-pri').focus();
+});
 });
 document.addEventListener('submit', (e) => {
   e.preventDefault(); guardarCampos();
@@ -75,7 +84,7 @@ document.addEventListener('submit', (e) => {
   const pedido = { id: Math.random().toString(36).slice(2, 10), nome: st.nome.trim(), tel: soDigitos(st.tel), pet: st.pet.trim(), especie: st.especie, tipo: st.tipo, data: st.data, hora: st.hora, obs: st.obs.trim(), status: 'novo', criado: new Date().toISOString() };
   try { localStorage.setItem(FILA, JSON.stringify([...ler(FILA, []), pedido])); } catch { /* sem armazenamento: ainda mostra a confirmação */ }
   $('#pag').innerHTML = `<div class="cartao-ag ok"><div class="selo-grande" aria-hidden="true">✓</div><h2>Pedido enviado</h2><p>${esc(pedido.tipo)} do(a) <b>${esc(pedido.pet)}</b> em ${dataBR(pedido.data)} às ${pedido.hora}.<br>A ${esc(clinica)} vai confirmar pelo WhatsApp ${esc(st.tel)}.</p>
-    <a class="bt bt-zap enviar" href="https://wa.me/55${soDigitos(telClinica)}?text=${encodeURIComponent(`Olá! Acabei de pedir ${pedido.tipo} para o(a) ${pedido.pet} em ${dataBR(pedido.data)} às ${pedido.hora} pelo site.`)}" target="_blank" rel="noopener">Falar com a clínica agora</a>
+    <a class="bt bt-zap enviar" href="https://wa.me/55${soDigitos(telClinica)}?text=${encodeURIComponent(`Olá! Acabei de pedir ${pedido.tipo} para o(a) ${pedido.pet} em ${dataBR(pedido.data)} às ${pedido.hora} pelo site.`)}">Falar com a clínica agora</a>
     <p class="rodape-ag">Demonstração: abra o sistema da clínica (Agenda) para ver o pedido chegar.</p></div>`;
 });
 desenhar();

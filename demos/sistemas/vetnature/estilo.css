@@ -50,7 +50,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .campo { display: grid; gap: 4px; font-size: 12.5px; color: var(--texto-2); font-weight: 500; }
 .campo input, .campo select, .campo textarea { padding: 9px 11px; border: 1px solid var(--linha-2); border-radius: var(--raio-p); background: var(--papel); font-size: 14px; color: var(--texto); font-weight: 400; }
 .campo textarea { min-height: 72px; resize: vertical; }
-.grade-campos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.grade-campos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.campo > input, .campo > select, .campo > textarea { width: 100%; min-width: 0; }
 .grade-campos .largo { grid-column: 1 / -1; }
 
 /* tela */
@@ -251,7 +252,7 @@ main { padding: clamp(16px, 2.4vw, 28px); max-width: 1500px; margin: 0; }
   .numeros { grid-template-columns: repeat(2, 1fr); }
   .busca { display: none; }
   .dados { grid-template-columns: repeat(2, 1fr); }
-  .grade-campos { grid-template-columns: 1fr; }
+  .grade-campos { grid-template-columns: minmax(0, 1fr); }
   .ficha-topo { grid-template-columns: auto 1fr; }
   .ficha-topo .acoes { grid-column: 1 / -1; }
   .tabela.empilha thead { display: none; }
@@ -336,3 +337,36 @@ main { padding: clamp(16px, 2.4vw, 28px); max-width: 1500px; margin: 0; }
 .nota { overflow-wrap: anywhere; }
 .escolhas { min-width: 0; }
 @media (max-width: 700px) { .tabela.empilha.tabela-pacotes tr { grid-template-columns: 1fr; gap: 6px; } .tabela-pacotes td.num { text-align: left; } }
+
+/* item avulso na cobrança */
+.avulso { display: grid; grid-template-columns: 1fr 120px auto; gap: 10px; align-items: end; }
+@media (max-width: 700px) { .avulso { grid-template-columns: 1fr 1fr; } .avulso .bt { grid-column: 1 / -1; } }
+
+/* WhatsApp simulado */
+.zap-fundo { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 16px; background: rgb(24 58 51 / .45); }
+.zap { width: min(400px, 100%); max-height: calc(100dvh - 32px); display: grid; grid-template-rows: auto 1fr auto auto; border-radius: 20px; overflow: hidden; background: #efe7dc; box-shadow: 0 24px 60px -20px rgb(0 0 0 / .45); animation: zap-entra .22s ease-out; }
+.zap-cab { display: grid; grid-template-columns: 38px 1fr auto; gap: 10px; align-items: center; padding: 12px 14px; background: #1f7a4d; color: #fff; }
+.zap-cab b { display: block; font-size: 15px; } .zap-cab small { color: #d6efe1; font-size: 12px; }
+.zap-cab .fechar { color: #fff; }
+.zap-foto { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: #d6efe1; color: #1f7a4d; font-weight: 600; }
+.zap-conversa { padding: 18px 14px; overflow-y: auto; display: grid; align-content: end; min-height: 160px; }
+.zap-msg { justify-self: end; max-width: 88%; background: #d9fdd3; color: #111b21; padding: 8px 10px 6px; border-radius: 10px 10px 2px 10px; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; box-shadow: 0 1px 1px rgb(0 0 0 / .08); animation: zap-msg .35s .15s ease-out both; }
+.zap-hora { display: block; text-align: right; font-size: 11px; color: #667781; margin-top: 2px; }
+.zap-hora span { color: #53bdeb; }
+.zap-nota { margin: 0; padding: 10px 14px; background: #fff8e1; color: #6b5300; font-size: 12.5px; }
+.zap-pe { display: flex; gap: 8px; justify-content: flex-end; padding: 10px 14px; background: #fff; }
+@keyframes zap-entra { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+@keyframes zap-msg { from { opacity: 0; transform: translateY(8px); } }
+@media (max-width: 700px) {
+  .tabela-servicos thead { display: none; }
+  .tabela-servicos tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; padding: 8px 0; border-bottom: 1px solid var(--linha); }
+  .tabela-servicos td { border: 0; padding: 0; }
+  .tabela-servicos td:first-child { grid-column: 1 / -1; }
+  .tabela-servicos td.num { text-align: left; }
+  .tabela-servicos .cel-tab { border-color: var(--linha); background: var(--papel); }
+}
+/* celular: nada de texto partido no topo nem em botão */
+.bt { white-space: nowrap; }
+.marca > div { min-width: 0; }
+.marca small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 700px) { .topo { column-gap: 8px; } .topo-dir { gap: 6px; } .marca { min-width: 0; } .marca small { max-width: 30vw; } .topo-dir .bt-pri { padding: 8px 10px; } }

@@ -55,18 +55,18 @@ const EXAME_ST = { solicitado: ['Solicitado', 'selo-aguardando'], coletado: ['Co
 function exemplo() {
   const h = hoje();
   const tutores = [
-    ['t1', 'Mariana Lopes', '16991230011', 'Rua das Acácias, 120'], ['t2', 'Carlos Henrique Dias', '16991230012', 'Av. Brasil, 845'], ['t3', 'Fernanda Rocha', '16991230013', 'Rua São Paulo, 33'],
-    ['t4', 'João Pedro Alves', '16991230014', 'Rua Goiás, 1.020'], ['t5', 'Beatriz Nogueira', '16991230015', 'Rua XV de Novembro, 77'], ['t6', 'Ricardo Santana', '16991230016', 'Av. Independência, 400'], ['t7', 'Luana Teixeira', '16991230017', 'Rua Minas Gerais, 512'],
+    ['t1', 'Mariana Lopes', '00900000011', 'Rua das Acácias, 120'], ['t2', 'Carlos Henrique Dias', '00900000012', 'Av. Brasil, 845'], ['t3', 'Fernanda Rocha', '00900000013', 'Rua São Paulo, 33'],
+    ['t4', 'João Pedro Alves', '00900000014', 'Rua Goiás, 1.020'], ['t5', 'Beatriz Nogueira', '00900000015', 'Rua XV de Novembro, 77'], ['t6', 'Ricardo Santana', '00900000016', 'Av. Independência, 400'], ['t7', 'Luana Teixeira', '00900000017', 'Rua Minas Gerais, 512'],
   ].map(([id, nome, tel, end]) => ({ id, nome, tel, end }));
   const pet = (id, tutor, nome, especie, raca, sexo, diasNasc, castrado, pesos, extra = {}) => ({ id, tutor, nome, especie, raca, sexo, nasc: maisDias(h, diasNasc), castrado, alergias: '', pelagem: '', microchip: '', obs: '', foto: `fotos/${nome.toLowerCase()}.webp`, pesos: pesos.map(([d, kg]) => ({ data: maisDias(h, d), kg })), ...extra });
   const pets = [
-    pet('p1', 't1', 'Thor', 'cao', 'Golden Retriever', 'Macho', -1460 + 3, true, [[-240, 31.2], [-150, 32.0], [-60, 32.8], [-10, 33.4]], { alergias: 'Dipirona', pelagem: 'Dourada', microchip: '963 001 234 567 890' }),
+    pet('p1', 't1', 'Thor', 'cao', 'Golden Retriever', 'Macho', -1460 + 3, true, [[-240, 31.2], [-150, 32.0], [-60, 32.8], [-10, 33.4]], { alergias: 'Dipirona', pelagem: 'Dourada', microchip: '000 000 000 000 001' }),
     pet('p2', 't1', 'Mel', 'gato', 'SRD', 'Fêmea', -900, true, [[-200, 3.9], [-90, 4.1], [-20, 4.2]], { pelagem: 'Laranja tigrada' }),
     pet('p3', 't2', 'Bob', 'cao', 'Shih Tzu', 'Macho', -2900, false, [[-300, 7.8], [-120, 8.4], [-15, 8.9]], { pelagem: 'Creme' }),
     pet('p4', 't3', 'Luna', 'cao', 'Border Collie', 'Fêmea', -220, false, [[-120, 6.2], [-60, 10.5], [-5, 13.1]], { pelagem: 'Tricolor' }),
     pet('p5', 't4', 'Nina', 'gato', 'Persa', 'Fêmea', -1800 + 5, true, [[-180, 4.8], [-30, 4.5]], { alergias: 'Ração com frango', pelagem: 'Branca' }),
     pet('p6', 't5', 'Pipoca', 'outro', 'Coelho anão', 'Fêmea', -500, false, [[-100, 1.6], [-30, 1.7]], { pelagem: 'Caramelo' }),
-    pet('p7', 't6', 'Max', 'cao', 'Pastor Alemão', 'Macho', -3300, true, [[-200, 36.0], [-60, 34.2], [-3, 33.1]], { pelagem: 'Preta e castanha', microchip: '963 001 998 112 004' }),
+    pet('p7', 't6', 'Max', 'cao', 'Pastor Alemão', 'Macho', -3300, true, [[-200, 36.0], [-60, 34.2], [-3, 33.1]], { pelagem: 'Preta e castanha', microchip: '000 000 000 000 002' }),
     pet('p8', 't7', 'Frajola', 'gato', 'SRD', 'Macho', -120, false, [[-60, 1.2], [-20, 1.9]], { pelagem: 'Preta e branca' }),
     pet('p9', 't2', 'Amora', 'cao', 'Lhasa Apso', 'Fêmea', -1100, true, [[-90, 6.0], [-30, 6.1]], { pelagem: 'Marrom' }),
   ];
@@ -135,8 +135,8 @@ function exemplo() {
   return { clinica: 'Clínica Veterinária Bem-Estar Animal', config: configPadrao(), vets: [PA, RM, 'Equipe de estética'], tutores, pets, agenda, prontuarios, vacinas, internados, estetica, exames, estoque, vendas };
 }
 function configPadrao() {
-  return { conta: { nome: 'Paula Andrade', email: 'paula@clinicabemestar.com.br', cargo: 'Dona e veterinária responsável', plano: 'VetNature · teste de demonstração' },
-    cnpj: '12.345.678/0001-90', telefone: '16991230000', endereco: 'Av. Brasil, 1.200 · Centro', cidade: 'Ribeirão Preto (SP)', crmv: 'CRMV-SP 41.552',
+  return { conta: { nome: 'Paula Andrade', email: 'paula@exemplo.com.br', cargo: 'Dona e veterinária responsável', plano: 'VetNature · teste de demonstração' },
+    cnpj: '00.000.000/0001-00', telefone: '00900000000', endereco: 'Av. Brasil, 1.200 · Centro', cidade: 'Ribeirão Preto (SP)', crmv: 'CRMV-SP 00000',
     horario: 'Seg a sex, 8h às 18h · sáb, 8h às 12h', diaria: 180, servicos: SERVICOS_PADRAO.map((x) => [...x]),
     ia: { modo: 'nossa', provedor: 'openai', chave: '', modelo: '' } };
 }
@@ -153,13 +153,22 @@ function completar(d) {
   c.avisos ??= { ligado: true, hora: '09:00', vacina: 7, consulta: 1, aniversario: true, exame: true, modelos: { ...MODELOS_AVISO } };
   c.agendaOnline ??= { ligado: true, inicio: '08:00', fim: '18:00', intervalo: 30, sabado: true, tipos: ['Consulta', 'Vacina', 'Banho e tosa'] };
   c.comissoes ??= Object.fromEntries(d.vets.map((v) => [v, v.startsWith('Dr') ? 10 : 30]));
-  c.fiscal ??= { im: '45.112-7', regime: 'Simples Nacional', codigo: '5.09 · Medicina veterinária', aliquota: 2, proxima: 1 };
+  c.fiscal ??= { im: '00.000-0', regime: 'Simples Nacional', codigo: '5.09 · Medicina veterinária', aliquota: 2, proxima: 1 };
   c.pacotes ??= [
     { id: 'pk1', tipo: 'pacote', nome: '4 banhos', servico: 'Banho', qtd: 4, valor: 200, dias: 60 },
     { id: 'pk2', tipo: 'pacote', nome: '4 banhos e tosa', servico: 'Banho e tosa', qtd: 4, valor: 320, dias: 60 },
     { id: 'pl1', tipo: 'plano', nome: 'Plano Saúde Essencial', valor: 89, desconto: 10, inclui: '1 consulta por mês e 10% de desconto em vacinas e exames' },
     { id: 'pl2', tipo: 'plano', nome: 'Plano Saúde Completo', valor: 149, desconto: 20, inclui: 'Consultas à vontade, 1 banho por mês e 20% de desconto em vacinas e exames' },
   ];
+  if (!d.numerosDeExemplo) {
+    d.numerosDeExemplo = true;
+    d.tutores.forEach((t) => { if (/^169912300\d\d$/.test(t.tel)) t.tel = `009000000${t.tel.slice(-2)}`; });
+    const troca = { telefone: ['16991230000', '00900000000'], cnpj: ['12.345.678/0001-90', '00.000.000/0001-00'], crmv: ['CRMV-SP 41.552', 'CRMV-SP 00000'] };
+    Object.entries(troca).forEach(([k, [velho, novo]]) => { if (c[k] === velho) c[k] = novo; });
+    if (c.conta.email === 'paula@clinicabemestar.com.br') c.conta.email = 'paula@exemplo.com.br';
+    if (c.fiscal.im === '45.112-7') c.fiscal.im = '00.000-0';
+    d.pets.forEach((p) => { p.microchip = { '963 001 234 567 890': '000 000 000 000 001', '963 001 998 112 004': '000 000 000 000 002' }[p.microchip] || p.microchip; });
+  }
   d.avisosEnviados ??= []; d.pedidos ??= [];
   if (!d.contratos) {
     const m = (id) => c.pacotes.find((x) => x.id === id), ct = (p, id, extra) => d.pets.some((x) => x.id === p) && m(id) ? [{ id: uid(), pet: p, modelo: id, tipo: m(id).tipo, nome: m(id).nome, servico: m(id).servico, qtd: m(id).qtd, valor: m(id).valor, desconto: m(id).desconto, ativo: true, ...extra }] : [];
@@ -396,7 +405,7 @@ function telaConfig() {
       <label class="campo">Horário de atendimento<input name="horario" value="${esc(c.horario)}"></label><label class="campo">Valor da diária de internação (R$)<input name="diaria" inputmode="decimal" value="${c.diaria}"></label></div><p class="nota">O nome, o endereço e o CRMV saem nas receitas, termos, atestados e carteiras de vacinação.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
     equipe: () => `<ul class="lista-simples">${db.vets.map((v, i) => `<li><span><b>${esc(v)}</b></span><span class="selo selo-aguardando">${v.startsWith('Dr') ? 'Veterinário(a)' : 'Equipe'}</span><button class="bt bt-peq bt-perigo" data-tirar-vet="${i}">Tirar</button></li>`).join('')}</ul>
       <form class="cfg-form linha-form" data-salvar-cfg="vet"><label class="campo">Nome<input name="nome" placeholder="Ex.: Dra. Júlia Prado"></label><label class="campo">Função<select name="tipo"><option value="vet">Veterinário(a)</option><option value="equipe">Equipe (estética, recepção)</option></select></label><button class="bt bt-pri">Adicionar</button></form>`,
-    servicos: () => `<form class="cfg-form" data-salvar-cfg="servicos"><table class="tabela"><thead><tr><th>Serviço</th><th class="num">Preço (R$)</th><th></th></tr></thead><tbody>${servicos().map(([n, v], i) => `<tr><td><input class="cel-tab" name="n${i}" value="${esc(n)}"></td><td class="num"><input class="cel-tab num" name="v${i}" inputmode="decimal" value="${v}"></td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar-serv="${i}">Tirar</button></td></tr>`).join('')}
+    servicos: () => `<form class="cfg-form" data-salvar-cfg="servicos"><table class="tabela tabela-servicos"><thead><tr><th>Serviço</th><th class="num">Preço (R$)</th><th></th></tr></thead><tbody>${servicos().map(([n, v], i) => `<tr><td><input class="cel-tab" name="n${i}" value="${esc(n)}"></td><td class="num"><input class="cel-tab num" name="v${i}" inputmode="decimal" value="${v}"></td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar-serv="${i}">Tirar</button></td></tr>`).join('')}
       <tr><td><input class="cel-tab" name="novo_n" placeholder="Novo serviço"></td><td class="num"><input class="cel-tab num" name="novo_v" inputmode="decimal" placeholder="0,00"></td><td></td></tr></tbody></table><div class="acoes" style="margin-top:12px"><button class="bt bt-pri">Salvar preços</button></div></form>`,
     ia: () => `<form class="cfg-form" data-salvar-cfg="ia"><div class="opcoes-ia"><label class="op-ia"><input type="radio" name="modo" value="nossa" ${c.ia.modo !== 'propria' ? 'checked' : ''}><span><b>Assistente VetNature</b><small>Incluso no plano. Responde sobre a agenda, os pacientes, as vacinas, o caixa e o estoque da sua clínica.</small></span></label>
       <label class="op-ia"><input type="radio" name="modo" value="propria" ${c.ia.modo === 'propria' ? 'checked' : ''}><span><b>Usar a minha IA</b><small>Já paga o ChatGPT, o Gemini ou o Claude? Coloque a sua chave e o assistente passa a usar a sua conta.</small></span></label></div>
@@ -409,7 +418,7 @@ function telaConfig() {
       <p class="nota">Link da clínica: <b>${esc(linkAgendar())}</b> · coloque na bio do Instagram, no Google e na mensagem automática do WhatsApp.</p><div class="acoes"><button class="bt bt-pri">Salvar</button><a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página do tutor</a></div></form>`; },
     comissoes: () => `<form class="cfg-form" data-salvar-cfg="comissoes"><table class="tabela"><thead><tr><th>Profissional</th><th class="num">Comissão sobre os serviços (%)</th></tr></thead><tbody>${db.vets.map((v, i) => `<tr><td><b>${esc(v)}</b></td><td class="num"><input class="cel-tab num" name="c${i}" inputmode="decimal" value="${c.comissoes[v] ?? 0}"></td></tr>`).join('')}</tbody></table>
       <p class="nota">A comissão conta só os serviços (consulta, banho, exame...). Produtos e descontos ficam de fora. O valor de cada um aparece em Relatórios.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
-    fiscal: () => `<form class="cfg-form" data-salvar-cfg="fiscal"><div class="grade-campos"><label class="campo">Inscrição municipal<input name="im" value="${esc(c.fiscal.im)}"></label><label class="campo">Regime<select name="regime">${['Simples Nacional', 'MEI', 'Lucro presumido'].map((r) => `<option ${c.fiscal.regime === r ? 'selected' : ''}>${r}</option>`).join('')}</select></label>
+    fiscal: () => `<form class="cfg-form" data-salvar-cfg="fiscal"><div class="grade-campos"><label class="campo">Inscrição municipal<input name="im" value="${esc(c.fiscal.im)}"></label><label class="campo">Regime<input name="regime" list="lista-regime" value="${esc(c.fiscal.regime)}"><datalist id="lista-regime"><option value="Simples Nacional"><option value="MEI"><option value="Lucro presumido"><option value="Lucro real"></datalist></label>
       <label class="campo">Serviço (lista da LC 116)<input name="codigo" value="${esc(c.fiscal.codigo)}"></label><label class="campo">Alíquota do ISS (%)<input name="aliquota" inputmode="decimal" value="${c.fiscal.aliquota}"></label><label class="campo">Próximo número de nota<input name="proxima" type="number" min="1" value="${c.fiscal.proxima}"></label></div>
       <p class="nota">Na versão de verdade a nota vai direto para a prefeitura da sua cidade, com o certificado digital da clínica, e o tutor recebe o PDF por e-mail ou WhatsApp. Nesta demonstração a nota sai como prévia, sem valor fiscal.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
     dados: () => `<p style="margin-top:0">Baixe uma cópia de todos os cadastros (pets, tutores, prontuários, vacinas, caixa) ou volte uma cópia que você guardou.</p><div class="acoes"><button class="bt bt-pri" data-baixar-copia>Baixar cópia (.json)</button><label class="bt">Voltar uma cópia<input type="file" accept="application/json" data-voltar-copia hidden></label><button class="bt bt-perigo" data-recomecar>Apagar tudo e voltar aos dados de exemplo</button></div>`,
@@ -423,10 +432,10 @@ function salvarConfig(f) {
   if (tipo === 'clinica') { db.clinica = f.clinica.value.trim() || db.clinica; Object.assign(c, { cnpj: f.cnpj.value.trim(), telefone: soDigitos(f.telefone.value), endereco: f.endereco.value.trim(), cidade: f.cidade.value.trim(), crmv: f.crmv.value.trim(), horario: f.horario.value.trim(), diaria: num(f.diaria.value) || 0 }); }
   if (tipo === 'vet') { const n = f.nome.value.trim(); if (!n) return avisar('Escreva o nome.'); const nome = f.tipo.value === 'vet' && !/^dra?\.?\s/i.test(n) ? `Dr(a). ${n}` : n; db.vets.push(nome); c.comissoes[nome] ??= f.tipo.value === 'vet' ? 10 : 30; }
   if (tipo === 'servicos') { c.servicos = servicos().map((_, i) => [f[`n${i}`].value.trim(), num(f[`v${i}`].value) || 0]).filter(([n]) => n); if (f.novo_n.value.trim()) c.servicos.push([f.novo_n.value.trim(), num(f.novo_v.value) || 0]); }
-  if (tipo === 'avisos') { const m = {}; Object.keys(MODELOS_AVISO).forEach((k) => { m[k] = f[`m_${k}`].value.trim() || MODELOS_AVISO[k]; }); c.avisos = { ligado: c.avisos.ligado, hora: f.hora.value || '09:00', vacina: Number(f.vacina.value), consulta: Number(f.consulta.value), aniversario: f.aniversario.checked, exame: f.exame.checked, modelos: m }; }
+  if (tipo === 'avisos') { const m = {}; Object.keys(MODELOS_AVISO).forEach((k) => { m[k] = f[`m_${k}`].value.trim() || MODELOS_AVISO[k]; }); c.avisos = { ligado: c.avisos.ligado, hora: f.hora.value || '09:00', vacina: Math.max(0, Math.round(Number(f.vacina.value)) || 0), consulta: Math.max(0, Math.round(Number(f.consulta.value)) || 0), aniversario: f.aniversario.checked, exame: f.exame.checked, modelos: m }; }
   if (tipo === 'agendamento') { const tipos = [...f.querySelectorAll('[name=tipos]:checked')].map((x) => x.value); if (!tipos.length) return avisar('Escolha pelo menos uma coisa que o tutor pode pedir.'); if (f.inicio.value >= f.fim.value) return avisar('O último horário precisa ser depois do primeiro.'); c.agendaOnline = { ligado: f.ligado.checked, inicio: f.inicio.value, fim: f.fim.value, intervalo: Number(f.intervalo.value), sabado: !!f.sabado.value, tipos }; }
   if (tipo === 'comissoes') db.vets.forEach((v, i) => { c.comissoes[v] = Math.min(100, Math.max(0, num(f[`c${i}`].value) || 0)); });
-  if (tipo === 'fiscal') Object.assign(c.fiscal, { im: f.im.value.trim(), regime: f.regime.value, codigo: f.codigo.value.trim(), aliquota: num(f.aliquota.value) || 0, proxima: Math.max(1, Math.round(Number(f.proxima.value)) || 1) });
+  if (tipo === 'fiscal') Object.assign(c.fiscal, { im: f.im.value.trim(), regime: f.regime.value.trim(), codigo: f.codigo.value.trim(), aliquota: num(f.aliquota.value) || 0, proxima: Math.max(1, Math.round(Number(f.proxima.value)) || 1) });
   if (tipo === 'ia') { c.ia = { modo: f.modo.value, provedor: f.provedor.value, modelo: f.modelo.value.trim(), chave: f.chave.value.trim() }; if (c.ia.modo === 'propria' && !c.ia.chave) avisar('Sem a chave, o assistente continua usando o Assistente VetNature.'); }
   salvar(); avisar('Salvo.'); desenhar();
 }
@@ -494,10 +503,22 @@ function iaNossa(q) {
 function janela(titulo, corpo, botoes) {
   const fundo = $('#janela'), j = fundo.firstElementChild;
   j.innerHTML = `<div class="janela-cab"><h2 id="janela-t">${titulo}</h2><button type="button" class="fechar" data-fechar aria-label="Fechar">×</button></div><form class="janela-form" novalidate><div class="janela-corpo">${corpo}</div><div class="janela-pe"><button type="button" class="bt" data-fechar>Cancelar</button>${botoes}</div></form>`;
-  fundo.hidden = false; j.querySelector('input:not([type=file]), select, textarea')?.focus();
-  return j.querySelector('form');
+  fundo.hidden = false; j.querySelector('input:not([type=file]):not([type=hidden]), select, textarea')?.focus();
+  const f = j.querySelector('form');
+  // antes de qualquer janela salvar: o pet escrito precisa existir (ou ficar em branco quando pode)
+  f.addEventListener('submit', (e) => { const b = f.querySelector('[data-pet-busca]'); if (!b || f.pet.value || (b.hasAttribute('data-vazio') && !b.value.trim())) return; e.preventDefault(); e.stopImmediatePropagation(); avisar(b.value.trim() ? `Não achei "${b.value.trim()}". Escolha da lista ou cadastre em Pacientes › + Novo pet.` : 'Escreva o nome do pet.'); b.focus(); });
+  return f;
 }
 const fecharJanela = () => { $('#janela').hidden = true; };
+const rotuloPet = (p) => `${p.nome} · ${tutorDe(p)?.nome || 'sem tutor'}`;
+// campo de pet em que se escreve o nome (do pet ou do tutor) e a lista só sugere
+const campoPet = (sel, vazio = '') => { const p = sel && pet(sel); return `<input type="hidden" name="pet" value="${p ? p.id : ''}"><input name="petbusca" list="lista-pets" data-pet-busca ${vazio ? 'data-vazio' : ''} autocomplete="off" placeholder="${vazio ? esc(vazio) : 'Escreva o nome do pet ou do tutor'}" value="${p ? esc(rotuloPet(p)) : ''}"><datalist id="lista-pets">${db.pets.slice().sort((a, b) => a.nome.localeCompare(b.nome)).map((x) => `<option value="${esc(rotuloPet(x))}">`).join('')}</datalist>`; };
+function acharPet(texto) {
+  const t = sem(texto.trim()); if (!t) return null;
+  const exato = db.pets.find((p) => sem(rotuloPet(p)) === t); if (exato) return exato;
+  const l = db.pets.filter((p) => sem(p.nome) === t || sem(p.nome).startsWith(t) || sem(tutorDe(p)?.nome || '').startsWith(t));
+  return l.length === 1 ? l[0] : null;
+}
 const opcoesPets = (sel) => db.pets.slice().sort((a, b) => a.nome.localeCompare(b.nome)).map((p) => `<option value="${p.id}" ${p.id === sel ? 'selected' : ''}>${esc(p.nome)} · ${esc(tutorDe(p)?.nome)}</option>`).join('');
 const num = (v) => (String(v).trim() ? Number(String(v).replace(',', '.')) : null);
 
@@ -528,9 +549,9 @@ function abrirProntuario(id) {
     <label class="campo">Peso (kg)<input name="peso" inputmode="decimal" value="${pesoAtual(p) ?? ''}"></label><label class="campo">Temperatura (°C)<input name="temp" inputmode="decimal" placeholder="38,5"></label>
     <label class="campo">Freq. cardíaca (bpm)<input name="fc" inputmode="numeric"></label><label class="campo">Freq. respiratória (mpm)<input name="fr" inputmode="numeric"></label>
     <label class="campo largo">Diagnóstico<input name="diag"></label><label class="campo largo">Prescrição e orientações<textarea name="presc" placeholder="Remédio, dose, horário e por quantos dias"></textarea></label>
-    <label class="campo">Veterinário<select name="vet">${db.vets.filter((v) => v.startsWith('Dr')).map((v) => `<option>${esc(v)}</option>`).join('')}</select></label><label class="campo">Marcar retorno<select name="retorno"><option value="">Sem retorno</option><option value="7">Em 7 dias</option><option value="10">Em 10 dias</option><option value="15">Em 15 dias</option><option value="30">Em 30 dias</option></select></label></div>`, '<button class="bt bt-pri">Salvar consulta</button>');
+    <label class="campo">Veterinário<input name="vet" list="lista-vets" value="${esc(db.vets.find((v) => v.startsWith('Dr')) || '')}"><datalist id="lista-vets">${db.vets.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label><label class="campo">Retorno em quantos dias<input name="retorno" type="number" min="1" max="365" inputmode="numeric" list="lista-retorno" placeholder="Em branco = sem retorno"><datalist id="lista-retorno"><option value="7"><option value="10"><option value="15"><option value="30"></datalist></label></div>`, '<button class="bt bt-pri">Salvar consulta</button>');
   f.onsubmit = (e) => {
-    e.preventDefault(); if (!f.queixa.value.trim() || !f.diag.value.trim()) return avisar('Preencha a queixa e o diagnóstico.');
+    e.preventDefault(); if (!f.queixa.value.trim() || !f.diag.value.trim()) return avisar('Preencha a queixa e o diagnóstico.'); if (!f.vet.value.trim()) return avisar('Escreva quem atendeu.');
     const peso = num(f.peso.value);
     db.prontuarios.push({ id: uid(), pet: id, data: hoje(), vet: f.vet.value, queixa: f.queixa.value.trim(), exame: { peso, temp: num(f.temp.value), fc: num(f.fc.value), fr: num(f.fr.value) }, diagnostico: f.diag.value.trim(), prescricao: f.presc.value.trim() });
     if (peso && peso !== pesoAtual(p)) p.pesos.push({ data: hoje(), kg: peso });
@@ -575,7 +596,7 @@ function imprimirAtestado(id) {
 function abrirAplicarVacina(id) {
   const vacinasEst = db.estoque.filter((x) => x.tipo === 'Vacina' || /vermífugo/i.test(x.nome));
   const f = janela(`Vacina aplicada em ${esc(pet(id).nome)}`, `<div class="grade-campos"><label class="campo largo">Vacina<select name="item">${vacinasEst.map((x) => `<option value="${x.id}">${esc(x.nome)} · lote ${esc(x.lote)} · ${x.qtd} em estoque</option>`).join('')}</select></label>
-    <label class="campo">Próxima dose em<select name="prox"><option value="21">21 dias (reforço)</option><option value="90">90 dias</option><option value="365" selected>1 ano</option><option value="">Não repete</option></select></label><label class="campo">Cobrar<select name="cobrar"><option value="1">Sim, lançar no caixa</option><option value="">Não</option></select></label></div>
+    <label class="campo">Próxima dose (em branco = não repete)<input name="prox" type="date" value="${maisDias(hoje(), 365)}"></label><label class="campo">Cobrar<select name="cobrar"><option value="1">Sim, lançar no caixa</option><option value="">Não</option></select></label></div>
     <p style="margin:0;color:var(--texto-2);font-size:13px">Sai 1 unidade do estoque e a próxima dose entra nos lembretes.</p>`, '<button class="bt bt-pri">Registrar</button>');
   f.onsubmit = (e) => {
     e.preventDefault(); const it = db.estoque.find((x) => x.id === f.item.value); if (!it) return;
@@ -583,23 +604,23 @@ function abrirAplicarVacina(id) {
     it.qtd -= 1;
     const nome = it.nome.replace(/^Vacina /, ''), chave = nome.split(' ')[0].toLowerCase();
     db.vacinas.filter((v) => v.pet === id && v.proxima && v.nome.toLowerCase().startsWith(chave)).forEach((v) => { v.proxima = null; }); // a dose pendente sai dos lembretes
-    db.vacinas.push({ id: uid(), pet: id, nome, data: hoje(), proxima: f.prox.value ? maisDias(hoje(), Number(f.prox.value)) : null, lote: it.lote });
+    db.vacinas.push({ id: uid(), pet: id, nome, data: hoje(), proxima: f.prox.value || null, lote: it.lote });
     if (f.cobrar.value) db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: id, itens: [{ nome: it.nome, valor: it.preco, qtd: 1 }, { nome: 'Aplicação de vacina', valor: 25, qtd: 1 }], forma: 'PIX', recebido: true });
     salvar(); fecharJanela(); avisar(`Vacina registrada${f.cobrar.value ? ' e lançada no caixa' : ''}.`); desenhar();
   };
 }
 function abrirAgendar(petSel, tipo = 'Consulta') {
-  const f = janela('Agendar', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label>
-    <label class="campo">Tipo<select name="tipo">${Object.keys(TIPOS).map((t) => `<option ${t === tipo ? 'selected' : ''}>${t}</option>`).join('')}</select></label><label class="campo">Data<input name="data" type="date" value="${est.secao === 'agenda' ? est.dia : hoje()}"></label>
-    <label class="campo">Horário<input name="hora" type="time" value="17:00" step="900"></label><label class="campo">Com<select name="vet">${db.vets.map((v) => `<option>${esc(v)}</option>`).join('')}</select></label></div>`, '<button class="bt bt-pri">Agendar</button>');
+  const f = janela('Agendar', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(petSel)}</label>
+    <label class="campo">Tipo<input name="tipo" list="lista-tipos" value="${esc(tipo)}"><datalist id="lista-tipos">${Object.keys(TIPOS).map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label><label class="campo">Data<input name="data" type="date" value="${est.secao === 'agenda' ? est.dia : hoje()}"></label>
+    <label class="campo">Horário<input name="hora" type="time" value="17:00" step="900"></label><label class="campo">Com<input name="vet" list="lista-vets" value="${esc(db.vets[0] || '')}"><datalist id="lista-vets">${db.vets.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label></div>`, '<button class="bt bt-pri">Agendar</button>');
   f.onsubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); if (!f.tipo.value.trim() || !f.vet.value.trim() || !f.data.value || !f.hora.value) return avisar('Preencha o tipo, a data, o horário e com quem.');
     if (db.agenda.some((a) => a.data === f.data.value && a.hora === f.hora.value && a.vet === f.vet.value)) return avisar(`${f.vet.value} já tem atendimento às ${f.hora.value} nesse dia.`);
-    db.agenda.push({ id: uid(), data: f.data.value, hora: f.hora.value, pet: f.pet.value, tipo: f.tipo.value, vet: f.vet.value, status: 'aguardando', valor: TIPOS[f.tipo.value] ?? 0 });
+    db.agenda.push({ id: uid(), data: f.data.value, hora: f.hora.value, pet: f.pet.value, tipo: f.tipo.value.trim(), vet: f.vet.value.trim(), status: 'aguardando', valor: TIPOS[f.tipo.value.trim()] ?? 0 });
     const p = pet(f.pet.value), t = tutorDe(p);
     salvar(); fecharJanela(); desenhar();
     avisar(`Agendado: ${p.nome} · ${dataBR(f.data.value)} às ${f.hora.value}.`);
-    window.open(zap(t?.tel, `Olá, ${primeiro(t?.nome)}! Confirmando: ${f.tipo.value} do(a) ${p.nome} na ${db.clinica} em ${dataBR(f.data.value)} (${diaSemana(f.data.value, 'long')}) às ${f.hora.value}. Até lá!`), '_blank', 'noopener');
+    simularZap(zap(t?.tel, `Olá, ${primeiro(t?.nome)}! Confirmando: ${f.tipo.value} do(a) ${p.nome} na ${db.clinica} em ${dataBR(f.data.value)} (${diaSemana(f.data.value, 'long')}) às ${f.hora.value}. Até lá!`));
   };
 }
 function abrirPet(id) {
@@ -609,7 +630,7 @@ function abrirPet(id) {
     <label class="campo">Nascimento (aprox.)<input name="nasc" type="date" value="${p?.nasc || maisDias(hoje(), -365)}"></label><label class="campo">Pelagem<input name="pelagem" value="${esc(p?.pelagem || '')}"></label>
     <label class="campo">Microchip<input name="microchip" value="${esc(p?.microchip || '')}"></label><label class="campo">Castrado<select name="castrado"><option value="">Não</option><option value="1" ${p?.castrado ? 'selected' : ''}>Sim</option></select></label>
     ${p ? '' : `<label class="campo">Peso (kg)<input name="peso" inputmode="decimal"></label><label class="campo largo">Tutor<select name="tutor"><option value="">Tutor novo (preencha abaixo)</option>${db.tutores.map((t) => `<option value="${t.id}">${esc(t.nome)}</option>`).join('')}</select></label>
-    <label class="campo">Nome do tutor novo<input name="tnome"></label><label class="campo">WhatsApp do tutor<input name="ttel" inputmode="tel" placeholder="(16) 99999-9999"></label>`}
+    <label class="campo">Nome do tutor novo<input name="tnome"></label><label class="campo">WhatsApp do tutor<input name="ttel" inputmode="tel" placeholder="(00) 90000-0000"></label>`}
     <label class="campo largo">Alergias<input name="alergias" value="${esc(p?.alergias || '')}" placeholder="Deixe em branco se não tiver"></label><label class="campo largo">Observações<textarea name="obs" placeholder="Temperamento, cuidados no manejo...">${esc(p?.obs || '')}</textarea></label></div>`, `<button class="bt bt-pri">${p ? 'Salvar' : 'Cadastrar'}</button>`);
   ligarFoto(f, (d) => { foto = d; });
   f.onsubmit = (e) => {
@@ -625,12 +646,13 @@ function abrirPet(id) {
 }
 function abrirCobrar(petSel, itensIniciais = []) {
   const itens = [...itensIniciais];
-  const f = janela('Cobrança', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet"><option value="">Venda no balcão (sem pet)</option>${opcoesPets(petSel)}</select></label>
+  const f = janela('Cobrança', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(petSel, 'Em branco = venda de balcão, sem pet')}</label>
     <label class="campo">Serviço<select name="serv"><option value="">Escolher…</option>${servicos().map(([n, v], i) => `<option value="${i}">${esc(n)} · ${reais(v)}</option>`).join('')}</select></label>
     <label class="campo">Produto do estoque<select name="prod"><option value="">Escolher…</option>${db.estoque.filter((x) => x.qtd > 0).map((x) => `<option value="${x.id}">${esc(x.nome)} · ${reais(x.preco)}</option>`).join('')}</select></label>
+    <div class="largo avulso"><label class="campo">Outro item (escreva)<input name="av_nome" placeholder="Ex.: Curativo"></label><label class="campo">Valor (R$)<input name="av_valor" inputmode="decimal" placeholder="0,00"></label><button type="button" class="bt" data-avulso>Pôr na conta</button></div>
     <div class="largo" data-itens></div>
     <label class="campo">Desconto (R$)<input name="desc" inputmode="decimal" value="0"></label><label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label>
-    <label class="campo largo">Quem atendeu (para a comissão)<select name="vet"><option value="">Ninguém (venda de balcão)</option>${db.vets.map((v) => `<option ${v === profissionalPadrao(petSel, itensIniciais) ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select></label></div>`, '<button class="bt bt-pri">Receber</button>');
+    <label class="campo largo">Quem atendeu (para a comissão)<input name="vet" list="lista-vets" placeholder="Em branco = ninguém" value="${esc(profissionalPadrao(petSel, itensIniciais) || '')}"><datalist id="lista-vets">${db.vets.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label></div>`, '<button class="bt bt-pri">Receber</button>');
   const lista = f.querySelector('[data-itens]');
   const soma = () => itens.reduce((s, i) => s + i.valor * i.qtd, 0) - (num(f.desc.value) || 0);
   const desenhaItens = () => { lista.innerHTML = itens.length ? `<table class="tabela">${itens.map((i, k) => `<tr><td>${esc(i.nome)}</td><td class="num">${reais(i.valor)}</td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar="${k}">Tirar</button></td></tr>`).join('')}<tr><td><b>Total</b></td><td class="num"><b>${reais(soma())}</b></td><td></td></tr></table>` : '<p class="vazio" style="padding:8px">Escolha os serviços e produtos acima.</p>'; const pl = contratosDo(f.pet.value).find((x) => x.tipo === 'plano'); if (pl && itens.length) lista.insertAdjacentHTML('beforeend', `<p class="nota">${esc(pet(f.pet.value).nome)} tem o ${esc(pl.nome)}: ${pl.desconto}% de desconto. <button type="button" class="bt bt-peq" data-desc-plano="${pl.desconto}">Aplicar ${reais(itens.reduce((s, i) => s + i.valor * i.qtd, 0) * pl.desconto / 100)} de desconto</button></p>`); };
@@ -638,6 +660,7 @@ function abrirCobrar(petSel, itensIniciais = []) {
   f.serv.onchange = () => { if (f.serv.value === '') return; const [n, v] = servicos()[Number(f.serv.value)]; itens.push({ nome: n, valor: v, qtd: 1 }); f.serv.value = ''; desenhaItens(); };
   f.prod.onchange = () => { const x = db.estoque.find((y) => y.id === f.prod.value); if (!x) return; itens.push({ nome: x.nome, valor: x.preco, qtd: 1, item: x.id }); f.prod.value = ''; desenhaItens(); };
   f.desc.oninput = desenhaItens;
+  f.querySelector('[data-avulso]').onclick = () => { const n = f.av_nome.value.trim(), v = num(f.av_valor.value); if (!n || !(v > 0)) return avisar('Escreva o item e o valor.'); itens.push({ nome: n, valor: v, qtd: 1 }); f.av_nome.value = ''; f.av_valor.value = ''; desenhaItens(); };
   lista.onclick = (e) => { const b = e.target.closest('[data-tirar]'); if (b) { itens.splice(Number(b.dataset.tirar), 1); desenhaItens(); } const dp = e.target.closest('[data-desc-plano]'); if (dp) { f.desc.value = (itens.reduce((s, i) => s + i.valor * i.qtd, 0) * Number(dp.dataset.descPlano) / 100).toFixed(2).replace('.', ','); desenhaItens(); } };
   const a = !itensIniciais.length && petSel && db.agenda.find((x) => x.pet === petSel && x.data === hoje()); // o atendimento de hoje já entra na conta
   if (a && a.valor) itens.push({ nome: a.tipo === 'Consulta' ? 'Consulta clínica' : a.tipo, valor: a.valor, qtd: 1 });
@@ -647,20 +670,20 @@ function abrirCobrar(petSel, itensIniciais = []) {
     const fiado = f.forma.value.startsWith('Fiado'); if (fiado && !f.pet.value) return avisar('Fiado precisa de um pet (para saber quem deve).');
     for (const i of itens) if (i.item) { const x = db.estoque.find((y) => y.id === i.item); if (x) x.qtd = Math.max(0, x.qtd - 1); }
     const desc = num(f.desc.value) || 0, lin = itens.map(({ nome, valor, qtd }) => ({ nome, valor, qtd })); if (desc > 0) lin.push({ nome: 'Desconto', valor: -desc, qtd: 1 });
-    db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: f.pet.value || null, itens: lin, forma: f.forma.value, recebido: !fiado, vet: f.vet.value });
+    db.vendas.push({ id: uid(), data: hoje(), hora: horaAgora(), pet: f.pet.value || null, itens: lin, forma: f.forma.value, recebido: !fiado, vet: f.vet.value.trim() });
     salvar(); fecharJanela(); avisar(fiado ? `Anotado no fiado: ${reais(soma())}.` : `Recebido: ${reais(soma())} no ${f.forma.value}.`); desenhar();
   };
 }
 function abrirInternar(id) {
-  if (!id) { const f0 = janela('Internar', `<label class="campo">Pet<select name="pet">${opcoesPets(est.sel)}</select></label>`, '<button class="bt bt-pri">Continuar</button>'); f0.onsubmit = (e) => { e.preventDefault(); abrirInternar(f0.pet.value); }; return; }
+  if (!id) { const f0 = janela('Internar', `<label class="campo">Pet${campoPet(est.sel)}</label>`, '<button class="bt bt-pri">Continuar</button>'); f0.onsubmit = (e) => { e.preventDefault(); abrirInternar(f0.pet.value); }; return; }
   const livres = ['Baia 1', 'Baia 2', 'Baia 3', 'Baia 4', 'Baia 5'].filter((b) => !db.internados.some((i) => i.baia === b));
-  if (!livres.length) return avisar('Todas as baias estão ocupadas.');
-  const f = janela(`Internar ${esc(pet(id).nome)}`, `<div class="grade-campos"><label class="campo">Baia<select name="baia">${livres.map((b) => `<option>${b}</option>`).join('')}</select></label>
+
+  const f = janela(`Internar ${esc(pet(id).nome)}`, `<div class="grade-campos"><label class="campo">Baia<input name="baia" list="lista-baias" value="${esc(livres[0] || '')}" placeholder="Ex.: Baia 6"><datalist id="lista-baias">${livres.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label>
     <label class="campo">Primeira medicação às<input name="hora" type="time" value="${horaAgora()}"></label><label class="campo largo">Motivo<input name="motivo"></label><label class="campo largo">Medicação<input name="remedio" placeholder="Ex.: Soro fisiológico 500 ml IV"></label></div>`, '<button class="bt bt-pri">Internar</button>');
   f.onsubmit = (e) => {
-    e.preventDefault(); if (!f.motivo.value.trim()) return avisar('Informe o motivo.');
-    db.internados.push({ id: uid(), pet: id, baia: f.baia.value, motivo: f.motivo.value.trim(), entrada: hoje(), doses: f.remedio.value.trim() ? [{ hora: f.hora.value, remedio: f.remedio.value.trim(), feita: false }] : [] });
-    salvar(); fecharJanela(); est.secao = 'internacao'; avisar(`${pet(id).nome} internado(a) na ${f.baia.value}.`); desenhar();
+    e.preventDefault(); if (!f.motivo.value.trim() || !f.baia.value.trim()) return avisar('Informe a baia e o motivo.'); if (db.internados.some((i) => sem(i.baia) === sem(f.baia.value))) return avisar(`A ${f.baia.value.trim()} já está ocupada.`);
+    db.internados.push({ id: uid(), pet: id, baia: f.baia.value.trim(), motivo: f.motivo.value.trim(), entrada: hoje(), doses: f.remedio.value.trim() ? [{ hora: f.hora.value, remedio: f.remedio.value.trim(), feita: false }] : [] });
+    salvar(); fecharJanela(); est.secao = 'internacao'; avisar(`${pet(id).nome} internado(a) na ${f.baia.value.trim()}.`); desenhar();
   };
 }
 function abrirNovaDose(idInt) {
@@ -668,11 +691,11 @@ function abrirNovaDose(idInt) {
   f.onsubmit = (e) => { e.preventDefault(); if (!f.hora.value || !f.remedio.value.trim()) return avisar('Preencha horário e medicação.'); const i = db.internados.find((x) => x.id === idInt); i.doses.push({ hora: f.hora.value, remedio: f.remedio.value.trim(), feita: false }); i.doses.sort((a, b) => a.hora.localeCompare(b.hora)); salvar(); fecharJanela(); desenhar(); };
 }
 function abrirBanho(petSel) {
-  const f = janela('Banho e tosa', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo">Serviço<select name="serv"><option>Banho</option><option>Banho e tosa</option><option>Tosa higiênica</option></select></label><label class="campo">Chegou às<input name="hora" type="time" value="${horaAgora()}"></label><label class="campo largo">Observações<input name="obs" placeholder="Tipo de tosa, shampoo, laço..."></label></div>`, '<button class="bt bt-pri">Dar entrada</button>');
-  f.onsubmit = (e) => { e.preventDefault(); db.estetica.push({ id: uid(), data: hoje(), hora: f.hora.value, pet: f.pet.value, servico: f.serv.value, status: 'aguardando', obs: f.obs.value.trim() }); salvar(); fecharJanela(); est.secao = 'estetica'; desenhar(); };
+  const f = janela('Banho e tosa', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(petSel)}</label><label class="campo">Serviço<input name="serv" list="lista-banho" value="Banho"><datalist id="lista-banho"><option value="Banho"><option value="Banho e tosa"><option value="Tosa higiênica"><option value="Hidratação"></datalist></label><label class="campo">Chegou às<input name="hora" type="time" value="${horaAgora()}"></label><label class="campo largo">Observações<input name="obs" placeholder="Tipo de tosa, shampoo, laço..."></label></div>`, '<button class="bt bt-pri">Dar entrada</button>');
+  f.onsubmit = (e) => { e.preventDefault(); if (!f.serv.value.trim()) return avisar('Escreva o serviço.'); db.estetica.push({ id: uid(), data: hoje(), hora: f.hora.value || horaAgora(), pet: f.pet.value, servico: f.serv.value.trim(), status: 'aguardando', obs: f.obs.value.trim() }); salvar(); fecharJanela(); est.secao = 'estetica'; desenhar(); };
 }
 function abrirPedirExame(petSel) {
-  const f = janela('Pedir exame', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo largo">Exame<input name="nome" list="lista-exames" placeholder="Escolha ou escreva o exame"><datalist id="lista-exames">${EXAMES.map((x) => `<option value="${x}">`).join('')}</datalist></label><label class="campo largo">Laboratório<input name="lab" value="Laboratório VetLab"></label></div>`, '<button class="bt bt-pri">Pedir</button>');
+  const f = janela('Pedir exame', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(petSel)}</label><label class="campo largo">Exame<input name="nome" list="lista-exames" placeholder="Escolha ou escreva o exame"><datalist id="lista-exames">${EXAMES.map((x) => `<option value="${x}">`).join('')}</datalist></label><label class="campo largo">Laboratório<input name="lab" value="Laboratório VetLab"></label></div>`, '<button class="bt bt-pri">Pedir</button>');
   f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Escreva o nome do exame.'); db.exames.push({ id: uid(), pet: f.pet.value, nome: f.nome.value.trim(), data: hoje(), status: 'solicitado', resultado: '', lab: f.lab.value.trim() || 'Laboratório' }); salvar(); fecharJanela(); avisar('Exame pedido.'); desenhar(); };
 }
 function abrirResultado(idEx) {
@@ -690,16 +713,16 @@ function abrirEntrada(idItem) {
   f.onsubmit = (e) => { e.preventDefault(); const q = Math.round(Number(f.qtd.value)); if (!(q > 0)) return avisar('Quantidade inválida.'); x.qtd += q; x.custo = num(f.custo.value) ?? x.custo; x.lote = f.lote.value.trim() || x.lote; x.validade = f.val.value || x.validade; salvar(); fecharJanela(); avisar(`+${q} ${x.nome}.`); desenhar(); };
 }
 function abrirNovoItem() {
-  const f = janela('Novo item no estoque', `<div class="grade-campos"><label class="campo largo">Nome<input name="nome"></label><label class="campo">Tipo<select name="tipo"><option>Vacina</option><option>Medicamento</option><option>Insumo</option><option>Produto</option></select></label>
+  const f = janela('Novo item no estoque', `<div class="grade-campos"><label class="campo largo">Nome<input name="nome"></label><label class="campo">Tipo<input name="tipo" list="lista-tipo-item" value="Medicamento"><datalist id="lista-tipo-item"><option value="Vacina"><option value="Medicamento"><option value="Insumo"><option value="Produto"></datalist></label>
     <label class="campo">Quantidade<input name="qtd" type="number" min="0" value="0"></label><label class="campo">Mínimo<input name="min" type="number" min="0" value="5"></label><label class="campo">Custo (R$)<input name="custo" inputmode="decimal" value="0"></label><label class="campo">Preço de venda (R$)<input name="preco" inputmode="decimal" value="0"></label>
     <label class="campo">Lote<input name="lote"></label><label class="campo">Validade<input name="val" type="date" value="${maisDias(hoje(), 365)}"></label></div>`, '<button class="bt bt-pri">Salvar</button>');
-  f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome.'); db.estoque.push({ id: uid(), nome: f.nome.value.trim(), tipo: f.tipo.value, qtd: Number(f.qtd.value) || 0, minimo: Number(f.min.value) || 0, lote: f.lote.value.trim() || '—', validade: f.val.value, preco: num(f.preco.value) || 0, custo: num(f.custo.value) || 0 }); salvar(); fecharJanela(); desenhar(); };
+  f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome.'); db.estoque.push({ id: uid(), nome: f.nome.value.trim(), tipo: f.tipo.value.trim() || 'Produto', qtd: Number(f.qtd.value) || 0, minimo: Number(f.min.value) || 0, lote: f.lote.value.trim() || '—', validade: f.val.value, preco: num(f.preco.value) || 0, custo: num(f.custo.value) || 0 }); salvar(); fecharJanela(); desenhar(); };
 }
 
 
 function abrirTutor(id) {
   const t = id ? db.tutores.find((x) => x.id === id) : null;
-  const f = janela(t ? `Editar ${esc(t.nome)}` : 'Novo tutor', `<div class="grade-campos"><label class="campo largo">Nome completo<input name="nome" value="${esc(t?.nome || '')}"></label><label class="campo">WhatsApp<input name="tel" inputmode="tel" value="${esc(telBR(t?.tel || ''))}" placeholder="(16) 99999-9999"></label><label class="campo">CPF<input name="cpf" value="${esc(t?.cpf || '')}"></label><label class="campo largo">Endereço<input name="end" value="${esc(t?.end || '')}"></label><label class="campo largo">E-mail<input name="email" type="email" value="${esc(t?.email || '')}"></label></div>`, `<button class="bt bt-pri">${t ? 'Salvar' : 'Cadastrar'}</button>`);
+  const f = janela(t ? `Editar ${esc(t.nome)}` : 'Novo tutor', `<div class="grade-campos"><label class="campo largo">Nome completo<input name="nome" value="${esc(t?.nome || '')}"></label><label class="campo">WhatsApp<input name="tel" inputmode="tel" value="${esc(telBR(t?.tel || ''))}" placeholder="(00) 90000-0000"></label><label class="campo">CPF<input name="cpf" value="${esc(t?.cpf || '')}"></label><label class="campo largo">Endereço<input name="end" value="${esc(t?.end || '')}"></label><label class="campo largo">E-mail<input name="email" type="email" value="${esc(t?.email || '')}"></label></div>`, `<button class="bt bt-pri">${t ? 'Salvar' : 'Cadastrar'}</button>`);
   f.onsubmit = (e) => {
     e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome do tutor.');
     const dados = { nome: f.nome.value.trim(), tel: soDigitos(f.tel.value), cpf: f.cpf.value.trim(), end: f.end.value.trim(), email: f.email.value.trim() };
@@ -708,7 +731,7 @@ function abrirTutor(id) {
   };
 }
 function abrirVacinaManual(petSel) {
-  const f = janela('Registrar vacina', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo largo">Vacina ou vermífugo<input name="nome" list="lista-vacinas" placeholder="Ex.: V10, Antirrábica, V5 felina"><datalist id="lista-vacinas">${['V10 (polivalente)', 'V8 (polivalente)', 'Antirrábica', 'Gripe canina', 'Giardíase', 'Leishmaniose', 'V3 felina', 'V4 felina', 'V5 felina', 'Vermífugo'].map((x) => `<option value="${x}">`).join('')}</datalist></label>
+  const f = janela('Registrar vacina', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(petSel)}</label><label class="campo largo">Vacina ou vermífugo<input name="nome" list="lista-vacinas" placeholder="Ex.: V10, Antirrábica, V5 felina"><datalist id="lista-vacinas">${['V10 (polivalente)', 'V8 (polivalente)', 'Antirrábica', 'Gripe canina', 'Giardíase', 'Leishmaniose', 'V3 felina', 'V4 felina', 'V5 felina', 'Vermífugo'].map((x) => `<option value="${x}">`).join('')}</datalist></label>
     <label class="campo">Aplicada em<input name="data" type="date" value="${hoje()}"></label><label class="campo">Próxima dose<input name="prox" type="date" value="${maisDias(hoje(), 365)}"></label><label class="campo">Lote<input name="lote"></label><label class="campo">Onde foi aplicada<select name="onde"><option value="aqui">Aqui na clínica (sem baixar estoque)</option><option value="fora">Em outra clínica</option></select></label></div>
     <p class="nota">Use para vacinas antigas da carteirinha ou aplicadas em outro lugar. Para aplicar agora e baixar do estoque, use "Registrar vacina aplicada" na ficha do pet.</p>`, '<button class="bt bt-pri">Registrar</button>');
   f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Escreva o nome da vacina.'); db.vacinas.push({ id: uid(), pet: f.pet.value, nome: f.nome.value.trim() + (f.onde.value === 'fora' ? ' (outra clínica)' : ''), data: f.data.value, proxima: f.prox.value || null, lote: f.lote.value.trim() || '—' }); salvar(); fecharJanela(); avisar('Vacina registrada.'); desenhar(); };
@@ -733,13 +756,12 @@ function registrarAviso(x, auto) {
 }
 function telaAvisos() {
   const c = db.config.avisos, fila = filaAvisos(), env = db.avisosEnviados.slice(-40).reverse();
-  const dias = (n, nome) => [0, 1, 2, 3, 7, 15].map((d) => `<option value="${d}" ${c[nome] === d ? 'selected' : ''}>${d ? `${d} dia${d > 1 ? 's' : ''} antes` : 'Não avisar'}</option>`).join('');
   return `<div class="cab"><div><h1>Avisos automáticos</h1><p>${c.ligado ? `Ligado · os avisos do dia saem às ${c.hora} pelo WhatsApp da clínica` : 'Desligado · nenhum aviso sai sozinho'}</p></div><div class="acoes"><button class="bt" data-ligar-avisos>${c.ligado ? 'Desligar' : 'Ligar'}</button>${fila.length && c.ligado ? `<button class="bt bt-pri" data-simular-envio>Simular o envio de hoje (${fila.length})</button>` : ''}</div></div>
     <p class="nota aviso-demo">Na versão de verdade estes avisos saem sozinhos, sem ninguém clicar, pela API oficial do WhatsApp (a Meta cobra alguns centavos por mensagem). Nesta demonstração você vê a fila do dia, pode mandar um por um pelo seu WhatsApp ou simular o envio automático.</p>
     <div class="duas"><section class="cartao"><div class="cartao-cab"><h2>Na fila de hoje</h2><span class="selo selo-aguardando">${fila.length}</span></div>${fila.length ? `<ul class="lista-avisos">${fila.map((x, i) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet).nome)} · ${TIPO_AVISO[x.tipo]}</b><p>${esc(x.texto)}</p></div><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" data-enviar-aviso="${i}" href="${zap(x.tel, x.texto)}">Enviar</a></li>`).join('')}</ul>` : '<p class="vazio">Nada para avisar hoje. Tudo em dia.</p>'}</section>
     <section class="cartao"><div class="cartao-cab"><h2>Já enviados</h2></div>${env.length ? `<ul class="lista-avisos">${env.map((x) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet)?.nome || '—')} · ${TIPO_AVISO[x.tipo]}</b><small>${dataBR(x.data)} às ${x.hora} · ${x.auto ? 'envio automático (simulação)' : 'mandado pelo WhatsApp'}</small></div></li>`).join('')}</ul>` : '<p class="vazio">Nenhum aviso enviado ainda.</p>'}</section></div>
     <section class="cartao" style="margin-top:18px"><div class="cartao-cab"><h2>Quando e o que avisar</h2></div><div class="cartao-corpo"><form class="cfg-form" data-salvar-cfg="avisos"><div class="grade-campos">
-      <label class="campo">Horário de envio<input name="hora" type="time" value="${c.hora}"></label><label class="campo">Vacina vencendo<select name="vacina">${dias(0, 'vacina')}</select></label><label class="campo">Lembrete de consulta, retorno e banho<select name="consulta">${dias(0, 'consulta')}</select></label>
+      <label class="campo">Horário de envio<input name="hora" type="time" value="${c.hora}"></label><label class="campo">Avisar vacina quantos dias antes (0 = não avisa)<input name="vacina" type="number" min="0" max="60" inputmode="numeric" value="${c.vacina}"></label><label class="campo">Lembrar consulta, retorno e banho quantos dias antes (0 = não avisa)<input name="consulta" type="number" min="0" max="15" inputmode="numeric" value="${c.consulta}"></label>
       <fieldset class="campo escolhas"><legend>Também avisar</legend><label><input type="checkbox" name="aniversario" ${c.aniversario ? 'checked' : ''}> Aniversário do pet</label><label><input type="checkbox" name="exame" ${c.exame ? 'checked' : ''}> Resultado de exame pronto</label></fieldset>
       ${Object.keys(MODELOS_AVISO).map((k) => `<label class="campo largo">Mensagem · ${TIPO_AVISO[k]}<textarea name="m_${k}">${esc(c.modelos[k] || MODELOS_AVISO[k])}</textarea></label>`).join('')}</div>
       <p class="nota">Palavras trocadas na hora do envio: {tutor}, {pet}, {clinica}, {vacina}, {situacao}, {tipo}, {data}, {dia}, {hora} e {exame}.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form></div></section>`;
@@ -759,7 +781,7 @@ function telaPacotes() {
     <h2 class="sub-tit" style="margin-top:24px">O que a clínica oferece</h2><div class="modelos">${db.config.pacotes.map((m) => `<article class="modelo"><span class="selo ${m.tipo === 'plano' ? 'selo-atendimento' : 'selo-chegou'}">${m.tipo === 'plano' ? 'Plano mensal' : 'Pacote'}</span><h3>${esc(m.nome)}</h3><b class="preco">${reais(m.valor)}${m.tipo === 'plano' ? '<small>/mês</small>' : ''}</b><p>${m.tipo === 'plano' ? esc(m.inclui) : `${m.qtd}× ${esc(m.servico)} · vale ${m.dias} dias · sai a ${reais(m.valor / m.qtd)} cada`}</p><div class="acoes"><button class="bt bt-peq bt-pri" data-vender-pacote="${m.id}">Vender</button><button class="bt bt-peq bt-perigo" data-tirar-modelo="${m.id}">Tirar</button></div></article>`).join('')}</div>`;
 }
 function abrirVenderPacote(idModelo) {
-  const f = janela('Vender pacote ou plano', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(est.sel)}</select></label><label class="campo largo">Pacote ou plano<select name="modelo">${db.config.pacotes.map((m) => `<option value="${m.id}" ${m.id === idModelo ? 'selected' : ''}>${esc(m.nome)} · ${reais(m.valor)}${m.tipo === 'plano' ? ' por mês' : ''}</option>`).join('')}</select></label>
+  const f = janela('Vender pacote ou plano', `<div class="grade-campos"><label class="campo largo">Pet${campoPet(est.sel)}</label><label class="campo largo">Pacote ou plano<select name="modelo">${db.config.pacotes.map((m) => `<option value="${m.id}" ${m.id === idModelo ? 'selected' : ''}>${esc(m.nome)} · ${reais(m.valor)}${m.tipo === 'plano' ? ' por mês' : ''}</option>`).join('')}</select></label>
     <label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label></div><p class="nota">O pacote é pago agora e cada uso é descontado. No plano, a primeira mensalidade é cobrada agora e a próxima fica marcada para daqui a 30 dias.</p>`, '<button class="bt bt-pri">Vender e receber</button>');
   f.onsubmit = (e) => {
     e.preventDefault(); const m = db.config.pacotes.find((x) => x.id === f.modelo.value), h = hoje(); if (!m) return;
@@ -772,13 +794,13 @@ function abrirVenderPacote(idModelo) {
 }
 function abrirNovoModelo() {
   const f = janela('Criar pacote ou plano', `<div class="grade-campos"><label class="campo">Tipo<select name="tipo"><option value="pacote">Pacote (ex.: 4 banhos)</option><option value="plano">Plano mensal</option></select></label><label class="campo">Nome<input name="nome" placeholder="Ex.: 8 banhos"></label>
-    <label class="campo" data-so="pacote">Serviço<select name="servico">${servicos().map(([n]) => `<option>${esc(n)}</option>`).join('')}</select></label><label class="campo" data-so="pacote">Quantidade<input name="qtd" type="number" min="1" value="4"></label><label class="campo" data-so="pacote">Vale por (dias)<input name="dias" type="number" min="1" value="60"></label>
+    <label class="campo" data-so="pacote">Serviço<input name="servico" list="lista-servicos" value="Banho"><datalist id="lista-servicos">${servicos().map(([n]) => n).map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label><label class="campo" data-so="pacote">Quantidade<input name="qtd" type="number" min="1" value="4"></label><label class="campo" data-so="pacote">Vale por (dias)<input name="dias" type="number" min="1" value="60"></label>
     <label class="campo" data-so="plano" hidden>Desconto nos serviços (%)<input name="desconto" inputmode="decimal" value="10"></label><label class="campo largo" data-so="plano" hidden>O que inclui<input name="inclui" placeholder="Ex.: 1 consulta por mês e 10% de desconto"></label>
     <label class="campo">Preço (R$)<input name="valor" inputmode="decimal"></label></div>`, '<button class="bt bt-pri">Criar</button>');
   f.tipo.onchange = () => f.querySelectorAll('[data-so]').forEach((x) => { x.hidden = x.dataset.so !== f.tipo.value; });
   f.onsubmit = (e) => {
     e.preventDefault(); const valor = num(f.valor.value); if (!f.nome.value.trim() || !(valor > 0)) return avisar('Preencha o nome e o preço.');
-    db.config.pacotes.push(f.tipo.value === 'plano' ? { id: uid(), tipo: 'plano', nome: f.nome.value.trim(), valor, desconto: num(f.desconto.value) || 0, inclui: f.inclui.value.trim() || `${num(f.desconto.value) || 0}% de desconto nos serviços` } : { id: uid(), tipo: 'pacote', nome: f.nome.value.trim(), servico: f.servico.value, qtd: Math.max(1, Math.round(Number(f.qtd.value)) || 1), valor, dias: Math.max(1, Math.round(Number(f.dias.value)) || 60) });
+    db.config.pacotes.push(f.tipo.value === 'plano' ? { id: uid(), tipo: 'plano', nome: f.nome.value.trim(), valor, desconto: num(f.desconto.value) || 0, inclui: f.inclui.value.trim() || `${num(f.desconto.value) || 0}% de desconto nos serviços` } : { id: uid(), tipo: 'pacote', nome: f.nome.value.trim(), servico: f.servico.value.trim() || 'Banho', qtd: Math.max(1, Math.round(Number(f.qtd.value)) || 1), valor, dias: Math.max(1, Math.round(Number(f.dias.value)) || 60) });
     salvar(); fecharJanela(); avisar('Criado. Já dá para vender.'); desenhar();
   };
 }
@@ -822,10 +844,10 @@ function imprimirNFSe(v) {
 function abrirReceitaControle(idPet, idPr) {
   const p = pet(idPet), pr = db.prontuarios.find((x) => x.id === idPr);
   const f = janela(`Receita de controle especial · ${esc(p.nome)}`, `<div class="grade-campos"><label class="campo largo">Medicamento e concentração<input name="med" placeholder="Ex.: Tramadol 50 mg"></label><label class="campo">Quantidade (número e por extenso)<input name="qtd" placeholder="Ex.: 10 (dez) comprimidos"></label>
-    <label class="campo">Veterinário<select name="vet">${db.vets.filter((v) => v.startsWith('Dr')).map((v) => `<option ${v === pr?.vet ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select></label><label class="campo largo">Modo de usar<textarea name="uso" placeholder="Dose, horário e por quantos dias">${esc(pr?.prescricao || '')}</textarea></label></div>
+    <label class="campo">Veterinário<input name="vet" list="lista-vets" value="${esc(pr?.vet || db.vets.find((v) => v.startsWith('Dr')) || '')}"><datalist id="lista-vets">${db.vets.map((x) => `<option value="${esc(x)}">`).join('')}</datalist></label><label class="campo largo">Modo de usar<textarea name="uso" placeholder="Dose, horário e por quantos dias">${esc(pr?.prescricao || '')}</textarea></label></div>
     <p class="nota">Sai em duas vias: a 1ª fica na farmácia e a 2ª com o tutor. A farmácia preenche a parte do comprador e do fornecedor.</p>`, '<button class="bt bt-pri">Imprimir as duas vias</button>');
   f.onsubmit = (e) => {
-    e.preventDefault(); if (!f.med.value.trim() || !f.qtd.value.trim() || !f.uso.value.trim()) return avisar('Preencha o medicamento, a quantidade e o modo de usar.');
+    e.preventDefault(); if (!f.med.value.trim() || !f.qtd.value.trim() || !f.uso.value.trim() || !f.vet.value.trim()) return avisar('Preencha o medicamento, a quantidade e o modo de usar.');
     const t = tutorDe(p), c = db.config, linha = (r) => `<tr><td style="width:38%">${r}</td><td>&nbsp;</td></tr>`;
     const via = (n, quem) => `<section style="border:1.5px solid #214e45;border-radius:8px;padding:16px 18px;margin-bottom:22px;page-break-inside:avoid"><h2 style="margin-top:0">Receituário de controle especial · ${n}ª via (${quem})</h2>
       <table><tr><th colspan="2">Identificação do emitente</th></tr><tr><td>Nome</td><td>${esc(f.vet.value)}</td></tr><tr><td>CRMV</td><td>${esc(c.crmv)}</td></tr><tr><td>Endereço</td><td>${esc(db.clinica)} · ${esc(c.endereco)} · ${esc(c.cidade)}</td></tr><tr><td>Telefone</td><td>${esc(telBR(c.telefone))}</td></tr></table>
@@ -877,12 +899,12 @@ function confirmarPedido(id) {
   const vet = opcoes.find((v) => !db.agenda.some((a) => a.data === x.data && a.hora === x.hora && a.vet === v)) || opcoes[0] || db.vets[0];
   db.agenda.push({ id: uid(), data: x.data, hora: x.hora, pet: p.id, tipo: x.tipo, vet, status: 'aguardando', valor: TIPOS[x.tipo] ?? 0 });
   x.status = 'confirmado'; salvar(); desenhar(); avisar(`Confirmado: ${p.nome} em ${dataBR(x.data)} às ${x.hora} com ${vet}.`);
-  window.open(zap(x.tel, `Olá, ${primeiro(x.nome)}! Seu pedido está confirmado: ${x.tipo} do(a) ${x.pet} na ${db.clinica} em ${dataBR(x.data)} (${diaSemana(x.data, 'long')}) às ${x.hora}. Até lá!`), '_blank', 'noopener');
+  simularZap(zap(x.tel, `Olá, ${primeiro(x.nome)}! Seu pedido está confirmado: ${x.tipo} do(a) ${x.pet} na ${db.clinica} em ${dataBR(x.data)} (${diaSemana(x.data, 'long')}) às ${x.hora}. Até lá!`));
 }
 function recusarPedido(id) {
   const x = db.pedidos.find((y) => y.id === id); if (!confirm(`Recusar o pedido de ${x.nome}?`)) return;
   x.status = 'recusado'; salvar(); desenhar();
-  window.open(zap(x.tel, `Olá, ${primeiro(x.nome)}! Aqui é da ${db.clinica}. Infelizmente não temos ${x.hora} livre em ${dataBR(x.data)}. Podemos ver outro horário para o(a) ${x.pet}?`), '_blank', 'noopener');
+  simularZap(zap(x.tel, `Olá, ${primeiro(x.nome)}! Aqui é da ${db.clinica}. Infelizmente não temos ${x.hora} livre em ${dataBR(x.data)}. Podemos ver outro horário para o(a) ${x.pet}?`));
 }
 function abrirLinkAgenda() {
   const url = linkAgendar(), msg = `Agora dá para marcar horário na ${db.clinica} pelo celular, a qualquer hora: ${url}`;
@@ -890,6 +912,22 @@ function abrirLinkAgenda() {
     ${db.config.agendaOnline.ligado ? '' : '<p class="nota">O agendamento online está desligado. Ligue em Configurações · Agendamento online.</p>'}`, `<a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página</a><a class="bt bt-zap" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">Mandar no WhatsApp</a><button class="bt bt-pri">Copiar link</button>`);
   f.onsubmit = async (e) => { e.preventDefault(); try { await navigator.clipboard.writeText(url); avisar('Link copiado.'); } catch { f.link.select(); avisar('Selecionei o link: é só copiar.'); } };
 }
+
+// ---------------------------------------------------------------- WHATSAPP SIMULADO (demonstração: nada sai de verdade)
+function simularZap(url) {
+  const u = new URL(url), tel = u.pathname.replace(/\D/g, '').replace(/^55/, ''), msg = u.searchParams.get('text') || '';
+  const t = db.tutores.find((x) => soDigitos(x.tel) === tel);
+  let el = $('#zap-sim');
+  if (!el) { el = document.createElement('div'); el.id = 'zap-sim'; el.className = 'zap-fundo'; document.body.append(el); el.addEventListener('click', (e) => { if (e.target === el || e.target.closest('[data-fechar-zap]')) el.hidden = true; }); }
+  el.innerHTML = `<div class="zap" role="dialog" aria-modal="true" aria-label="Simulação do WhatsApp"><div class="zap-cab"><span class="zap-foto">${esc((t?.nome || '?')[0])}</span><span><b>${esc(t?.nome || (tel ? telBR(tel) : 'Escolher contato'))}</b><small>${tel ? `${esc(telBR(tel))} · número de exemplo` : 'você escolhe para quem mandar'}</small></span><button type="button" class="fechar" data-fechar-zap aria-label="Fechar">×</button></div>
+    <div class="zap-conversa"><div class="zap-msg">${esc(msg).replace(/\n/g, '<br>')}<span class="zap-hora">${horaAgora()} <span aria-label="entregue">✓✓</span></span></div></div>
+    <p class="zap-nota"><b>Simulação.</b> Nada foi enviado. No sistema de verdade esta mensagem abre pronta no WhatsApp da clínica, é só tocar em enviar.</p>
+    <div class="zap-pe"><button type="button" class="bt" data-copiar-zap>Copiar mensagem</button><button type="button" class="bt bt-pri" data-fechar-zap>Fechar</button></div></div>`;
+  el.hidden = false; el.querySelector('.zap .bt-pri').focus();
+  el.querySelector('[data-copiar-zap]').onclick = async () => { try { await navigator.clipboard.writeText(msg); avisar('Mensagem copiada.'); } catch { avisar('Não deu para copiar neste navegador.'); } };
+}
+// qualquer link de WhatsApp da demonstração abre a simulação
+document.addEventListener('click', (e) => { const l = e.target.closest('a[href*="wa.me/"]'); if (!l) return; e.preventDefault(); simularZap(l.href); }, true);
 
 // ---------------------------------------------------------------- desenho e cliques
 function desenhar() {
@@ -972,13 +1010,20 @@ document.addEventListener('submit', (e) => {
   if (f.matches('[data-salvar-cfg]')) { e.preventDefault(); return salvarConfig(f); }
   if (f.matches('[data-ia-form]')) { e.preventDefault(); const q = f.q.value; f.q.value = ''; perguntar(q); }
 });
+document.addEventListener('input', (e) => {
+  if (!e.target.matches('[data-pet-busca]')) return;
+  const f = e.target.form, p = acharPet(e.target.value), antes = f.pet.value;
+  f.pet.value = p ? p.id : '';
+  if (p && e.target.value !== rotuloPet(p) && sem(e.target.value) === sem(rotuloPet(p))) e.target.value = rotuloPet(p);
+  if (f.pet.value !== antes) f.pet.dispatchEvent(new Event('change'));
+});
 document.addEventListener('change', (e) => {
   if (e.target.name === 'modo' && e.target.closest('[data-salvar-cfg="ia"]')) e.target.form.querySelector('[data-propria]').hidden = e.target.value !== 'propria';
   if (e.target.matches('[data-anexar]')) { const x = db.exames.find((y) => y.id === e.target.dataset.anexar); lerAnexo(e.target.files[0]).then((an) => { x.anexos.push(an); salvar(); avisar(`Arquivo anexado ao exame ${x.nome}.`); desenhar(); }).catch((er) => avisar(er.message)); return; }
   if (e.target.matches('[data-voltar-copia]')) { const r = new FileReader(); r.onload = () => { try { const n = JSON.parse(r.result); if (!n.pets || !n.tutores) throw 0; db = completar(n); salvar(); avisar('Cópia de segurança restaurada.'); desenhar(); } catch { avisar('Esse arquivo não é uma cópia do VetNature.'); } }; r.readAsText(e.target.files[0]); }
 });
 $('#janela').addEventListener('click', (e) => { if (e.target.id === 'janela') fecharJanela(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#janela').hidden) fecharJanela(); });
+document.addEventListener('keydown', (e) => { if (e.key !== 'Escape') return; const z = $('#zap-sim'); if (z && !z.hidden) { z.hidden = true; return; } if (!$('#janela').hidden) fecharJanela(); });
 $('#busca').addEventListener('input', (e) => { est.busca = e.target.value; est.secao = 'pacientes'; const l = db.pets.filter((p) => `${p.nome} ${tutorDe(p)?.nome}`.toLowerCase().includes(est.busca.toLowerCase())); est.sel = l.length === 1 ? l[0].id : est.sel; desenhar(); });
 // pedido feito na página do tutor (outra aba) aparece na hora
 addEventListener('storage', (e) => { if (e.key === FILA_PEDIDOS && e.newValue && trazerPedidos()) { avisar('Chegou um pedido de agendamento pelo link.'); desenhar(); } });
