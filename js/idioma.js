@@ -242,6 +242,8 @@
   }
   function frase(el) {
     if (el.brFrase || !el.firstElementChild || EM_LINHA[el.nodeName] && EM_LINHA[el.parentNode && el.parentNode.nodeName]) return false;
+    // menu ou lista de links não é frase: cada link se traduz sozinho
+    if (el.nodeName === 'NAV' || el.querySelectorAll('a, button').length > 1) return false;
     var fs = folhas(el);
     if (!fs) return false;
     var comTexto = fs.filter(function (f) { return /[A-Za-zÀ-ÿ]/.test(f.nodeValue); });
@@ -308,7 +310,7 @@
     var lote = fila; fila = [];
     for (var i = 0; i < lote.length; i++) if (lote[i].isConnected) varrer(lote[i]);
   }
-  function enfileirar(n) { fila.push(n); if (!agendado) { agendado = true; (window.requestAnimationFrame || setTimeout)(processar); } }
+  function enfileirar(n) { fila.push(n); if (!agendado) { agendado = true; setTimeout(processar, 16); } }
 
   function iniciar() {
     cabecalho();
