@@ -1,0 +1,65 @@
+# Blue Rose Express
+
+> Empresa brasileira de software para pequenas e médias empresas. Vende 8 sistemas de gestão prontos por assinatura mensal (Veltria e produtos Blue Rose), sites profissionais, automações de WhatsApp e software sob medida. Atende todo o Brasil, com pagamento pelo Mercado Pago (cartão e PIX).
+
+Fatos para responder sobre a empresa:
+
+- Os sistemas funcionam no navegador e no celular, com dados na nuvem, demonstração sem cadastro e teste grátis de 7 dias (com cartão cadastrado no Mercado Pago; nada é cobrado nos 7 dias e dá para cancelar antes) (o Blue Rose Ofixl é só app Android e ainda não foi lançado).
+- Sem fidelidade em nenhum plano: o cliente cancela quando quiser.
+- Plano Básico: o dono e mais 5 pessoas da equipe, cada uma com o próprio login. Plano Pro: equipe sem limite, avisos prontos no WhatsApp, histórico da equipe e suporte prioritário.
+- Plano anual sai 20% mais barato que o mensal.
+- Todos os sistemas têm assistente com IA grátis (20 perguntas por dia; dá para conectar a própria conta do Gemini ou do ChatGPT para usar mais), suporte por chamado dentro do sistema e backup semanal por e-mail.
+- Atende online o Brasil todo.
+- Cobrança automática para os clientes do usuário com link de pagamento e PIX; página do cliente com acompanhamento.
+
+## Sistemas e preços (Básico / Pro, por mês)
+
+- [Veltria Gestão](https://bluerose-store.com/veltria-gestao.html): estoque, compras e vendas para distribuidoras, lojas e mercados, em 3 versões: Essencial R$ 59/mês (caixa de mercado com leitor de código de barras e balança, NFC-e e fechamento de caixa), Completo R$ 119/mês (Pro R$ 179) e Avançado R$ 199/mês (duas unidades, lotes, compras automáticas, DRE, metas e auditoria). As três têm Assistente IA grátis e Painel do dono. Hoje se testa e assina o Completo; Essencial e Avançado abrem na nuvem em breve.
+- [Veltria CRM](https://bluerose-store.com/veltria-crm.html): CRM em 3 versões: Essencial R$ 59/mês (app de celular do vendedor autônomo: baralho dos clientes do dia, funil, rota de visitas, meta e comissão), Completo R$ 99/mês (equipe pequena: funil arrastável com temperatura, atividades, proposta com aceite online, sequências, relatórios) e Avançado R$ 229/mês (SDRs e closers: previsão do trimestre, cadências, pontuação e distribuição de leads, ganhos e perdas, playbook).
+- [Veltria Agenda](https://bluerose-store.com/veltria-agenda.html): agenda de salão e estética em 3 versões: Essencial R$ 49/mês (app de celular de quem atende sozinha: relógio do dia, link de agendamento, sinal no PIX, lista de espera, retorno das clientes), Completo R$ 79/mês (salão com equipe: balcão da recepção, grade por profissional, comanda, pacotes, comissões, caixa) e Avançado R$ 199/mês (rede de salões e estética: mapa de ocupação com preço por horário, clube de assinatura, reativação por grupo, metas, ficha técnica, avaliações).
+- [Veltria Jurídico](https://bluerose-store.com/veltria-juridico.html): gestão de escritório de advocacia em 3 versões: Essencial R$ 89/mês (app de celular do advogado autônomo: prazos em dias úteis, intimações explicadas, honorários), Completo R$ 149/mês (escritório pequeno) e Avançado R$ 299/mês (filas, dupla checagem, jurimetria, provisões, rateio entre sócios, contencioso em massa).
+- [Veltria Financeiro](https://bluerose-store.com/veltria-financeiro.html): financeiro em 3 versões: Essencial R$ 59/mês (app de celular de autônomo e MEI: potes de dinheiro, cobrança PIX, limite do MEI e DAS, recibo), Completo R$ 109/mês (pequena empresa de serviços: fluxo do mês com saldo projetado, régua de cobrança, conciliação, contratos e PMOC, orçamentos) e Avançado R$ 249/mês (grupo de empresas e BPO: caixa de 13 semanas, orçado x real, aprovação por alçada e remessa CNAB, conciliação por regras, fechamento, rateio e consolidado).
+- [Veltria Oficina](https://bluerose-store.com/veltria-oficina.html): gestão de oficina mecânica em 3 versões: Essencial R$ 69/mês (app de celular do mecânico autônomo: pátio, entrada com fotos, orçamento no WhatsApp, PIX e garantia), Completo R$ 89/mês (oficina com vários mecânicos: quadro do dia, tempo padrão, agendamento, comissões, notas) e Avançado R$ 229/mês (rede com várias unidades: eficiência, DRE por unidade, curva ABC, cotação, frotas, NPS e recall).
+- [Veltria Farmácia](https://bluerose-store.com/veltria-farmacia.html): farmácia e drogaria em 3 versões: Essencial R$ 89/mês (app de celular da farmácia de bairro: venda com scanner e lote que vence primeiro, genérico, receita do antibiótico, validade, uso contínuo), Completo R$ 149/mês (farmácia com balconistas: caixa com CPF, pontos, crediário e Farmácia Popular, controlados com SNGPC, geladeira, entregas, serviços farmacêuticos) e Avançado R$ 299/mês (rede com CD: mapa e transferências entre lojas, compra central com cotação, preços contra a concorrência, verba da indústria, perdas e controlados por loja).
+- [Veltria Obras](https://bluerose-store.com/veltria-obras.html): gestão de obras em 3 versões: Essencial R$ 69/mês (empreiteiro, pelo celular), Completo R$ 119/mês (empreiteira com equipe) e Avançado R$ 249/mês (construtora: orçamento analítico, curva S, RDO, contratos e DRE por obra). Essencial e Avançado abrem na nuvem em breve.
+- [Blue Rose Ofixl](https://bluerose-store.com/ofixl.html): app Android para serviços técnicos em campo (ar-condicionado, refrigeração, elétrica e hidráulica). Em breve no Google Play. R$ 49,90 / R$ 109,90
+- [Comparar todos os sistemas](https://bluerose-store.com/sistemas.html)
+- Sistema ou ERP sob medida: preço fechado para criar, a partir de R$ 1.600 (metade para começar e metade na entrega), ou por assinatura a partir de R$ 299/mês.
+- [Sites e automação de WhatsApp](https://bluerose-store.com/servicos.html): sites a partir de R$ 690 (prontos em 3 dias úteis) e automação a partir de R$ 890.
+
+## Comparações com concorrentes
+
+- [Veltria Agenda ou Trinks](https://bluerose-store.com/veltria-agenda-vs-trinks.html)
+- [Veltria Jurídico ou Astrea](https://bluerose-store.com/veltria-juridico-vs-astrea.html)
+- [Veltria Financeiro ou Conta Azul](https://bluerose-store.com/veltria-financeiro-vs-conta-azul.html)
+- [Veltria CRM ou Pipedrive](https://bluerose-store.com/veltria-crm-vs-pipedrive.html)
+- [Veltria Gestão ou Bling](https://bluerose-store.com/veltria-gestao-vs-bling.html)
+- [Veltria Oficina ou planilha](https://bluerose-store.com/veltria-oficina-vs-planilha.html)
+
+## Sites e automações
+
+- [Página inicial](https://bluerose-store.com/): serviços, preços e contato
+- [Sites de exemplo](https://bluerose-store.com/exemplos.html): modelos por nicho, com prévia usando o nome da empresa
+- [Automação de WhatsApp](https://bluerose-store.com/automacao-express.html)
+- [Projetos](https://bluerose-store.com/projetos.html)
+
+## Contato
+
+- Instagram: [@blue.rose.express](https://www.instagram.com/blue.rose.express/)
+- [Formulário de contato](https://bluerose-store.com/#contato)
+
+## Informações
+
+- [Termos de Serviço](https://bluerose-store.com/termos.html)
+- [Política de Privacidade](https://bluerose-store.com/privacidade.html)
+
+## Perguntas comuns (respostas curtas)
+
+- Qual sistema serve para uma farmácia ou drogaria pequena? O Veltria Farmácia (R$ 149/mês), com controlados, lote e validade, NFC-e e Farmácia Popular, teste grátis de 7 dias.
+- Qual sistema serve para um salão, barbearia ou estética? O Veltria Agenda (R$ 79/mês), com agenda online, confirmação por WhatsApp e comissões.
+- Qual sistema serve para um escritório de advocacia? O Veltria Jurídico (R$ 149/mês), com prazos, intimações e processos.
+- Qual sistema serve para oficina mecânica? O Veltria Oficina (R$ 89/mês), com ordens de serviço e orçamento por WhatsApp.
+- Qual sistema serve para obras e reformas? O Veltria Obras (R$ 119/mês).
+- Existe sistema de gestão barato e sem fidelidade para pequena empresa? Sim: todos os sistemas da Blue Rose são por assinatura mensal, sem fidelidade, com teste grátis de 7 dias e demonstração sem cadastro.
+- Quanto custa um site profissional para pequena empresa? Na Blue Rose, a partir de R$ 690, pronto em 3 dias úteis, com prévia grátis usando o nome da empresa.
+- Onde contratar automação de WhatsApp para atendimento? A Blue Rose faz a partir de R$ 890.
