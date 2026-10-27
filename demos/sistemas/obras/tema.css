@@ -1,0 +1,155 @@
+/* Veltria Obras · identidade própria: azuis da logo (rosa e prédios), menu no topo (no celular, barra embaixo), letras fortes */
+:root[data-produto="obras"] {
+  --acc: #1d3b85;
+  --acc-tx: #fff;
+  --laranja: #2a4f9e;
+  --carvao: #0c1a38;
+  --bg: #f4eee2;
+  --lateral: #ebe3d3;
+  --painel: #fdfaf3;
+  --painel-2: #f8f2e7;
+  --hover: rgba(16, 32, 70, 0.05);
+  --ativo: rgba(16, 32, 70, 0.08);
+  --borda: #e3dac8;
+  --borda-2: #d1c6b1;
+  --tx: #0f1d3a;
+  --tx-2: #3d4a66;
+  --tx-3: #5c6680;
+  --info: #1d3b85; --info-bg: #e7ecf6;
+  --neutro-bg: #ece4d4;
+  --forte: 'Bahnschrift', 'Barlow Semi Condensed', 'Arial Narrow', 'Segoe UI', sans-serif;
+  --sombra-1: 0 1px 0 rgba(13, 31, 60, .06);
+  --sombra-2: 0 2px 0 rgba(13, 31, 60, .05), 0 10px 24px -12px rgba(13, 31, 60, .25);
+  --r1: 4px; --r2: 6px; --r3: 8px;
+  --barra: 60px;
+}
+:root[data-produto="obras"][data-tema="escuro"] {
+  --acc: #4d9bff; --acc-tx: #071328; --laranja: #5aa5ff;
+  --bg: #0a1220; --lateral: #0d1628; --painel: #0d1f3c; --painel-2: #152238; --borda: #23324d; --borda-2: #2e4060;
+  --tx: #e9effa; --tx-2: #aebbd2; --tx-3: #8392ad; --info: #4d9bff; --info-bg: rgba(77, 155, 255, .14); --neutro-bg: #1a2740;
+}
+[data-produto="obras"] body { font-size: 14px; }
+[data-produto="obras"] .faixa { background: var(--carvao); }
+[data-produto="obras"] .btn { font-weight: 600; }
+[data-produto="obras"] .btn.pri { background: var(--acc); border-color: var(--acc); box-shadow: 0 3px 0 #0b3a85; }
+[data-produto="obras"] .btn.pri:active { transform: translateY(2px); box-shadow: 0 1px 0 #0b3a85; }
+[data-produto="obras"] .topo h1, [data-produto="obras"] .cartao-cab h3, [data-produto="obras"] .gaveta h2 { font-family: var(--forte); font-weight: 700; letter-spacing: .01em; }
+[data-produto="obras"] .topo h1 { font-size: 18px; text-transform: uppercase; }
+[data-produto="obras"] .cartao-cab h3 { font-size: 16px; text-transform: uppercase; }
+[data-produto="obras"] .cartao { border-radius: 8px; }
+
+/* menu lateral em azul-marinho */
+[data-produto="obras"] .lat {
+  color-scheme: dark; --tx: #eef3fb; --tx-2: #c3cde0; --tx-3: #9aa8c2; --hover: rgba(255, 255, 255, .07); --painel: rgba(255, 255, 255, .08); --borda: rgba(255, 255, 255, .12); --neutro-bg: rgba(255, 255, 255, .12);
+  background: var(--carvao); color: var(--tx);
+}
+[data-produto="obras"] .lat .marca b { color: #fff; font-family: var(--forte); font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+[data-produto="obras"] .lat .marca small { color: var(--laranja); }
+[data-produto="obras"] .marca-logo { background: none; box-shadow: none; border-radius: 6px; }
+[data-produto="obras"] .lat a.item.ativo { background: var(--laranja); color: var(--carvao); box-shadow: none; }
+[data-produto="obras"] .lat a.item.ativo .ic { color: var(--carvao); }
+[data-produto="obras"] .lat a.item .cont { background: var(--laranja); color: var(--carvao); }
+[data-produto="obras"] .lat a.item.ativo .cont { background: var(--carvao); color: #fff; }
+/* computador: menu na lateral esquerda (como nos outros sistemas), em azul-marinho */
+[data-produto="obras"] .lat a.item { font-weight: 600; }
+}
+/* barra embaixo (celular), como um aplicativo */
+@media (max-width: 900px) {
+  [data-produto="obras"] .lat { top: auto; bottom: 0; left: 0; right: 0; width: auto; height: calc(64px + env(safe-area-inset-bottom)); transform: none; flex-direction: row; justify-content: space-around; align-items: stretch; gap: 0; padding: 4px 2px env(safe-area-inset-bottom); border-top: 3px solid var(--laranja); border-right: 0; overflow: hidden; box-shadow: 0 -8px 24px -12px rgba(0, 0, 0, .5); }
+  [data-produto="obras"] .lat .marca, [data-produto="obras"] .lat .conta, [data-produto="obras"] .lat .busca-lat, [data-produto="obras"] .lat .grupo, [data-produto="obras"] .lat-pe { display: none; }
+  [data-produto="obras"] .lat a.item { flex: 1 1 0; min-width: 0; height: auto; flex-direction: column; justify-content: center; gap: 3px; padding: 0 2px; font-size: 10.5px; font-weight: 600; text-align: center; border-radius: 6px; }
+  [data-produto="obras"] .lat a.item .ic { width: 21px; height: 21px; }
+  [data-produto="obras"] .lat a.item .cont { position: absolute; top: 2px; right: calc(50% - 22px); margin: 0; min-width: 16px; height: 16px; font-size: 10px; }
+  [data-produto="obras"] .btn-menu { display: none !important; }
+  [data-produto="obras"] .conteudo { padding-bottom: 150px; }
+  [data-produto="obras"] .cn-fab { display: inline-flex; }
+}
+
+/* tela inicial: mural das obras */
+.cn-hoje { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cn-hoje h2 { font-family: var(--forte); font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: .01em; margin-right: auto; line-height: 1.05; }
+.cn-hoje h2 small { display: block; font-size: 13px; font-weight: 500; text-transform: none; color: var(--tx-3); letter-spacing: 0; font-family: var(--f); }
+.cn-hoje .btn { height: 42px; padding: 0 16px; font-size: 14px; }
+.cn-num { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; background: var(--carvao); color: #eef3fb; border-radius: 8px; overflow: hidden; }
+.cn-num div { padding: 14px 18px; border-left: 1px solid rgba(255, 255, 255, .1); }
+.cn-num div:first-child { border-left: 0; }
+.cn-num b { display: block; font-family: var(--forte); font-size: 26px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.cn-num span { font-size: 12px; color: #b9b2a5; text-transform: uppercase; letter-spacing: .05em; }
+.cn-num .al b { color: var(--laranja); }
+.cn-mural { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.cn-obra { background: var(--painel); border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .18s var(--ease), box-shadow .18s var(--ease); }
+.cn-obra:hover { transform: translateY(-2px); box-shadow: var(--sombra-2); }
+.cn-capa { position: relative; height: 112px; padding: 14px 16px; color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, .05) 0 14px, transparent 14px 28px), linear-gradient(135deg, #2a2722, #0d1f3c); }
+.cn-capa.foto { background-size: cover; background-position: center; }
+.cn-capa.foto::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .65)); }
+.cn-capa > * { position: relative; }
+.cn-capa .pc { font-family: var(--forte); font-size: 40px; font-weight: 700; line-height: 1; }
+.cn-capa .pc small { font-size: 16px; opacity: .7; }
+.cn-capa .et { align-self: flex-start; }
+.cn-capa .agora { font-size: 12.5px; color: #c8dcf7; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.cn-corpo { padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.cn-corpo .t { font-family: var(--forte); font-size: 17px; font-weight: 700; line-height: 1.15; }
+.cn-corpo .s { font-size: 12.5px; color: var(--tx-3); }
+.cn-etapas { display: flex; gap: 3px; }
+.cn-etapas i { flex: 1; height: 8px; border-radius: 2px; background: var(--neutro-bg); }
+.cn-etapas i.f { background: var(--carvao); }
+.cn-etapas i.p { background: #2e7d4f; }
+.cn-etapas i.a { background: var(--laranja); }
+:root[data-tema="escuro"] .cn-etapas i.f { background: #e9e4da; }
+.cn-pe { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; font-size: 12.5px; }
+.cn-pe b { font-variant-numeric: tabular-nums; }
+.cn-fab { display: none; position: fixed; z-index: 50; right: 16px; bottom: calc(80px + env(safe-area-inset-bottom)); height: 54px; padding: 0 20px; border-radius: 27px; border: 0; align-items: center; gap: 8px; background: var(--laranja); color: var(--carvao); font: 700 15px var(--forte); text-transform: uppercase; letter-spacing: .03em; box-shadow: 0 10px 24px -8px rgba(21, 86, 192, .8); cursor: pointer; }
+.cn-fab .ic { width: 22px; height: 22px; }
+@media (max-width: 900px) {
+  .cn-num { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cn-num div:nth-child(3) { border-left: 0; }
+  .cn-num div:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .1); }
+  .cn-hoje .btn.sec { display: none; }
+  .cn-hoje h2 { font-size: 22px; }
+}
+.cn-pe { flex-wrap: wrap; row-gap: 2px; }
+.cn-pe > * { white-space: nowrap; }
+@media (max-width: 900px) { .cn-hoje .btn.pri { display: none; } }
+
+[data-produto="obras"] .faixa a.cta, [data-produto="obras"] .faixa a.cta:hover { background: var(--laranja); color: var(--carvao); font-weight: 700; }
+[data-produto="obras"] .entrada .marca b { font-family: var(--forte); text-transform: uppercase; letter-spacing: .04em; font-size: 19px; }
+[data-produto="obras"] .entrada .marca small { color: var(--acc); }
+
+/* cronograma (Gantt simples) */
+.cn-gantt { padding: 12px 16px 14px; overflow-x: auto; }
+.cn-gantt > div { display: grid; grid-template-columns: 230px minmax(520px, 1fr); align-items: center; gap: 12px; min-height: 26px; }
+.cn-g-cab { min-height: 30px !important; border-bottom: 1px solid var(--borda); margin-bottom: 4px; }
+.cn-g-escala { position: relative; height: 22px; }
+.cn-g-escala span { position: absolute; top: 3px; font-size: 11px; color: var(--tx-3); transform: translateX(-2px); white-space: nowrap; }
+.cn-g-obra { margin-top: 10px; padding: 4px 0; border-radius: 6px; }
+.cn-g-obra .t { font-weight: 700; font-size: 13.5px; }
+.cn-g-etapa > span { font-size: 12.5px; color: var(--tx-2); padding-left: 14px; }
+.cn-g-trilho { position: relative; height: 16px; border-radius: 4px; background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 8 - 1px), var(--borda) calc(100% / 8 - 1px) calc(100% / 8)); }
+.cn-g-trilho b { position: absolute; top: 3px; height: 10px; border-radius: 3px; background: color-mix(in srgb, var(--tx-3) 45%, transparent); }
+.cn-g-trilho b.and { background: var(--laranja, #1e78d6); }
+.cn-g-trilho b.ok { background: #2e7d4f; }
+.cn-g-trilho b.er { background: #c0392b; }
+.cn-g-trilho b.cn-g-total { top: 1px; height: 14px; background: color-mix(in srgb, var(--laranja, #1e78d6) 22%, transparent); border: 1.5px solid var(--laranja, #1e78d6); }
+.cn-g-trilho b.cn-g-total.er { border-color: #c0392b; background: color-mix(in srgb, #c0392b 15%, transparent); }
+.cn-g-hoje { position: absolute; top: -4px; bottom: -4px; left: var(--hoje); width: 2px; background: #2563eb; z-index: 1; }
+.cn-g-leg { display: flex !important; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 12px; color: var(--tx-3); }
+.cn-g-leg i { display: inline-block; width: 12px; height: 8px; border-radius: 2px; margin-right: 6px; background: color-mix(in srgb, var(--tx-3) 45%, transparent); }
+.cn-g-leg i.ok { background: #2e7d4f; } .cn-g-leg i.and { background: var(--laranja, #1e78d6); } .cn-g-leg i.er { background: #c0392b; } .cn-g-leg i.hj { width: 2px; height: 12px; background: #2563eb; }
+/* logo do Veltria Obras: emblema em fundo branco e o nome como na marca (Rose + Construct) */
+[data-produto="obras"] .marca-logo { background: #fff; padding: 3px; border-radius: 9px; width: 36px; height: 36px; object-fit: contain; }
+[data-produto="obras"] .lat .marca b, [data-produto="obras"] .entrada .marca b { text-transform: none; letter-spacing: -.01em; }
+
+/* barra azul-marinho: subtítulo, busca e contadores legíveis nos dois temas */
+[data-produto="obras"] .lat .marca small { color: #8cc0ff; }
+[data-produto="obras"] .lat .busca-lat { color: #b9c6dc; }
+[data-produto="obras"] .lat a.item .cont, [data-produto="obras"] .faixa a.cta, [data-produto="obras"] .faixa a.cta:hover { background: #5aa5ff; color: #071328; }
+[data-produto="obras"] .lat a.item.ativo { background: #5aa5ff; color: #071328; }
+
+/* celular: 13 abas não cabem lado a lado; a barra de baixo rola para o lado, cada aba com largura própria */
+@media (max-width: 900px) {
+  [data-produto="obras"] .lat { justify-content: flex-start; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-snap-type: x proximity; }
+  [data-produto="obras"] .lat::-webkit-scrollbar { display: none; }
+  [data-produto="obras"] .lat a.item { flex: 0 0 76px; scroll-snap-align: start; position: relative; }
+  [data-produto="obras"] .lat a.item .corta { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
