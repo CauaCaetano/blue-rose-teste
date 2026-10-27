@@ -34,11 +34,14 @@ const IC = {
   cao: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2.2"/><circle cx="10" cy="5.8" r="2.2"/><circle cx="14" cy="5.8" r="2.2"/><circle cx="18" cy="10" r="2.2"/><path d="M12 11.5c-3 0-5.5 3.6-5.5 6.1 0 1.6 1.2 2.4 2.6 2.4 1.2 0 1.8-.6 2.9-.6s1.7.6 2.9.6c1.4 0 2.6-.8 2.6-2.4 0-2.5-2.5-6.1-5.5-6.1z"/></svg>',
   gato: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5 8.6 8a8.6 8.6 0 0 1 6.8 0L19 3.5l.6 7.3A7.5 7.5 0 0 1 21 15c0 3.6-4 6-9 6s-9-2.4-9-6a7.5 7.5 0 0 1 1.4-4.2z"/></svg>',
   outro: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.4-7.5-10.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8C19.5 16.6 12 21 12 21z"/></svg>',
+  config: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+  ia: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9zM19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></svg>',
   camera: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>',
 };
-const SECOES = [['hoje', 'Hoje'], ['agenda', 'Agenda'], ['pacientes', 'Pacientes'], ['tutores', 'Tutores'], ['vacinas', 'Vacinas'], ['internacao', 'Internação'], ['estetica', 'Estética'], ['exames', 'Exames'], ['estoque', 'Estoque'], ['caixa', 'Caixa'], ['relatorios', 'Relatórios']];
+const SECOES = [['hoje', 'Hoje'], ['agenda', 'Agenda'], ['pacientes', 'Pacientes'], ['tutores', 'Tutores'], ['vacinas', 'Vacinas'], ['internacao', 'Internação'], ['estetica', 'Estética'], ['exames', 'Exames'], ['estoque', 'Estoque'], ['caixa', 'Caixa'], ['relatorios', 'Relatórios'], ['config', 'Configurações']];
 const TIPOS = { Consulta: 160, Retorno: 0, Vacina: 0, 'Banho e tosa': 90, Cirurgia: 850, Exame: 120 };
-const SERVICOS = [['Consulta clínica', 160], ['Retorno (até 15 dias)', 0], ['Consulta de emergência', 280], ['Banho', 60], ['Banho e tosa', 90], ['Tosa higiênica', 45], ['Aplicação de vacina', 25], ['Hemograma', 120], ['Bioquímico (função renal)', 140], ['Ultrassom', 220], ['Raio-x', 180], ['Castração', 850], ['Limpeza de tártaro', 480], ['Diária de internação', 180], ['Microchip', 120]];
+const SERVICOS_PADRAO = [['Consulta clínica', 160], ['Retorno (até 15 dias)', 0], ['Consulta de emergência', 280], ['Banho', 60], ['Banho e tosa', 90], ['Tosa higiênica', 45], ['Aplicação de vacina', 25], ['Hemograma', 120], ['Bioquímico (função renal)', 140], ['Ultrassom', 220], ['Raio-x', 180], ['Castração', 850], ['Limpeza de tártaro', 480], ['Diária de internação', 180], ['Microchip', 120]];
+const servicos = () => db.config.servicos;
 const EXAMES = ['Hemograma completo', 'Bioquímico (ureia e creatinina)', 'Bioquímico (função hepática)', 'Urinálise', 'Parasitológico de fezes', 'Ultrassom abdominal', 'Raio-x de tórax', 'Teste rápido FIV/FeLV', 'Teste rápido de cinomose'];
 const FORMAS = ['PIX', 'Dinheiro', 'Cartão de débito', 'Cartão de crédito', 'Fiado (a receber)'];
 const STATUS = { aguardando: ['Agendado', 'selo-aguardando'], chegou: ['Chegou', 'selo-chegou'], atendimento: ['Em atendimento', 'selo-atendimento'], pronto: ['Atendido', 'selo-pronto'] };
@@ -126,13 +129,20 @@ function exemplo() {
   vendas.push({ id: uid(), data: maisDias(h, -5), hora: '11:00', pet: 'p6', itens: [{ nome: 'Consulta clínica', valor: 160, qtd: 1 }], forma: 'Fiado (a receber)', recebido: false });
   vendas.push({ id: uid(), data: h, hora: '08:55', pet: 'p3', itens: [{ nome: 'Consulta clínica', valor: 160, qtd: 1 }, { nome: 'Xarope antitussígeno', valor: 38, qtd: 1 }], forma: 'PIX', recebido: true });
   vendas.push({ id: uid(), data: h, hora: '09:25', pet: 'p4', itens: [{ nome: 'Vacina V10 (polivalente)', valor: 95, qtd: 1 }, { nome: 'Aplicação de vacina', valor: 25, qtd: 1 }], forma: 'Cartão de crédito', recebido: true });
-  return { clinica: 'Clínica Veterinária Bem-Estar Animal', vets: [PA, RM, 'Equipe de estética'], tutores, pets, agenda, prontuarios, vacinas, internados, estetica, exames, estoque, vendas };
+  return { clinica: 'Clínica Veterinária Bem-Estar Animal', config: configPadrao(), vets: [PA, RM, 'Equipe de estética'], tutores, pets, agenda, prontuarios, vacinas, internados, estetica, exames, estoque, vendas };
+}
+function configPadrao() {
+  return { conta: { nome: 'Paula Andrade', email: 'paula@clinicabemestar.com.br', cargo: 'Dona e veterinária responsável', plano: 'VetNature · teste de demonstração' },
+    cnpj: '12.345.678/0001-90', telefone: '16991230000', endereco: 'Av. Brasil, 1.200 · Centro', cidade: 'Ribeirão Preto (SP)', crmv: 'CRMV-SP 41.552',
+    horario: 'Seg a sex, 8h às 18h · sáb, 8h às 12h', diaria: 180, servicos: SERVICOS_PADRAO.map((x) => [...x]),
+    ia: { modo: 'nossa', provedor: 'openai', chave: '', modelo: '' } };
 }
 let db = (() => { try { return JSON.parse(localStorage.getItem(CHAVE)) || exemplo(); } catch { return exemplo(); } })();
+if (!db.config) db.config = configPadrao();
 const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(db)); } catch { avisar('O navegador ficou sem espaço para guardar a demonstração. Use "Recomeçar" ou fotos menores.'); } };
 
 // ---------------------------------------------------------------- estado e ajudas
-const est = { secao: 'hoje', sel: null, aba: 'resumo', filtroVac: '30', busca: '', dia: hoje(), tutor: null };
+const est = { cfg: 'conta', chat: [], secao: 'hoje', sel: null, aba: 'resumo', filtroVac: '30', busca: '', dia: hoje(), tutor: null };
 const pet = (id) => db.pets.find((p) => p.id === id);
 const tutorDe = (p) => db.tutores.find((t) => t.id === p?.tutor);
 const pesoAtual = (p) => (p.pesos.length ? p.pesos[p.pesos.length - 1].kg : null);
@@ -203,7 +213,7 @@ function abaProntuario(p) {
 function abaVacinas(p, t) {
   const l = db.vacinas.filter((v) => v.pet === p.id).sort((a, b) => b.data.localeCompare(a.data));
   return `${l.length ? `<table class="tabela empilha"><thead><tr><th>Vacina</th><th>Aplicada</th><th>Lote</th><th>Próxima dose</th><th></th></tr></thead><tbody>${l.map((v) => `<tr><td><b>${esc(v.nome)}</b></td><td>${dataBR(v.data)}</td><td>${esc(v.lote)}</td><td>${v.proxima ? selVac(v) : '—'}</td><td>${v.proxima && diasAte(v.proxima) <= 30 ? `<a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(t?.tel, lembrete(v))}">Lembrar</a>` : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="vazio">Sem vacinas registradas.</p>'}
-    <div class="acoes" style="margin-top:14px"><button class="bt bt-pri" data-aplicar="${p.id}">Registrar vacina aplicada</button><button class="bt" data-carteira="${p.id}">Imprimir carteira de vacinação</button></div>`;
+    <div class="acoes" style="margin-top:14px"><button class="bt bt-pri" data-aplicar="${p.id}">Registrar vacina aplicada</button><button class="bt" data-vacina-manual="${p.id}">Registrar vacina antiga ou de fora</button><button class="bt" data-carteira="${p.id}">Imprimir carteira de vacinação</button></div>`;
 }
 function abaExames(p) {
   const l = db.exames.filter((e) => e.pet === p.id).sort((a, b) => b.data.localeCompare(a.data));
@@ -249,13 +259,13 @@ function telaPacientes() {
 // ---------------------------------------------------------------- TUTORES
 function telaTutores() {
   const t = db.tutores.find((x) => x.id === est.tutor);
-  return `<div class="cab"><div><h1>Tutores</h1><p>${db.tutores.length} tutores · ${reais(aReceber().reduce((s, v) => s + total(v), 0))} a receber</p></div></div>
+  return `<div class="cab"><div><h1>Tutores</h1><p>${db.tutores.length} tutores · ${reais(aReceber().reduce((s, v) => s + total(v), 0))} a receber</p></div><button class="bt bt-pri" data-novo-tutor>+ Novo tutor</button></div>
     <div class="duas"><section class="cartao"><table class="tabela empilha"><thead><tr><th>Tutor</th><th>Pets</th><th class="num">Deve</th></tr></thead><tbody>${db.tutores.slice().sort((a, b) => a.nome.localeCompare(b.nome)).map((x) => { const ps = db.pets.filter((p) => p.tutor === x.id), deve = aReceber(x.id).reduce((s, v) => s + total(v), 0); return `<tr class="clicavel ${est.tutor === x.id ? 'sel' : ''}" data-ver-tutor="${x.id}"><td><b>${esc(x.nome)}</b><br><small style="color:var(--texto-2)">${esc(telBR(x.tel))}</small></td><td><div class="mini-pets">${ps.map((p) => avatar(p, 'mini')).join('')}</div></td><td class="num">${deve ? `<b style="color:var(--atencao)">${reais(deve)}</b>` : '—'}</td></tr>`; }).join('')}</tbody></table></section>
     ${t ? fichaTutor(t) : '<div class="cartao"><p class="vazio">Escolha um tutor para ver os pets, o histórico e o que ele deve.</p></div>'}</div>`;
 }
 function fichaTutor(t) {
   const ps = db.pets.filter((p) => p.tutor === t.id), deve = aReceber(t.id), hist = db.vendas.filter((v) => tutorDe(pet(v.pet))?.id === t.id).sort((a, b) => (b.data + b.hora).localeCompare(a.data + a.hora)).slice(0, 8);
-  return `<section class="cartao"><div class="cartao-cab"><div><h2>${esc(t.nome)}</h2><small style="color:var(--texto-2)">${esc(telBR(t.tel))} · ${esc(t.end || '')}</small></div><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(t.tel, `Olá, ${primeiro(t.nome)}! Aqui é da ${db.clinica}.`)}">WhatsApp</a></div>
+  return `<section class="cartao"><div class="cartao-cab"><div><h2>${esc(t.nome)}</h2><small style="color:var(--texto-2)">${esc(telBR(t.tel))} · ${esc(t.end || '')}</small></div><div class="acoes"><button class="bt bt-peq" data-editar-tutor="${t.id}">Editar</button><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(t.tel, `Olá, ${primeiro(t.nome)}! Aqui é da ${db.clinica}.`)}">WhatsApp</a></div></div>
     <div class="cartao-corpo"><div class="pets">${ps.map((p) => `<button type="button" class="pet" data-abrir-pet="${p.id}">${avatar(p)}<div><b>${esc(p.nome)}</b><small>${esc(p.raca)} · ${idade(p.nasc)}</small></div></button>`).join('')}</div>
     ${deve.length ? `<h3 class="sub-tit">A receber</h3><ul class="lista-simples">${deve.map((v) => `<li><span>${dataBR(v.data)} · ${v.itens.map((i) => esc(i.nome)).join(', ')}</span><b>${reais(total(v))}</b><button class="bt bt-peq" data-receber="${v.id}">Recebi</button></li>`).join('')}</ul><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(t.tel, `Olá, ${primeiro(t.nome)}! Tudo bem? Aqui é da ${db.clinica}. Ficou em aberto ${reais(deve.reduce((s, v) => s + total(v), 0))} dos atendimentos de ${deve.map((v) => dataBR(v.data)).join(', ')}. Pode pagar por PIX quando puder. Obrigado!`)}">Lembrar do pagamento</a>` : ''}
     <h3 class="sub-tit">Últimos atendimentos</h3>${hist.length ? `<ul class="lista-simples">${hist.map((v) => `<li><span>${dataBR(v.data)} · ${esc(pet(v.pet)?.nome)} · ${v.itens.map((i) => esc(i.nome)).join(', ')}</span><b>${reais(total(v))}</b></li>`).join('')}</ul>` : '<p class="vazio">Sem histórico.</p>'}</div></section>`;
@@ -267,14 +277,14 @@ function telaVacinas() {
   const l = db.vacinas.filter((v) => v.proxima && (est.filtroVac === 'vencidas' ? diasAte(v.proxima) < 0 : diasAte(v.proxima) <= lim)).sort((a, b) => a.proxima.localeCompare(b.proxima));
   const filtros = [['vencidas', 'Vencidas'], ['7', 'Próximos 7 dias'], ['30', 'Próximos 30 dias'], ['90', 'Próximos 90 dias']];
   return `<div class="cab"><div><h1>Vacinas e vermífugos</h1><p>Lembre o tutor com a mensagem pronta no WhatsApp. Um toque e ele já pode agendar.</p></div>
-    <div class="acoes">${filtros.map(([k, n]) => `<button class="bt ${est.filtroVac === k ? 'bt-pri' : ''}" data-filtro-vac="${k}">${n}</button>`).join('')}</div></div>
+    <div class="acoes">${filtros.map(([k, n]) => `<button class="bt ${est.filtroVac === k ? 'bt-pri' : ''}" data-filtro-vac="${k}">${n}</button>`).join('')}<button class="bt" data-vacina-manual="">+ Registrar vacina</button></div></div>
     <section class="cartao">${l.length ? `<table class="tabela empilha"><thead><tr><th>Pet</th><th>Tutor</th><th>Vacina</th><th>Próxima dose</th><th></th></tr></thead><tbody>${l.map((v) => { const p = pet(v.pet), t = tutorDe(p); return `<tr><td><span class="com-foto">${avatar(p, 'mini')}<b>${esc(p.nome)}</b></span></td><td>${esc(t?.nome)}</td><td>${esc(v.nome)}</td><td>${selVac(v)}</td><td class="num"><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(t?.tel, lembrete(v))}">Lembrar no WhatsApp</a> <button class="bt bt-peq" data-agendar-vac="${v.id}">Agendar</button></td></tr>`; }).join('')}</tbody></table>` : '<p class="vazio">Nada para lembrar neste período.</p>'}</section>`;
 }
 
 // ---------------------------------------------------------------- INTERNAÇÃO
 function telaInternacao() {
   const agora = horaAgora();
-  return `<div class="cab"><div><h1>Internação</h1><p>${db.internados.length} pet${db.internados.length === 1 ? '' : 's'} internado${db.internados.length === 1 ? '' : 's'} · marque cada dose na hora em que der</p></div></div>
+  return `<div class="cab"><div><h1>Internação</h1><p>${db.internados.length} pet${db.internados.length === 1 ? '' : 's'} internado${db.internados.length === 1 ? '' : 's'} · marque cada dose na hora em que der</p></div><button class="bt bt-pri" data-internar="">+ Internar</button></div>
     ${db.internados.length ? `<div class="baias">${db.internados.map((i) => { const p = pet(i.pet), fe = i.doses.filter((d) => d.feita).length, diarias = Math.max(1, diasAte(hoje()) - diasAte(i.entrada) + 1); return `<section class="cartao"><div class="cartao-cab"><span class="com-foto">${avatar(p, 'mini')}<span><h3 class="baia">${esc(p.nome)}</h3><small style="color:var(--texto-2)">${esc(i.baia)} · desde ${dataBR(i.entrada)} · ${diarias} diária${diarias > 1 ? 's' : ''}</small></span></span><span class="selo selo-atendimento">${fe} de ${i.doses.length} doses</span></div>
       <div class="cartao-corpo"><p style="margin:0;color:var(--texto-2)">${esc(i.motivo)}</p><ul class="doses">${i.doses.map((d, k) => `<li class="${d.feita ? 'feita' : d.hora < agora ? 'atrasada' : ''}"><b>${d.hora}</b><span>${esc(d.remedio)}</span>${d.feita ? '<span class="selo selo-pronto">Feita</span>' : `<button class="bt bt-peq" data-dose="${i.id}:${k}">Dar agora</button>`}</li>`).join('')}</ul>
       <div class="acoes" style="margin-top:12px"><button class="bt bt-peq" data-nova-dose="${i.id}">+ Dose</button><button class="bt bt-peq" data-alta="${i.id}">Dar alta e cobrar</button><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" href="${zap(tutorDe(p)?.tel, `Olá! Notícias do(a) ${p.nome}: está internado(a) na ${i.baia}, recebeu ${fe} de ${i.doses.length} medicações de hoje e segue em observação. Qualquer novidade avisamos.`)}">Notícias ao tutor</a></div></div></section>`; }).join('')}</div>` : '<div class="cartao"><p class="vazio">Nenhum pet internado agora.</p></div>'}`;
@@ -329,6 +339,100 @@ function telaRelatorios() {
     <section class="cartao"><div class="cartao-cab"><h2>Faturamento por dia</h2></div><div class="cartao-corpo"><svg class="barras" viewBox="0 0 ${W} ${H + 22}" role="img" aria-label="Faturamento por dia nos últimos 30 dias">${porDia.map((v, i) => { const bw = W / 30 - 4, bh = Math.max(v ? 3 : 0, (v / max) * H), x = i * (W / 30) + 2; return `<rect x="${x}" y="${H - bh}" width="${bw}" height="${bh}" rx="3"><title>${dataBR(dias[i])}: ${reais(v)}</title></rect>${i % 5 === 0 ? `<text x="${i ? x + bw / 2 : x}" y="${H + 16}" text-anchor="${i ? 'middle' : 'start'}">${dataBR(dias[i]).slice(0, 5)}</text>` : ''}`; }).join('')}</svg></div></section>
     <div class="duas" style="margin-top:18px"><section class="cartao"><div class="cartao-cab"><h2>O que mais vende</h2></div><div class="cartao-corpo">${top.map(([n, v]) => `<div class="barra-h"><span>${esc(n)}</span><i style="--p:${(v / top[0][1]) * 100}%"></i><b>${reais(v)}</b></div>`).join('')}</div></section>
     <section class="cartao"><div class="cartao-cab"><h2>Formas de pagamento</h2></div><div class="cartao-corpo">${Object.entries(formas).sort((a, b) => b[1] - a[1]).map(([f, v]) => `<div class="linha-valor"><span>${esc(f)}</span><b>${reais(v)} <small style="color:var(--texto-3)">${Math.round((v / fat) * 100)}%</small></b></div>`).join('')}</div></section></div>`;
+}
+
+
+// ---------------------------------------------------------------- CONFIGURAÇÕES
+const CFG = [['conta', 'Minha conta'], ['clinica', 'Clínica'], ['equipe', 'Equipe'], ['servicos', 'Serviços e preços'], ['ia', 'Assistente de IA'], ['dados', 'Cópia de segurança']];
+function telaConfig() {
+  const c = db.config;
+  const corpo = {
+    conta: () => `<form class="cfg-form" data-salvar-cfg="conta"><div class="grade-campos"><label class="campo">Seu nome<input name="nome" value="${esc(c.conta.nome)}"></label><label class="campo">E-mail de acesso<input name="email" type="email" value="${esc(c.conta.email)}"></label><label class="campo">Cargo<input name="cargo" value="${esc(c.conta.cargo)}"></label><label class="campo">Plano<input value="${esc(c.conta.plano)}" disabled></label></div>
+      <p class="nota">Na versão de verdade, a conta fica no site da Blue Rose: o mesmo login abre o sistema no computador e no celular, e a equipe entra com o próprio acesso.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
+    clinica: () => `<form class="cfg-form" data-salvar-cfg="clinica"><div class="grade-campos"><label class="campo largo">Nome da clínica<input name="clinica" value="${esc(db.clinica)}"></label><label class="campo">CNPJ<input name="cnpj" value="${esc(c.cnpj)}"></label><label class="campo">WhatsApp da clínica<input name="telefone" value="${esc(telBR(c.telefone))}"></label>
+      <label class="campo largo">Endereço<input name="endereco" value="${esc(c.endereco)}"></label><label class="campo">Cidade<input name="cidade" value="${esc(c.cidade)}"></label><label class="campo">Responsável técnico (CRMV)<input name="crmv" value="${esc(c.crmv)}"></label>
+      <label class="campo">Horário de atendimento<input name="horario" value="${esc(c.horario)}"></label><label class="campo">Valor da diária de internação (R$)<input name="diaria" inputmode="decimal" value="${c.diaria}"></label></div><p class="nota">O nome, o endereço e o CRMV saem nas receitas, termos, atestados e carteiras de vacinação.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
+    equipe: () => `<ul class="lista-simples">${db.vets.map((v, i) => `<li><span><b>${esc(v)}</b></span><span class="selo selo-aguardando">${v.startsWith('Dr') ? 'Veterinário(a)' : 'Equipe'}</span><button class="bt bt-peq bt-perigo" data-tirar-vet="${i}">Tirar</button></li>`).join('')}</ul>
+      <form class="cfg-form linha-form" data-salvar-cfg="vet"><label class="campo">Nome<input name="nome" placeholder="Ex.: Dra. Júlia Prado"></label><label class="campo">Função<select name="tipo"><option value="vet">Veterinário(a)</option><option value="equipe">Equipe (estética, recepção)</option></select></label><button class="bt bt-pri">Adicionar</button></form>`,
+    servicos: () => `<form class="cfg-form" data-salvar-cfg="servicos"><table class="tabela"><thead><tr><th>Serviço</th><th class="num">Preço (R$)</th><th></th></tr></thead><tbody>${servicos().map(([n, v], i) => `<tr><td><input class="cel-tab" name="n${i}" value="${esc(n)}"></td><td class="num"><input class="cel-tab num" name="v${i}" inputmode="decimal" value="${v}"></td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar-serv="${i}">Tirar</button></td></tr>`).join('')}
+      <tr><td><input class="cel-tab" name="novo_n" placeholder="Novo serviço"></td><td class="num"><input class="cel-tab num" name="novo_v" inputmode="decimal" placeholder="0,00"></td><td></td></tr></tbody></table><div class="acoes" style="margin-top:12px"><button class="bt bt-pri">Salvar preços</button></div></form>`,
+    ia: () => `<form class="cfg-form" data-salvar-cfg="ia"><div class="opcoes-ia"><label class="op-ia"><input type="radio" name="modo" value="nossa" ${c.ia.modo !== 'propria' ? 'checked' : ''}><span><b>Assistente VetNature</b><small>Incluso no plano. Responde sobre a agenda, os pacientes, as vacinas, o caixa e o estoque da sua clínica.</small></span></label>
+      <label class="op-ia"><input type="radio" name="modo" value="propria" ${c.ia.modo === 'propria' ? 'checked' : ''}><span><b>Usar a minha IA</b><small>Já paga o ChatGPT, o Gemini ou o Claude? Coloque a sua chave e o assistente passa a usar a sua conta.</small></span></label></div>
+      <div class="grade-campos" data-propria ${c.ia.modo === 'propria' ? '' : 'hidden'}><label class="campo">Qual IA<select name="provedor">${[['openai', 'ChatGPT (OpenAI)'], ['gemini', 'Gemini (Google)'], ['claude', 'Claude (Anthropic)']].map(([k, n]) => `<option value="${k}" ${c.ia.provedor === k ? 'selected' : ''}>${n}</option>`).join('')}</select></label><label class="campo">Modelo (opcional)<input name="modelo" value="${esc(c.ia.modelo)}" placeholder="padrão de cada IA"></label>
+      <label class="campo largo">Chave da API<input name="chave" type="password" autocomplete="off" value="${esc(c.ia.chave)}" placeholder="Cole aqui a chave da sua conta"></label><p class="nota largo">A chave fica guardada só neste navegador e vai direto para a empresa da IA que você escolheu. Onde pegar: ChatGPT em platform.openai.com/api-keys · Gemini em aistudio.google.com/apikey · Claude em console.anthropic.com.</p></div>
+      <div class="acoes"><button class="bt bt-pri">Salvar</button><button type="button" class="bt" data-ia>Abrir o assistente</button></div></form>`,
+    dados: () => `<p style="margin-top:0">Baixe uma cópia de todos os cadastros (pets, tutores, prontuários, vacinas, caixa) ou volte uma cópia que você guardou.</p><div class="acoes"><button class="bt bt-pri" data-baixar-copia>Baixar cópia (.json)</button><label class="bt">Voltar uma cópia<input type="file" accept="application/json" data-voltar-copia hidden></label><button class="bt bt-perigo" data-recomecar>Apagar tudo e voltar aos dados de exemplo</button></div>`,
+  };
+  return `<div class="cab"><div><h1>Configurações</h1><p>Sua conta, a clínica, a equipe, os preços e o assistente de IA.</p></div></div>
+    <div class="cfg"><nav class="cfg-menu" aria-label="Configurações">${CFG.map(([k, n]) => `<button type="button" data-cfg="${k}" ${est.cfg === k ? 'aria-current="true"' : ''}>${n}</button>`).join('')}</nav><section class="cartao"><div class="cartao-cab"><h2>${CFG.find(([k]) => k === est.cfg)[1]}</h2></div><div class="cartao-corpo">${corpo[est.cfg]()}</div></section></div>`;
+}
+function salvarConfig(f) {
+  const c = db.config, tipo = f.dataset.salvarCfg;
+  if (tipo === 'conta') Object.assign(c.conta, { nome: f.nome.value.trim(), email: f.email.value.trim(), cargo: f.cargo.value.trim() });
+  if (tipo === 'clinica') { db.clinica = f.clinica.value.trim() || db.clinica; Object.assign(c, { cnpj: f.cnpj.value.trim(), telefone: soDigitos(f.telefone.value), endereco: f.endereco.value.trim(), cidade: f.cidade.value.trim(), crmv: f.crmv.value.trim(), horario: f.horario.value.trim(), diaria: num(f.diaria.value) || 0 }); }
+  if (tipo === 'vet') { const n = f.nome.value.trim(); if (!n) return avisar('Escreva o nome.'); db.vets.push(f.tipo.value === 'vet' && !/^dra?\.?\s/i.test(n) ? `Dr(a). ${n}` : n); }
+  if (tipo === 'servicos') { c.servicos = servicos().map((_, i) => [f[`n${i}`].value.trim(), num(f[`v${i}`].value) || 0]).filter(([n]) => n); if (f.novo_n.value.trim()) c.servicos.push([f.novo_n.value.trim(), num(f.novo_v.value) || 0]); }
+  if (tipo === 'ia') { c.ia = { modo: f.modo.value, provedor: f.provedor.value, modelo: f.modelo.value.trim(), chave: f.chave.value.trim() }; if (c.ia.modo === 'propria' && !c.ia.chave) avisar('Sem a chave, o assistente continua usando o Assistente VetNature.'); }
+  salvar(); avisar('Salvo.'); desenhar();
+}
+
+// ---------------------------------------------------------------- ASSISTENTE DE IA
+const SUGESTOES = ['Resumo do dia', 'Quais vacinas estão vencidas?', 'Quanto entrou hoje?', 'O que está acabando no estoque?', 'Quem está devendo?', 'Como está o Thor?'];
+function abrirIA() {
+  const p = $('#painel-ia'); p.hidden = false; desenharIA(); p.querySelector('input')?.focus();
+}
+function desenharIA() {
+  const p = $('#painel-ia'), propria = db.config.ia.modo === 'propria' && db.config.ia.chave;
+  p.innerHTML = `<div class="ia-cab"><div><b>${IC.ia} Assistente</b><small>${propria ? `Usando a sua IA (${({ openai: 'ChatGPT', gemini: 'Gemini', claude: 'Claude' })[db.config.ia.provedor]})` : 'Assistente VetNature'}</small></div><button type="button" class="fechar" data-fechar-ia aria-label="Fechar">×</button></div>
+    <div class="ia-conversa" aria-live="polite">${est.chat.length ? est.chat.map((m) => `<div class="msg msg-${m.de}">${m.de === 'ia' ? m.texto : esc(m.texto)}</div>`).join('') : `<div class="msg msg-ia">Oi, ${esc(primeiro(db.config.conta.nome))}! Pergunte sobre a agenda, um paciente, as vacinas, o caixa ou o estoque.</div>`}</div>
+    <div class="ia-sug">${SUGESTOES.map((s) => `<button type="button" data-perguntar="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <form class="ia-form" data-ia-form><input name="q" placeholder="Escreva sua pergunta" autocomplete="off"><button class="bt bt-pri">Enviar</button></form>`;
+  const conv = p.querySelector('.ia-conversa'); conv.scrollTop = conv.scrollHeight;
+}
+async function perguntar(q) {
+  q = q.trim(); if (!q) return;
+  est.chat.push({ de: 'eu', texto: q }, { de: 'ia', texto: '<span class="pensando">Pensando…</span>' }); desenharIA();
+  let r;
+  const c = db.config.ia;
+  if (c.modo === 'propria' && c.chave) { try { r = esc(await iaPropria(q)).replace(/\n/g, '<br>'); } catch (e) { r = `Não consegui falar com a sua IA (${esc(e.message)}). Confira a chave em Configurações · Assistente de IA. Enquanto isso, respondo com o Assistente VetNature:<br><br>${iaNossa(q)}`; } }
+  else r = iaNossa(q);
+  est.chat[est.chat.length - 1].texto = r; desenharIA();
+}
+const sem = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+// resumo dos dados para a IA da pessoa (sem telefone nem chave)
+function contexto() {
+  const h = hoje();
+  return JSON.stringify({ clinica: db.clinica, hoje: h, agenda_hoje: db.agenda.filter((a) => a.data === h).map((a) => ({ hora: a.hora, pet: pet(a.pet)?.nome, tipo: a.tipo, vet: a.vet, status: a.status })),
+    pets: db.pets.map((p) => ({ nome: p.nome, especie: p.especie, raca: p.raca, idade: idade(p.nasc), peso: pesoAtual(p), alergias: p.alergias, tutor: tutorDe(p)?.nome })),
+    vacinas_proximas: db.vacinas.filter((v) => v.proxima && diasAte(v.proxima) <= 30).map((v) => ({ pet: pet(v.pet)?.nome, vacina: v.nome, proxima: v.proxima })),
+    internados: db.internados.map((i) => ({ pet: pet(i.pet)?.nome, motivo: i.motivo, doses_pendentes: i.doses.filter((d) => !d.feita).map((d) => `${d.hora} ${d.remedio}`) })),
+    estoque_alerta: db.estoque.filter((x) => x.qtd < x.minimo || diasAte(x.validade) <= 30).map((x) => ({ item: x.nome, qtd: x.qtd, minimo: x.minimo, validade: x.validade })),
+    caixa_hoje: db.vendas.filter((v) => v.data === h && v.recebido).reduce((s, v) => s + total(v), 0), a_receber: aReceber().reduce((s, v) => s + total(v), 0) });
+}
+async function iaPropria(q) {
+  const c = db.config.ia, sistema = `Você é o assistente do sistema VetNature da ${db.clinica}. Responda em português do Brasil, curto e prático, só com base nos dados abaixo. Não invente dados. Não prescreva doses de medicamento: diga para confirmar com o veterinário.\nDados da clínica (JSON): ${contexto()}`;
+  const pede = async (url, op) => { const r = await fetch(url, op); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error?.message || `erro ${r.status}`); return j; };
+  if (c.provedor === 'gemini') { const j = await pede(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(c.modelo || 'gemini-2.0-flash')}:generateContent?key=${encodeURIComponent(c.chave)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sistema }] }, contents: [{ role: 'user', parts: [{ text: q }] }] }) }); return j.candidates?.[0]?.content?.parts?.map((x) => x.text).join('') || 'Sem resposta.'; }
+  if (c.provedor === 'claude') { const j = await pede('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': c.chave, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: c.modelo || 'claude-haiku-5-5', max_tokens: 700, system: sistema, messages: [{ role: 'user', content: q }] }) }); return j.content?.map((x) => x.text || '').join('') || 'Sem resposta.'; }
+  const j = await pede('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${c.chave}` }, body: JSON.stringify({ model: c.modelo || 'gpt-4o-mini', messages: [{ role: 'system', content: sistema }, { role: 'user', content: q }] }) });
+  return j.choices?.[0]?.message?.content || 'Sem resposta.';
+}
+// Assistente VetNature: responde direto dos dados da clínica (na demonstração roda no navegador)
+function iaNossa(q) {
+  const t = sem(q), h = hoje(), lista = (l) => `<ul>${l.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+  const p = db.pets.find((x) => new RegExp(`\\b${sem(x.nome)}\\b`).test(t));
+  if (/dose|mg\/kg|quanto (de|dar)|posologia/.test(t)) return 'Doses de medicamento eu não calculo: elas dependem do exame e da avaliação do veterinário. Posso mostrar o peso atual e o histórico do paciente, se quiser.';
+  if (p) { const ult = db.prontuarios.filter((x) => x.pet === p.id).sort((a, b) => b.data.localeCompare(a.data))[0], vac = db.vacinas.filter((v) => v.pet === p.id && v.proxima).sort((a, b) => a.proxima.localeCompare(b.proxima))[0], int = db.internados.find((i) => i.pet === p.id), ag = db.agenda.filter((a) => a.pet === p.id && a.data >= h).sort((a, b) => (a.data + a.hora).localeCompare(b.data + b.hora))[0];
+    return `<b>${esc(p.nome)}</b> · ${esc(p.raca)}, ${idade(p.nasc)}, ${pesoAtual(p) ?? '—'} kg${p.alergias ? ` · <b>alergia a ${esc(p.alergias)}</b>` : ''}.${lista([ult ? `Última consulta em ${dataBR(ult.data)}: ${esc(ult.diagnostico)}` : 'Ainda sem consulta registrada', vac ? `Próxima vacina: ${esc(vac.nome)} em ${dataBR(vac.proxima)}` : 'Sem vacina pendente', int ? `Internado na ${esc(int.baia)} (${int.doses.filter((d) => !d.feita).length} doses pendentes)` : 'Não está internado', ag ? `Próximo horário: ${dataBR(ag.data)} às ${ag.hora} (${esc(ag.tipo)})` : 'Sem horário marcado'])}`; }
+  if (/vacin|vermif/.test(t)) { const v = db.vacinas.filter((x) => x.proxima && (/venc|atras/.test(t) ? diasAte(x.proxima) < 0 : diasAte(x.proxima) <= 7)).sort((a, b) => a.proxima.localeCompare(b.proxima)); return v.length ? `${/venc|atras/.test(t) ? 'Vacinas vencidas' : 'Vacinas vencidas ou vencendo nos próximos 7 dias'}:${lista(v.map((x) => `<b>${esc(pet(x.pet).nome)}</b> · ${esc(x.nome)} · ${dataBR(x.proxima)}`))}Os lembretes prontos ficam em <b>Vacinas</b>.` : 'Nenhuma vacina vencida agora. 👍'; }
+  if (/fatur|caixa|entrou|recebi|vend|dinheiro|lucro/.test(t) && !/deve|devendo|fiado/.test(t)) { const hj = db.vendas.filter((v) => v.data === h && v.recebido), mes = db.vendas.filter((v) => v.data >= maisDias(h, -29) && v.recebido); return `Hoje entraram <b>${reais(hj.reduce((s, v) => s + total(v), 0))}</b> em ${hj.length} cobrança${hj.length === 1 ? '' : 's'}. Nos últimos 30 dias: <b>${reais(mes.reduce((s, v) => s + total(v), 0))}</b>. Há ${reais(aReceber().reduce((s, v) => s + total(v), 0))} para receber no fiado.`; }
+  if (/estoque|acaba|faltando|repor|validade/.test(t)) { const l = db.estoque.filter((x) => x.qtd < x.minimo || diasAte(x.validade) <= 30); return l.length ? `Precisa de atenção:${lista(l.map((x) => `<b>${esc(x.nome)}</b> · ${x.qtd} em estoque (mín. ${x.minimo})${diasAte(x.validade) <= 30 ? ` · vence ${dataBR(x.validade)}` : ''}`))}` : 'O estoque está em dia.'; }
+  if (/deve|fiado|receber|pagar|divid/.test(t)) { const l = aReceber(); return l.length ? `A receber:${lista(l.map((v) => `<b>${esc(tutorDe(pet(v.pet))?.nome || 'Balcão')}</b> · ${reais(total(v))} desde ${dataBR(v.data)}`))}Dá para mandar o lembrete pelo WhatsApp em <b>Tutores</b>.` : 'Ninguém devendo. 👏'; }
+  if (/internad|baia|medica/.test(t)) return db.internados.length ? `Internados:${lista(db.internados.map((i) => `<b>${esc(pet(i.pet).nome)}</b> · ${esc(i.baia)} · próxima dose: ${esc(i.doses.find((d) => !d.feita)?.hora || 'nenhuma')} ${esc(i.doses.find((d) => !d.feita)?.remedio || '')}`))}` : 'Nenhum pet internado.';
+  if (/aniversar/.test(t)) { const l = aniversariantes(); return l.length ? `Aniversários da semana:${lista(l.map(({ p: x, data }) => `<b>${esc(x.nome)}</b> · ${dataBR(data)}`))}` : 'Nenhum aniversário nesta semana.'; }
+  if (/exame|laudo|resultado/.test(t)) { const l = db.exames.filter((e) => e.status !== 'pronto' || !e.avisado); return l.length ? `Exames em andamento ou sem aviso ao tutor:${lista(l.map((e) => `<b>${esc(pet(e.pet)?.nome)}</b> · ${esc(e.nome)} · ${EXAME_ST[e.status][0].toLowerCase()}`))}` : 'Nenhum exame pendente.'; }
+  if (/hoje|dia|agenda|atendiment|resumo|fila/.test(t)) { const ag = db.agenda.filter((x) => x.data === h).sort((x, y) => x.hora.localeCompare(y.hora)); return `Hoje são <b>${ag.length} atendimentos</b>: ${ag.filter((x) => x.status === 'pronto').length} já atendidos e ${ag.filter((x) => x.status === 'chegou').length} na sala de espera.${lista(ag.filter((x) => x.status !== 'pronto').map((x) => `${x.hora} · <b>${esc(pet(x.pet).nome)}</b> · ${esc(x.tipo)} com ${esc(x.vet)}`))}${vacPendentes().length ? `E ${vacPendentes().length} vacinas para lembrar nesta semana.` : ''}`; }
+  return `Posso ajudar com:${lista(['o resumo do dia e a agenda', 'um paciente (escreva o nome, por exemplo “Thor”)', 'vacinas vencidas ou vencendo', 'o caixa e quem está devendo', 'o estoque', 'internados e exames'])}`;
 }
 
 // ---------------------------------------------------------------- janelas
@@ -388,17 +492,17 @@ function abrirPesar(id) {
 function imprimir(titulo, corpo) {
   const w = window.open('', '_blank'); if (!w) return avisar('Libere as janelas do navegador para imprimir.');
   w.document.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>${esc(titulo)}</title><style>body{font:15px/1.6 Georgia,serif;color:#1d2b27;max-width:720px;margin:36px auto;padding:0 24px}h1{font-size:22px;margin:0;color:#214e45}h2{font-size:16px;margin:22px 0 6px;color:#214e45}small{color:#555}.cab{display:flex;justify-content:space-between;border-bottom:2px solid #214e45;padding-bottom:12px;margin-bottom:18px}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #ddd;font-size:14px}.assin{margin-top:70px;display:flex;gap:40px}.assin div{flex:1;border-top:1px solid #333;text-align:center;padding-top:6px;font-size:13px}</style></head><body>
-    <div class="cab"><div><h1>${esc(db.clinica)}</h1><small>${esc(titulo)}</small></div><small>${dataBR(hoje())}</small></div>${corpo}<script>print()<\/script></body></html>`);
+    <div class="cab"><div><h1>${esc(db.clinica)}</h1><small>${esc(titulo)} · ${esc(db.config.endereco)} · ${esc(db.config.cidade)} · ${esc(telBR(db.config.telefone))}</small></div><small>${dataBR(hoje())}</small></div>${corpo}<script>print()<\/script></body></html>`);
   w.document.close();
 }
 const cabPet = (p) => { const t = tutorDe(p); return `<p><b>Paciente:</b> ${esc(p.nome)} · ${({ cao: 'canino', gato: 'felino' })[p.especie] || 'outro'} · ${esc(p.raca)} · ${esc(p.sexo.toLowerCase())} · ${idade(p.nasc)} · ${pesoAtual(p) ?? '—'} kg${p.microchip ? ` · microchip ${esc(p.microchip)}` : ''}<br><b>Tutor:</b> ${esc(t?.nome)} · ${esc(telBR(t?.tel))}${t?.end ? ` · ${esc(t.end)}` : ''}</p>`; };
 function imprimirReceita(idPr) {
   const x = db.prontuarios.find((r) => r.id === idPr), p = pet(x.pet);
-  imprimir(`Receita · ${p.nome}`, `${cabPet(p)}<h2>Diagnóstico</h2><p>${esc(x.diagnostico)}</p><h2>Prescrição</h2><p style="white-space:pre-wrap">${esc(x.prescricao)}</p><div class="assin"><div>${esc(x.vet)}<br>Médico(a)-veterinário(a) · CRMV</div></div>`);
+  imprimir(`Receita · ${p.nome}`, `${cabPet(p)}<h2>Diagnóstico</h2><p>${esc(x.diagnostico)}</p><h2>Prescrição</h2><p style="white-space:pre-wrap">${esc(x.prescricao)}</p><div class="assin"><div>${esc(x.vet)}<br>Médico(a)-veterinário(a) · ${esc(db.config.crmv)}</div></div>`);
 }
 function imprimirCarteira(id) {
   const p = pet(id), l = db.vacinas.filter((v) => v.pet === id).sort((a, b) => a.data.localeCompare(b.data));
-  imprimir(`Carteira de vacinação · ${p.nome}`, `${cabPet(p)}<h2>Vacinas e vermífugos</h2><table><tr><th>Vacina</th><th>Aplicada em</th><th>Lote</th><th>Próxima dose</th></tr>${l.map((v) => `<tr><td>${esc(v.nome)}</td><td>${dataBR(v.data)}</td><td>${esc(v.lote)}</td><td>${dataBR(v.proxima)}</td></tr>`).join('')}</table><div class="assin"><div>Médico(a)-veterinário(a) responsável · CRMV</div></div>`);
+  imprimir(`Carteira de vacinação · ${p.nome}`, `${cabPet(p)}<h2>Vacinas e vermífugos</h2><table><tr><th>Vacina</th><th>Aplicada em</th><th>Lote</th><th>Próxima dose</th></tr>${l.map((v) => `<tr><td>${esc(v.nome)}</td><td>${dataBR(v.data)}</td><td>${esc(v.lote)}</td><td>${dataBR(v.proxima)}</td></tr>`).join('')}</table><div class="assin"><div>Médico(a)-veterinário(a) responsável · ${esc(db.config.crmv)}</div></div>`);
 }
 const TERMOS = {
   cirurgia: ['Termo de consentimento para cirurgia', 'Autorizo a equipe a realizar o procedimento cirúrgico indicado no meu animal. Fui informado(a) sobre o diagnóstico, o procedimento, os riscos (inclusive anestésicos, que podem levar a complicações e, em casos raros, ao óbito), os cuidados pós-operatórios e os custos estimados. Declaro que o animal está em jejum conforme orientado e que informei todas as doenças e medicamentos de que tenho conhecimento.'],
@@ -407,11 +511,11 @@ const TERMOS = {
 };
 function imprimirTermo(id, tipo) {
   const p = pet(id), t = tutorDe(p), [tit, texto] = TERMOS[tipo];
-  imprimir(`${tit} · ${p.nome}`, `${cabPet(p)}<h2>${tit}</h2><p>${texto}</p><p>Procedimento: ____________________________________________ Valor estimado: R$ ____________</p><div class="assin"><div>${esc(t?.nome)}<br>Tutor(a) · CPF ______________</div><div>Médico(a)-veterinário(a) · CRMV</div></div>`);
+  imprimir(`${tit} · ${p.nome}`, `${cabPet(p)}<h2>${tit}</h2><p>${texto}</p><p>Procedimento: ____________________________________________ Valor estimado: R$ ____________</p><div class="assin"><div>${esc(t?.nome)}<br>Tutor(a) · CPF ______________</div><div>Médico(a)-veterinário(a) · ${esc(db.config.crmv)}</div></div>`);
 }
 function imprimirAtestado(id) {
   const p = pet(id), vac = db.vacinas.filter((v) => v.pet === id && v.data >= maisDias(hoje(), -365));
-  imprimir(`Atestado de saúde · ${p.nome}`, `${cabPet(p)}<h2>Atestado de saúde</h2><p>Atesto, para os devidos fins, que examinei o animal acima nesta data e que ele se encontra clinicamente saudável, sem sinais de doença infectocontagiosa ou parasitária, apto a viajar e a conviver com outros animais.</p><p>Vacinas aplicadas nos últimos 12 meses: ${vac.map((v) => `${esc(v.nome)} (${dataBR(v.data)})`).join(', ') || 'nenhuma registrada'}.</p><div class="assin"><div>Médico(a)-veterinário(a) · CRMV</div></div>`);
+  imprimir(`Atestado de saúde · ${p.nome}`, `${cabPet(p)}<h2>Atestado de saúde</h2><p>Atesto, para os devidos fins, que examinei o animal acima nesta data e que ele se encontra clinicamente saudável, sem sinais de doença infectocontagiosa ou parasitária, apto a viajar e a conviver com outros animais.</p><p>Vacinas aplicadas nos últimos 12 meses: ${vac.map((v) => `${esc(v.nome)} (${dataBR(v.data)})`).join(', ') || 'nenhuma registrada'}.</p><div class="assin"><div>Médico(a)-veterinário(a) · ${esc(db.config.crmv)}</div></div>`);
 }
 function abrirAplicarVacina(id) {
   const vacinasEst = db.estoque.filter((x) => x.tipo === 'Vacina' || /vermífugo/i.test(x.nome));
@@ -467,14 +571,14 @@ function abrirPet(id) {
 function abrirCobrar(petSel, itensIniciais = []) {
   const itens = [...itensIniciais];
   const f = janela('Cobrança', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet"><option value="">Venda no balcão (sem pet)</option>${opcoesPets(petSel)}</select></label>
-    <label class="campo">Serviço<select name="serv"><option value="">Escolher…</option>${SERVICOS.map(([n, v], i) => `<option value="${i}">${esc(n)} · ${reais(v)}</option>`).join('')}</select></label>
+    <label class="campo">Serviço<select name="serv"><option value="">Escolher…</option>${servicos().map(([n, v], i) => `<option value="${i}">${esc(n)} · ${reais(v)}</option>`).join('')}</select></label>
     <label class="campo">Produto do estoque<select name="prod"><option value="">Escolher…</option>${db.estoque.filter((x) => x.qtd > 0).map((x) => `<option value="${x.id}">${esc(x.nome)} · ${reais(x.preco)}</option>`).join('')}</select></label>
     <div class="largo" data-itens></div>
     <label class="campo">Desconto (R$)<input name="desc" inputmode="decimal" value="0"></label><label class="campo">Forma de pagamento<select name="forma">${FORMAS.map((x) => `<option>${x}</option>`).join('')}</select></label></div>`, '<button class="bt bt-pri">Receber</button>');
   const lista = f.querySelector('[data-itens]');
   const soma = () => itens.reduce((s, i) => s + i.valor * i.qtd, 0) - (num(f.desc.value) || 0);
   const desenhaItens = () => { lista.innerHTML = itens.length ? `<table class="tabela">${itens.map((i, k) => `<tr><td>${esc(i.nome)}</td><td class="num">${reais(i.valor)}</td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar="${k}">Tirar</button></td></tr>`).join('')}<tr><td><b>Total</b></td><td class="num"><b>${reais(soma())}</b></td><td></td></tr></table>` : '<p class="vazio" style="padding:8px">Escolha os serviços e produtos acima.</p>'; };
-  f.serv.onchange = () => { if (f.serv.value === '') return; const [n, v] = SERVICOS[Number(f.serv.value)]; itens.push({ nome: n, valor: v, qtd: 1 }); f.serv.value = ''; desenhaItens(); };
+  f.serv.onchange = () => { if (f.serv.value === '') return; const [n, v] = servicos()[Number(f.serv.value)]; itens.push({ nome: n, valor: v, qtd: 1 }); f.serv.value = ''; desenhaItens(); };
   f.prod.onchange = () => { const x = db.estoque.find((y) => y.id === f.prod.value); if (!x) return; itens.push({ nome: x.nome, valor: x.preco, qtd: 1, item: x.id }); f.prod.value = ''; desenhaItens(); };
   f.desc.oninput = desenhaItens;
   lista.onclick = (e) => { const b = e.target.closest('[data-tirar]'); if (b) { itens.splice(Number(b.dataset.tirar), 1); desenhaItens(); } };
@@ -491,6 +595,7 @@ function abrirCobrar(petSel, itensIniciais = []) {
   };
 }
 function abrirInternar(id) {
+  if (!id) { const f0 = janela('Internar', `<label class="campo">Pet<select name="pet">${opcoesPets(est.sel)}</select></label>`, '<button class="bt bt-pri">Continuar</button>'); f0.onsubmit = (e) => { e.preventDefault(); abrirInternar(f0.pet.value); }; return; }
   const livres = ['Baia 1', 'Baia 2', 'Baia 3', 'Baia 4', 'Baia 5'].filter((b) => !db.internados.some((i) => i.baia === b));
   if (!livres.length) return avisar('Todas as baias estão ocupadas.');
   const f = janela(`Internar ${esc(pet(id).nome)}`, `<div class="grade-campos"><label class="campo">Baia<select name="baia">${livres.map((b) => `<option>${b}</option>`).join('')}</select></label>
@@ -510,8 +615,8 @@ function abrirBanho(petSel) {
   f.onsubmit = (e) => { e.preventDefault(); db.estetica.push({ id: uid(), data: hoje(), hora: f.hora.value, pet: f.pet.value, servico: f.serv.value, status: 'aguardando', obs: f.obs.value.trim() }); salvar(); fecharJanela(); est.secao = 'estetica'; desenhar(); };
 }
 function abrirPedirExame(petSel) {
-  const f = janela('Pedir exame', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo largo">Exame<select name="nome">${EXAMES.map((x) => `<option>${x}</option>`).join('')}</select></label><label class="campo largo">Laboratório<input name="lab" value="Laboratório VetLab"></label></div>`, '<button class="bt bt-pri">Pedir</button>');
-  f.onsubmit = (e) => { e.preventDefault(); db.exames.push({ id: uid(), pet: f.pet.value, nome: f.nome.value, data: hoje(), status: 'solicitado', resultado: '', lab: f.lab.value.trim() || 'Laboratório' }); salvar(); fecharJanela(); avisar('Exame pedido.'); desenhar(); };
+  const f = janela('Pedir exame', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo largo">Exame<input name="nome" list="lista-exames" placeholder="Escolha ou escreva o exame"><datalist id="lista-exames">${EXAMES.map((x) => `<option value="${x}">`).join('')}</datalist></label><label class="campo largo">Laboratório<input name="lab" value="Laboratório VetLab"></label></div>`, '<button class="bt bt-pri">Pedir</button>');
+  f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Escreva o nome do exame.'); db.exames.push({ id: uid(), pet: f.pet.value, nome: f.nome.value.trim(), data: hoje(), status: 'solicitado', resultado: '', lab: f.lab.value.trim() || 'Laboratório' }); salvar(); fecharJanela(); avisar('Exame pedido.'); desenhar(); };
 }
 function abrirResultado(idEx) {
   const x = db.exames.find((e) => e.id === idEx);
@@ -530,10 +635,28 @@ function abrirNovoItem() {
   f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome.'); db.estoque.push({ id: uid(), nome: f.nome.value.trim(), tipo: f.tipo.value, qtd: Number(f.qtd.value) || 0, minimo: Number(f.min.value) || 0, lote: f.lote.value.trim() || '—', validade: f.val.value, preco: num(f.preco.value) || 0, custo: num(f.custo.value) || 0 }); salvar(); fecharJanela(); desenhar(); };
 }
 
+
+function abrirTutor(id) {
+  const t = id ? db.tutores.find((x) => x.id === id) : null;
+  const f = janela(t ? `Editar ${esc(t.nome)}` : 'Novo tutor', `<div class="grade-campos"><label class="campo largo">Nome completo<input name="nome" value="${esc(t?.nome || '')}"></label><label class="campo">WhatsApp<input name="tel" inputmode="tel" value="${esc(telBR(t?.tel || ''))}" placeholder="(16) 99999-9999"></label><label class="campo">CPF<input name="cpf" value="${esc(t?.cpf || '')}"></label><label class="campo largo">Endereço<input name="end" value="${esc(t?.end || '')}"></label><label class="campo largo">E-mail<input name="email" type="email" value="${esc(t?.email || '')}"></label></div>`, `<button class="bt bt-pri">${t ? 'Salvar' : 'Cadastrar'}</button>`);
+  f.onsubmit = (e) => {
+    e.preventDefault(); if (!f.nome.value.trim()) return avisar('Falta o nome do tutor.');
+    const dados = { nome: f.nome.value.trim(), tel: soDigitos(f.tel.value), cpf: f.cpf.value.trim(), end: f.end.value.trim(), email: f.email.value.trim() };
+    if (t) Object.assign(t, dados); else { const nid = uid(); db.tutores.push({ id: nid, ...dados }); est.tutor = nid; }
+    salvar(); fecharJanela(); avisar(t ? 'Tutor atualizado.' : 'Tutor cadastrado. Agora é só cadastrar o pet dele em Pacientes.'); desenhar();
+  };
+}
+function abrirVacinaManual(petSel) {
+  const f = janela('Registrar vacina', `<div class="grade-campos"><label class="campo largo">Pet<select name="pet">${opcoesPets(petSel)}</select></label><label class="campo largo">Vacina ou vermífugo<input name="nome" list="lista-vacinas" placeholder="Ex.: V10, Antirrábica, V5 felina"><datalist id="lista-vacinas">${['V10 (polivalente)', 'V8 (polivalente)', 'Antirrábica', 'Gripe canina', 'Giardíase', 'Leishmaniose', 'V3 felina', 'V4 felina', 'V5 felina', 'Vermífugo'].map((x) => `<option value="${x}">`).join('')}</datalist></label>
+    <label class="campo">Aplicada em<input name="data" type="date" value="${hoje()}"></label><label class="campo">Próxima dose<input name="prox" type="date" value="${maisDias(hoje(), 365)}"></label><label class="campo">Lote<input name="lote"></label><label class="campo">Onde foi aplicada<select name="onde"><option value="aqui">Aqui na clínica (sem baixar estoque)</option><option value="fora">Em outra clínica</option></select></label></div>
+    <p class="nota">Use para vacinas antigas da carteirinha ou aplicadas em outro lugar. Para aplicar agora e baixar do estoque, use "Registrar vacina aplicada" na ficha do pet.</p>`, '<button class="bt bt-pri">Registrar</button>');
+  f.onsubmit = (e) => { e.preventDefault(); if (!f.nome.value.trim()) return avisar('Escreva o nome da vacina.'); db.vacinas.push({ id: uid(), pet: f.pet.value, nome: f.nome.value.trim() + (f.onde.value === 'fora' ? ' (outra clínica)' : ''), data: f.data.value, proxima: f.prox.value || null, lote: f.lote.value.trim() || '—' }); salvar(); fecharJanela(); avisar('Vacina registrada.'); desenhar(); };
+}
+
 // ---------------------------------------------------------------- desenho e cliques
 function desenhar() {
   topo();
-  $('#tela').innerHTML = ({ hoje: telaHoje, agenda: telaAgenda, pacientes: telaPacientes, tutores: telaTutores, vacinas: telaVacinas, internacao: telaInternacao, estetica: telaEstetica, exames: telaExames, estoque: telaEstoque, caixa: telaCaixa, relatorios: telaRelatorios })[est.secao]();
+  $('#tela').innerHTML = ({ hoje: telaHoje, agenda: telaAgenda, pacientes: telaPacientes, tutores: telaTutores, vacinas: telaVacinas, internacao: telaInternacao, estetica: telaEstetica, exames: telaExames, estoque: telaEstoque, caixa: telaCaixa, relatorios: telaRelatorios, config: telaConfig })[est.secao]();
 }
 const irPet = (id) => { est.secao = 'pacientes'; est.sel = id; est.aba = 'resumo'; est.busca = ''; desenhar(); scrollTo({ top: 0 }); };
 document.addEventListener('click', (e) => {
@@ -555,7 +678,7 @@ document.addEventListener('click', (e) => {
   if (d.atestado) return imprimirAtestado(d.atestado);
   if (d.aplicar) return abrirAplicarVacina(d.aplicar);
   if (d.cobrar !== undefined) return abrirCobrar(d.cobrar || null);
-  if (d.internar) return abrirInternar(d.internar);
+  if (d.internar !== undefined) return abrirInternar(d.internar || null);
   if (d.agendar !== undefined) return abrirAgendar(d.agendar || est.sel);
   if (d.novoAtendimento !== undefined) return abrirAgendar(est.sel);
   if (d.novoPet !== undefined) return abrirPet(null);
@@ -565,10 +688,10 @@ document.addEventListener('click', (e) => {
   if (d.semana) { est.dia = d.semana === '0' ? hoje() : maisDias(est.dia, Number(d.semana)); return desenhar(); }
   if (d.dose) { const [i, k] = d.dose.split(':'); const int = db.internados.find((x) => x.id === i); int.doses[Number(k)].feita = true; salvar(); avisar(`Dose dada: ${int.doses[Number(k)].remedio}.`); return desenhar(); }
   if (d.novaDose) return abrirNovaDose(d.novaDose);
-  if (d.alta) { const i = db.internados.find((x) => x.id === d.alta); if (!confirm(`Dar alta para ${pet(i.pet).nome}?`)) return; const diarias = Math.max(1, diasAte(hoje()) - diasAte(i.entrada) + 1); db.internados = db.internados.filter((x) => x.id !== d.alta); salvar(); desenhar(); return abrirCobrar(i.pet, [{ nome: 'Diária de internação', valor: 180, qtd: diarias }]); }
+  if (d.alta) { const i = db.internados.find((x) => x.id === d.alta); if (!confirm(`Dar alta para ${pet(i.pet).nome}?`)) return; const diarias = Math.max(1, diasAte(hoje()) - diasAte(i.entrada) + 1); db.internados = db.internados.filter((x) => x.id !== d.alta); salvar(); desenhar(); return abrirCobrar(i.pet, [{ nome: 'Diária de internação', valor: db.config.diaria || 180, qtd: diarias }]); }
   if (d.banho !== undefined) return abrirBanho(d.banho || est.sel);
   if (d.etapa) { const x = db.estetica.find((y) => y.id === d.etapa); x.status = ESTETICA[ESTETICA.findIndex(([k]) => k === x.status) + 1][0]; salvar(); return desenhar(); }
-  if (d.entregue) { const x = db.estetica.find((y) => y.id === d.entregue); db.estetica = db.estetica.filter((y) => y.id !== d.entregue); salvar(); desenhar(); return abrirCobrar(x.pet, [{ nome: x.servico, valor: (SERVICOS.find(([n]) => n === x.servico) || [0, 60])[1], qtd: 1 }]); }
+  if (d.entregue) { const x = db.estetica.find((y) => y.id === d.entregue); db.estetica = db.estetica.filter((y) => y.id !== d.entregue); salvar(); desenhar(); return abrirCobrar(x.pet, [{ nome: x.servico, valor: (servicos().find(([n]) => n === x.servico) || [0, 60])[1], qtd: 1 }]); }
   if (d.pedirExame !== undefined) return abrirPedirExame(d.pedirExame || est.sel);
   if (d.coletar) { db.exames.find((x) => x.id === d.coletar).status = 'coletado'; salvar(); return desenhar(); }
   if (d.resultado) return abrirResultado(d.resultado);
@@ -576,7 +699,27 @@ document.addEventListener('click', (e) => {
   if (d.receber) { const v = db.vendas.find((x) => x.id === d.receber); v.recebido = true; v.forma = 'PIX'; v.recebidoEm = hoje(); salvar(); avisar(`Recebido: ${reais(total(v))}.`); return desenhar(); }
   if (d.entrada) return abrirEntrada(d.entrada);
   if (d.novoItem !== undefined) return abrirNovoItem();
+  if (d.novoTutor !== undefined) return abrirTutor(null);
+  if (d.editarTutor) return abrirTutor(d.editarTutor);
+  if (d.vacinaManual !== undefined) return abrirVacinaManual(d.vacinaManual || est.sel);
+  if (d.cfg) { est.cfg = d.cfg; return desenhar(); }
+  if (d.conta !== undefined) { est.secao = 'config'; est.cfg = 'conta'; return desenhar(); }
+  if (d.ia !== undefined) return abrirIA();
+  if (d.fecharIa !== undefined) { $('#painel-ia').hidden = true; return; }
+  if (d.perguntar) return perguntar(d.perguntar);
+  if (d.tirarVet) { db.vets.splice(Number(d.tirarVet), 1); salvar(); return desenhar(); }
+  if (d.tirarServ) { db.config.servicos.splice(Number(d.tirarServ), 1); salvar(); return desenhar(); }
+  if (d.baixarCopia !== undefined) { const u = URL.createObjectURL(new Blob([JSON.stringify(db, null, 1)], { type: 'application/json' })); const l = document.createElement('a'); l.href = u; l.download = `vetnature-copia-${hoje()}.json`; l.click(); URL.revokeObjectURL(u); return; }
   if (d.recomecar !== undefined) { if (!confirm('Apagar as mudanças e voltar aos dados de exemplo?')) return; db = exemplo(); salvar(); est.sel = null; est.secao = 'hoje'; est.tutor = null; return desenhar(); }
+});
+document.addEventListener('submit', (e) => {
+  const f = e.target;
+  if (f.matches('[data-salvar-cfg]')) { e.preventDefault(); return salvarConfig(f); }
+  if (f.matches('[data-ia-form]')) { e.preventDefault(); const q = f.q.value; f.q.value = ''; perguntar(q); }
+});
+document.addEventListener('change', (e) => {
+  if (e.target.name === 'modo' && e.target.closest('[data-salvar-cfg="ia"]')) e.target.form.querySelector('[data-propria]').hidden = e.target.value !== 'propria';
+  if (e.target.matches('[data-voltar-copia]')) { const r = new FileReader(); r.onload = () => { try { const n = JSON.parse(r.result); if (!n.pets || !n.tutores) throw 0; db = n; if (!db.config) db.config = configPadrao(); salvar(); avisar('Cópia de segurança restaurada.'); desenhar(); } catch { avisar('Esse arquivo não é uma cópia do VetNature.'); } }; r.readAsText(e.target.files[0]); }
 });
 $('#janela').addEventListener('click', (e) => { if (e.target.id === 'janela') fecharJanela(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#janela').hidden) fecharJanela(); });
