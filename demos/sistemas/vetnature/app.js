@@ -2,6 +2,14 @@
 // Telas: Hoje, Agenda, Pacientes, Tutores, Vacinas, Internação, Estética, Exames, Estoque, Caixa e Relatórios.
 // Código próprio, sem base compartilhada. Fotos de exemplo do Pexels (licença livre) em fotos/.
 const CHAVE = 'vetnature-demo-v2';
+// Sistema contratado: aberto pela porta app/vetnature/ (?conta=vetnature). O conta-nuvem.js guarda cada alteração na nuvem
+// da clínica e cuida de equipe, convites, permissões e assinatura; aqui as telas só se ligam a isso.
+const CONTA = document.documentElement.classList.contains('modo-conta');
+const contaVc = (acao) => { const f = document.querySelector('.vc-faixa'); if (!f) return; let b = f.querySelector(`[data-vc="${acao}"]`); if (!b) { b = document.createElement('button'); b.type = 'button'; b.hidden = true; b.dataset.vc = acao; f.append(b); } b.click(); };
+// a chave da IA da pessoa fica só neste navegador (nunca vai para a nuvem nem para a equipe)
+const CHAVE_IA = 'vetnature-ia-chave';
+const chaveIA = () => { try { return localStorage.getItem(CHAVE_IA) || ''; } catch { return ''; } };
+const guardarChaveIA = (v) => { try { if (v) localStorage.setItem(CHAVE_IA, v); else localStorage.removeItem(CHAVE_IA); } catch { /* sem armazenamento */ } };
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const reais = (n) => Number(n || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -160,7 +168,7 @@ function completar(d) {
     { id: 'pl1', tipo: 'plano', nome: 'Plano Saúde Essencial', valor: 89, desconto: 10, inclui: '1 consulta por mês e 10% de desconto em vacinas e exames' },
     { id: 'pl2', tipo: 'plano', nome: 'Plano Saúde Completo', valor: 149, desconto: 20, inclui: 'Consultas à vontade, 1 banho por mês e 20% de desconto em vacinas e exames' },
   ];
-  if (!d.numerosDeExemplo) {
+  if (!d.numerosDeExemplo && !CONTA) {
     d.numerosDeExemplo = true;
     d.tutores.forEach((t) => { if (/^169912300\d\d$/.test(t.tel)) t.tel = `009000000${t.tel.slice(-2)}`; });
     const troca = { telefone: ['16991230000', '00900000000'], cnpj: ['12.345.678/0001-90', '00.000.000/0001-00'], crmv: ['CRMV-SP 41.552', 'CRMV-SP 00000'] };
@@ -169,6 +177,7 @@ function completar(d) {
     if (c.fiscal.im === '45.112-7') c.fiscal.im = '00.000-0';
     d.pets.forEach((p) => { p.microchip = { '963 001 234 567 890': '000 000 000 000 001', '963 001 998 112 004': '000 000 000 000 002' }[p.microchip] || p.microchip; });
   }
+  if (c.ia?.chave) { guardarChaveIA(c.ia.chave); delete c.ia.chave; }
   d.avisosEnviados ??= []; d.pedidos ??= [];
   if (!d.contratos) {
     const m = (id) => c.pacotes.find((x) => x.id === id), ct = (p, id, extra) => d.pets.some((x) => x.id === p) && m(id) ? [{ id: uid(), pet: p, modelo: id, tipo: m(id).tipo, nome: m(id).nome, servico: m(id).servico, qtd: m(id).qtd, valor: m(id).valor, desconto: m(id).desconto, ativo: true, ...extra }] : [];
@@ -188,6 +197,17 @@ function laudoExemplo() {
 }
 let db = (() => { try { return JSON.parse(localStorage.getItem(CHAVE)) || exemplo(); } catch { return exemplo(); } })();
 completar(db);
+if (CONTA && window.veltriaConta?.empresa && db.clinica === 'Clínica Veterinária Bem-Estar Animal') db.clinica = window.veltriaConta.empresa;
+window.veltriaDados = () => db;
+window.veltriaResumoIA = () => contexto();
+// "Começar do zero" da conta: tira pacientes, tutores e movimento; ficam serviços, pacotes, regras de aviso e de agendamento
+window.veltriaZerarProprio = (atual, empresa) => {
+  const d = completar(exemplo()), c = atual?.config || d.config;
+  ['tutores', 'pets', 'agenda', 'prontuarios', 'vacinas', 'internados', 'estetica', 'exames', 'estoque', 'vendas', 'contratos', 'avisosEnviados', 'pedidos'].forEach((k) => { d[k] = []; });
+  d.vets = ['Dr(a). Responsável', 'Equipe de estética']; d.clinica = empresa || d.clinica; d.numerosDeExemplo = true; d.anexoExemplo = true;
+  d.config = { ...d.config, ...c, conta: { nome: '', email: '', cargo: 'Dono', plano: 'VetNature' }, cnpj: '', telefone: '', endereco: '', cidade: '', crmv: '', comissoes: { 'Dr(a). Responsável': 10, 'Equipe de estética': 30 } };
+  return d;
+};
 const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(db)); } catch { avisar('O navegador ficou sem espaço para guardar a demonstração. Use "Recomeçar" ou fotos menores.'); } };
 
 // ---------------------------------------------------------------- estado e ajudas
@@ -207,7 +227,8 @@ const aniversariantes = () => db.pets.map((p) => { const [, m, d] = p.nasc.split
 function topo() {
   $('#clinica').textContent = db.clinica;
   const contas = { vacinas: vacPendentes().length, internacao: db.internados.reduce((n, i) => n + i.doses.filter((d) => !d.feita && d.hora <= horaAgora()).length, 0), estoque: db.estoque.filter((x) => x.qtd < x.minimo || diasAte(x.validade) <= 30).length, exames: db.exames.filter((e) => e.status === 'pronto' && !e.avisado).length, estetica: db.estetica.filter((e) => e.data === hoje() && e.status === 'pronto').length, agenda: db.pedidos.filter((x) => x.status === 'novo').length, avisos: filaAvisos().length, pacotes: db.contratos.filter((x) => x.ativo && x.tipo === 'plano' && diasAte(x.proxima) < 0).length };
-  $('#secoes').innerHTML = SECOES.map(([k, n]) => `<button type="button" data-secao="${k}" ${est.secao === k ? 'aria-current="page"' : ''}>${IC[k]}${n}${contas[k] ? `<span class="conta">${contas[k]}</span>` : ''}</button>`).join('');
+  $('#secoes').innerHTML = SECOES.map(([k, n]) => `<a href="#${k}" data-secao="${k}" ${est.secao === k ? 'aria-current="page"' : ''}>${IC[k]}${n}${contas[k] ? `<span class="conta">${contas[k]}</span>` : ''}</a>`).join('');
+  $('.conta-bt').textContent = CONTA ? String(db.clinica || '?').trim()[0].toUpperCase() : (db.config.conta.nome || 'PA').split(' ').map((x) => x[0]).join('').slice(0, 2).toUpperCase();
 }
 
 // ---------------------------------------------------------------- HOJE
@@ -398,30 +419,32 @@ const CFG = [['conta', 'Minha conta'], ['clinica', 'Clínica'], ['equipe', 'Equi
 function telaConfig() {
   const c = db.config;
   const corpo = {
-    conta: () => `<form class="cfg-form" data-salvar-cfg="conta"><div class="grade-campos"><label class="campo">Seu nome<input name="nome" value="${esc(c.conta.nome)}"></label><label class="campo">E-mail de acesso<input name="email" type="email" value="${esc(c.conta.email)}"></label><label class="campo">Cargo<input name="cargo" value="${esc(c.conta.cargo)}"></label><label class="campo">Plano<input value="${esc(c.conta.plano)}" disabled></label></div>
+    conta: () => CONTA ? `<div class="painel-conta"><p style="margin:0">Você está na conta da <b>${esc(window.veltriaConta?.empresa || db.clinica)}</b>. A mesma conta abre o sistema no computador e no celular, e cada pessoa da equipe entra com o próprio e-mail.</p>
+      <div class="acoes"><button type="button" class="bt bt-pri" data-vc-ir="perfil">Perfil e painel do dono</button><button type="button" class="bt" data-vc-ir="equipe">Equipe e convites</button><button type="button" class="bt" data-vc-ir="assinatura">Assinatura</button><button type="button" class="bt" data-vc-ir="config">Dados da empresa</button><button type="button" class="bt" data-vc-ir="sair">Sair</button></div>
+      <p class="nota">Convide pelo e-mail da pessoa e escolha o cargo, se ela pode alterar ou só ver e quais telas aparecem para ela. Equipe sem limite de pessoas.</p></div>` : `<form class="cfg-form" data-salvar-cfg="conta"><div class="grade-campos"><label class="campo">Seu nome<input name="nome" value="${esc(c.conta.nome)}"></label><label class="campo">E-mail de acesso<input name="email" type="email" value="${esc(c.conta.email)}"></label><label class="campo">Cargo<input name="cargo" value="${esc(c.conta.cargo)}"></label><label class="campo">Plano<input value="${esc(c.conta.plano)}" disabled></label></div>
       <p class="nota">Na versão de verdade, a conta fica no site da Blue Rose: o mesmo login abre o sistema no computador e no celular, e a equipe entra com o próprio acesso.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
     clinica: () => `<form class="cfg-form" data-salvar-cfg="clinica"><div class="grade-campos"><label class="campo largo">Nome da clínica<input name="clinica" value="${esc(db.clinica)}"></label><label class="campo">CNPJ<input name="cnpj" value="${esc(c.cnpj)}"></label><label class="campo">WhatsApp da clínica<input name="telefone" value="${esc(telBR(c.telefone))}"></label>
       <label class="campo largo">Endereço<input name="endereco" value="${esc(c.endereco)}"></label><label class="campo">Cidade<input name="cidade" value="${esc(c.cidade)}"></label><label class="campo">Responsável técnico (CRMV)<input name="crmv" value="${esc(c.crmv)}"></label>
       <label class="campo">Horário de atendimento<input name="horario" value="${esc(c.horario)}"></label><label class="campo">Valor da diária de internação (R$)<input name="diaria" inputmode="decimal" value="${c.diaria}"></label></div><p class="nota">O nome, o endereço e o CRMV saem nas receitas, termos, atestados e carteiras de vacinação.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
-    equipe: () => `<ul class="lista-simples">${db.vets.map((v, i) => `<li><span><b>${esc(v)}</b></span><span class="selo selo-aguardando">${v.startsWith('Dr') ? 'Veterinário(a)' : 'Equipe'}</span><button class="bt bt-peq bt-perigo" data-tirar-vet="${i}">Tirar</button></li>`).join('')}</ul>
+    equipe: () => `${CONTA ? '<p class="nota" style="margin:0 0 14px">Esta lista é de quem atende (aparece na agenda, nas receitas e nas comissões). Para dar acesso ao sistema a alguém, use <button type="button" class="link" data-vc-ir="equipe">Equipe e convites</button>.</p>' : ''}<ul class="lista-simples">${db.vets.map((v, i) => `<li><span><b>${esc(v)}</b></span><span class="selo selo-aguardando">${v.startsWith('Dr') ? 'Veterinário(a)' : 'Equipe'}</span><button class="bt bt-peq bt-perigo" data-tirar-vet="${i}">Tirar</button></li>`).join('')}</ul>
       <form class="cfg-form linha-form" data-salvar-cfg="vet"><label class="campo">Nome<input name="nome" placeholder="Ex.: Dra. Júlia Prado"></label><label class="campo">Função<select name="tipo"><option value="vet">Veterinário(a)</option><option value="equipe">Equipe (estética, recepção)</option></select></label><button class="bt bt-pri">Adicionar</button></form>`,
     servicos: () => `<form class="cfg-form" data-salvar-cfg="servicos"><table class="tabela tabela-servicos"><thead><tr><th>Serviço</th><th class="num">Preço (R$)</th><th></th></tr></thead><tbody>${servicos().map(([n, v], i) => `<tr><td><input class="cel-tab" name="n${i}" value="${esc(n)}"></td><td class="num"><input class="cel-tab num" name="v${i}" inputmode="decimal" value="${v}"></td><td class="num"><button type="button" class="bt bt-peq bt-perigo" data-tirar-serv="${i}">Tirar</button></td></tr>`).join('')}
       <tr><td><input class="cel-tab" name="novo_n" placeholder="Novo serviço"></td><td class="num"><input class="cel-tab num" name="novo_v" inputmode="decimal" placeholder="0,00"></td><td></td></tr></tbody></table><div class="acoes" style="margin-top:12px"><button class="bt bt-pri">Salvar preços</button></div></form>`,
     ia: () => `<form class="cfg-form" data-salvar-cfg="ia"><div class="opcoes-ia"><label class="op-ia"><input type="radio" name="modo" value="nossa" ${c.ia.modo !== 'propria' ? 'checked' : ''}><span><b>Assistente VetNature</b><small>Incluso no plano. Responde sobre a agenda, os pacientes, as vacinas, o caixa e o estoque da sua clínica.</small></span></label>
       <label class="op-ia"><input type="radio" name="modo" value="propria" ${c.ia.modo === 'propria' ? 'checked' : ''}><span><b>Usar a minha IA</b><small>Já paga o ChatGPT, o Gemini ou o Claude? Coloque a sua chave e o assistente passa a usar a sua conta.</small></span></label></div>
       <div class="grade-campos" data-propria ${c.ia.modo === 'propria' ? '' : 'hidden'}><label class="campo">Qual IA<select name="provedor">${[['openai', 'ChatGPT (OpenAI)'], ['gemini', 'Gemini (Google)'], ['claude', 'Claude (Anthropic)']].map(([k, n]) => `<option value="${k}" ${c.ia.provedor === k ? 'selected' : ''}>${n}</option>`).join('')}</select></label><label class="campo">Modelo (opcional)<input name="modelo" value="${esc(c.ia.modelo)}" placeholder="padrão de cada IA"></label>
-      <label class="campo largo">Chave da API<input name="chave" type="password" autocomplete="off" value="${esc(c.ia.chave)}" placeholder="Cole aqui a chave da sua conta"></label><p class="nota largo">A chave fica guardada só neste navegador e vai direto para a empresa da IA que você escolheu. Onde pegar: ChatGPT em platform.openai.com/api-keys · Gemini em aistudio.google.com/apikey · Claude em console.anthropic.com.</p></div>
+      <label class="campo largo">Chave da API<input name="chave" type="password" autocomplete="off" value="${esc(chaveIA())}" placeholder="Cole aqui a chave da sua conta"></label><p class="nota largo">A chave fica guardada só neste navegador e vai direto para a empresa da IA que você escolheu. Onde pegar: ChatGPT em platform.openai.com/api-keys · Gemini em aistudio.google.com/apikey · Claude em console.anthropic.com.</p></div>
       <div class="acoes"><button class="bt bt-pri">Salvar</button><button type="button" class="bt" data-ia>Abrir o assistente</button></div></form>`,
     agendamento: () => { const o = c.agendaOnline; return `<form class="cfg-form" data-salvar-cfg="agendamento"><label class="op-ia"><input type="checkbox" name="ligado" ${o.ligado ? 'checked' : ''}><span><b>Deixar o tutor pedir horário pelo link</b><small>O pedido cai na Agenda para alguém da clínica confirmar. Nada entra na agenda sem confirmação.</small></span></label>
       <div class="grade-campos"><label class="campo">Primeiro horário<input name="inicio" type="time" value="${o.inicio}"></label><label class="campo">Último horário<input name="fim" type="time" value="${o.fim}"></label><label class="campo">De quanto em quanto tempo<select name="intervalo">${[15, 20, 30, 60].map((m) => `<option value="${m}" ${o.intervalo === m ? 'selected' : ''}>${m} minutos</option>`).join('')}</select></label><label class="campo">Sábado<select name="sabado"><option value="1">Atende (até 12h)</option><option value="" ${o.sabado ? '' : 'selected'}>Não atende</option></select></label>
       <fieldset class="campo largo escolhas"><legend>O que o tutor pode pedir</legend>${Object.keys(TIPOS).filter((t) => t !== 'Cirurgia').map((t) => `<label><input type="checkbox" name="tipos" value="${t}" ${o.tipos.includes(t) ? 'checked' : ''}> ${t}</label>`).join('')}</fieldset></div>
-      <p class="nota">Link da clínica: <b>${esc(linkAgendar())}</b> · coloque na bio do Instagram, no Google e na mensagem automática do WhatsApp.</p><div class="acoes"><button class="bt bt-pri">Salvar</button><a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página do tutor</a></div></form>`; },
+      <p class="nota">Link da clínica: <b>${esc(linkAgendar())}</b> · coloque na bio do Instagram, no Google e na mensagem automática do WhatsApp.</p><div class="acoes"><button class="bt bt-pri">Salvar</button><a class="bt" href="${esc(linkAgendar())}" target="_blank" rel="noopener">Abrir a página do tutor</a></div></form>`; },
     comissoes: () => `<form class="cfg-form" data-salvar-cfg="comissoes"><table class="tabela"><thead><tr><th>Profissional</th><th class="num">Comissão sobre os serviços (%)</th></tr></thead><tbody>${db.vets.map((v, i) => `<tr><td><b>${esc(v)}</b></td><td class="num"><input class="cel-tab num" name="c${i}" inputmode="decimal" value="${c.comissoes[v] ?? 0}"></td></tr>`).join('')}</tbody></table>
       <p class="nota">A comissão conta só os serviços (consulta, banho, exame...). Produtos e descontos ficam de fora. O valor de cada um aparece em Relatórios.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
     fiscal: () => `<form class="cfg-form" data-salvar-cfg="fiscal"><div class="grade-campos"><label class="campo">Inscrição municipal<input name="im" value="${esc(c.fiscal.im)}"></label><label class="campo">Regime<input name="regime" list="lista-regime" value="${esc(c.fiscal.regime)}"><datalist id="lista-regime"><option value="Simples Nacional"><option value="MEI"><option value="Lucro presumido"><option value="Lucro real"></datalist></label>
       <label class="campo">Serviço (lista da LC 116)<input name="codigo" value="${esc(c.fiscal.codigo)}"></label><label class="campo">Alíquota do ISS (%)<input name="aliquota" inputmode="decimal" value="${c.fiscal.aliquota}"></label><label class="campo">Próximo número de nota<input name="proxima" type="number" min="1" value="${c.fiscal.proxima}"></label></div>
-      <p class="nota">Na versão de verdade a nota vai direto para a prefeitura da sua cidade, com o certificado digital da clínica, e o tutor recebe o PDF por e-mail ou WhatsApp. Nesta demonstração a nota sai como prévia, sem valor fiscal.</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
-    dados: () => `<p style="margin-top:0">Baixe uma cópia de todos os cadastros (pets, tutores, prontuários, vacinas, caixa) ou volte uma cópia que você guardou.</p><div class="acoes"><button class="bt bt-pri" data-baixar-copia>Baixar cópia (.json)</button><label class="bt">Voltar uma cópia<input type="file" accept="application/json" data-voltar-copia hidden></label><button class="bt bt-perigo" data-recomecar>Apagar tudo e voltar aos dados de exemplo</button></div>`,
+      <p class="nota">Na versão de verdade a nota vai direto para a prefeitura da sua cidade, com o certificado digital da clínica, e o tutor recebe o PDF por e-mail ou WhatsApp. ${CONTA ? 'Por enquanto a nota sai como prévia, sem valor fiscal: a emissão na prefeitura a nossa equipe ativa com você.' : 'Nesta demonstração a nota sai como prévia, sem valor fiscal.'}</p><div class="acoes"><button class="bt bt-pri">Salvar</button></div></form>`,
+    dados: () => `<p style="margin-top:0">Baixe uma cópia de todos os cadastros (pets, tutores, prontuários, vacinas, caixa) ou volte uma cópia que você guardou.</p><div class="acoes"><button class="bt bt-pri" data-baixar-copia>Baixar cópia (.json)</button><label class="bt">Voltar uma cópia<input type="file" accept="application/json" data-voltar-copia hidden></label>${CONTA ? '<button class="bt bt-perigo" data-vc-ir="zerar">Começar do zero (apaga os dados da clínica)</button>' : '<button class="bt bt-perigo" data-recomecar>Apagar tudo e voltar aos dados de exemplo</button>'}</div>`,
   };
   return `<div class="cab"><div><h1>Configurações</h1><p>Sua conta, a clínica, a equipe, os preços e o assistente de IA.</p></div></div>
     <div class="cfg"><nav class="cfg-menu" aria-label="Configurações">${CFG.map(([k, n]) => `<button type="button" data-cfg="${k}" ${est.cfg === k ? 'aria-current="true"' : ''}>${n}</button>`).join('')}</nav><section class="cartao"><div class="cartao-cab"><h2>${CFG.find(([k]) => k === est.cfg)[1]}</h2></div><div class="cartao-corpo">${corpo[est.cfg]()}</div></section></div>`;
@@ -436,7 +459,7 @@ function salvarConfig(f) {
   if (tipo === 'agendamento') { const tipos = [...f.querySelectorAll('[name=tipos]:checked')].map((x) => x.value); if (!tipos.length) return avisar('Escolha pelo menos uma coisa que o tutor pode pedir.'); if (f.inicio.value >= f.fim.value) return avisar('O último horário precisa ser depois do primeiro.'); c.agendaOnline = { ligado: f.ligado.checked, inicio: f.inicio.value, fim: f.fim.value, intervalo: Number(f.intervalo.value), sabado: !!f.sabado.value, tipos }; }
   if (tipo === 'comissoes') db.vets.forEach((v, i) => { c.comissoes[v] = Math.min(100, Math.max(0, num(f[`c${i}`].value) || 0)); });
   if (tipo === 'fiscal') Object.assign(c.fiscal, { im: f.im.value.trim(), regime: f.regime.value.trim(), codigo: f.codigo.value.trim(), aliquota: num(f.aliquota.value) || 0, proxima: Math.max(1, Math.round(Number(f.proxima.value)) || 1) });
-  if (tipo === 'ia') { c.ia = { modo: f.modo.value, provedor: f.provedor.value, modelo: f.modelo.value.trim(), chave: f.chave.value.trim() }; if (c.ia.modo === 'propria' && !c.ia.chave) avisar('Sem a chave, o assistente continua usando o Assistente VetNature.'); }
+  if (tipo === 'ia') { c.ia = { modo: f.modo.value, provedor: f.provedor.value, modelo: f.modelo.value.trim() }; guardarChaveIA(f.chave.value.trim()); if (c.ia.modo === 'propria' && !chaveIA()) avisar('Sem a chave, o assistente continua usando o Assistente VetNature.'); }
   salvar(); avisar('Salvo.'); desenhar();
 }
 
@@ -446,7 +469,7 @@ function abrirIA() {
   const p = $('#painel-ia'); p.hidden = false; desenharIA(); p.querySelector('input')?.focus();
 }
 function desenharIA() {
-  const p = $('#painel-ia'), propria = db.config.ia.modo === 'propria' && db.config.ia.chave;
+  const p = $('#painel-ia'), propria = db.config.ia.modo === 'propria' && chaveIA();
   p.innerHTML = `<div class="ia-cab"><div><b>${IC.ia} Assistente</b><small>${propria ? `Usando a sua IA (${({ openai: 'ChatGPT', gemini: 'Gemini', claude: 'Claude' })[db.config.ia.provedor]})` : 'Assistente VetNature'}</small></div><button type="button" class="fechar" data-fechar-ia aria-label="Fechar">×</button></div>
     <div class="ia-conversa" aria-live="polite">${est.chat.length ? est.chat.map((m) => `<div class="msg msg-${m.de}">${m.de === 'ia' ? m.texto : esc(m.texto)}</div>`).join('') : `<div class="msg msg-ia">Oi, ${esc(primeiro(db.config.conta.nome))}! Pergunte sobre a agenda, um paciente, as vacinas, o caixa ou o estoque.</div>`}</div>
     <div class="ia-sug">${SUGESTOES.map((s) => `<button type="button" data-perguntar="${esc(s)}">${esc(s)}</button>`).join('')}</div>
@@ -458,7 +481,8 @@ async function perguntar(q) {
   est.chat.push({ de: 'eu', texto: q }, { de: 'ia', texto: '<span class="pensando">Pensando…</span>' }); desenharIA();
   let r;
   const c = db.config.ia;
-  if (c.modo === 'propria' && c.chave) { try { r = esc(await iaPropria(q)).replace(/\n/g, '<br>'); } catch (e) { r = `Não consegui falar com a sua IA (${esc(e.message)}). Confira a chave em Configurações · Assistente de IA. Enquanto isso, respondo com o Assistente VetNature:<br><br>${iaNossa(q)}`; } }
+  if (c.modo === 'propria' && chaveIA()) { try { r = esc(await iaPropria(q)).replace(/\n/g, '<br>'); } catch (e) { r = `Não consegui falar com a sua IA (${esc(e.message)}). Confira a chave em Configurações · Assistente de IA. Enquanto isso, respondo com o Assistente VetNature:<br><br>${iaNossa(q)}`; } }
+  else if (CONTA && window.veltriaIA && !/dose|mg\/kg|posologia|quanto (de|dar)/.test(sem(q))) { r = esc(await window.veltriaIA(q)).replace(/\n/g, '<br>'); }
   else r = iaNossa(q);
   est.chat[est.chat.length - 1].texto = r; desenharIA();
 }
@@ -476,9 +500,9 @@ function contexto() {
 async function iaPropria(q) {
   const c = db.config.ia, sistema = `Você é o assistente do sistema VetNature da ${db.clinica}. Responda em português do Brasil, curto e prático, só com base nos dados abaixo. Não invente dados. Não prescreva doses de medicamento: diga para confirmar com o veterinário.\nDados da clínica (JSON): ${contexto()}`;
   const pede = async (url, op) => { const r = await fetch(url, op); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error?.message || `erro ${r.status}`); return j; };
-  if (c.provedor === 'gemini') { const j = await pede(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(c.modelo || 'gemini-2.0-flash')}:generateContent?key=${encodeURIComponent(c.chave)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sistema }] }, contents: [{ role: 'user', parts: [{ text: q }] }] }) }); return j.candidates?.[0]?.content?.parts?.map((x) => x.text).join('') || 'Sem resposta.'; }
-  if (c.provedor === 'claude') { const j = await pede('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': c.chave, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: c.modelo || 'claude-haiku-5-5', max_tokens: 700, system: sistema, messages: [{ role: 'user', content: q }] }) }); return j.content?.map((x) => x.text || '').join('') || 'Sem resposta.'; }
-  const j = await pede('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${c.chave}` }, body: JSON.stringify({ model: c.modelo || 'gpt-4o-mini', messages: [{ role: 'system', content: sistema }, { role: 'user', content: q }] }) });
+  if (c.provedor === 'gemini') { const j = await pede(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(c.modelo || 'gemini-2.0-flash')}:generateContent?key=${encodeURIComponent(chaveIA())}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sistema }] }, contents: [{ role: 'user', parts: [{ text: q }] }] }) }); return j.candidates?.[0]?.content?.parts?.map((x) => x.text).join('') || 'Sem resposta.'; }
+  if (c.provedor === 'claude') { const j = await pede('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': chaveIA(), 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: c.modelo || 'claude-haiku-5-5', max_tokens: 700, system: sistema, messages: [{ role: 'user', content: q }] }) }); return j.content?.map((x) => x.text || '').join('') || 'Sem resposta.'; }
+  const j = await pede('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${chaveIA()}` }, body: JSON.stringify({ model: c.modelo || 'gpt-4o-mini', messages: [{ role: 'system', content: sistema }, { role: 'user', content: q }] }) });
   return j.choices?.[0]?.message?.content || 'Sem resposta.';
 }
 // Assistente VetNature: responde direto dos dados da clínica (na demonstração roda no navegador)
@@ -527,7 +551,7 @@ function lerFoto(arquivo) {
   return new Promise((ok, erro) => {
     if (!arquivo || !arquivo.type.startsWith('image/')) return erro(new Error('Escolha uma imagem.'));
     const img = new Image(), url = URL.createObjectURL(arquivo);
-    img.onload = () => { const s = Math.min(img.width, img.height), c = document.createElement('canvas'); c.width = c.height = 480; c.getContext('2d').drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, 480, 480); URL.revokeObjectURL(url); ok(c.toDataURL('image/jpeg', .8)); };
+    img.onload = () => { const s = Math.min(img.width, img.height), c = document.createElement('canvas'); const t = CONTA ? 320 : 480; c.width = c.height = t; c.getContext('2d').drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, t, t); URL.revokeObjectURL(url); ok(c.toDataURL('image/jpeg', CONTA ? .72 : .8)); };
     img.onerror = () => erro(new Error('Não consegui abrir essa imagem.')); img.src = url;
   });
 }
@@ -756,8 +780,8 @@ function registrarAviso(x, auto) {
 }
 function telaAvisos() {
   const c = db.config.avisos, fila = filaAvisos(), env = db.avisosEnviados.slice(-40).reverse();
-  return `<div class="cab"><div><h1>Avisos automáticos</h1><p>${c.ligado ? `Ligado · os avisos do dia saem às ${c.hora} pelo WhatsApp da clínica` : 'Desligado · nenhum aviso sai sozinho'}</p></div><div class="acoes"><button class="bt" data-ligar-avisos>${c.ligado ? 'Desligar' : 'Ligar'}</button>${fila.length && c.ligado ? `<button class="bt bt-pri" data-simular-envio>Simular o envio de hoje (${fila.length})</button>` : ''}</div></div>
-    <p class="nota aviso-demo">Na versão de verdade estes avisos saem sozinhos, sem ninguém clicar, pela API oficial do WhatsApp (a Meta cobra alguns centavos por mensagem). Nesta demonstração você vê a fila do dia, pode mandar um por um pelo seu WhatsApp ou simular o envio automático.</p>
+  return `<div class="cab"><div><h1>Avisos automáticos</h1><p>${c.ligado ? (CONTA ? `Ligado · a fila do dia fica pronta às ${c.hora}` : `Ligado · os avisos do dia saem às ${c.hora} pelo WhatsApp da clínica`) : 'Desligado · nenhum aviso sai sozinho'}</p></div><div class="acoes"><button class="bt" data-ligar-avisos>${c.ligado ? 'Desligar' : 'Ligar'}</button>${fila.length && c.ligado && !CONTA ? `<button class="bt bt-pri" data-simular-envio>Simular o envio de hoje (${fila.length})</button>` : ''}</div></div>
+    <p class="nota aviso-demo">${CONTA ? 'Todo dia a fila se monta sozinha: toque em Enviar e a mensagem abre pronta no WhatsApp da clínica. O envio sem ninguém tocar, pela API oficial do WhatsApp, a nossa equipe ativa com você (a Meta cobra alguns centavos por mensagem).' : 'Na versão de verdade estes avisos saem sozinhos, sem ninguém clicar, pela API oficial do WhatsApp (a Meta cobra alguns centavos por mensagem). Nesta demonstração você vê a fila do dia, pode mandar um por um pelo seu WhatsApp ou simular o envio automático.'}</p>
     <div class="duas"><section class="cartao"><div class="cartao-cab"><h2>Na fila de hoje</h2><span class="selo selo-aguardando">${fila.length}</span></div>${fila.length ? `<ul class="lista-avisos">${fila.map((x, i) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet).nome)} · ${TIPO_AVISO[x.tipo]}</b><p>${esc(x.texto)}</p></div><a class="bt bt-peq bt-zap" target="_blank" rel="noopener" data-enviar-aviso="${i}" href="${zap(x.tel, x.texto)}">Enviar</a></li>`).join('')}</ul>` : '<p class="vazio">Nada para avisar hoje. Tudo em dia.</p>'}</section>
     <section class="cartao"><div class="cartao-cab"><h2>Já enviados</h2></div>${env.length ? `<ul class="lista-avisos">${env.map((x) => `<li>${avatar(pet(x.pet), 'mini')}<div><b>${esc(pet(x.pet)?.nome || '—')} · ${TIPO_AVISO[x.tipo]}</b><small>${dataBR(x.data)} às ${x.hora} · ${x.auto ? 'envio automático (simulação)' : 'mandado pelo WhatsApp'}</small></div></li>`).join('')}</ul>` : '<p class="vazio">Nenhum aviso enviado ainda.</p>'}</section></div>
     <section class="cartao" style="margin-top:18px"><div class="cartao-cab"><h2>Quando e o que avisar</h2></div><div class="cartao-corpo"><form class="cfg-form" data-salvar-cfg="avisos"><div class="grade-campos">
@@ -863,10 +887,10 @@ function abrirReceitaControle(idPet, idPr) {
 function lerAnexo(arq) {
   return new Promise((ok, erro) => {
     if (!arq) return erro(new Error('Escolha um arquivo.'));
-    if (arq.type === 'application/pdf') { if (arq.size > 1.5e6) return erro(new Error('PDF grande demais para a demonstração (até 1,5 MB). Na versão de verdade não tem esse limite.')); const r = new FileReader(); r.onload = () => ok({ nome: arq.name, dados: r.result }); r.onerror = () => erro(new Error('Não consegui ler o PDF.')); return r.readAsDataURL(arq); }
+    if (arq.type === 'application/pdf') { if (arq.size > (CONTA ? 8e5 : 1.5e6)) return erro(new Error(CONTA ? 'PDF grande demais (até 800 KB). Tire uma foto do laudo ou peça ao laboratório o PDF compactado.' : 'PDF grande demais para a demonstração (até 1,5 MB).')); const r = new FileReader(); r.onload = () => ok({ nome: arq.name, dados: r.result }); r.onerror = () => erro(new Error('Não consegui ler o PDF.')); return r.readAsDataURL(arq); }
     if (!arq.type.startsWith('image/')) return erro(new Error('Anexe um PDF ou uma foto.'));
     const img = new Image(), url = URL.createObjectURL(arq);
-    img.onload = () => { const k = Math.min(1, 1600 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url); ok({ nome: arq.name.replace(/\.\w+$/, '.jpg'), dados: c.toDataURL('image/jpeg', .82) }); };
+    img.onload = () => { const k = Math.min(1, (CONTA ? 1200 : 1600) / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url); ok({ nome: arq.name.replace(/\.\w+$/, '.jpg'), dados: c.toDataURL('image/jpeg', .82) }); };
     img.onerror = () => erro(new Error('Não consegui abrir essa imagem.')); img.src = url;
   });
 }
@@ -878,11 +902,22 @@ function verAnexo(x) {
 
 // ---------------------------------------------------------------- AGENDAMENTO ONLINE
 const FILA_PEDIDOS = 'vetnature-pedidos-demo';
-const linkAgendar = () => new URL('agendar.html', location.href).href;
+const linkAgendar = () => new URL(CONTA && window.veltriaConta?.espaco ? `agendar.html?e=${window.veltriaConta.espaco}` : 'agendar.html', location.href).href;
 function trazerPedidos() {
   let novos = []; try { novos = JSON.parse(localStorage.getItem(FILA_PEDIDOS)) || []; localStorage.removeItem(FILA_PEDIDOS); } catch { /* sem armazenamento */ }
   if (novos.length) { db.pedidos.push(...novos); salvar(); }
   return novos.length;
+}
+// conta: pedidos feitos pelo link público (tabela vetnature_pedidos) entram nos dados da clínica e saem da fila
+function trazerPedidosNuvem() {
+  if (!CONTA || !window.veltriaCliente || window.veltriaPermissoes?.so_leitura) return;
+  window.veltriaCliente().then((sb) => sb.from('vetnature_pedidos').select('id,nome,tel,pet,especie,tipo,data,hora,obs').eq('espaco', window.veltriaConta.espaco).order('criado').then((r) => {
+    if (r.error || !r.data?.length) return;
+    let novos = 0;
+    r.data.forEach((x) => { if (db.pedidos.some((y) => y.id === `w${x.id}`)) return; db.pedidos.push({ id: `w${x.id}`, nome: x.nome, tel: x.tel, pet: x.pet, especie: x.especie, tipo: x.tipo, data: x.data, hora: x.hora, obs: x.obs || '', status: 'novo', criado: new Date().toISOString() }); novos += 1; });
+    salvar();
+    return sb.from('vetnature_pedidos').delete().in('id', r.data.map((x) => x.id)).then(() => { if (novos) { avisar(novos === 1 ? 'Chegou um pedido de horário pelo link.' : `Chegaram ${novos} pedidos de horário pelo link.`); desenhar(); } });
+  })).catch(() => {});
 }
 function blocoPedidos() {
   const l = db.pedidos.filter((x) => x.status === 'novo').sort((a, b) => (a.data + a.hora).localeCompare(b.data + b.hora));
@@ -909,12 +944,13 @@ function recusarPedido(id) {
 function abrirLinkAgenda() {
   const url = linkAgendar(), msg = `Agora dá para marcar horário na ${db.clinica} pelo celular, a qualquer hora: ${url}`;
   const f = janela('Link para o tutor agendar', `<p style="margin-top:0">O tutor escolhe o dia e o horário livre; o pedido aparece aqui na Agenda para vocês confirmarem.</p><label class="campo">Link<input name="link" value="${esc(url)}" readonly></label>
-    ${db.config.agendaOnline.ligado ? '' : '<p class="nota">O agendamento online está desligado. Ligue em Configurações · Agendamento online.</p>'}`, `<a class="bt" href="agendar.html" target="_blank" rel="noopener">Abrir a página</a><a class="bt bt-zap" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">Mandar no WhatsApp</a><button class="bt bt-pri">Copiar link</button>`);
+    ${db.config.agendaOnline.ligado ? '' : '<p class="nota">O agendamento online está desligado. Ligue em Configurações · Agendamento online.</p>'}`, `<a class="bt" href="${esc(linkAgendar())}" target="_blank" rel="noopener">Abrir a página</a><a class="bt bt-zap" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">Mandar no WhatsApp</a><button class="bt bt-pri">Copiar link</button>`);
   f.onsubmit = async (e) => { e.preventDefault(); try { await navigator.clipboard.writeText(url); avisar('Link copiado.'); } catch { f.link.select(); avisar('Selecionei o link: é só copiar.'); } };
 }
 
 // ---------------------------------------------------------------- WHATSAPP SIMULADO (demonstração: nada sai de verdade)
 function simularZap(url) {
+  if (CONTA) { window.open(url, '_blank', 'noopener'); return; }
   const u = new URL(url), tel = u.pathname.replace(/\D/g, '').replace(/^55/, ''), msg = u.searchParams.get('text') || '';
   const t = db.tutores.find((x) => soDigitos(x.tel) === tel);
   let el = $('#zap-sim');
@@ -927,10 +963,11 @@ function simularZap(url) {
   el.querySelector('[data-copiar-zap]').onclick = async () => { try { await navigator.clipboard.writeText(msg); avisar('Mensagem copiada.'); } catch { avisar('Não deu para copiar neste navegador.'); } };
 }
 // qualquer link de WhatsApp da demonstração abre a simulação
-document.addEventListener('click', (e) => { const l = e.target.closest('a[href*="wa.me/"]'); if (!l) return; e.preventDefault(); simularZap(l.href); }, true);
+document.addEventListener('click', (e) => { const l = e.target.closest('a[href*="wa.me/"]'); if (!l || CONTA) return; e.preventDefault(); simularZap(l.href); }, true);
 
 // ---------------------------------------------------------------- desenho e cliques
 function desenhar() {
+  if (location.hash.slice(1) !== est.secao) history.replaceState(null, '', `${location.pathname}${location.search}#${est.secao}`);
   topo();
   $('#tela').innerHTML = ({ hoje: telaHoje, agenda: telaAgenda, pacientes: telaPacientes, tutores: telaTutores, vacinas: telaVacinas, internacao: telaInternacao, estetica: telaEstetica, exames: telaExames, estoque: telaEstoque, caixa: telaCaixa, relatorios: telaRelatorios, config: telaConfig, avisos: telaAvisos, pacotes: telaPacotes })[est.secao]();
 }
@@ -996,14 +1033,15 @@ document.addEventListener('click', (e) => {
   if (d.linkAgenda !== undefined) return abrirLinkAgenda();
   if (d.confirmarPedido) return confirmarPedido(d.confirmarPedido);
   if (d.recusarPedido) return recusarPedido(d.recusarPedido);
-  if (d.conta !== undefined) { est.secao = 'config'; est.cfg = 'conta'; return desenhar(); }
+  if (d.conta !== undefined) { if (CONTA) return contaVc('perfil'); est.secao = 'config'; est.cfg = 'conta'; return desenhar(); }
+  if (d.vcIr) return contaVc(d.vcIr);
   if (d.ia !== undefined) return abrirIA();
   if (d.fecharIa !== undefined) { $('#painel-ia').hidden = true; return; }
   if (d.perguntar) return perguntar(d.perguntar);
   if (d.tirarVet) { db.vets.splice(Number(d.tirarVet), 1); salvar(); return desenhar(); }
   if (d.tirarServ) { db.config.servicos.splice(Number(d.tirarServ), 1); salvar(); return desenhar(); }
   if (d.baixarCopia !== undefined) { const u = URL.createObjectURL(new Blob([JSON.stringify(db, null, 1)], { type: 'application/json' })); const l = document.createElement('a'); l.href = u; l.download = `vetnature-copia-${hoje()}.json`; l.click(); URL.revokeObjectURL(u); return; }
-  if (d.recomecar !== undefined) { if (!confirm('Apagar as mudanças e voltar aos dados de exemplo?')) return; db = completar(exemplo()); salvar(); est.sel = null; est.secao = 'hoje'; est.tutor = null; return desenhar(); }
+  if (d.recomecar !== undefined) { if (CONTA) return; if (!confirm('Apagar as mudanças e voltar aos dados de exemplo?')) return; db = completar(exemplo()); salvar(); est.sel = null; est.secao = 'hoje'; est.tutor = null; return desenhar(); }
 });
 document.addEventListener('submit', (e) => {
   const f = e.target;
@@ -1027,5 +1065,8 @@ document.addEventListener('keydown', (e) => { if (e.key !== 'Escape') return; co
 $('#busca').addEventListener('input', (e) => { est.busca = e.target.value; est.secao = 'pacientes'; const l = db.pets.filter((p) => `${p.nome} ${tutorDe(p)?.nome}`.toLowerCase().includes(est.busca.toLowerCase())); est.sel = l.length === 1 ? l[0].id : est.sel; desenhar(); });
 // pedido feito na página do tutor (outra aba) aparece na hora
 addEventListener('storage', (e) => { if (e.key === FILA_PEDIDOS && e.newValue && trazerPedidos()) { avisar('Chegou um pedido de agendamento pelo link.'); desenhar(); } });
+addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h !== est.secao && SECOES.some(([k]) => k === h)) { est.secao = h; desenhar(); } });
+{ const h = location.hash.slice(1); if (SECOES.some(([k]) => k === h)) est.secao = h; }
 trazerPedidos();
+if (CONTA) { setTimeout(trazerPedidosNuvem, 2500); setInterval(trazerPedidosNuvem, 30000); }
 desenhar();
