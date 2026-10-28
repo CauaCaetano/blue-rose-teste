@@ -51,6 +51,14 @@
     return brl % 1 ? Math.round(v * 100) / 100 : Math.round(v);
   };
 
+  // paleta do país (css/paletas.css): só no site; os sistemas e os sites de exemplo têm as cores deles
+  if (atual.id !== ORIGEM && !/\/(demos\/sistemas|sites)\//.test(location.pathname)) {
+    document.documentElement.setAttribute('data-paleta', atual.id);
+    var pal = document.createElement('link');
+    pal.rel = 'stylesheet'; pal.href = RAIZ + 'css/paletas.css?v=1';
+    document.head.appendChild(pal);
+  }
+
   // pergunta para a IA (assistente do site e dos sistemas): pede a resposta no idioma escolhido
   api.comIdioma = function (texto) {
     return atual.id === ORIGEM ? texto : texto + ' (Responda em ' + atual.nome + ', o idioma de quem está perguntando.)';
