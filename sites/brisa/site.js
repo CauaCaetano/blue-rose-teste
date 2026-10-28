@@ -13,6 +13,7 @@
       $$('[data-lugar]').forEach(function (x) { x.setAttribute('aria-selected', String(x === b)); });
       $$('[data-painel]').forEach(function (p) { p.hidden = p.dataset.painel !== b.dataset.lugar; });
       if (window.brisaMaleta) window.brisaMaleta.lugar(b.dataset.lugar);
+      $('[data-cod]:not(button)').textContent = b.dataset.cod; $('[data-dest]:not(button)').textContent = b.dataset.dest;
     });
   });
 

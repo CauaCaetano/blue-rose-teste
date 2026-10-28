@@ -1,14 +1,50 @@
 /* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/brisa/estilo.css: cores por idioma. Não editar à mão. */
-html[data-paleta="pt-PT"] { --fundo: #1f3a4f; --sup: #284861; --tx: #f1e8da; --tx-2: #d4a580; --linha: rgba(241, 232, 218, .14); --acc: #e07926; --areia: #f1e8da; }
-html[data-paleta="pt-PT"] .topo { background: rgba(31, 58, 79, .9); }
+html[data-paleta="pt-PT"] { --fundo: #1e3a50; --sup: #274862; --tx: #f1e8da; --tx-2: #d4a580; --linha: rgba(241, 232, 218, .14); --acc: #e07926; --areia: #f1e8da; }
+html[data-paleta="pt-PT"] .topo { background: rgba(30, 58, 80, .9); }
 html[data-paleta="pt-PT"] .marca span { box-shadow: 0 0 0 5px rgba(224, 121, 38, .18); }
-html[data-paleta="pt-PT"] .corp-res dt { color: #345066; }
-html[data-paleta="pt-PT"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e07926 0 13%, transparent 13.5%), linear-gradient(160deg, #204460, #0e1a23); }
+html[data-paleta="pt-PT"] .cartao-emb { color: #162a3b; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .6); }
+html[data-paleta="pt-PT"] .emb-corpo { border-right: 2px dashed rgba(22, 42, 59, .28); }
+html[data-paleta="pt-PT"] .emb-cab { color: #4d5e6c; }
+html[data-paleta="pt-PT"] .rota small { color: #4d5e6c; }
+html[data-paleta="pt-PT"] .rota span { color: #4d5e6c; }
+html[data-paleta="pt-PT"] .rota i { background: repeating-linear-gradient(90deg, #162a3b 0 8px, transparent 8px 14px); }
+html[data-paleta="pt-PT"] .cartao-emb .lugares { background: rgba(22, 42, 59, .08); }
+html[data-paleta="pt-PT"] .cartao-emb .lugares button { color: #162a3b; }
+html[data-paleta="pt-PT"] .cartao-emb .lugares button[aria-selected="true"] { background: #162a3b; }
+html[data-paleta="pt-PT"] .lugar dt { color: #4d5e6c; }
+html[data-paleta="pt-PT"] .cartao-emb .botao { background: #162a3b; }
+html[data-paleta="pt-PT"] .emb-mala { background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, .55), transparent 60%); }
+@media (max-width: 900px) {
+html[data-paleta="pt-PT"] .emb-corpo { border-bottom: 2px dashed rgba(22, 42, 59, .28); }
+}
+html[data-paleta="pt-PT"] .painel { background: #0e1a23; }
+html[data-paleta="pt-PT"] .painel [role=row] { border-bottom: 1px solid rgba(241, 232, 218, .1); }
+html[data-paleta="pt-PT"] .painel .ok { color: #7facd1; }
+html[data-paleta="pt-PT"] .corp-res dt { color: #335067; }
+html[data-paleta="pt-PT"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e07926 0 13%, transparent 13.5%), linear-gradient(160deg, #1f4361, #0e1a23); }
 html[data-paleta="pt-PT"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f4ece1 0 22%, transparent 22.5%), linear-gradient(160deg, #e9a167, #d87e36); color: #101e2a; }
-html[data-paleta="pt-PT"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(31, 58, 79, .05) 18px 19px), #ecd5c3; }
+html[data-paleta="pt-PT"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(30, 58, 80, .05) 18px 19px), #ecd5c3; }
 html[data-paleta="es"] { --fundo: #551919; --sup: #682121; --tx: #f3e7d8; --tx-2: #d6bb7e; --linha: rgba(243, 231, 216, .14); --acc: #e4a822; --areia: #f3e7d8; }
 html[data-paleta="es"] .topo { background: rgba(85, 25, 25, .9); }
 html[data-paleta="es"] .marca span { box-shadow: 0 0 0 5px rgba(228, 168, 34, .18); }
+html[data-paleta="es"] .cartao-emb { color: #3e1313; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .6); }
+html[data-paleta="es"] .emb-corpo { border-right: 2px dashed rgba(62, 19, 19, .28); }
+html[data-paleta="es"] .emb-cab { color: #6c4d53; }
+html[data-paleta="es"] .rota small { color: #6c4d53; }
+html[data-paleta="es"] .rota span { color: #6c4d53; }
+html[data-paleta="es"] .rota i { background: repeating-linear-gradient(90deg, #3e1313 0 8px, transparent 8px 14px); }
+html[data-paleta="es"] .cartao-emb .lugares { background: rgba(62, 19, 19, .08); }
+html[data-paleta="es"] .cartao-emb .lugares button { color: #3e1313; }
+html[data-paleta="es"] .cartao-emb .lugares button[aria-selected="true"] { background: #3e1313; }
+html[data-paleta="es"] .lugar dt { color: #6c4d53; }
+html[data-paleta="es"] .cartao-emb .botao { background: #3e1313; }
+html[data-paleta="es"] .emb-mala { background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, .55), transparent 60%); }
+@media (max-width: 900px) {
+html[data-paleta="es"] .emb-corpo { border-bottom: 2px dashed rgba(62, 19, 19, .28); }
+}
+html[data-paleta="es"] .painel { background: #1e1315; }
+html[data-paleta="es"] .painel [role=row] { border-bottom: 1px solid rgba(243, 231, 216, .1); }
+html[data-paleta="es"] .painel .ok { color: #d87878; }
 html[data-paleta="es"] .corp-res dt { color: #6d2d2d; }
 html[data-paleta="es"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e4a822 0 13%, transparent 13.5%), linear-gradient(160deg, #661a1a, #1e1315); }
 html[data-paleta="es"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f5ebe0 0 22%, transparent 22.5%), linear-gradient(160deg, #ebc265, #dba733); color: #231719; }
@@ -16,6 +52,24 @@ html[data-paleta="es"] .cartao[data-estampa="areia"] { background: repeating-lin
 html[data-paleta="en"] { --fundo: #11225d; --sup: #162c73; --tx: #dae0f1; --tx-2: #d38186; --linha: rgba(218, 224, 241, .14); --acc: #e02632; --areia: #dae0f1; }
 html[data-paleta="en"] .topo { background: rgba(17, 34, 93, .9); }
 html[data-paleta="en"] .marca span { box-shadow: 0 0 0 5px rgba(224, 38, 50, .18); }
+html[data-paleta="en"] .cartao-emb { color: #0c1945; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .6); }
+html[data-paleta="en"] .emb-corpo { border-right: 2px dashed rgba(12, 25, 69, .28); }
+html[data-paleta="en"] .emb-cab { color: #4d546c; }
+html[data-paleta="en"] .rota small { color: #4d546c; }
+html[data-paleta="en"] .rota span { color: #4d546c; }
+html[data-paleta="en"] .rota i { background: repeating-linear-gradient(90deg, #0c1945 0 8px, transparent 8px 14px); }
+html[data-paleta="en"] .cartao-emb .lugares { background: rgba(12, 25, 69, .08); }
+html[data-paleta="en"] .cartao-emb .lugares button { color: #0c1945; }
+html[data-paleta="en"] .cartao-emb .lugares button[aria-selected="true"] { background: #0c1945; }
+html[data-paleta="en"] .lugar dt { color: #4d546c; }
+html[data-paleta="en"] .cartao-emb .botao { background: #0c1945; }
+html[data-paleta="en"] .emb-mala { background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, .55), transparent 60%); }
+@media (max-width: 900px) {
+html[data-paleta="en"] .emb-corpo { border-bottom: 2px dashed rgba(12, 25, 69, .28); }
+}
+html[data-paleta="en"] .painel { background: #0d1224; }
+html[data-paleta="en"] .painel [role=row] { border-bottom: 1px solid rgba(218, 224, 241, .1); }
+html[data-paleta="en"] .painel .ok { color: #6a87e6; }
 html[data-paleta="en"] .corp-res dt { color: #213579; }
 html[data-paleta="en"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e02632 0 13%, transparent 13.5%), linear-gradient(160deg, #102670, #0b1126); }
 html[data-paleta="en"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #e1e6f4 0 22%, transparent 22.5%), linear-gradient(160deg, #e86870, #d73741); color: #10162a; }
@@ -23,6 +77,24 @@ html[data-paleta="en"] .cartao[data-estampa="areia"] { background: repeating-lin
 html[data-paleta="it"] { --fundo: #3a4826; --sup: #485732; --tx: #efebdc; --tx-2: #cdb687; --linha: rgba(239, 235, 220, .14); --acc: #d69f30; --areia: #efebdc; }
 html[data-paleta="it"] .topo { background: rgba(58, 72, 38, .9); }
 html[data-paleta="it"] .marca span { box-shadow: 0 0 0 5px rgba(214, 159, 48, .18); }
+html[data-paleta="it"] .cartao-emb { color: #2b351c; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .6); }
+html[data-paleta="it"] .emb-corpo { border-right: 2px dashed rgba(43, 53, 28, .28); }
+html[data-paleta="it"] .emb-cab { color: #5d6c4d; }
+html[data-paleta="it"] .rota small { color: #5d6c4d; }
+html[data-paleta="it"] .rota span { color: #5d6c4d; }
+html[data-paleta="it"] .rota i { background: repeating-linear-gradient(90deg, #2b351c 0 8px, transparent 8px 14px); }
+html[data-paleta="it"] .cartao-emb .lugares { background: rgba(43, 53, 28, .08); }
+html[data-paleta="it"] .cartao-emb .lugares button { color: #2b351c; }
+html[data-paleta="it"] .cartao-emb .lugares button[aria-selected="true"] { background: #2b351c; }
+html[data-paleta="it"] .lugar dt { color: #5d6c4d; }
+html[data-paleta="it"] .cartao-emb .botao { background: #2b351c; }
+html[data-paleta="it"] .emb-mala { background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, .55), transparent 60%); }
+@media (max-width: 900px) {
+html[data-paleta="it"] .emb-corpo { border-bottom: 2px dashed rgba(43, 53, 28, .28); }
+}
+html[data-paleta="it"] .painel { background: #181d14; }
+html[data-paleta="it"] .painel [role=row] { border-bottom: 1px solid rgba(239, 235, 220, .1); }
+html[data-paleta="it"] .painel .ok { color: #adc48c; }
 html[data-paleta="it"] .corp-res dt { color: #4f5b3f; }
 html[data-paleta="it"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #d69f30 0 13%, transparent 13.5%), linear-gradient(160deg, #445729, #181d14); }
 html[data-paleta="it"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f2efe3 0 22%, transparent 22.5%), linear-gradient(160deg, #e1bb6f, #ce9f40); color: #1d2317; }
@@ -30,6 +102,24 @@ html[data-paleta="it"] .cartao[data-estampa="areia"] { background: repeating-lin
 html[data-paleta="fr"] { --fundo: #2d244a; --sup: #392e5b; --tx: #e6daf1; --tx-2: #9a8cc8; --linha: rgba(230, 218, 241, .14); --acc: #5c37cf; --areia: #e6daf1; }
 html[data-paleta="fr"] .topo { background: rgba(45, 36, 74, .9); }
 html[data-paleta="fr"] .marca span { box-shadow: 0 0 0 5px rgba(92, 55, 207, .18); }
+html[data-paleta="fr"] .cartao-emb { color: #211a37; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .6); }
+html[data-paleta="fr"] .emb-corpo { border-right: 2px dashed rgba(33, 26, 55, .28); }
+html[data-paleta="fr"] .emb-cab { color: #544d6c; }
+html[data-paleta="fr"] .rota small { color: #544d6c; }
+html[data-paleta="fr"] .rota span { color: #544d6c; }
+html[data-paleta="fr"] .rota i { background: repeating-linear-gradient(90deg, #211a37 0 8px, transparent 8px 14px); }
+html[data-paleta="fr"] .cartao-emb .lugares { background: rgba(33, 26, 55, .08); }
+html[data-paleta="fr"] .cartao-emb .lugares button { color: #211a37; }
+html[data-paleta="fr"] .cartao-emb .lugares button[aria-selected="true"] { background: #211a37; }
+html[data-paleta="fr"] .lugar dt { color: #544d6c; }
+html[data-paleta="fr"] .cartao-emb .botao { background: #211a37; }
+html[data-paleta="fr"] .emb-mala { background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, .55), transparent 60%); }
+@media (max-width: 900px) {
+html[data-paleta="fr"] .emb-corpo { border-bottom: 2px dashed rgba(33, 26, 55, .28); }
+}
+html[data-paleta="fr"] .painel { background: #15121f; }
+html[data-paleta="fr"] .painel [role=row] { border-bottom: 1px solid rgba(230, 218, 241, .1); }
+html[data-paleta="fr"] .painel .ok { color: #9788c8; }
 html[data-paleta="fr"] .corp-res dt { color: #443b5f; }
 html[data-paleta="fr"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #5c37cf 0 13%, transparent 13.5%), linear-gradient(160deg, #32265a, #15121f); }
 html[data-paleta="fr"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #ebe1f4 0 22%, transparent 22.5%), linear-gradient(160deg, #8d74dc, #6647c7); color: #191525; }

@@ -2,13 +2,14 @@
 // fotorrealista da Khronos, ver modelos/CREDITOS.txt), girando como em foto de produto: luz de estúdio HDRI,
 // sombra macia no chão, arrastar para girar (com inércia), giro lento quando ninguém mexe.
 // Uso: const v = await vitrine(contêiner, { arquivo: 'BarberShopChair_01/BarberShopChair_01_1k.gltf', medida: 2 });
+//      so: 'nome' deixa só as malhas com esse nome (o arquivo da mala traz duas malas)
 //      v.variantes → nomes das versões de cor do modelo (se houver); v.variante(i) troca.
 import { palco, THREE, calmo, aproxima, luz, encaixar } from './palco.js';
 import { GLTFLoader } from './GLTFLoader.js';
 
 const BASE = new URL('./modelos/', import.meta.url).href;
 
-export function vitrine(caixa, { arquivo, medida = 2, hdri = 'studio_small_09', forca = 1, altura = 0.45, distancia = 3.2, giro = 0.6, inclinacao = 0.18 } = {}) {
+export function vitrine(caixa, { arquivo, so = '', medida = 2, hdri = 'studio_small_09', forca = 1, altura = 0.45, distancia = 3.2, giro = 0.6, inclinacao = 0.18 } = {}) {
   const tela = document.createElement('canvas'); tela.className = 'vitrine-tela';
   tela.setAttribute('role', 'img'); tela.setAttribute('aria-label', caixa.dataset.rotulo || 'Objeto em 3D; arraste para girar');
   caixa.appendChild(tela); caixa.classList.add('vitrine');
@@ -42,6 +43,7 @@ export function vitrine(caixa, { arquivo, medida = 2, hdri = 'studio_small_09', 
   }
 
   return new Promise((ok) => new GLTFLoader().load(BASE + arquivo, (g) => {
+    if (so) { const fora = []; g.scene.traverse((o) => { if (o.isMesh && !o.name.includes(so)) fora.push(o); }); fora.forEach((o) => o.removeFromParent()); } // so: fica só a peça com esse nome
     g.scene.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
     const obj = encaixar(g.scene, medida); p.cena.add(obj);
     const r = medida * 1.6; Object.assign(sol.shadow.camera, { left: -r, right: r, top: r, bottom: -r }); sol.shadow.camera.updateProjectionMatrix();
