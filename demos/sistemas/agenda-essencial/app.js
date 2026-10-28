@@ -172,7 +172,8 @@ const T = {
       const melhor = porMes.indexOf(Math.max(...porMes));
       extra = `<h2>Recebido por mês</h2>${barras(porMes.map((v, i) => [MES[i].slice(0, 3), v]), () => true)}${l.rec ? `<p class="mini">Melhor mês: <b>${MES[melhor]}</b>, com ${din(porMes[melhor])}.</p>` : ''}${listaClientes(l)}`;
     }
-    const varia = ant.rec ? Math.round(((l.rec - ant.rec) / ant.rec) * 100) : null, comp = { dia: 'mesmo dia da semana passada', mes: 'mês anterior', ano: 'ano anterior' }[res.modo];
+    const varia = ant.rec && (res.modo !== 'ano' || ant.lista.some((a) => data(a.dia).getMonth() === 0)) ? Math.round(((l.rec - ant.rec) / ant.rec) * 100) : null, // ano anterior incompleto: sem comparação
+      comp = { dia: 'mesmo dia da semana passada', mes: 'mês anterior', ano: 'ano anterior' }[res.modo];
     return `<a href="#mais">← Mais</a><h1>Resumo</h1><p class="sub">Quanto entrou, quantos vieram e quem faltou.</p>${tabs}<div class="r-nav">${nav}</div>
       <div class="r-grade"><div class="cartao"><small class="mini">Recebido</small><b class="r-num">${din(l.rec)}</b>${varia !== null ? `<small class="mini" style="color:${varia >= 0 ? 'var(--verde, #4f7d68)' : 'var(--verm)'}">${varia >= 0 ? '+' : ''}${varia}% que o ${comp}</small>` : ''}</div>
       <div class="cartao"><small class="mini">Ainda a receber</small><b class="r-num">${din(l.prev)}</b><small class="mini">${l.abertos.length} horário(s) marcado(s)</small></div>
