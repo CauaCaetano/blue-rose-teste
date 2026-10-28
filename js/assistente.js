@@ -530,10 +530,7 @@
   };
 
   // em outro idioma do pacote de idiomas, pede à IA a resposta no idioma de quem pergunta
-  function comIdioma(texto) {
-    var i = window.__brIdioma, l = i && i.atual !== 'pt-BR' && i.idiomas.filter(function (x) { return x.id === i.atual; })[0];
-    return l ? texto + ' (Responda em ' + l.nome + ', o idioma de quem está perguntando.)' : texto;
-  }
+  function comIdioma(texto) { return window.__brIdioma && window.__brIdioma.comIdioma ? window.__brIdioma.comIdioma(texto) : texto; }
   // pergunta escrita: a IA responde só com as informações do site; se falhar, oferece a equipe
   VirtualAssistant.prototype.perguntarIA = function (texto) {
     var self = this;

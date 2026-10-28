@@ -51,7 +51,10 @@
       })(ini);
     });
   }, { threshold: 0.6 });
-  document.querySelectorAll('[data-conta]').forEach(function (el) { el.textContent = '0'; obsN.observe(el); });
+  // espera o pacote de idiomas converter os preços (R$ → € ou $) antes de zerar e contar
+  (window.__brIdioma ? window.__brIdioma.pronto : Promise.resolve()).then(function () {
+    document.querySelectorAll('[data-conta]').forEach(function (el) { el.textContent = '0'; obsN.observe(el); });
+  });
 
   // a redoma inclina de leve na direção do mouse
   var redoma = document.querySelector('.lx-redoma');
