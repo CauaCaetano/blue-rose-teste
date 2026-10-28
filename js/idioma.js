@@ -51,6 +51,11 @@
     return brl % 1 ? Math.round(v * 100) / 100 : Math.round(v);
   };
 
+  // pergunta para a IA (assistente do site e dos sistemas): pede a resposta no idioma escolhido
+  api.comIdioma = function (texto) {
+    return atual.id === ORIGEM ? texto : texto + ' (Responda em ' + atual.nome + ', o idioma de quem está perguntando.)';
+  };
+
   function trocar(id) {
     try { localStorage.setItem('br-idioma', id); } catch (e) {}
     var u = new URL(location.href); u.searchParams.delete('lang');
@@ -150,9 +155,11 @@
   function traduzirTexto(t) {
     var lead = t.match(/^\s*/)[0], trail = t.match(/\s*$/)[0];
     var tr = buscar(t);
+    if (tr == null && api.faltando && /[A-Za-zÀ-ÿ]{2}/.test(t)) api.faltando[normal(t).replace(NUM, '{#}')] = 1;
     var saida = tr != null ? lead + tr + trail : t;
     return moeda(saida);
   }
+  api.faltando = params.get('faltando') === '1' ? {} : null; // ?faltando=1: guarda o que ficou sem tradução
   api.traduzir = function (t) { return atual.id === ORIGEM ? t : traduzirTexto(t); };
 
   /* ---------- aplicar na página ---------- */
@@ -181,7 +188,7 @@
   function moedaSeparada(n, t) {
     var el = n.nextSibling;
     if (atual.moeda === 'BRL' || !el || el.nodeType !== 1 || el.brMoeda) return t;
-    var num = (el.textContent || '').trim();
+    var num = (el.getAttribute('data-conta') || el.textContent || '').trim();
     if (!/^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$|^\d+(?:,\d{1,2})?$/.test(num)) return t;
     var conv = moeda('R$ ' + num), valor = conv.replace(/[^\d.,]/g, '');
     el.brMoeda = true;
@@ -243,7 +250,7 @@
   function frase(el) {
     if (el.brFrase || !el.firstElementChild || EM_LINHA[el.nodeName] && EM_LINHA[el.parentNode && el.parentNode.nodeName]) return false;
     // menu ou lista de links não é frase: cada link se traduz sozinho
-    if (el.nodeName === 'NAV' || el.querySelectorAll('a, button').length > 1) return false;
+    if (el.nodeName === 'NAV' || el.querySelectorAll('a, button').length > 0) return false;
     var fs = folhas(el);
     if (!fs) return false;
     var comTexto = fs.filter(function (f) { return /[A-Za-zÀ-ÿ]/.test(f.nodeValue); });
