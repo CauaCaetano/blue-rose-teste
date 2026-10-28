@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script src="../../js/idioma.js?v=16"></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://yihnfzwtkqdfnwziutqa.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eixo Reabilitação · Análise da pisada e fisioterapia em Ribeirão Preto</title>
+<meta name="description" content="Plataforma de pressão em 3D, triagem da dor, programas de reabilitação semana a semana, convênios e agendamento online.">
+<meta name="theme-color" content="#e9edf1">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'9'%20fill%3D'%2314202b'%2F%3E%3Cpath%20d%3D'M20%208v24M12%2016h16M14%2024h12'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../assets/fontes/b524508d85.css">
+<link rel="stylesheet" href="../assets/moldura.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=1">
+<script src="../../js/leads-config.js?v=6" defer></script>
+<script src="../assets/moldura.js?v=1" defer></script>
+<script src="site.js?v=1" defer></script>
+<script type="module" src="cena.js?v=1"></script>
+</head>
+<body data-slug="eixo" data-marca="Eixo Reabilitação" data-cat="fisioterapia">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <a class="marca" href="index.html"><span aria-hidden="true"></span>Eixo<small>reabilitação e biomecânica</small></a>
+  <nav class="menu" aria-label="Principal"><a href="index.html" aria-current="page">Pisada</a><a href="avaliacao.html">Triagem da dor</a><a href="programas.html">Programas</a><a href="convenios.html">Convênios</a><a href="agendar.html">Agendar</a></nav>
+  <a class="topo-cta" href="agendar.html">Agendar</a>
+</header>
+<main id="conteudo">
+  <section class="abertura">
+    <div class="placa"><canvas id="placa-3d" aria-label="Plataforma de pressão em 3D com o mapa dos dois pés"></canvas>
+      <div class="escala" aria-hidden="true"><span>menos pressão</span><i></i><span>mais pressão</span></div></div>
+    <div class="painel">
+      <h1>Veja como seu pé pisa antes de tratar a dor.</h1>
+      <p class="lead">A plataforma tem 4.096 sensores. Em 30 segundos ela mostra onde o peso cai e por que o joelho, o quadril ou as costas reclamam.</p>
+      <p class="rot" id="tipo-t">Escolha um tipo de pisada</p>
+      <div class="tipos" role="group" aria-labelledby="tipo-t"><button type="button" data-tipo="neutra" aria-pressed="true">Neutra</button><button type="button" data-tipo="pronada" aria-pressed="false">Pronada</button><button type="button" data-tipo="supinada" aria-pressed="false">Supinada</button><button type="button" data-tipo="plano" aria-pressed="false">Pé plano</button><button type="button" data-tipo="cavo" aria-pressed="false">Pé cavo</button></div>
+      <button class="andar" type="button" aria-pressed="false">Ver o passo</button>
+      <dl class="numeros" aria-live="polite">
+        <div><dt>Peso no lado de dentro</dt><dd data-n="medial">—</dd></div>
+        <div><dt>Peso no calcanhar</dt><dd data-n="retro">—</dd></div>
+        <div><dt>Pico de pressão</dt><dd data-n="pico">—</dd></div>
+      </dl>
+      <p class="leitura" aria-live="polite"></p>
+    </div>
+  </section>
+  <section class="mede">
+    <h2>O que a análise completa inclui</h2>
+    <ul><li><b>Pisada parada e andando</b>mapa de pressão e linha do centro de força</li><li><b>Vídeo em câmera lenta</b>joelho, quadril e tronco a cada passo</li><li><b>Testes de força</b>dinamômetro em quadril, joelho e tornozelo</li><li><b>Laudo em PDF</b>com o plano e a palmilha, se precisar</li></ul>
+    <a class="botao" href="agendar.html?s=pisada">Agendar análise da pisada · R$ 220</a>
+  </section>
+</main>
+<footer class="rodape"><p><b>Eixo Reabilitação</b> · Centro: R. Duque de Caxias, 840 · Zona Sul: Av. Prof. João Fiusa, 1900 · Ribeirão Preto/SP</p><p>Marca criada para demonstração · Site de exemplo feito pela Blue Rose</p></footer>
+</body>
+</html>
