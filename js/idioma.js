@@ -26,6 +26,8 @@
 
   var esteScript = document.currentScript;
   var RAIZ = esteScript ? esteScript.src.replace(/js\/idioma\.js.*$/, '') : '/';
+  // nos sistemas, WhatsApp/e-mail para clientes viram simulação na demonstração (js/envio-demo.js)
+  if (/\/demos\/sistemas\//.test(location.pathname)) { var ved = document.createElement('script'); ved.src = RAIZ + 'js/envio-demo.js?v=1'; document.head.appendChild(ved); }
   var params = new URLSearchParams(location.search);
   var COLETAR = params.get('coletar') === '1';
 
