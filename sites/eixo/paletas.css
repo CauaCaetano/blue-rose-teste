@@ -1,11 +1,11 @@
 /* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/eixo/estilo.css: cores por idioma. Não editar à mão. */
-html[data-paleta="pt-PT"] { --fundo: #f1eee9; --papel: #ffffff; --tx: #14212b; --tx-2: #5b6974; --linha: rgba(20, 33, 43, .12); --acc: #4790cc; --grafite: #23282c; }
+html[data-paleta="pt-PT"] { --fundo: #f2f0ec; --papel: #ffffff; --tx: #1a4160; --tx-2: #406c90; --linha: rgba(26, 65, 96, .12); --acc: #609ccc; --grafite: #1a4160; }
 html[data-paleta="pt-PT"] .pular { color: #ffffff; }
-html[data-paleta="pt-PT"] .topo { background: rgba(241, 238, 233, .9); }
+html[data-paleta="pt-PT"] .topo { background: rgba(242, 240, 236, .9); }
 html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
 html[data-paleta="pt-PT"] .botao { color: #ffffff; }
 html[data-paleta="pt-PT"] .escala { background: rgba(255, 255, 255, .85); }
-html[data-paleta="pt-PT"] .escala i { background: linear-gradient(90deg, #3788ca, #c16c27, #4084ba, #e38f4b, #d96d41, #cc663c); }
+html[data-paleta="pt-PT"] .escala i { background: linear-gradient(90deg, #3788ca, #2e7bba, #4084ba, #e38f4b, #d96d41, #cc663c); }
 html[data-paleta="pt-PT"] .tipos button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .andar[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .chips input:checked + span { color: #ffffff; }
@@ -26,18 +26,19 @@ html[data-paleta="pt-PT"] .grade button { background: color-mix(in srgb, var(--a
 html[data-paleta="pt-PT"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
 html[data-paleta="pt-PT"] .grade button:disabled { background: #f2f0ee; }
 html[data-paleta="pt-PT"] .grade button[aria-pressed="true"] { color: #ffffff; }
-html[data-paleta="es"] { --fundo: #f1ede9; --papel: #ffffff; --tx: #26191b; --tx-2: #745b60; --linha: rgba(38, 25, 27, .12); --acc: #d53e3e; --grafite: #2c2325; }
+html[data-paleta="pt-PT"] .mapa-pes { background: rgba(26, 65, 96, .82); }
+html[data-paleta="es"] { --fundo: #f2efec; --papel: #ffffff; --tx: #5f1b1b; --tx-2: #8e4242; --linha: rgba(95, 27, 27, .12); --acc: #cb6162; --grafite: #5f1b1b; }
 html[data-paleta="es"] .pular { color: #ffffff; }
-html[data-paleta="es"] .topo { background: rgba(241, 237, 233, .9); }
+html[data-paleta="es"] .topo { background: rgba(242, 239, 236, .9); }
 html[data-paleta="es"] .topo-cta { color: #ffffff; }
 html[data-paleta="es"] .botao { color: #ffffff; }
 html[data-paleta="es"] .escala { background: rgba(255, 255, 255, .85); }
-html[data-paleta="es"] .escala i { background: linear-gradient(90deg, #d42d2d, #c49324, #c69934, #d05e75, #d84243, #ca3e3f); }
+html[data-paleta="es"] .escala i { background: linear-gradient(90deg, #c8393a, #b92f31, #c69934, #d05e75, #e33737, #d63232); }
 html[data-paleta="es"] .tipos button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .andar[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .chips input:checked + span { color: #ffffff; }
-html[data-paleta="es"] .alertas input { accent-color: #a52c2d; }
-html[data-paleta="es"] .erro { color: #a52c2d; }
+html[data-paleta="es"] .alertas input { accent-color: #af2222; }
+html[data-paleta="es"] .erro { color: #af2222; }
 html[data-paleta="es"] .abas button[aria-selected="true"] { color: #ffffff; }
 html[data-paleta="es"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
 html[data-paleta="es"] .fase.agora { color: #ffffff; }
@@ -53,13 +54,14 @@ html[data-paleta="es"] .grade button { background: color-mix(in srgb, var(--acc)
 html[data-paleta="es"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
 html[data-paleta="es"] .grade button:disabled { background: #f2f0ee; }
 html[data-paleta="es"] .grade button[aria-pressed="true"] { color: #ffffff; }
-html[data-paleta="en"] { --fundo: #e9ebf1; --papel: #ffffff; --tx: #14192b; --tx-2: #5b6174; --linha: rgba(20, 25, 43, .12); --acc: #3a6fd9; --grafite: #23252c; }
+html[data-paleta="es"] .mapa-pes { background: rgba(95, 27, 27, .82); }
+html[data-paleta="en"] { --fundo: #eceef2; --papel: #ffffff; --tx: #132f67; --tx-2: #35579b; --linha: rgba(19, 47, 103, .12); --acc: #5480d8; --grafite: #132f67; }
 html[data-paleta="en"] .pular { color: #ffffff; }
-html[data-paleta="en"] .topo { background: rgba(233, 235, 241, .9); }
+html[data-paleta="en"] .topo { background: rgba(236, 238, 242, .9); }
 html[data-paleta="en"] .topo-cta { color: #ffffff; }
 html[data-paleta="en"] .botao { color: #ffffff; }
 html[data-paleta="en"] .escala { background: rgba(255, 255, 255, .85); }
-html[data-paleta="en"] .escala i { background: linear-gradient(90deg, #2963d8, #2252c6, #204bda, #4676e8, #df3b45, #d23640); }
+html[data-paleta="en"] .escala i { background: linear-gradient(90deg, #2963d8, #2158c7, #204bda, #4676e8, #df3b45, #d23640); }
 html[data-paleta="en"] .tipos button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .andar[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .chips input:checked + span { color: #ffffff; }
@@ -80,18 +82,19 @@ html[data-paleta="en"] .grade button { background: color-mix(in srgb, var(--acc)
 html[data-paleta="en"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
 html[data-paleta="en"] .grade button:disabled { background: #eeeff2; }
 html[data-paleta="en"] .grade button[aria-pressed="true"] { color: #ffffff; }
-html[data-paleta="it"] { --fundo: #f1f0e9; --papel: #ffffff; --tx: #202619; --tx-2: #68745b; --linha: rgba(32, 38, 25, .12); --acc: #c99f4a; --grafite: #282c23; }
+html[data-paleta="en"] .mapa-pes { background: rgba(19, 47, 103, .82); }
+html[data-paleta="it"] { --fundo: #f2f1ec; --papel: #ffffff; --tx: #5f311b; --tx-2: #8e5a42; --linha: rgba(95, 49, 27, .12); --acc: #ca8362; --grafite: #5f311b; }
 html[data-paleta="it"] .pular { color: #ffffff; }
-html[data-paleta="it"] .topo { background: rgba(241, 240, 233, .9); }
+html[data-paleta="it"] .topo { background: rgba(242, 241, 236, .9); }
 html[data-paleta="it"] .topo-cta { color: #ffffff; }
 html[data-paleta="it"] .botao { color: #ffffff; }
 html[data-paleta="it"] .escala { background: rgba(255, 255, 255, .85); }
-html[data-paleta="it"] .escala i { background: linear-gradient(90deg, #c6983b, #b78a31, #84a852, #97ce60, #d87242, #ca6b3e); }
+html[data-paleta="it"] .escala i { background: linear-gradient(90deg, #c86739, #b85b30, #84a852, #97ce60, #d7a643, #c89b40); }
 html[data-paleta="it"] .tipos button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .andar[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .chips input:checked + span { color: #ffffff; }
-html[data-paleta="it"] .alertas input { accent-color: #a5532c; }
-html[data-paleta="it"] .erro { color: #a5532c; }
+html[data-paleta="it"] .alertas input { accent-color: #a47c2d; }
+html[data-paleta="it"] .erro { color: #a47c2d; }
 html[data-paleta="it"] .abas button[aria-selected="true"] { color: #ffffff; }
 html[data-paleta="it"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
 html[data-paleta="it"] .fase.agora { color: #ffffff; }
@@ -107,18 +110,19 @@ html[data-paleta="it"] .grade button { background: color-mix(in srgb, var(--acc)
 html[data-paleta="it"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
 html[data-paleta="it"] .grade button:disabled { background: #f2f1ee; }
 html[data-paleta="it"] .grade button[aria-pressed="true"] { color: #ffffff; }
-html[data-paleta="fr"] { --fundo: #ede9f1; --papel: #ffffff; --tx: #1b1728; --tx-2: #615b74; --linha: rgba(27, 23, 40, .12); --acc: #6c51c2; --grafite: #25232c; }
+html[data-paleta="it"] .mapa-pes { background: rgba(95, 49, 27, .82); }
+html[data-paleta="fr"] { --fundo: #efecf2; --papel: #ffffff; --tx: #2a1e5c; --tx-2: #544789; --linha: rgba(42, 30, 92, .12); --acc: #7a67c5; --grafite: #2a1e5c; }
 html[data-paleta="fr"] .pular { color: #ffffff; }
-html[data-paleta="fr"] .topo { background: rgba(237, 233, 241, .9); }
+html[data-paleta="fr"] .topo { background: rgba(239, 236, 242, .9); }
 html[data-paleta="fr"] .topo-cta { color: #ffffff; }
 html[data-paleta="fr"] .botao { color: #ffffff; }
 html[data-paleta="fr"] .escala { background: rgba(255, 255, 255, .85); }
-html[data-paleta="fr"] .escala i { background: linear-gradient(90deg, #6042bf, #4728c0, #624cae, #6a4ce2, #6348d2, #5e44c4); }
+html[data-paleta="fr"] .escala i { background: linear-gradient(90deg, #593fc2, #4e35b3, #624cae, #6a4ce2, #6a4ad0, #6446c2); }
 html[data-paleta="fr"] .tipos button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="fr"] .andar[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="fr"] .chips input:checked + span { color: #ffffff; }
-html[data-paleta="fr"] .alertas input { accent-color: #4731a0; }
-html[data-paleta="fr"] .erro { color: #4731a0; }
+html[data-paleta="fr"] .alertas input { accent-color: #4d339e; }
+html[data-paleta="fr"] .erro { color: #4d339e; }
 html[data-paleta="fr"] .abas button[aria-selected="true"] { color: #ffffff; }
 html[data-paleta="fr"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
 html[data-paleta="fr"] .fase.agora { color: #ffffff; }
@@ -134,3 +138,4 @@ html[data-paleta="fr"] .grade button { background: color-mix(in srgb, var(--acc)
 html[data-paleta="fr"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
 html[data-paleta="fr"] .grade button:disabled { background: #f0eef2; }
 html[data-paleta="fr"] .grade button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .mapa-pes { background: rgba(42, 30, 92, .82); }

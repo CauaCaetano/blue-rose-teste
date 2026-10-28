@@ -1,7 +1,7 @@
 /* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/moveo/estilo.css: cores por idioma. Não editar à mão. */
-html[data-paleta="pt-PT"] { --fundo: #f6f0e7; --papel: #fcfaf7; --tx: #1c242a; --tx-2: #5a666f; --linha: rgba(28, 36, 42, .12); --acc: #d47e5b; --agua: #5082ab; }
+html[data-paleta="pt-PT"] { --fundo: #f1e7d8; --papel: #faf6f0; --tx: #132330; --tx-2: #7a4e3c; --linha: rgba(19, 35, 48, .12); --acc: #b94b1d; --agua: #9f4723; }
 html[data-paleta="pt-PT"] .pular { color: #ffffff; }
-html[data-paleta="pt-PT"] .topo { background: rgba(246, 240, 231, .9); }
+html[data-paleta="pt-PT"] .topo { background: rgba(241, 231, 216, .9); }
 html[data-paleta="pt-PT"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
 html[data-paleta="pt-PT"] .botao { color: #ffffff; }
@@ -15,9 +15,9 @@ html[data-paleta="pt-PT"] .horas button { background: #ffffff; }
 html[data-paleta="pt-PT"] .dias button[aria-pressed="true"],
 html[data-paleta="pt-PT"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .erro { color: #a64f2b; }
-html[data-paleta="es"] { --fundo: #f6efe7; --papel: #fcfaf7; --tx: #2a1c1f; --tx-2: #6f5a5e; --linha: rgba(42, 28, 31, .12); --acc: #d35c5d; --agua: #b59346; }
+html[data-paleta="es"] { --fundo: #f1e5d8; --papel: #faf5f0; --tx: #291a1d; --tx-2: #793d3e; --linha: rgba(41, 26, 29, .12); --acc: #b81e20; --agua: #9e2425; }
 html[data-paleta="es"] .pular { color: #ffffff; }
-html[data-paleta="es"] .topo { background: rgba(246, 239, 231, .9); }
+html[data-paleta="es"] .topo { background: rgba(241, 229, 216, .9); }
 html[data-paleta="es"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="es"] .topo-cta { color: #ffffff; }
 html[data-paleta="es"] .botao { color: #ffffff; }
@@ -31,9 +31,9 @@ html[data-paleta="es"] .horas button { background: #ffffff; }
 html[data-paleta="es"] .dias button[aria-pressed="true"],
 html[data-paleta="es"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .erro { color: #a52c2d; }
-html[data-paleta="en"] { --fundo: #e7ebf6; --papel: #f7f8fc; --tx: #1c1f2a; --tx-2: #5a5f6f; --linha: rgba(28, 31, 42, .12); --acc: #d9565d; --agua: #436ab8; }
+html[data-paleta="en"] { --fundo: #d8dff1; --papel: #f0f3fa; --tx: #0b1538; --tx-2: #7f373c; --linha: rgba(11, 21, 56, .12); --acc: #be1822; --agua: #a41e26; }
 html[data-paleta="en"] .pular { color: #ffffff; }
-html[data-paleta="en"] .topo { background: rgba(231, 235, 246, .9); }
+html[data-paleta="en"] .topo { background: rgba(216, 223, 241, .9); }
 html[data-paleta="en"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="en"] .topo-cta { color: #ffffff; }
 html[data-paleta="en"] .botao { color: #ffffff; }
@@ -47,9 +47,9 @@ html[data-paleta="en"] .horas button { background: #ffffff; }
 html[data-paleta="en"] .dias button[aria-pressed="true"],
 html[data-paleta="en"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .erro { color: #ac252d; }
-html[data-paleta="it"] { --fundo: #f4f2e9; --papel: #fbfbf8; --tx: #232a1c; --tx-2: #656f5a; --linha: rgba(35, 42, 28, .12); --acc: #d2825d; --agua: #829764; }
+html[data-paleta="it"] { --fundo: #eeeadb; --papel: #f9f7f1; --tx: #22281b; --tx-2: #78503e; --linha: rgba(34, 40, 27, .12); --acc: #b7501f; --agua: #9e4b24; }
 html[data-paleta="it"] .pular { color: #ffffff; }
-html[data-paleta="it"] .topo { background: rgba(244, 242, 233, .9); }
+html[data-paleta="it"] .topo { background: rgba(238, 234, 219, .9); }
 html[data-paleta="it"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="it"] .topo-cta { color: #ffffff; }
 html[data-paleta="it"] .botao { color: #ffffff; }
@@ -63,9 +63,9 @@ html[data-paleta="it"] .horas button { background: #ffffff; }
 html[data-paleta="it"] .dias button[aria-pressed="true"],
 html[data-paleta="it"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .erro { color: #a5532c; }
-html[data-paleta="fr"] { --fundo: #efe7f6; --papel: #faf7fc; --tx: #1f1c2a; --tx-2: #5f5a6f; --linha: rgba(31, 28, 42, .12); --acc: #7d63cc; --agua: #6758a3; }
+html[data-paleta="fr"] { --fundo: #e5d9f0; --papel: #f5f1f9; --tx: #1d192a; --tx-2: #4c4274; --linha: rgba(29, 25, 42, .12); --acc: #4024b2; --agua: #3f289a; }
 html[data-paleta="fr"] .pular { color: #ffffff; }
-html[data-paleta="fr"] .topo { background: rgba(239, 231, 246, .9); }
+html[data-paleta="fr"] .topo { background: rgba(229, 217, 240, .9); }
 html[data-paleta="fr"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="fr"] .topo-cta { color: #ffffff; }
 html[data-paleta="fr"] .botao { color: #ffffff; }
@@ -78,4 +78,4 @@ html[data-paleta="fr"] .dias button,
 html[data-paleta="fr"] .horas button { background: #ffffff; }
 html[data-paleta="fr"] .dias button[aria-pressed="true"],
 html[data-paleta="fr"] .horas button[aria-pressed="true"] { color: #ffffff; }
-html[data-paleta="fr"] .erro { color: #4d339e; }
+html[data-paleta="fr"] .erro { color: #4731a0; }

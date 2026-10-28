@@ -1,4 +1,4 @@
-// Eixo · pisada (liga os botões à placa 3D), triagem da dor, linha do tempo dos programas, convênios e agenda semanal.
+// Eixo · pisada (liga os botões ao mapa de pressão), triagem da dor, linha do tempo dos programas, convênios e agenda semanal.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

@@ -1,4 +1,4 @@
-// Rafa Moreno · objetivo → plano e peso do halter 3D; calculadora de IMC.
+// Rafa Moreno · objetivo → plano e foto 3D do treino; calculadora de IMC.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

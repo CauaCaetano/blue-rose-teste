@@ -1,7 +1,7 @@
 /* Rafa Moreno · preto de academia e verde-limão. Condensado, direto, sem enfeite. */
 :root {
-  --preto: #0b0b0b; --grafite: #171717; --cinza: #262626; --tx: #f2f2f2; --tx-2: #a3a3a3; --linha: rgba(255, 255, 255, .12);
-  --acc: #c6f432;
+  --preto: #06070b; --grafite: #0f121b; --cinza: #1c2130; --tx: #f2f2f2; --tx-2: #a3a3a3; --linha: rgba(255, 255, 255, .12);
+  --acc: #d4ff20;
   --cond: 'Barlow Condensed', 'Arial Narrow', sans-serif; --f: 'Barlow', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -18,7 +18,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--acc); color: var(--preto); padding: 8px 12px; z-index: 100; }
 .pular:focus { left: 8px; }
 
-.topo { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 48px); background: linear-gradient(rgba(11, 11, 11, .85), rgba(11, 11, 11, 0)); }
+.topo { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 48px); background: linear-gradient(rgba(6, 7, 11, .85), rgba(6, 7, 11, 0)); }
 .marca { text-decoration: none; font: 700 1.6rem/1 var(--cond); text-transform: uppercase; }
 .marca small { display: block; font: 500 .72rem var(--f); color: var(--acc); letter-spacing: .14em; text-transform: uppercase; }
 .menu { display: flex; gap: 22px; margin-left: auto; font: 600 .95rem var(--cond); text-transform: uppercase; letter-spacing: .04em; }
@@ -29,7 +29,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 .abertura { position: relative; max-width: none; padding: 0; min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; }
 .palco3d { position: absolute; inset: 0; }
-.palco3d canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.palco3d .foto-3d { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .palco3d.sem-3d { background: radial-gradient(circle at 30% 50%, #2a2a2a, var(--preto)); }
 .abertura-txt { grid-column: 2; position: relative; z-index: 1; padding: 110px clamp(16px, 4vw, 48px) 48px 0; }
 .sobre { color: var(--acc); font-weight: 600; font-size: .9rem; }
@@ -37,16 +37,16 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .objetivos legend { font: 700 1.2rem var(--cond); text-transform: uppercase; margin-bottom: 8px; }
 .objetivos label { position: relative; cursor: pointer; }
 .objetivos input { position: absolute; opacity: 0; }
-.objetivos span { display: block; padding: 12px 14px; background: rgba(23, 23, 23, .85); border: 1.5px solid var(--linha); font: 700 1.1rem var(--cond); text-transform: uppercase; transition: border-color .2s, background .2s, color .2s; }
+.objetivos span { display: block; padding: 12px 14px; background: rgba(15, 18, 27, .85); border: 1.5px solid var(--linha); font: 700 1.1rem var(--cond); text-transform: uppercase; transition: border-color .2s, background .2s, color .2s; }
 .objetivos label:hover span { border-color: var(--tx-2); }
 .objetivos input:checked + span { background: var(--acc); border-color: var(--acc); color: var(--preto); }
 .objetivos input:focus-visible + span { outline: 3px solid var(--tx); outline-offset: 2px; }
 .plano { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--linha); margin: 0 0 18px; border: 1px solid var(--linha); }
-.plano div { background: rgba(11, 11, 11, .88); padding: 12px 14px; }
+.plano div { background: rgba(6, 7, 11, .88); padding: 12px 14px; }
 .plano dt { font-size: .75rem; color: var(--tx-2); text-transform: uppercase; letter-spacing: .06em; }
 .plano dd { margin: 2px 0 0; font-weight: 600; }
 .botao { display: inline-block; text-decoration: none; background: var(--acc); color: var(--preto); padding: 14px 22px; font: 700 1.15rem var(--cond); text-transform: uppercase; letter-spacing: .02em; transition: transform .15s, box-shadow .2s; border: 0; cursor: pointer; }
-.botao:hover { box-shadow: 0 0 0 4px rgba(198, 244, 50, .25); }
+.botao:hover { box-shadow: 0 0 0 4px rgba(212, 255, 32, .25); }
 .botao:active { transform: translateY(1px); }
 @media (max-width: 900px) {
   .abertura { grid-template-columns: 1fr; min-height: 0; }

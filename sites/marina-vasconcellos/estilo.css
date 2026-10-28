@@ -1,7 +1,7 @@
 /* Marina Vasconcellos · argila, sálvia e grafite suave. Leve, clínico sem ser frio. */
 :root {
-  --fundo: #f6f1ec; --fundo-2: #ece4dc; --branco: #fffdfb; --tx: #2c2a31; --tx-2: #6c6670; --linha: rgba(44, 42, 49, .12);
-  --acc: #6f8f80; --argila: #d9b8a5;
+  --fundo: #f9f2ea; --fundo-2: #e9f3e8; --branco: #fffdf8; --tx: #3e4a34; --tx-2: #66705e; --linha: rgba(62, 74, 52, .12);
+  --acc: #7e9674; --argila: #b8c9a9;
   --f: 'Jost', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -18,7 +18,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--tx); color: #fff; padding: 8px 12px; z-index: 100; }
 .pular:focus { left: 8px; }
 
-.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 52px); background: rgba(246, 241, 236, .88); backdrop-filter: blur(10px); }
+.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 52px); background: rgba(249, 242, 234, .88); backdrop-filter: blur(10px); }
 .marca { text-decoration: none; font-size: 1.25rem; font-weight: 500; letter-spacing: -.01em; line-height: 1; }
 .marca small { display: block; font-size: .78rem; color: var(--tx-2); font-weight: 400; margin-top: 4px; }
 .menu { display: flex; gap: 6px; margin-left: auto; background: var(--branco); padding: 4px; border-radius: 999px; box-shadow: 0 1px 0 var(--linha); }
@@ -31,7 +31,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .abertura, .laser { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: center; max-width: 1380px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 52px) 56px; }
 .lead { color: var(--tx-2); font-size: 1.08rem; max-width: 34em; }
 .manequim { position: relative; height: min(80vh, 760px); min-height: 480px; border-radius: 28px; background: radial-gradient(ellipse at 50% 30%, var(--branco), var(--fundo-2) 75%); }
-.manequim canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.manequim .foto-3d { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .manequim.sem-3d { background: var(--fundo-2); }
 .dica { position: absolute; bottom: 14px; width: 100%; text-align: center; font-size: .8rem; color: var(--tx-2); margin: 0; }
 .regioes { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 18px; }

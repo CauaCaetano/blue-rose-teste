@@ -40,3 +40,4 @@
 .f3d-img, .f3d-tela { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .f3d-tela { opacity: 0; transition: opacity .5s; }
 .f3d-viva .f3d-tela { opacity: 1; }
+.foto-3d { display: block; width: 100%; min-height: 360px; }
