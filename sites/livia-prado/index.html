@@ -13,53 +13,50 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'10'%20fill%3D'%237b1f2c'%2F%3E%3Cpath%20d%3D'M20%208c6%208%209%2013%209%2018a9%209%200%2001-18%200c0-5%203-10%209-18z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/eb39e0b781.css">
 <link rel="stylesheet" href="../assets/moldura.css?v=3">
-<link rel="stylesheet" href="estilo.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=2">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
-<script src="site.js?v=1" defer></script>
-<script type="module" src="cena.js?v=11"></script>
+<script src="site.js?v=2" defer></script>
 <link rel="stylesheet" href="/blue-rose-teste/teste.css">
 </head>
 <body data-slug="livia-prado" data-marca="Lívia Prado" data-cat="salao">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
-  <a class="marca" href="#inicio">Lívia Prado<small>manicure · Centro BH</small></a>
-  <nav class="menu" aria-label="Principal"><a href="#inicio">Cores</a><a href="#servicos">Serviços</a><a href="#onde">Onde fica</a></nav>
-  <a class="topo-cta" href="#servicos">Agendar</a>
+  <a class="marca" href="#cores">lívia prado</a>
+  <p class="topo-linha">manicure · rua da bahia, 1148 · centro bh</p>
+  <a class="topo-cta" href="#comanda">agendar</a>
 </header>
 <main id="conteudo">
-  <section class="abertura" id="inicio">
-    <div class="bancada" id="foto-unhas"></div>
-    <div class="abertura-txt">
-      <h1>Escolha a cor. O horário a gente acerta.</h1>
-      <p class="lead">Toque numa cor e veja unhas feitas aqui nela. Passe o mouse na foto: ela tem profundidade. A cor vai junto na sua mensagem.</p>
-      <div class="cores" role="radiogroup" aria-label="Cor do esmalte"></div>
-      <p class="cor-nome" aria-live="polite"></p>
-      <a class="botao" href="#" data-wa-cor>Quero essa cor</a>
-    </div>
+  <section class="cartela" id="cores" aria-labelledby="cartela-t">
+    <h1 id="cartela-t">Escolha a cor.<br>O horário a gente acerta.</h1>
+    <div class="faixas" role="radiogroup" aria-label="Cor do esmalte"></div>
+    <div class="cor-barra"><p class="cor-nome" aria-live="polite"></p><a class="botao" href="#" data-wa-cor>Quero essa cor</a></div>
   </section>
 
-  <section class="servicos" id="servicos" aria-labelledby="serv-t">
-    <h2 id="serv-t">Monte seu horário</h2>
-    <p class="lead">Marque o que vai fazer. Somamos o preço e o tempo de cadeira.</p>
-    <form class="orcamento" id="orcamento">
-      <label><input type="checkbox" value="esmaltacao" data-p="35" data-m="40" checked><span><b>Mão · esmaltação</b>cutícula e esmalte comum</span><em>R$ 35 · 40 min</em></label>
-      <label><input type="checkbox" value="gel" data-p="90" data-m="80"><span><b>Mão · esmaltação em gel</b>dura até 3 semanas</span><em>R$ 90 · 80 min</em></label>
-      <label><input type="checkbox" value="pe" data-p="40" data-m="45"><span><b>Pé · esmaltação</b>cutícula, lixa e esmalte</span><em>R$ 40 · 45 min</em></label>
-      <label><input type="checkbox" value="spa" data-p="70" data-m="50"><span><b>Spa dos pés</b>escalda-pés, esfoliação e hidratação</span><em>R$ 70 · 50 min</em></label>
-      <label><input type="checkbox" value="francesinha" data-p="15" data-m="15"><span><b>Francesinha ou detalhe</b>em qualquer serviço</span><em>R$ 15 · 15 min</em></label>
+  <section class="comanda-sec" id="comanda" aria-labelledby="comanda-t">
+    <div class="comanda-txt">
+      <h2 id="comanda-t">Monte seu horário</h2>
+      <p>Marque o que vai fazer. A comanda soma o preço e o tempo de cadeira, com a cor que você escolheu lá em cima.</p>
+    </div>
+    <form class="comanda" id="orcamento">
+      <p class="comanda-cab">comanda nº <span data-num></span><span>lívia prado</span></p>
+      <label><input type="checkbox" value="esmaltacao" data-p="35" data-m="40" checked><span><b>Mão · esmaltação</b>cutícula e esmalte comum</span><em>35</em></label>
+      <label><input type="checkbox" value="gel" data-p="90" data-m="80"><span><b>Mão · esmaltação em gel</b>dura até 3 semanas</span><em>90</em></label>
+      <label><input type="checkbox" value="pe" data-p="40" data-m="45"><span><b>Pé · esmaltação</b>cutícula, lixa e esmalte</span><em>40</em></label>
+      <label><input type="checkbox" value="spa" data-p="70" data-m="50"><span><b>Spa dos pés</b>escalda-pés, esfoliação e hidratação</span><em>70</em></label>
+      <label><input type="checkbox" value="francesinha" data-p="15" data-m="15"><span><b>Francesinha ou detalhe</b>em qualquer serviço</span><em>15</em></label>
       <div class="total" aria-live="polite"></div>
       <label class="quando">Melhor período<select id="periodo"><option>manhã</option><option selected>tarde</option><option>depois das 18h</option><option>sábado</option></select></label>
-      <button class="botao" type="submit">Agendar pelo WhatsApp</button>
+      <button class="botao" type="submit">Mandar a comanda no WhatsApp</button>
     </form>
   </section>
 
   <section class="onde" id="onde" aria-labelledby="onde-t">
-    <div class="salao" id="foto-salao"></div>
-    <div>
+    <img class="salao" src="img/salao.webp" width="1200" height="800" loading="lazy" alt="Manicure atendendo uma cliente no salão">
+    <div class="onde-txt">
       <h2 id="onde-t">Rua da Bahia, 1148, loja 3</h2>
       <p>Centro de Belo Horizonte, a duas quadras da Praça Sete.</p>
-      <dl><div><dt>Terça a sexta</dt><dd>9h às 20h</dd></div><div><dt>Sábado</dt><dd>8h às 16h</dd></div><div><dt>Domingo e segunda</dt><dd>fechado</dd></div></dl>
+      <dl><div><dt>terça a sexta</dt><dd>9h às 20h</dd></div><div><dt>sábado</dt><dd>8h às 16h</dd></div><div><dt>domingo e segunda</dt><dd>fechado</dd></div></dl>
     </div>
     <ul class="falas">
       <li><q>Esmaltação durou 10 dias sem lascar. E a Lívia acertou a cor de primeira.</q><span>Camila R.</span></li>
