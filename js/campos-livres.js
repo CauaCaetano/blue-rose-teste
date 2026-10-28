@@ -3,8 +3,10 @@
  *  Nos sistemas, nenhuma lista obriga a escolher: cada <select> vira um campo de texto com sugestões.
  *   - em todo formulário: escreve para buscar e o campo escolhe a opção certa (sem inventar valor que o sistema
  *     não sabe guardar: em vários sistemas a opção é a chave de uma linha, de um cadastro ou de uma regra);
- *   - <select data-livre>: além das sugestões, aceita texto novo, que vira uma opção do próprio <select>.
- *     Marque só onde o sistema guarda o texto como está (e trate o valor novo, se ele for chave de algo);
+ *   - <select data-livre>: além das sugestões, aceita texto novo, que vira uma opção do próprio <select>
+ *     (marque só onde o sistema guarda o texto como está);
+ *   - <select data-livre="clientes"> (ou outro tipo): o texto novo vira cadastro novo pelo gancho do sistema
+ *     window.veltriaNovoCadastro(tipo, nome, select), que cria o registro e devolve o código dele;
  *   - só em formulários e janelas de cadastro; filtros ("Todos"), sim/não, seletores de empresa, período e tela,
  *     e listas marcadas com data-fixo continuam como estão.
  *  O <select> original fica escondido e continua sendo o que o sistema lê e grava.
@@ -92,15 +94,22 @@
         var o = sel.options[i];
         if (t && (norm(o.text) === norm(t) || norm(o.value) === norm(t))) { achou = o; break; }
       }
-      if (!achou && t && !cadastro) {
-        // texto novo: vira uma opção do próprio select
-        achou = document.createElement('option'); achou.value = t; achou.text = t; achou.setAttribute('data-escrito', '');
-        sel.appendChild(achou);
+      if (!achou && t && !cadastro && avisar) {
+        // texto novo (só ao confirmar, não a cada letra): vira uma opção do próprio select.
+        // data-livre="clientes" (ou equipe, fornecedores...): o sistema cria o cadastro e devolve o código dele
+        var tipo = sel.getAttribute('data-livre'), cod = t;
+        if (tipo && typeof window.veltriaNovoCadastro === 'function') {
+          try { cod = window.veltriaNovoCadastro(tipo, t, sel) || ''; } catch (e) { cod = ''; }
+        }
+        if (cod) {
+          achou = document.createElement('option'); achou.value = cod; achou.text = t; achou.setAttribute('data-escrito', '');
+          sel.appendChild(achou);
+        }
       }
       var antes = desc.get.call(sel);
       if (achou) desc.set.call(sel, achou.value);
       else if (!t) desc.set.call(sel, vazio ? vazio.value : '');
-      inp.setCustomValidity(!achou && t && cadastro ? 'Escolha uma das opções da lista.' : '');
+      inp.setCustomValidity(!achou && t && (cadastro || avisar) ? 'Escolha uma das opções da lista.' : '');
       if (avisar && desc.get.call(sel) !== antes) {
         sel.dispatchEvent(new Event('input', { bubbles: true }));
         sel.dispatchEvent(new Event('change', { bubbles: true }));
