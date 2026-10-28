@@ -1,4 +1,4 @@
-// Moveo · serviços ligados à foto 3D, região → pacote de sessões, agenda com horários livres por dia.
+// Moveo · serviços ligados ao mosaico de fotos, região → pacote de sessões, agenda com horários livres por dia.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };
@@ -13,12 +13,11 @@
     ortopedica: ['Fisioterapia ortopédica', 'Pós-operatório, entorses, tendinites e fraturas, com faixas e carga progressiva.', 'As faixas elásticas'],
     palmilhas: ['Palmilhas ortopédicas', 'Avaliação da pisada e palmilha sob medida, pronta em 7 dias.', 'As palmilhas']
   };
-  var caixa = $('.servico-txt');
+  var caixa = $('.bilhete');
   function servico(k) {
     var s = S[k]; if (!s || !caixa) return;
     $$('[data-serv]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.serv === k)); });
-    caixa.innerHTML = '<p class="obj">' + s[2] + ' da sala</p><h2>' + s[0] + '</h2><p>' + s[1] + '</p><a class="botao" href="#" data-wa="Olá, Moveo! Quero saber mais sobre ' + s[0].toLowerCase() + '.">Quero esse tratamento</a>';
-    if (window.moveoSala) window.moveoSala.escolher(k);
+    caixa.innerHTML = '<p class="obj">tratamento</p><h2>' + s[0] + '</h2><p>' + s[1] + '</p><a class="botao" href="#" data-wa="Olá, Moveo! Quero saber mais sobre ' + s[0].toLowerCase() + '.">Quero esse tratamento</a>';
   }
   document.addEventListener('click', function (e) { var b = e.target.closest('[data-serv]'); if (b) servico(b.dataset.serv); });
   addEventListener('moveo-servico', function (e) { servico(e.detail); });

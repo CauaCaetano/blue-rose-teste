@@ -5,7 +5,7 @@ html[data-paleta="pt-PT"] .topo { background: rgba(241, 231, 216, .9); }
 html[data-paleta="pt-PT"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
 html[data-paleta="pt-PT"] .botao { color: #ffffff; }
-html[data-paleta="pt-PT"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .mosaico button[aria-pressed="true"] span { color: #ffffff; }
 html[data-paleta="pt-PT"] .passos li::before { color: #ffffff; }
 html[data-paleta="pt-PT"] .regioes button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .agenda input,
@@ -21,7 +21,7 @@ html[data-paleta="es"] .topo { background: rgba(241, 229, 216, .9); }
 html[data-paleta="es"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="es"] .topo-cta { color: #ffffff; }
 html[data-paleta="es"] .botao { color: #ffffff; }
-html[data-paleta="es"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .mosaico button[aria-pressed="true"] span { color: #ffffff; }
 html[data-paleta="es"] .passos li::before { color: #ffffff; }
 html[data-paleta="es"] .regioes button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .agenda input,
@@ -37,7 +37,7 @@ html[data-paleta="en"] .topo { background: rgba(216, 223, 241, .9); }
 html[data-paleta="en"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="en"] .topo-cta { color: #ffffff; }
 html[data-paleta="en"] .botao { color: #ffffff; }
-html[data-paleta="en"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .mosaico button[aria-pressed="true"] span { color: #ffffff; }
 html[data-paleta="en"] .passos li::before { color: #ffffff; }
 html[data-paleta="en"] .regioes button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .agenda input,
@@ -53,7 +53,7 @@ html[data-paleta="it"] .topo { background: rgba(238, 234, 219, .9); }
 html[data-paleta="it"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="it"] .topo-cta { color: #ffffff; }
 html[data-paleta="it"] .botao { color: #ffffff; }
-html[data-paleta="it"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .mosaico button[aria-pressed="true"] span { color: #ffffff; }
 html[data-paleta="it"] .passos li::before { color: #ffffff; }
 html[data-paleta="it"] .regioes button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .agenda input,
@@ -69,7 +69,7 @@ html[data-paleta="fr"] .topo { background: rgba(229, 217, 240, .9); }
 html[data-paleta="fr"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
 html[data-paleta="fr"] .topo-cta { color: #ffffff; }
 html[data-paleta="fr"] .botao { color: #ffffff; }
-html[data-paleta="fr"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .mosaico button[aria-pressed="true"] span { color: #ffffff; }
 html[data-paleta="fr"] .passos li::before { color: #ffffff; }
 html[data-paleta="fr"] .regioes button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="fr"] .agenda input,
