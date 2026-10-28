@@ -142,5 +142,6 @@ section { padding: clamp(56px, 8vw, 96px) clamp(16px, 4vw, 48px); max-width: 128
   .barra-cel a { text-align: center; text-decoration: none; font-weight: 800; padding: 13px; border-radius: 12px; background: var(--suave); }
   .barra-cel a:last-child { background: var(--acc); color: #fff; }
   .br-pill { bottom: 78px !important; }
+  .br-idi { bottom: 78px !important; }
 }
 .rodape { text-align: center; padding: 26px 16px 110px; font-size: .8rem; color: var(--tx-2); border-top: 1px solid var(--linha); }
