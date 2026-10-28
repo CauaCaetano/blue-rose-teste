@@ -1,0 +1,69 @@
+/* Lívia Prado · rosa-pó, terracota e granilite. Delicado, de bairro, sem frescura. */
+:root {
+  --fundo: #f7ece8; --papel: #fffaf7; --tx: #3a2a24; --tx-2: #7a675e; --linha: rgba(58, 42, 36, .12);
+  --acc: #b4605a;
+  --f: 'DM Sans', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--fundo); color: var(--tx); font: 400 16px/1.6 var(--f); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+h1, h2 { font-weight: 700; line-height: 1.04; letter-spacing: -.035em; margin: 0 0 .45em; text-wrap: balance; }
+h1 { font-size: clamp(2.3rem, 4.6vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
+p { margin: 0 0 1em; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+.pular { position: absolute; left: -999px; top: 8px; background: var(--tx); color: #fff; padding: 8px 12px; z-index: 100; }
+.pular:focus { left: 8px; }
+.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 48px); background: rgba(247, 236, 232, .9); backdrop-filter: blur(10px); }
+.marca { text-decoration: none; font-weight: 700; font-size: 1.25rem; letter-spacing: -.02em; line-height: 1.05; }
+.marca small { display: block; font-weight: 400; font-size: .74rem; color: var(--tx-2); letter-spacing: 0; }
+.menu { display: flex; gap: 22px; margin-left: auto; font-size: .94rem; }
+.menu a { text-decoration: none; color: var(--tx-2); }
+.menu a:hover { color: var(--acc); }
+.topo-cta { text-decoration: none; background: var(--acc); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: .9rem; }
+@media (max-width: 700px) { .menu { display: none; } .topo-cta { margin-left: auto; } }
+
+section { padding: clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px); max-width: 1280px; margin: 0 auto; }
+.lead { color: var(--tx-2); font-size: 1.06rem; max-width: 52ch; }
+.botao { display: inline-block; border: 0; cursor: pointer; text-decoration: none; background: var(--acc); color: #fff; padding: 14px 24px; border-radius: 999px; font: 700 1rem var(--f); transition: filter .2s, transform .15s; }
+.botao:hover { filter: brightness(1.08); }
+.botao:active { transform: translateY(1px); }
+
+.abertura { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(20px, 4vw, 48px); align-items: center; padding-top: 12px; }
+.bancada canvas { width: 100%; height: min(74vh, 640px); min-height: 420px; display: block; border-radius: 28px; touch-action: pan-y; }
+.bancada.sem-3d canvas { background: var(--papel); }
+.cores { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 10px; }
+.cores button { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--fundo); box-shadow: 0 0 0 1.5px var(--linha); cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.cores button:hover { transform: scale(1.08); }
+.cores button[aria-checked="true"] { box-shadow: 0 0 0 2.5px var(--tx); transform: scale(1.1); }
+.cor-nome { font-weight: 700; font-size: 1.1rem; min-height: 1.6em; }
+@media (max-width: 860px) { .abertura { grid-template-columns: 1fr; } .bancada canvas { height: 360px; min-height: 0; } }
+
+.orcamento { display: grid; gap: 8px; max-width: 760px; margin-top: 20px; }
+.orcamento > label:not(.quando) { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; background: var(--papel); border-radius: 16px; padding: 14px 18px; cursor: pointer; border: 1.5px solid transparent; transition: border-color .2s; }
+.orcamento > label:has(input:checked) { border-color: var(--acc); }
+.orcamento input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--acc); }
+.orcamento span { display: grid; color: var(--tx-2); font-size: .9rem; }
+.orcamento b { color: var(--tx); font-size: 1rem; }
+.orcamento em { font-style: normal; font-weight: 700; font-size: .9rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.total { font-size: 1.3rem; font-weight: 700; padding: 10px 4px; font-variant-numeric: tabular-nums; }
+.total small { display: block; font-size: .88rem; font-weight: 400; color: var(--tx-2); }
+.quando { display: grid; gap: 6px; font-weight: 700; font-size: .9rem; max-width: 320px; }
+.quando select { font: 400 1rem var(--f); padding: 11px 12px; border: 1.5px solid var(--linha); border-radius: 12px; background: #fff; color: var(--tx); }
+.orcamento .botao { justify-self: start; margin-top: 8px; }
+@media (max-width: 520px) { .orcamento > label:not(.quando) { grid-template-columns: auto 1fr; } .orcamento em { grid-column: 2; } }
+
+.onde { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); }
+.onde dl { margin: 18px 0 0; display: grid; gap: 6px; }
+.onde dl div { display: flex; justify-content: space-between; max-width: 340px; border-bottom: 1px solid var(--linha); padding-bottom: 6px; }
+.onde dt { color: var(--tx-2); }
+.onde dd { margin: 0; font-weight: 700; }
+.falas { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.falas li { background: var(--papel); border-radius: 18px; padding: 18px 20px; }
+.falas q { display: block; font-size: 1.05rem; quotes: none; margin-bottom: 6px; }
+.falas span { font-size: .86rem; color: var(--tx-2); }
+@media (max-width: 760px) { .onde { grid-template-columns: 1fr; } }
+.rodape { text-align: center; padding: 24px 16px 96px; font-size: .82rem; color: var(--tx-2); }
+.rodape p { margin: 0 0 4px; }
