@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script src="../../js/idioma.js?v=16"></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://yihnfzwtkqdfnwziutqa.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Triagem da dor · Eixo Reabilitação</title>
+<meta name="description" content="Responda quatro perguntas sobre a dor e veja se dá para esperar, que consulta marcar e qual programa combina.">
+<meta name="theme-color" content="#e9edf1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'9'%20fill%3D'%2314202b'%2F%3E%3Cpath%20d%3D'M20%208v24M12%2016h16M14%2024h12'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../assets/fontes/b524508d85.css">
+<link rel="stylesheet" href="../assets/moldura.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=1">
+<script src="../../js/leads-config.js?v=6" defer></script>
+<script src="../assets/moldura.js?v=1" defer></script>
+<script src="site.js?v=1" defer></script>
+<link rel="stylesheet" href="/blue-rose-teste/teste.css">
+</head>
+<body data-slug="eixo" data-marca="Eixo Reabilitação" data-cat="fisioterapia">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <a class="marca" href="index.html"><span aria-hidden="true"></span>Eixo<small>reabilitação e biomecânica</small></a>
+  <nav class="menu" aria-label="Principal"><a href="index.html">Pisada</a><a href="avaliacao.html" aria-current="page">Triagem da dor</a><a href="programas.html">Programas</a><a href="convenios.html">Convênios</a><a href="agendar.html">Agendar</a></nav>
+  <a class="topo-cta" href="agendar.html">Agendar</a>
+</header>
+<main id="conteudo">
+  <section class="triagem">
+    <h1>Triagem da dor</h1>
+    <p class="lead">Quatro perguntas, um minuto. No fim você sabe se dá para esperar, que tipo de consulta marcar e por onde começar.</p>
+    <form id="triagem" novalidate>
+      <fieldset><legend>Onde dói?</legend><div class="chips"><label><input type="radio" name="reg" value="lombar"><span>Lombar</span></label><label><input type="radio" name="reg" value="cervical"><span>Pescoço</span></label><label><input type="radio" name="reg" value="joelho"><span>Joelho</span></label><label><input type="radio" name="reg" value="ombro"><span>Ombro</span></label><label><input type="radio" name="reg" value="tornozelo"><span>Tornozelo e pé</span></label><label><input type="radio" name="reg" value="quadril"><span>Quadril</span></label></div></fieldset>
+      <fieldset><legend>De 0 a 10, quanto dói agora?</legend>
+        <div class="eva"><input type="range" name="eva" min="0" max="10" value="4" aria-describedby="eva-txt"><output id="eva-txt">4 · dor moderada</output></div></fieldset>
+      <fieldset><legend>Há quanto tempo?</legend><div class="chips">
+        <label><input type="radio" name="tempo" value="dias"><span>Poucos dias</span></label><label><input type="radio" name="tempo" value="semanas"><span>Algumas semanas</span></label><label><input type="radio" name="tempo" value="meses"><span>Mais de 3 meses</span></label></div></fieldset>
+      <fieldset><legend>Marque se acontece algum destes</legend><div class="alertas">
+        <label><input type="checkbox" name="alerta" value="forca"> Perda de força em braço ou perna</label>
+        <label><input type="checkbox" name="alerta" value="urina"> Dificuldade de segurar urina ou fezes</label>
+        <label><input type="checkbox" name="alerta" value="febre"> Febre junto com a dor</label>
+        <label><input type="checkbox" name="alerta" value="queda"> A dor começou depois de uma queda forte</label></div></fieldset>
+      <p class="erro" aria-live="polite"></p>
+      <button class="botao" type="submit">Ver o resultado</button>
+    </form>
+    <div class="resultado" aria-live="polite" hidden></div>
+  </section>
+</main>
+<footer class="rodape"><p><b>Eixo Reabilitação</b> · Centro: R. Duque de Caxias, 840 · Zona Sul: Av. Prof. João Fiusa, 1900 · Ribeirão Preto/SP</p><p>Marca criada para demonstração · Site de exemplo feito pela Blue Rose</p></footer>
+<div class="site-de-teste" role="note">Site de teste · nada aqui vale de verdade</div>
+</body>
+</html>

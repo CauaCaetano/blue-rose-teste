@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script src="../../js/idioma.js?v=16"></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://yihnfzwtkqdfnwziutqa.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Convênios · Eixo Reabilitação</title>
+<meta name="description" content="Planos de saúde aceitos pela Eixo e simulador de reembolso.">
+<meta name="theme-color" content="#e9edf1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'9'%20fill%3D'%2314202b'%2F%3E%3Cpath%20d%3D'M20%208v24M12%2016h16M14%2024h12'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../assets/fontes/b524508d85.css">
+<link rel="stylesheet" href="../assets/moldura.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=1">
+<script src="../../js/leads-config.js?v=6" defer></script>
+<script src="../assets/moldura.js?v=1" defer></script>
+<script src="site.js?v=1" defer></script>
+<link rel="stylesheet" href="/blue-rose-teste/teste.css">
+</head>
+<body data-slug="eixo" data-marca="Eixo Reabilitação" data-cat="fisioterapia">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <a class="marca" href="index.html"><span aria-hidden="true"></span>Eixo<small>reabilitação e biomecânica</small></a>
+  <nav class="menu" aria-label="Principal"><a href="index.html">Pisada</a><a href="avaliacao.html">Triagem da dor</a><a href="programas.html">Programas</a><a href="convenios.html" aria-current="page">Convênios</a><a href="agendar.html">Agendar</a></nav>
+  <a class="topo-cta" href="agendar.html">Agendar</a>
+</header>
+<main id="conteudo">
+  <section class="convenios">
+    <h1>Convênios</h1>
+    <p class="lead">Digite o nome do seu plano. Se não cobrir direto, mostramos quanto volta no reembolso.</p>
+    <label class="busca">Seu plano<input type="search" id="plano" placeholder="Ex.: Unimed" autocomplete="off"></label>
+    <ul class="planos" id="planos"><li data-nome="unimed ribeirão preto" class="cobre"><b>Unimed Ribeirão Preto</b><span>cobre direto · até 20 sessões por ano</span></li><li data-nome="bradesco saúde" class="reembolso"><b>Bradesco Saúde</b><span>reembolso com nota fiscal</span></li><li data-nome="sulamérica" class="reembolso"><b>SulAmérica</b><span>reembolso com nota fiscal</span></li><li data-nome="amil" class="cobre"><b>Amil</b><span>cobre direto · até 12 sessões por ano</span></li><li data-nome="cassi" class="cobre"><b>Cassi</b><span>cobre direto · até 24 sessões por ano</span></li><li data-nome="hapvida" class="nao"><b>Hapvida</b><span>não atendemos por este plano</span></li><li data-nome="porto seguro saúde" class="reembolso"><b>Porto Seguro Saúde</b><span>reembolso com nota fiscal</span></li><li data-nome="são francisco saúde" class="cobre"><b>São Francisco Saúde</b><span>cobre direto · até 18 sessões por ano</span></li><li data-nome="cabesp" class="cobre"><b>Cabesp</b><span>cobre direto · até 20 sessões por ano</span></li><li data-nome="saúde caixa" class="cobre"><b>Saúde Caixa</b><span>cobre direto · até 24 sessões por ano</span></li><li data-nome="geap" class="cobre"><b>GEAP</b><span>cobre direto · até 12 sessões por ano</span></li><li data-nome="notredame intermédica" class="nao"><b>Notredame Intermédica</b><span>não atendemos por este plano</span></li><li data-nome="allianz saúde" class="reembolso"><b>Allianz Saúde</b><span>reembolso com nota fiscal</span></li><li data-nome="postal saúde" class="cobre"><b>Postal Saúde</b><span>cobre direto · até 16 sessões por ano</span></li></ul>
+    <p class="nada" hidden>Não achamos esse plano. Atendemos particular com nota para reembolso: avaliação R$ 180, sessão R$ 150.</p>
+    <div class="reembolso"><h2>Simule o reembolso</h2>
+      <label>Sessões no mês<input type="range" id="sess" min="4" max="20" value="8"></label>
+      <label>Seu plano devolve<select id="pct"><option value="0.5">50%</option><option value="0.7" selected>70%</option><option value="0.8">80%</option><option value="1">100%</option></select></label>
+      <p class="conta" aria-live="polite"></p></div>
+  </section>
+</main>
+<footer class="rodape"><p><b>Eixo Reabilitação</b> · Centro: R. Duque de Caxias, 840 · Zona Sul: Av. Prof. João Fiusa, 1900 · Ribeirão Preto/SP</p><p>Marca criada para demonstração · Site de exemplo feito pela Blue Rose</p></footer>
+<div class="site-de-teste" role="note">Site de teste · nada aqui vale de verdade</div>
+</body>
+</html>
