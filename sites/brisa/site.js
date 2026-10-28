@@ -1,4 +1,4 @@
-// Brisa · lugar do atendimento (troca a maleta 3D), cobertura por bairro, plano para empresas, cronograma de
+// Brisa · lugar do atendimento (troca a foto 3D), cobertura por bairro, plano para empresas, cronograma de
 // evento e vale-presente com prévia.
 (function () {
   'use strict';
@@ -7,22 +7,14 @@
   var real = function (v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); };
   var hm = function (m) { m = ((m % 1440) + 1440) % 1440; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); };
 
-  // início: lugar e itens da maleta
-  var ITEM = {
-    'Esmaltes': 'Três cores da estação; você escolhe outra pelo app e ela leva.', 'Lixas e alicate': 'Alicate esterilizado em autoclave, aberto na sua frente. Lixa nova a cada cliente.',
-    'Toalhinhas': 'Toalhas de algodão waffle, lavadas a 60 °C.', 'Pó compacto': 'Para retocar no avião sem pesar a pele.', 'Batons': 'Tons que duram 8 horas, testados em voo e em festa.',
-    'Passaporte e minis': 'Kit de viagem: hidratante e demaquilante em frascos de 30 ml, liberados na bagagem de mão.', 'Creme de mãos': 'Hidratação rápida que seca em 1 minuto, para voltar ao teclado.',
-    'Pincéis': 'Pincéis higienizados por pessoa, embalados um a um.', 'Paleta de sombras': 'Seis tons neutros que funcionam com qualquer vestido.', 'Kit expresso': 'O mínimo para 25 minutos: cabe numa sala de reunião.'
-  };
+  // início: lugar do atendimento (troca a foto 3D)
   $$('[data-lugar]').forEach(function (b) {
     b.addEventListener('click', function () {
       $$('[data-lugar]').forEach(function (x) { x.setAttribute('aria-selected', String(x === b)); });
       $$('[data-painel]').forEach(function (p) { p.hidden = p.dataset.painel !== b.dataset.lugar; });
       if (window.brisaMaleta) window.brisaMaleta.lugar(b.dataset.lugar);
-      $('.item-txt').textContent = 'Toque num item da maleta para saber o que é.';
     });
   });
-  addEventListener('brisa-item', function (e) { var t = ITEM[e.detail]; if (t) $('.item-txt').innerHTML = '<b>' + e.detail + '.</b> ' + t; });
 
   // cobertura: zonas por cidade (1 sem taxa, 2 e 3 com taxa); aeroportos e hotéis entram como lugares
   var CID = {

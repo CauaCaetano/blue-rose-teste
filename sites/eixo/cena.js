@@ -1,7 +1,7 @@
 // Eixo · plataforma de baropodometria: uma placa preta com milhares de sensores; dentro do contorno dos pés,
 // cada sensor sobe e muda de cor (azul → verde → amarelo → vermelho) conforme a pressão. O tipo de pisada muda
 // o mapa; "ver o passo" anima o apoio do calcanhar até a ponta. Os números do mapa saem no evento "eixo-dados".
-import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('placa-3d');
 const COL = 28, LIN = 64, PASSO = 0.083; // sensores por pé
@@ -52,7 +52,7 @@ if (canvas) {
   if (p) {
     const { cena } = p;
     luz(p, 'white_studio_03', { forca: 0.8 });
-    cena.background = new THREE.Color(0xe9edf1);
+    cena.background = corDaPagina(0xe9edf1);
     const sol = new THREE.DirectionalLight(0xffffff, 2); sol.position.set(-3, 9, 5); sol.castShadow = true;
     sol.shadow.mapSize.set(2048, 2048); Object.assign(sol.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7 }); sol.shadow.bias = -0.0004; cena.add(sol);
     const chao = new THREE.Mesh(new THREE.CircleGeometry(16, 64), new THREE.MeshStandardMaterial({ color: 0xd3d8dd, roughness: 0.9 })); chao.rotation.x = -Math.PI / 2; chao.position.y = -0.36; chao.receiveShadow = true; cena.add(chao);

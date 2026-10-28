@@ -1,0 +1,81 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/moveo/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #f6f0e7; --papel: #fcfaf7; --tx: #1c242a; --tx-2: #5a666f; --linha: rgba(28, 36, 42, .12); --acc: #d47e5b; --agua: #5082ab; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo { background: rgba(246, 240, 231, .9); }
+html[data-paleta="pt-PT"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
+html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .passos li::before { color: #ffffff; }
+html[data-paleta="pt-PT"] .regioes button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .agenda input,
+html[data-paleta="pt-PT"] .agenda select { background: #ffffff; }
+html[data-paleta="pt-PT"] .dias button,
+html[data-paleta="pt-PT"] .horas button { background: #ffffff; }
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"],
+html[data-paleta="pt-PT"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .erro { color: #a64f2b; }
+html[data-paleta="es"] { --fundo: #f6efe7; --papel: #fcfaf7; --tx: #2a1c1f; --tx-2: #6f5a5e; --linha: rgba(42, 28, 31, .12); --acc: #d35c5d; --agua: #b59346; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .topo { background: rgba(246, 239, 231, .9); }
+html[data-paleta="es"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
+html[data-paleta="es"] .topo-cta { color: #ffffff; }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .passos li::before { color: #ffffff; }
+html[data-paleta="es"] .regioes button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .agenda input,
+html[data-paleta="es"] .agenda select { background: #ffffff; }
+html[data-paleta="es"] .dias button,
+html[data-paleta="es"] .horas button { background: #ffffff; }
+html[data-paleta="es"] .dias button[aria-pressed="true"],
+html[data-paleta="es"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .erro { color: #a52c2d; }
+html[data-paleta="en"] { --fundo: #e7ebf6; --papel: #f7f8fc; --tx: #1c1f2a; --tx-2: #5a5f6f; --linha: rgba(28, 31, 42, .12); --acc: #d9565d; --agua: #436ab8; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .topo { background: rgba(231, 235, 246, .9); }
+html[data-paleta="en"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
+html[data-paleta="en"] .topo-cta { color: #ffffff; }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .passos li::before { color: #ffffff; }
+html[data-paleta="en"] .regioes button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .agenda input,
+html[data-paleta="en"] .agenda select { background: #ffffff; }
+html[data-paleta="en"] .dias button,
+html[data-paleta="en"] .horas button { background: #ffffff; }
+html[data-paleta="en"] .dias button[aria-pressed="true"],
+html[data-paleta="en"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .erro { color: #ac252d; }
+html[data-paleta="it"] { --fundo: #f4f2e9; --papel: #fbfbf8; --tx: #232a1c; --tx-2: #656f5a; --linha: rgba(35, 42, 28, .12); --acc: #d2825d; --agua: #829764; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .topo { background: rgba(244, 242, 233, .9); }
+html[data-paleta="it"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
+html[data-paleta="it"] .topo-cta { color: #ffffff; }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .passos li::before { color: #ffffff; }
+html[data-paleta="it"] .regioes button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .agenda input,
+html[data-paleta="it"] .agenda select { background: #ffffff; }
+html[data-paleta="it"] .dias button,
+html[data-paleta="it"] .horas button { background: #ffffff; }
+html[data-paleta="it"] .dias button[aria-pressed="true"],
+html[data-paleta="it"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .erro { color: #a5532c; }
+html[data-paleta="fr"] { --fundo: #efe7f6; --papel: #faf7fc; --tx: #1f1c2a; --tx-2: #5f5a6f; --linha: rgba(31, 28, 42, .12); --acc: #7d63cc; --agua: #6758a3; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .topo { background: rgba(239, 231, 246, .9); }
+html[data-paleta="fr"] .marca span { box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); }
+html[data-paleta="fr"] .topo-cta { color: #ffffff; }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .servicos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .passos li::before { color: #ffffff; }
+html[data-paleta="fr"] .regioes button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .agenda input,
+html[data-paleta="fr"] .agenda select { background: #ffffff; }
+html[data-paleta="fr"] .dias button,
+html[data-paleta="fr"] .horas button { background: #ffffff; }
+html[data-paleta="fr"] .dias button[aria-pressed="true"],
+html[data-paleta="fr"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .erro { color: #4d339e; }

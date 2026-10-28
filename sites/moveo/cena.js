@@ -1,7 +1,7 @@
 // Moveo · a sala de atendimento: piso de taco, parede de gesso, maca de couro, rolo de liberação, bola suíça,
 // faixas elásticas e uma planta de verdade (Poly Haven). Cada objeto é um serviço: passar o mouse destaca,
 // clicar abre o serviço (evento "moveo-servico").
-import { palco, THREE, calmo, aproxima, luz, modelo, textura, encaixar } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, modelo, textura, encaixar, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('sala-3d');
 if (canvas) {
@@ -13,7 +13,7 @@ if (canvas) {
   if (p) {
     const { cena } = p;
     luz(p, 'studio_small_09', { forca: 0.9 });
-    cena.background = new THREE.Color(0xf6efe7);
+    cena.background = corDaPagina(0xf6efe7);
     const janela = new THREE.DirectionalLight(0xfff1e0, 2.4); janela.position.set(-6, 8, 5); janela.castShadow = true;
     janela.shadow.mapSize.set(2048, 2048); Object.assign(janela.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 }); janela.shadow.bias = -0.0005; cena.add(janela);
     const piso = new THREE.Mesh(new THREE.PlaneGeometry(14, 12), new THREE.MeshStandardMaterial({ ...textura('herringbone_parquet', 4, 3.4) })); piso.rotation.x = -Math.PI / 2; piso.receiveShadow = true; cena.add(piso);

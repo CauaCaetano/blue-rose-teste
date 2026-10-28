@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'20'%20fill%3D'%23171512'%2F%3E%3Ctext%20x%3D'20'%20y%3D'28'%20font-size%3D'22'%20text-anchor%3D'middle'%20fill%3D'%23b39257'%20font-family%3D'serif'%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/7a93d76d08.css">
 <link rel="stylesheet" href="../assets/fontes/12344d647b.css">
-<link rel="stylesheet" href="../assets/moldura.css?v=1">
+<link rel="stylesheet" href="../assets/moldura.css?v=2">
 <link rel="stylesheet" href="estilo.css?v=1">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
@@ -24,15 +24,15 @@
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
   <a class="marca" href="index.html">Atelier Serena<small>hair &amp; beauty club · Jardins</small></a>
-  <nav class="menu" aria-label="Principal"><a href="index.html" aria-current="page">A estação</a><a href="servicos.html">Serviços</a><a href="bistro.html">Bistrô</a><a href="agenda.html">Reservar</a></nav>
+  <nav class="menu" aria-label="Principal"><a href="index.html" aria-current="page">Início</a><a href="servicos.html">Serviços</a><a href="bistro.html">Bistrô</a><a href="agenda.html">Reservar</a></nav>
   <a class="topo-cta" href="agenda.html">Reservar</a>
 </header>
 <main id="conteudo">
   <section class="abertura">
-    <div class="estacao"><canvas id="estacao-3d" aria-label="Estação do salão em 3D com cadeira, espelho e o orçamento escrito no espelho"></canvas></div>
+    <div class="estacao" id="estacao"></div>
     <div class="orc">
-      <h1>Monte a sua tarde. O espelho faz a conta.</h1>
-      <p class="lead">Marque os serviços. O tempo de cadeira aparece no espelho e o arco dourado no chão mostra quanto da tarde é sua.</p>
+      <h1>Monte a sua tarde. A gente faz a conta.</h1>
+      <p class="lead">Marque os serviços. A foto mostra o último que você escolheu, e o arco dourado enche conforme as horas de cadeira.</p>
       <form id="orcar">
         <label class="serv"><input type="checkbox" name="s" value="corte" data-min="60" data-preco="180" checked><span><b>Corte com lavagem</b><small>Diagnóstico do fio, lavagem com massagem e finalização.</small></span><em>1h · R$ 180</em></label><label class="serv"><input type="checkbox" name="s" value="escova" data-min="45" data-preco="110"><span><b>Escova modelada</b><small>Escova com volume ou lisa, à sua escolha.</small></span><em>45 min · R$ 110</em></label><label class="serv"><input type="checkbox" name="s" value="raiz" data-min="90" data-preco="260"><span><b>Coloração de raiz</b><small>Retoque de até 3 cm com tonalizante sem amônia.</small></span><em>1h30 · R$ 260</em></label><label class="serv"><input type="checkbox" name="s" value="mechas" data-min="210" data-preco="790"><span><b>Mechas e balayage</b><small>Clareamento à mão livre, tonalização e tratamento de reconstrução.</small></span><em>3h30 · R$ 790</em></label><label class="serv"><input type="checkbox" name="s" value="ritual" data-min="50" data-preco="160" checked><span><b>Ritual de hidratação Serena</b><small>Assinatura da casa: banho de óleo, vapor e selagem.</small></span><em>50 min · R$ 160</em></label><label class="serv"><input type="checkbox" name="s" value="mao" data-min="80" data-preco="120"><span><b>Manicure e pedicure</b><small>Mãos e pés com esmaltação, cutícula e hidratação.</small></span><em>1h20 · R$ 120</em></label><label class="serv"><input type="checkbox" name="s" value="make" data-min="60" data-preco="240"><span><b>Maquiagem social</b><small>Pele, olhos e boca para festa ou evento.</small></span><em>1h · R$ 240</em></label><label class="serv"><input type="checkbox" name="s" value="penteado" data-min="75" data-preco="280"><span><b>Penteado</b><small>Coque, semipreso ou ondas, com teste de fixação.</small></span><em>1h15 · R$ 280</em></label>
         <fieldset class="nivel"><legend>Com quem</legend>

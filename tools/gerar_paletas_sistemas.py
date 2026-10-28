@@ -7,7 +7,8 @@
 #   - cores de aviso (ok, erro, atraso, verde, vermelho, âmbar...) não mudam: elas dizem alguma coisa.
 # Só entram as declarações com cor, dentro de html[data-paleta="<idioma>"]; o js/idioma.js põe o atributo e
 # carrega o paletas.css ao lado do CSS do sistema (estilo.css, tema.css ou base/nexo.css).
-# Uso: python tools/gerar_paletas_sistemas.py   (rodar de novo se mudar o CSS de um sistema)
+# Os sites de exemplo (sites/<slug>/estilo.css) ganham o paletas.css deles do mesmo jeito.
+# Uso: python tools/gerar_paletas_sistemas.py   (rodar de novo se mudar o CSS de um sistema ou de um site de exemplo)
 import colorsys, glob, os, re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -149,3 +150,8 @@ for d in sorted(glob.glob(os.path.join(SIS, '*'))):
     print('%-22s %3d KB  %d grupos de cor  %d cores de aviso' % (os.path.basename(d), kb, ng, nf))
 kb, ng, nf = gerar([os.path.join(SIS, 'base', 'nexo.css')], os.path.join(SIS, 'base', 'paletas.css'))
 print('%-22s %3d KB  %d grupos de cor  %d cores de aviso' % ('base (nexo)', kb, ng, nf))
+for d in sorted(glob.glob(os.path.join(RAIZ, 'sites', '*'))):
+    f = os.path.join(d, 'estilo.css')
+    if os.path.basename(d) == 'assets' or not os.path.exists(f): continue
+    kb, ng, nf = gerar([f], os.path.join(d, 'paletas.css'))
+    print('%-22s %3d KB  %d grupos de cor  %d cores de aviso' % ('sites/' + os.path.basename(d), kb, ng, nf))

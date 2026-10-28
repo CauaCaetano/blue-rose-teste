@@ -1,0 +1,106 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/pulso/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #f1efec; --branco: #ffffff; --preto: #111111; --tx-2: #55595c; --linha: rgba(17, 17, 17, .14); --acc: #e16d3d; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo { color: #ffffff; }
+html[data-paleta="pt-PT"] .menu a { color: #bdbab5; }
+html[data-paleta="pt-PT"] .menu a:hover { color: #ffffff; }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .vitrine.sem-3d { background: linear-gradient(#e5e2dd, var(--fundo)); }
+html[data-paleta="pt-PT"] .mais-grade article { color: #ffffff; }
+html[data-paleta="pt-PT"] .mais-grade p { color: #bdbab5; }
+html[data-paleta="pt-PT"] .mais-grade a { color: #ffffff; }
+html[data-paleta="pt-PT"] .tela-app { color: #ffffff; box-shadow: inset 0 0 0 8px #2a2a2a; }
+html[data-paleta="pt-PT"] .tela-app p { border-bottom: 1px solid #2c2c2c; color: #ffffff; }
+html[data-paleta="pt-PT"] .tela-app p span { color: #9a9792; }
+html[data-paleta="pt-PT"] .ufs button[aria-pressed="true"],
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .erro { color: #ac4920; }
+html[data-paleta="pt-PT"] .resumo { color: #ffffff; }
+html[data-paleta="pt-PT"] .resumo dl div { border-bottom: 1px solid #2c2c2c; }
+html[data-paleta="pt-PT"] .resumo dt { color: #9a9792; }
+html[data-paleta="pt-PT"] .total span { color: #9a9792; }
+html[data-paleta="pt-PT"] .total small { color: #9a9792; }
+html[data-paleta="es"] { --fundo: #f1efec; --branco: #ffffff; --preto: #111111; --tx-2: #5c5556; --linha: rgba(17, 17, 17, .14); --acc: #e03e3f; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .topo { color: #ffffff; }
+html[data-paleta="es"] .menu a { color: #bdb9b5; }
+html[data-paleta="es"] .menu a:hover { color: #ffffff; }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .vitrine.sem-3d { background: linear-gradient(#e5e1dd, var(--fundo)); }
+html[data-paleta="es"] .mais-grade article { color: #ffffff; }
+html[data-paleta="es"] .mais-grade p { color: #bdb9b5; }
+html[data-paleta="es"] .mais-grade a { color: #ffffff; }
+html[data-paleta="es"] .tela-app { color: #ffffff; box-shadow: inset 0 0 0 8px #2a2a2a; }
+html[data-paleta="es"] .tela-app p { border-bottom: 1px solid #2c2c2c; color: #ffffff; }
+html[data-paleta="es"] .tela-app p span { color: #9a9692; }
+html[data-paleta="es"] .ufs button[aria-pressed="true"],
+html[data-paleta="es"] .dias button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .erro { color: #ab2122; }
+html[data-paleta="es"] .resumo { color: #ffffff; }
+html[data-paleta="es"] .resumo dl div { border-bottom: 1px solid #2c2c2c; }
+html[data-paleta="es"] .resumo dt { color: #9a9692; }
+html[data-paleta="es"] .total span { color: #9a9692; }
+html[data-paleta="es"] .total small { color: #9a9692; }
+html[data-paleta="en"] { --fundo: #ecedf1; --branco: #ffffff; --preto: #111111; --tx-2: #55575c; --linha: rgba(17, 17, 17, .14); --acc: #e73741; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .topo { color: #ffffff; }
+html[data-paleta="en"] .menu a { color: #b5b7bd; }
+html[data-paleta="en"] .menu a:hover { color: #ffffff; }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .vitrine.sem-3d { background: linear-gradient(#dddfe5, var(--fundo)); }
+html[data-paleta="en"] .mais-grade article { color: #ffffff; }
+html[data-paleta="en"] .mais-grade p { color: #b5b7bd; }
+html[data-paleta="en"] .mais-grade a { color: #ffffff; }
+html[data-paleta="en"] .tela-app { color: #ffffff; box-shadow: inset 0 0 0 8px #2a2a2a; }
+html[data-paleta="en"] .tela-app p { border-bottom: 1px solid #2c2c2c; color: #ffffff; }
+html[data-paleta="en"] .tela-app p span { color: #92949a; }
+html[data-paleta="en"] .ufs button[aria-pressed="true"],
+html[data-paleta="en"] .dias button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .erro { color: #b11b24; }
+html[data-paleta="en"] .resumo { color: #ffffff; }
+html[data-paleta="en"] .resumo dl div { border-bottom: 1px solid #2c2c2c; }
+html[data-paleta="en"] .resumo dt { color: #92949a; }
+html[data-paleta="en"] .total span { color: #92949a; }
+html[data-paleta="en"] .total small { color: #92949a; }
+html[data-paleta="it"] { --fundo: #f1f0ec; --branco: #ffffff; --preto: #111111; --tx-2: #585c55; --linha: rgba(17, 17, 17, .14); --acc: #e0723e; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .topo { color: #ffffff; }
+html[data-paleta="it"] .menu a { color: #bdbcb5; }
+html[data-paleta="it"] .menu a:hover { color: #ffffff; }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .vitrine.sem-3d { background: linear-gradient(#e5e4dd, var(--fundo)); }
+html[data-paleta="it"] .mais-grade article { color: #ffffff; }
+html[data-paleta="it"] .mais-grade p { color: #bdbcb5; }
+html[data-paleta="it"] .mais-grade a { color: #ffffff; }
+html[data-paleta="it"] .tela-app { color: #ffffff; box-shadow: inset 0 0 0 8px #2a2a2a; }
+html[data-paleta="it"] .tela-app p { border-bottom: 1px solid #2c2c2c; color: #ffffff; }
+html[data-paleta="it"] .tela-app p span { color: #9a9992; }
+html[data-paleta="it"] .ufs button[aria-pressed="true"],
+html[data-paleta="it"] .dias button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .erro { color: #aa4d22; }
+html[data-paleta="it"] .resumo { color: #ffffff; }
+html[data-paleta="it"] .resumo dl div { border-bottom: 1px solid #2c2c2c; }
+html[data-paleta="it"] .resumo dt { color: #9a9992; }
+html[data-paleta="it"] .total span { color: #9a9992; }
+html[data-paleta="it"] .total small { color: #9a9992; }
+html[data-paleta="fr"] { --fundo: #eeecf1; --branco: #ffffff; --preto: #111111; --tx-2: #57555c; --linha: rgba(17, 17, 17, .14); --acc: #6243db; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .topo { color: #ffffff; }
+html[data-paleta="fr"] .menu a { color: #b9b5bd; }
+html[data-paleta="fr"] .menu a:hover { color: #ffffff; }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .vitrine.sem-3d { background: linear-gradient(#e1dde5, var(--fundo)); }
+html[data-paleta="fr"] .mais-grade article { color: #ffffff; }
+html[data-paleta="fr"] .mais-grade p { color: #b9b5bd; }
+html[data-paleta="fr"] .mais-grade a { color: #ffffff; }
+html[data-paleta="fr"] .tela-app { color: #ffffff; box-shadow: inset 0 0 0 8px #2a2a2a; }
+html[data-paleta="fr"] .tela-app p { border-bottom: 1px solid #2c2c2c; color: #ffffff; }
+html[data-paleta="fr"] .tela-app p span { color: #96929a; }
+html[data-paleta="fr"] .ufs button[aria-pressed="true"],
+html[data-paleta="fr"] .dias button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .erro { color: #4026a6; }
+html[data-paleta="fr"] .resumo { color: #ffffff; }
+html[data-paleta="fr"] .resumo dl div { border-bottom: 1px solid #2c2c2c; }
+html[data-paleta="fr"] .resumo dt { color: #96929a; }
+html[data-paleta="fr"] .total span { color: #96929a; }
+html[data-paleta="fr"] .total small { color: #96929a; }

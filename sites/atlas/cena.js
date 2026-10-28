@@ -1,6 +1,6 @@
 // Atlas · a unidade-modelo: maquete em corte de um estúdio da rede, vista de cima, com pisos de verdade
 // (borracha, concreto, taco e granilite). Cada área acende ao passar o mouse; clicar abre a área (evento "atlas-area").
-import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('unidade-3d');
 if (canvas) {
@@ -13,7 +13,7 @@ if (canvas) {
   if (p) {
     const { cena } = p;
     luz(p, 'white_studio_03', { forca: 1 });
-    cena.background = new THREE.Color(0xf4f1ea);
+    cena.background = corDaPagina(0xf4f1ea);
     const sol = new THREE.DirectionalLight(0xffffff, 2); sol.position.set(-8, 14, 6); sol.castShadow = true;
     sol.shadow.mapSize.set(2048, 2048); Object.assign(sol.shadow.camera, { left: -11, right: 11, top: 11, bottom: -11 }); sol.shadow.bias = -0.0006; cena.add(sol);
     maquete = new THREE.Group(); cena.add(maquete);

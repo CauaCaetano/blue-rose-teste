@@ -1,0 +1,136 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/eixo/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #f1eee9; --papel: #ffffff; --tx: #14212b; --tx-2: #5b6974; --linha: rgba(20, 33, 43, .12); --acc: #4790cc; --grafite: #23282c; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo { background: rgba(241, 238, 233, .9); }
+html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .escala { background: rgba(255, 255, 255, .85); }
+html[data-paleta="pt-PT"] .escala i { background: linear-gradient(90deg, #3788ca, #c16c27, #4084ba, #e38f4b, #d96d41, #cc663c); }
+html[data-paleta="pt-PT"] .tipos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .andar[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .chips input:checked + span { color: #ffffff; }
+html[data-paleta="pt-PT"] .alertas input { accent-color: #a64f2b; }
+html[data-paleta="pt-PT"] .erro { color: #a64f2b; }
+html[data-paleta="pt-PT"] .abas button[aria-selected="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
+html[data-paleta="pt-PT"] .fase.agora { color: #ffffff; }
+html[data-paleta="pt-PT"] input,
+html[data-paleta="pt-PT"] select { background: #ffffff; }
+html[data-paleta="pt-PT"] .planos .cobre { border-color: #346c99; }
+html[data-paleta="pt-PT"] .planos .reembolso { border-color: #c76e26; }
+html[data-paleta="pt-PT"] .planos .nao { border-color: #c5c0b8; }
+html[data-paleta="pt-PT"] .reembolso { color: #ffffff; }
+html[data-paleta="pt-PT"] .reembolso input[type=range] { accent-color: #ffffff; }
+html[data-paleta="pt-PT"] .semana-nav button { background: #ffffff; }
+html[data-paleta="pt-PT"] .grade button { background: color-mix(in srgb, var(--acc) 12%, #ffffff); }
+html[data-paleta="pt-PT"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
+html[data-paleta="pt-PT"] .grade button:disabled { background: #f2f0ee; }
+html[data-paleta="pt-PT"] .grade button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] { --fundo: #f1ede9; --papel: #ffffff; --tx: #26191b; --tx-2: #745b60; --linha: rgba(38, 25, 27, .12); --acc: #d53e3e; --grafite: #2c2325; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .topo { background: rgba(241, 237, 233, .9); }
+html[data-paleta="es"] .topo-cta { color: #ffffff; }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .escala { background: rgba(255, 255, 255, .85); }
+html[data-paleta="es"] .escala i { background: linear-gradient(90deg, #d42d2d, #c49324, #c69934, #d05e75, #d84243, #ca3e3f); }
+html[data-paleta="es"] .tipos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .andar[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .chips input:checked + span { color: #ffffff; }
+html[data-paleta="es"] .alertas input { accent-color: #a52c2d; }
+html[data-paleta="es"] .erro { color: #a52c2d; }
+html[data-paleta="es"] .abas button[aria-selected="true"] { color: #ffffff; }
+html[data-paleta="es"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
+html[data-paleta="es"] .fase.agora { color: #ffffff; }
+html[data-paleta="es"] input,
+html[data-paleta="es"] select { background: #ffffff; }
+html[data-paleta="es"] .planos .cobre { border-color: #a37e2a; }
+html[data-paleta="es"] .planos .reembolso { border-color: #b13c54; }
+html[data-paleta="es"] .planos .nao { border-color: #c5bfb8; }
+html[data-paleta="es"] .reembolso { color: #ffffff; }
+html[data-paleta="es"] .reembolso input[type=range] { accent-color: #ffffff; }
+html[data-paleta="es"] .semana-nav button { background: #ffffff; }
+html[data-paleta="es"] .grade button { background: color-mix(in srgb, var(--acc) 12%, #ffffff); }
+html[data-paleta="es"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
+html[data-paleta="es"] .grade button:disabled { background: #f2f0ee; }
+html[data-paleta="es"] .grade button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] { --fundo: #e9ebf1; --papel: #ffffff; --tx: #14192b; --tx-2: #5b6174; --linha: rgba(20, 25, 43, .12); --acc: #3a6fd9; --grafite: #23252c; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .topo { background: rgba(233, 235, 241, .9); }
+html[data-paleta="en"] .topo-cta { color: #ffffff; }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .escala { background: rgba(255, 255, 255, .85); }
+html[data-paleta="en"] .escala i { background: linear-gradient(90deg, #2963d8, #2252c6, #204bda, #4676e8, #df3b45, #d23640); }
+html[data-paleta="en"] .tipos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .andar[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .chips input:checked + span { color: #ffffff; }
+html[data-paleta="en"] .alertas input { accent-color: #ac252d; }
+html[data-paleta="en"] .erro { color: #ac252d; }
+html[data-paleta="en"] .abas button[aria-selected="true"] { color: #ffffff; }
+html[data-paleta="en"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
+html[data-paleta="en"] .fase.agora { color: #ffffff; }
+html[data-paleta="en"] input,
+html[data-paleta="en"] select { background: #ffffff; }
+html[data-paleta="en"] .planos .cobre { border-color: #1a3db3; }
+html[data-paleta="en"] .planos .reembolso { border-color: #2153cc; }
+html[data-paleta="en"] .planos .nao { border-color: #b8bcc5; }
+html[data-paleta="en"] .reembolso { color: #ffffff; }
+html[data-paleta="en"] .reembolso input[type=range] { accent-color: #ffffff; }
+html[data-paleta="en"] .semana-nav button { background: #ffffff; }
+html[data-paleta="en"] .grade button { background: color-mix(in srgb, var(--acc) 12%, #ffffff); }
+html[data-paleta="en"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
+html[data-paleta="en"] .grade button:disabled { background: #eeeff2; }
+html[data-paleta="en"] .grade button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] { --fundo: #f1f0e9; --papel: #ffffff; --tx: #202619; --tx-2: #68745b; --linha: rgba(32, 38, 25, .12); --acc: #c99f4a; --grafite: #282c23; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .topo { background: rgba(241, 240, 233, .9); }
+html[data-paleta="it"] .topo-cta { color: #ffffff; }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .escala { background: rgba(255, 255, 255, .85); }
+html[data-paleta="it"] .escala i { background: linear-gradient(90deg, #c6983b, #b78a31, #84a852, #97ce60, #d87242, #ca6b3e); }
+html[data-paleta="it"] .tipos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .andar[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .chips input:checked + span { color: #ffffff; }
+html[data-paleta="it"] .alertas input { accent-color: #a5532c; }
+html[data-paleta="it"] .erro { color: #a5532c; }
+html[data-paleta="it"] .abas button[aria-selected="true"] { color: #ffffff; }
+html[data-paleta="it"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
+html[data-paleta="it"] .fase.agora { color: #ffffff; }
+html[data-paleta="it"] input,
+html[data-paleta="it"] select { background: #ffffff; }
+html[data-paleta="it"] .planos .cobre { border-color: #6d8b42; }
+html[data-paleta="it"] .planos .reembolso { border-color: #77af3e; }
+html[data-paleta="it"] .planos .nao { border-color: #c5c3b8; }
+html[data-paleta="it"] .reembolso { color: #ffffff; }
+html[data-paleta="it"] .reembolso input[type=range] { accent-color: #ffffff; }
+html[data-paleta="it"] .semana-nav button { background: #ffffff; }
+html[data-paleta="it"] .grade button { background: color-mix(in srgb, var(--acc) 12%, #ffffff); }
+html[data-paleta="it"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
+html[data-paleta="it"] .grade button:disabled { background: #f2f1ee; }
+html[data-paleta="it"] .grade button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] { --fundo: #ede9f1; --papel: #ffffff; --tx: #1b1728; --tx-2: #615b74; --linha: rgba(27, 23, 40, .12); --acc: #6c51c2; --grafite: #25232c; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .topo { background: rgba(237, 233, 241, .9); }
+html[data-paleta="fr"] .topo-cta { color: #ffffff; }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .escala { background: rgba(255, 255, 255, .85); }
+html[data-paleta="fr"] .escala i { background: linear-gradient(90deg, #6042bf, #4728c0, #624cae, #6a4ce2, #6348d2, #5e44c4); }
+html[data-paleta="fr"] .tipos button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .andar[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .chips input:checked + span { color: #ffffff; }
+html[data-paleta="fr"] .alertas input { accent-color: #4731a0; }
+html[data-paleta="fr"] .erro { color: #4731a0; }
+html[data-paleta="fr"] .abas button[aria-selected="true"] { color: #ffffff; }
+html[data-paleta="fr"] .fase { background: color-mix(in srgb, var(--acc) 14%, #ffffff); }
+html[data-paleta="fr"] .fase.agora { color: #ffffff; }
+html[data-paleta="fr"] input,
+html[data-paleta="fr"] select { background: #ffffff; }
+html[data-paleta="fr"] .planos .cobre { border-color: #503d90; }
+html[data-paleta="fr"] .planos .reembolso { border-color: #4727c6; }
+html[data-paleta="fr"] .planos .nao { border-color: #bfb8c5; }
+html[data-paleta="fr"] .reembolso { color: #ffffff; }
+html[data-paleta="fr"] .reembolso input[type=range] { accent-color: #ffffff; }
+html[data-paleta="fr"] .semana-nav button { background: #ffffff; }
+html[data-paleta="fr"] .grade button { background: color-mix(in srgb, var(--acc) 12%, #ffffff); }
+html[data-paleta="fr"] .grade button:hover { background: color-mix(in srgb, var(--acc) 24%, #ffffff); }
+html[data-paleta="fr"] .grade button:disabled { background: #f0eef2; }
+html[data-paleta="fr"] .grade button[aria-pressed="true"] { color: #ffffff; }

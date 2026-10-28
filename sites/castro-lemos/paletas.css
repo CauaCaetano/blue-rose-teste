@@ -1,0 +1,81 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/castro-lemos/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #091016; --fundo-2: #0e1a24; --painel: #12222f; --linha: rgba(222, 184, 153, .16); --tx: #f6f0e7; --tx-2: #d5b093; --acc: #519fde; --alerta: #ff4d5e; }
+html[data-paleta="pt-PT"] .topo { background: rgba(9, 16, 22, .82); }
+html[data-paleta="pt-PT"] .menu a:hover { background: rgba(255, 255, 255, .05); }
+html[data-paleta="pt-PT"] .menu a[aria-current="page"] { background: rgba(81, 159, 222, .1); }
+html[data-paleta="pt-PT"] .plantao { border: 1px solid rgba(255, 77, 94, .5); color: #f4ece1; }
+html[data-paleta="pt-PT"] .plantao i { box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); }
+html[data-paleta="pt-PT"] .palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(81, 159, 222, .14), transparent 60%); }
+html[data-paleta="pt-PT"] .rotulos span { background: rgba(9, 16, 22, .7); }
+html[data-paleta="pt-PT"] .rotulos span[data-no="voce"] { color: #f4ece1; border-color: rgba(255, 77, 94, .5); }
+html[data-paleta="pt-PT"] .opcoes label:hover { border-color: rgba(81, 159, 222, .5); background: rgba(81, 159, 222, .04); }
+html[data-paleta="pt-PT"] .opcoes label:has(input:checked) { background: rgba(81, 159, 222, .08); }
+html[data-paleta="pt-PT"] .botao { color: #0a131a; }
+html[data-paleta="pt-PT"] .regua input[type="range"] { background: linear-gradient(90deg, var(--acc) var(--p, 14%), rgba(222, 184, 153, .2) var(--p, 14%)); }
+html[data-paleta="pt-PT"] .linha::before { background: linear-gradient(90deg, var(--acc), rgba(81, 159, 222, .1)); }
+html[data-paleta="pt-PT"] .chamada { border: 1px solid rgba(255, 77, 94, .35); background: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 94, .14), transparent 70%); }
+html[data-paleta="pt-PT"] .form-plantao .erro { color: #eadcc8; }
+html[data-paleta="es"] { --fundo: #130c0d; --fundo-2: #1e1416; --painel: #28191c; --linha: rgba(217, 158, 159, .16); --tx: #f7efe6; --tx-2: #cf9999; --acc: #e6b649; --alerta: #ff4d5e; }
+html[data-paleta="es"] .topo { background: rgba(19, 12, 13, .82); }
+html[data-paleta="es"] .menu a:hover { background: rgba(255, 255, 255, .05); }
+html[data-paleta="es"] .menu a[aria-current="page"] { background: rgba(230, 182, 73, .1); }
+html[data-paleta="es"] .plantao { border: 1px solid rgba(255, 77, 94, .5); color: #f5ebe0; }
+html[data-paleta="es"] .plantao i { box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); }
+html[data-paleta="es"] .palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(230, 182, 73, .14), transparent 60%); }
+html[data-paleta="es"] .rotulos span { background: rgba(19, 12, 13, .7); }
+html[data-paleta="es"] .rotulos span[data-no="voce"] { color: #f5ebe0; border-color: rgba(255, 77, 94, .5); }
+html[data-paleta="es"] .opcoes label:hover { border-color: rgba(230, 182, 73, .5); background: rgba(230, 182, 73, .04); }
+html[data-paleta="es"] .opcoes label:has(input:checked) { background: rgba(230, 182, 73, .08); }
+html[data-paleta="es"] .botao { color: #160e10; }
+html[data-paleta="es"] .regua input[type="range"] { background: linear-gradient(90deg, var(--acc) var(--p, 14%), rgba(217, 158, 159, .2) var(--p, 14%)); }
+html[data-paleta="es"] .linha::before { background: linear-gradient(90deg, var(--acc), rgba(230, 182, 73, .1)); }
+html[data-paleta="es"] .chamada { border: 1px solid rgba(255, 77, 94, .35); background: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 94, .14), transparent 70%); }
+html[data-paleta="es"] .form-plantao .erro { color: #eddbc5; }
+html[data-paleta="en"] { --fundo: #070b18; --fundo-2: #0c1226; --painel: #101831; --linha: rgba(150, 172, 225, .16); --tx: #e7ebf6; --tx-2: #90a5d8; --acc: #467ce9; --alerta: #ff4d5e; }
+html[data-paleta="en"] .topo { background: rgba(7, 11, 24, .82); }
+html[data-paleta="en"] .menu a:hover { background: rgba(255, 255, 255, .05); }
+html[data-paleta="en"] .menu a[aria-current="page"] { background: rgba(70, 124, 233, .1); }
+html[data-paleta="en"] .plantao { border: 1px solid rgba(255, 77, 94, .5); color: #e1e6f4; }
+html[data-paleta="en"] .plantao i { box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); }
+html[data-paleta="en"] .palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(70, 124, 233, .14), transparent 60%); }
+html[data-paleta="en"] .rotulos span { background: rgba(7, 11, 24, .7); }
+html[data-paleta="en"] .rotulos span[data-no="voce"] { color: #e1e6f4; border-color: rgba(255, 77, 94, .5); }
+html[data-paleta="en"] .opcoes label:hover { border-color: rgba(70, 124, 233, .5); background: rgba(70, 124, 233, .04); }
+html[data-paleta="en"] .opcoes label:has(input:checked) { background: rgba(70, 124, 233, .08); }
+html[data-paleta="en"] .botao { color: #040a20; }
+html[data-paleta="en"] .regua input[type="range"] { background: linear-gradient(90deg, var(--acc) var(--p, 14%), rgba(150, 172, 225, .2) var(--p, 14%)); }
+html[data-paleta="en"] .linha::before { background: linear-gradient(90deg, var(--acc), rgba(70, 124, 233, .1)); }
+html[data-paleta="en"] .chamada { border: 1px solid rgba(255, 77, 94, .35); background: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 94, .14), transparent 70%); }
+html[data-paleta="en"] .form-plantao .erro { color: #c7d1eb; }
+html[data-paleta="it"] { --fundo: #10130c; --fundo-2: #191e14; --painel: #20271a; --linha: rgba(217, 177, 158, .16); --tx: #f4f2e9; --tx-2: #cfaa99; --acc: #dbae54; --alerta: #ff4d5e; }
+html[data-paleta="it"] .topo { background: rgba(16, 19, 12, .82); }
+html[data-paleta="it"] .menu a:hover { background: rgba(255, 255, 255, .05); }
+html[data-paleta="it"] .menu a[aria-current="page"] { background: rgba(219, 174, 84, .1); }
+html[data-paleta="it"] .plantao { border: 1px solid rgba(255, 77, 94, .5); color: #f2efe3; }
+html[data-paleta="it"] .plantao i { box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); }
+html[data-paleta="it"] .palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(219, 174, 84, .14), transparent 60%); }
+html[data-paleta="it"] .rotulos span { background: rgba(16, 19, 12, .7); }
+html[data-paleta="it"] .rotulos span[data-no="voce"] { color: #f2efe3; border-color: rgba(255, 77, 94, .5); }
+html[data-paleta="it"] .opcoes label:hover { border-color: rgba(219, 174, 84, .5); background: rgba(219, 174, 84, .04); }
+html[data-paleta="it"] .opcoes label:has(input:checked) { background: rgba(219, 174, 84, .08); }
+html[data-paleta="it"] .botao { color: #12160e; }
+html[data-paleta="it"] .regua input[type="range"] { background: linear-gradient(90deg, var(--acc) var(--p, 14%), rgba(217, 177, 158, .2) var(--p, 14%)); }
+html[data-paleta="it"] .linha::before { background: linear-gradient(90deg, var(--acc), rgba(219, 174, 84, .1)); }
+html[data-paleta="it"] .chamada { border: 1px solid rgba(255, 77, 94, .35); background: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 94, .14), transparent 70%); }
+html[data-paleta="it"] .form-plantao .erro { color: #e6e2cc; }
+html[data-paleta="fr"] { --fundo: #0d0b14; --fundo-2: #161220; --painel: #1c1829; --linha: rgba(167, 154, 221, .16); --tx: #efe7f6; --tx-2: #a194d4; --acc: #785ad5; --alerta: #ff4d5e; }
+html[data-paleta="fr"] .topo { background: rgba(13, 11, 20, .82); }
+html[data-paleta="fr"] .menu a:hover { background: rgba(255, 255, 255, .05); }
+html[data-paleta="fr"] .menu a[aria-current="page"] { background: rgba(120, 90, 213, .1); }
+html[data-paleta="fr"] .plantao { border: 1px solid rgba(255, 77, 94, .5); color: #ebe1f4; }
+html[data-paleta="fr"] .plantao i { box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); }
+html[data-paleta="fr"] .palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(120, 90, 213, .14), transparent 60%); }
+html[data-paleta="fr"] .rotulos span { background: rgba(13, 11, 20, .7); }
+html[data-paleta="fr"] .rotulos span[data-no="voce"] { color: #ebe1f4; border-color: rgba(255, 77, 94, .5); }
+html[data-paleta="fr"] .opcoes label:hover { border-color: rgba(120, 90, 213, .5); background: rgba(120, 90, 213, .04); }
+html[data-paleta="fr"] .opcoes label:has(input:checked) { background: rgba(120, 90, 213, .08); }
+html[data-paleta="fr"] .botao { color: #0f0d17; }
+html[data-paleta="fr"] .regua input[type="range"] { background: linear-gradient(90deg, var(--acc) var(--p, 14%), rgba(167, 154, 221, .2) var(--p, 14%)); }
+html[data-paleta="fr"] .linha::before { background: linear-gradient(90deg, var(--acc), rgba(120, 90, 213, .1)); }
+html[data-paleta="fr"] .chamada { border: 1px solid rgba(255, 77, 94, .35); background: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 94, .14), transparent 70%); }
+html[data-paleta="fr"] .form-plantao .erro { color: #d9c8ea; }

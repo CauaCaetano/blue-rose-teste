@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<script src="../../js/idioma.js?v=16"></script>
+<script src="../../js/idioma.js?v=17"></script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://yihnfzwtkqdfnwziutqa.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -12,7 +12,7 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'10'%20fill%3D'%23b4605a'%2F%3E%3Cpath%20d%3D'M20%208c6%208%209%2013%209%2018a9%209%200%2001-18%200c0-5%203-10%209-18z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/eb39e0b781.css">
-<link rel="stylesheet" href="../assets/moldura.css?v=1">
+<link rel="stylesheet" href="../assets/moldura.css?v=2">
 <link rel="stylesheet" href="estilo.css?v=1">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
@@ -28,10 +28,10 @@
 </header>
 <main id="conteudo">
   <section class="abertura" id="inicio">
-    <div class="bancada"><canvas id="esmaltes-3d" aria-label="Bancada com oito esmaltes em 3D; toque num vidro para escolher a cor"></canvas></div>
+    <div class="bancada" id="foto-unhas"></div>
     <div class="abertura-txt">
       <h1>Escolha a cor. O horário a gente acerta.</h1>
-      <p class="lead">Toque num vidro da bancada ou numa bolinha. A cor vai junto na sua mensagem de agendamento.</p>
+      <p class="lead">Toque numa cor e veja unhas feitas aqui nela. Passe o mouse na foto: ela tem profundidade. A cor vai junto na sua mensagem.</p>
       <div class="cores" role="radiogroup" aria-label="Cor do esmalte"></div>
       <p class="cor-nome" aria-live="polite"></p>
       <a class="botao" href="#" data-wa-cor>Quero essa cor</a>
@@ -54,6 +54,7 @@
   </section>
 
   <section class="onde" id="onde" aria-labelledby="onde-t">
+    <div class="salao" id="foto-salao"></div>
     <div>
       <h2 id="onde-t">Rua da Bahia, 1148, loja 3</h2>
       <p>Centro de Belo Horizonte, a duas quadras da Praça Sete.</p>

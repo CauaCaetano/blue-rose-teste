@@ -1,6 +1,6 @@
 // Pulso · os planos em ferro: três kettlebells de ferro fundido (8, 16 e 24 kg) sobre pista emborrachada de verdade.
 // O plano escolhido sobe e ganha a faixa laranja (pulsoPlanos.escolher(i)); clicar num kettlebell escolhe o plano.
-import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('planos-3d');
 if (canvas) {
@@ -12,7 +12,7 @@ if (canvas) {
   if (p) {
     const { cena } = p;
     luz(p, 'crossfit_gym', { forca: 1 });
-    cena.background = new THREE.Color(0xf1efec); cena.fog = new THREE.Fog(0xf1efec, 12, 24);
+    cena.background = corDaPagina(0xf1efec); cena.fog = new THREE.Fog(corDaPagina(0xf1efec), 12, 24);
     const chave = new THREE.DirectionalLight(0xffffff, 2.2); chave.position.set(-4, 9, 6); chave.castShadow = true;
     chave.shadow.mapSize.set(2048, 2048); Object.assign(chave.shadow.camera, { left: -7, right: 7, top: 6, bottom: -6 }); chave.shadow.bias = -0.0005; cena.add(chave);
     const pista = new THREE.Mesh(new THREE.PlaneGeometry(40, 30), new THREE.MeshStandardMaterial({ ...textura('rubberized_track', 8, 6) }));
