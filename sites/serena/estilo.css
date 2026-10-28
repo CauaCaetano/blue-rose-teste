@@ -1,7 +1,7 @@
 /* Atelier Serena · grafite quente, latão e papel de algodão. Luxo silencioso. */
 :root {
-  --fundo: #171512; --sup: #211e1a; --tx: #f2ece2; --tx-2: #b3aa9c; --linha: rgba(242, 236, 226, .14);
-  --acc: #b39257;
+  --fundo: #050817; --sup: #111c3a; --tx: #faf4e8; --tx-2: #b9b3a3; --linha: rgba(250, 244, 232, .14);
+  --acc: #c9a849;
   --serif: 'Cormorant Garamond', Georgia, serif; --f: 'Inter', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -16,7 +16,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 :focus-visible { outline: 1.5px solid var(--acc); outline-offset: 3px; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--tx); color: var(--fundo); padding: 8px 12px; z-index: 100; }
 .pular:focus { left: 8px; }
-.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 28px; padding: 16px clamp(16px, 4vw, 48px); background: rgba(23, 21, 18, .88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 28px; padding: 16px clamp(16px, 4vw, 48px); background: rgba(5, 8, 23, .88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
 .marca { text-decoration: none; font-family: var(--serif); font-size: 1.55rem; line-height: 1; }
 .marca small { display: block; font-family: var(--f); font-size: .7rem; color: var(--tx-2); margin-top: 4px; }
 .menu { display: flex; gap: 24px; margin-left: auto; font-size: .9rem; }
@@ -35,9 +35,9 @@ section { padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 48px); max-width: 136
 .abertura { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(20px, 4vw, 48px); align-items: start; padding-top: clamp(20px, 3vw, 36px); }
 .estacao { position: sticky; top: 90px; }
 .estacao { height: min(80vh, 760px); min-height: 460px; background: var(--sup); }
-.espelho { position: absolute; left: 24px; bottom: 24px; width: 190px; padding: 22px 18px 18px; text-align: center; background: rgba(23, 21, 18, .72); backdrop-filter: blur(8px); border: 1px solid rgba(179, 146, 87, .45); border-radius: 95px 95px 6px 6px; }
+.espelho { position: absolute; left: 24px; bottom: 24px; width: 190px; padding: 22px 18px 18px; text-align: center; background: rgba(5, 8, 23, .72); backdrop-filter: blur(8px); border: 1px solid rgba(201, 168, 73, .45); border-radius: 95px 95px 6px 6px; }
 .espelho svg { position: absolute; left: 50%; top: 10px; width: 150px; height: 150px; transform: translateX(-50%) rotate(-90deg); fill: none; stroke-width: 1.5; }
-.espelho circle { stroke: rgba(242, 236, 226, .15); }
+.espelho circle { stroke: rgba(250, 244, 232, .15); }
 .espelho .arco { stroke: var(--acc); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray .8s ease; }
 .espelho p { position: relative; margin: 0; }
 .esp-rot { font-size: .72rem; color: var(--tx-2); margin-top: 38px !important; }
@@ -46,8 +46,8 @@ section { padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 48px); max-width: 136
 @media (max-width: 960px) { .abertura { grid-template-columns: 1fr; } .estacao { position: relative; top: 0; } .estacao { height: 440px; min-height: 0; } }
 #orcar { display: grid; gap: 6px; margin-top: 18px; }
 .serv { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 12px 14px; border: 1px solid var(--linha); cursor: pointer; transition: border-color .2s, background .2s; }
-.serv:hover { border-color: rgba(179, 146, 87, .5); }
-.serv:has(input:checked) { border-color: var(--acc); background: rgba(179, 146, 87, .08); }
+.serv:hover { border-color: rgba(201, 168, 73, .5); }
+.serv:has(input:checked) { border-color: var(--acc); background: rgba(201, 168, 73, .08); }
 .serv input, .nivel input { accent-color: var(--acc); width: 18px; height: 18px; }
 .serv span { display: grid; }
 .serv b { font-weight: 500; }
@@ -100,7 +100,7 @@ input[type=search], input[type=text], input:not([type]), select, .linha2 input {
 .pros input { position: absolute; opacity: 0; width: 1px; height: 1px; left: 0; top: 0; }
 .pros span { display: grid; height: 100%; padding: 14px; border: 1px solid var(--linha); cursor: pointer; color: var(--tx-2); font-size: .82rem; }
 .pros b { color: var(--tx); font-family: var(--serif); font-size: 1.2rem; font-weight: 500; }
-.pros input:checked + span { border-color: var(--acc); background: rgba(179, 146, 87, .08); }
+.pros input:checked + span { border-color: var(--acc); background: rgba(201, 168, 73, .08); }
 .pros input:focus-visible + span { outline: 1.5px solid var(--acc); }
 @media (max-width: 760px) { .pros { grid-template-columns: 1fr 1fr; } }
 .dias, .horas { display: flex; flex-wrap: wrap; gap: 6px; }

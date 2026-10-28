@@ -1,4 +1,4 @@
-// Marina Vasconcellos · queixas por região (com o corpo 3D), orçamento do laser, filtro de procedimentos e agenda.
+// Marina Vasconcellos · queixas por região (com a foto 3D), orçamento do laser, filtro de procedimentos e agenda.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

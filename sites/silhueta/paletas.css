@@ -1,20 +1,20 @@
 /* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/silhueta/estilo.css: cores por idioma. Não editar à mão. */
-html[data-paleta="pt-PT"] { --fundo: #fcfaf8; --fundo-2: #f8f3ec; --branco: #ffffff; --tx: #11202b; --tx-2: #5a6772; --linha: rgba(17, 32, 43, .12); --acc: #c75e33; --pessego: #f3bf96; }
+html[data-paleta="pt-PT"] { --fundo: #fbf8f3; --fundo-2: #f3eade; --branco: #ffffff; --tx: #0e1a23; --tx-2: #7c503e; --linha: rgba(14, 26, 35, .12); --acc: #d8711e; --pessego: #deaa95; }
 html[data-paleta="pt-PT"] .pular { color: #ffffff; }
 html[data-paleta="pt-PT"] .faixa-promo { color: #ffffff; }
-html[data-paleta="pt-PT"] .topo { background: rgba(252, 250, 248, .9); }
+html[data-paleta="pt-PT"] .topo { background: rgba(251, 248, 243, .9); }
 html[data-paleta="pt-PT"] .marca span { color: #ffffff; }
 html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
 html[data-paleta="pt-PT"] .botao { color: #ffffff; }
-html[data-paleta="pt-PT"] .localizador { box-shadow: 0 20px 40px -30px rgba(17, 32, 43, .35); }
+html[data-paleta="pt-PT"] .localizador { box-shadow: 0 20px 40px -30px rgba(14, 26, 35, .35); }
 html[data-paleta="pt-PT"] .un-painel { color: #ffffff; }
 html[data-paleta="pt-PT"] .un-painel p { color: rgba(255, 255, 255, .78); }
 html[data-paleta="pt-PT"] .tecs li { background: rgba(255, 255, 255, .1); }
-html[data-paleta="pt-PT"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="pt-PT"] .mapa .foto-3d { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
 html[data-paleta="pt-PT"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
 html[data-paleta="pt-PT"] .rotulos-mapa span.ativo { color: #ffffff; }
 html[data-paleta="pt-PT"] .faixas-grade a { color: #ffffff; }
-html[data-paleta="pt-PT"] .faixas-grade span { background: linear-gradient(transparent, rgba(17, 32, 43, .85)); }
+html[data-paleta="pt-PT"] .faixas-grade span { background: linear-gradient(transparent, rgba(14, 26, 35, .85)); }
 html[data-paleta="pt-PT"] .cats button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .tabela-comp thead th { color: #ffffff; }
 html[data-paleta="pt-PT"] .recibo { color: #ffffff; }
@@ -25,23 +25,23 @@ html[data-paleta="pt-PT"] .recibo-total small { color: rgba(255, 255, 255, .7); 
 html[data-paleta="pt-PT"] .dias button[aria-pressed="true"],
 html[data-paleta="pt-PT"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="pt-PT"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
-html[data-paleta="pt-PT"] .erro { color: #a54c27; }
-html[data-paleta="es"] { --fundo: #fdfaf7; --fundo-2: #f9f3eb; --branco: #ffffff; --tx: #25171a; --tx-2: #725a5f; --linha: rgba(37, 23, 26, .12); --acc: #c63436; --pessego: #f5d794; }
+html[data-paleta="pt-PT"] .erro { color: #ab5f21; }
+html[data-paleta="es"] { --fundo: #fbf7f3; --fundo-2: #f4e9dd; --branco: #ffffff; --tx: #1e1315; --tx-2: #7b3f3f; --linha: rgba(30, 19, 21, .12); --acc: #db1b1b; --pessego: #dd9696; }
 html[data-paleta="es"] .pular { color: #ffffff; }
 html[data-paleta="es"] .faixa-promo { color: #ffffff; }
-html[data-paleta="es"] .topo { background: rgba(253, 250, 247, .9); }
+html[data-paleta="es"] .topo { background: rgba(251, 247, 243, .9); }
 html[data-paleta="es"] .marca span { color: #ffffff; }
 html[data-paleta="es"] .topo-cta { color: #ffffff; }
 html[data-paleta="es"] .botao { color: #ffffff; }
-html[data-paleta="es"] .localizador { box-shadow: 0 20px 40px -30px rgba(37, 23, 26, .35); }
+html[data-paleta="es"] .localizador { box-shadow: 0 20px 40px -30px rgba(30, 19, 21, .35); }
 html[data-paleta="es"] .un-painel { color: #ffffff; }
 html[data-paleta="es"] .un-painel p { color: rgba(255, 255, 255, .78); }
 html[data-paleta="es"] .tecs li { background: rgba(255, 255, 255, .1); }
-html[data-paleta="es"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="es"] .mapa .foto-3d { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
 html[data-paleta="es"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
 html[data-paleta="es"] .rotulos-mapa span.ativo { color: #ffffff; }
 html[data-paleta="es"] .faixas-grade a { color: #ffffff; }
-html[data-paleta="es"] .faixas-grade span { background: linear-gradient(transparent, rgba(37, 23, 26, .85)); }
+html[data-paleta="es"] .faixas-grade span { background: linear-gradient(transparent, rgba(30, 19, 21, .85)); }
 html[data-paleta="es"] .cats button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .tabela-comp thead th { color: #ffffff; }
 html[data-paleta="es"] .recibo { color: #ffffff; }
@@ -52,23 +52,23 @@ html[data-paleta="es"] .recibo-total small { color: rgba(255, 255, 255, .7); }
 html[data-paleta="es"] .dias button[aria-pressed="true"],
 html[data-paleta="es"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="es"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
-html[data-paleta="es"] .erro { color: #a42829; }
-html[data-paleta="en"] { --fundo: #f8f9fc; --fundo-2: #eceff8; --branco: #ffffff; --tx: #11172b; --tx-2: #5a6072; --linha: rgba(17, 23, 43, .12); --acc: #cd2d36; --pessego: #93b0f6; }
+html[data-paleta="es"] .erro { color: #ae1e1e; }
+html[data-paleta="en"] { --fundo: #f3f5fb; --fundo-2: #dee4f3; --branco: #ffffff; --tx: #010c30; --tx-2: #334f87; --linha: rgba(1, 12, 48, .12); --acc: #d71f2a; --pessego: #8dabe6; }
 html[data-paleta="en"] .pular { color: #ffffff; }
 html[data-paleta="en"] .faixa-promo { color: #ffffff; }
-html[data-paleta="en"] .topo { background: rgba(248, 249, 252, .9); }
+html[data-paleta="en"] .topo { background: rgba(243, 245, 251, .9); }
 html[data-paleta="en"] .marca span { color: #ffffff; }
 html[data-paleta="en"] .topo-cta { color: #ffffff; }
 html[data-paleta="en"] .botao { color: #ffffff; }
-html[data-paleta="en"] .localizador { box-shadow: 0 20px 40px -30px rgba(17, 23, 43, .35); }
+html[data-paleta="en"] .localizador { box-shadow: 0 20px 40px -30px rgba(1, 12, 48, .35); }
 html[data-paleta="en"] .un-painel { color: #ffffff; }
 html[data-paleta="en"] .un-painel p { color: rgba(255, 255, 255, .78); }
 html[data-paleta="en"] .tecs li { background: rgba(255, 255, 255, .1); }
-html[data-paleta="en"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="en"] .mapa .foto-3d { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
 html[data-paleta="en"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
 html[data-paleta="en"] .rotulos-mapa span.ativo { color: #ffffff; }
 html[data-paleta="en"] .faixas-grade a { color: #ffffff; }
-html[data-paleta="en"] .faixas-grade span { background: linear-gradient(transparent, rgba(17, 23, 43, .85)); }
+html[data-paleta="en"] .faixas-grade span { background: linear-gradient(transparent, rgba(1, 12, 48, .85)); }
 html[data-paleta="en"] .cats button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .tabela-comp thead th { color: #ffffff; }
 html[data-paleta="en"] .recibo { color: #ffffff; }
@@ -80,22 +80,22 @@ html[data-paleta="en"] .dias button[aria-pressed="true"],
 html[data-paleta="en"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="en"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
 html[data-paleta="en"] .erro { color: #aa222a; }
-html[data-paleta="it"] { --fundo: #fcfbf8; --fundo-2: #f7f5ed; --branco: #ffffff; --tx: #1e2418; --tx-2: #66725a; --linha: rgba(30, 36, 24, .12); --acc: #c56335; --pessego: #eed29b; }
+html[data-paleta="it"] { --fundo: #faf9f4; --fundo-2: #f0eee1; --branco: #ffffff; --tx: #191d14; --tx-2: #7b523f; --linha: rgba(25, 29, 20, .12); --acc: #86be38; --pessego: #ddad96; }
 html[data-paleta="it"] .pular { color: #ffffff; }
 html[data-paleta="it"] .faixa-promo { color: #ffffff; }
-html[data-paleta="it"] .topo { background: rgba(252, 251, 248, .9); }
+html[data-paleta="it"] .topo { background: rgba(250, 249, 244, .9); }
 html[data-paleta="it"] .marca span { color: #ffffff; }
 html[data-paleta="it"] .topo-cta { color: #ffffff; }
 html[data-paleta="it"] .botao { color: #ffffff; }
-html[data-paleta="it"] .localizador { box-shadow: 0 20px 40px -30px rgba(30, 36, 24, .35); }
+html[data-paleta="it"] .localizador { box-shadow: 0 20px 40px -30px rgba(25, 29, 20, .35); }
 html[data-paleta="it"] .un-painel { color: #ffffff; }
 html[data-paleta="it"] .un-painel p { color: rgba(255, 255, 255, .78); }
 html[data-paleta="it"] .tecs li { background: rgba(255, 255, 255, .1); }
-html[data-paleta="it"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="it"] .mapa .foto-3d { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
 html[data-paleta="it"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
 html[data-paleta="it"] .rotulos-mapa span.ativo { color: #ffffff; }
 html[data-paleta="it"] .faixas-grade a { color: #ffffff; }
-html[data-paleta="it"] .faixas-grade span { background: linear-gradient(transparent, rgba(30, 36, 24, .85)); }
+html[data-paleta="it"] .faixas-grade span { background: linear-gradient(transparent, rgba(25, 29, 20, .85)); }
 html[data-paleta="it"] .cats button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .tabela-comp thead th { color: #ffffff; }
 html[data-paleta="it"] .recibo { color: #ffffff; }
@@ -106,23 +106,23 @@ html[data-paleta="it"] .recibo-total small { color: rgba(255, 255, 255, .7); }
 html[data-paleta="it"] .dias button[aria-pressed="true"],
 html[data-paleta="it"] .horas button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="it"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
-html[data-paleta="it"] .erro { color: #a35029; }
-html[data-paleta="fr"] { --fundo: #faf8fc; --fundo-2: #f2ecf8; --branco: #ffffff; --tx: #1a1626; --tx-2: #605a72; --linha: rgba(26, 22, 38, .12); --acc: #553bbf; --pessego: #a997f2; }
+html[data-paleta="it"] .erro { color: #6e9637; }
+html[data-paleta="fr"] { --fundo: #f7f3fb; --fundo-2: #e9dff3; --branco: #ffffff; --tx: #15121f; --tx-2: #514575; --linha: rgba(21, 18, 31, .12); --acc: #4c2cca; --pessego: #aa9ad9; }
 html[data-paleta="fr"] .pular { color: #ffffff; }
 html[data-paleta="fr"] .faixa-promo { color: #ffffff; }
-html[data-paleta="fr"] .topo { background: rgba(250, 248, 252, .9); }
+html[data-paleta="fr"] .topo { background: rgba(247, 243, 251, .9); }
 html[data-paleta="fr"] .marca span { color: #ffffff; }
 html[data-paleta="fr"] .topo-cta { color: #ffffff; }
 html[data-paleta="fr"] .botao { color: #ffffff; }
-html[data-paleta="fr"] .localizador { box-shadow: 0 20px 40px -30px rgba(26, 22, 38, .35); }
+html[data-paleta="fr"] .localizador { box-shadow: 0 20px 40px -30px rgba(21, 18, 31, .35); }
 html[data-paleta="fr"] .un-painel { color: #ffffff; }
 html[data-paleta="fr"] .un-painel p { color: rgba(255, 255, 255, .78); }
 html[data-paleta="fr"] .tecs li { background: rgba(255, 255, 255, .1); }
-html[data-paleta="fr"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="fr"] .mapa .foto-3d { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
 html[data-paleta="fr"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
 html[data-paleta="fr"] .rotulos-mapa span.ativo { color: #ffffff; }
 html[data-paleta="fr"] .faixas-grade a { color: #ffffff; }
-html[data-paleta="fr"] .faixas-grade span { background: linear-gradient(transparent, rgba(26, 22, 38, .85)); }
+html[data-paleta="fr"] .faixas-grade span { background: linear-gradient(transparent, rgba(21, 18, 31, .85)); }
 html[data-paleta="fr"] .cats button[aria-pressed="true"] { color: #ffffff; }
 html[data-paleta="fr"] .tabela-comp thead th { color: #ffffff; }
 html[data-paleta="fr"] .recibo { color: #ffffff; }

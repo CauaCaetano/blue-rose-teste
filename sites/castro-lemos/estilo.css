@@ -1,7 +1,7 @@
 /* Castro Lemos · noite, rede e um sinal menta. Escuro de ponta a ponta. */
 :root {
-  --fundo: #070d18; --fundo-2: #0c1626; --painel: #101d31; --linha: rgba(159, 182, 216, .16);
-  --tx: #e6edf7; --tx-2: #9fb0c9; --acc: #3df2c0; --alerta: #ff4d5e;
+  --fundo: #030617; --fundo-2: #06102a; --painel: #0b1834; --linha: rgba(159, 182, 216, .16);
+  --tx: #def6ff; --tx-2: #8fb3c4; --acc: #65e9f8; --alerta: #ff4d5e;
   --cab: 'Space Grotesk', system-ui, sans-serif; --corpo: 'Inter', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -17,14 +17,14 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--acc); color: var(--fundo); padding: 8px 12px; z-index: 100; }
 .pular:focus { left: 8px; }
 
-.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 28px; padding: 14px clamp(16px, 4vw, 48px); background: rgba(7, 13, 24, .82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linha); }
+.topo { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 28px; padding: 14px clamp(16px, 4vw, 48px); background: rgba(3, 6, 23, .82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linha); }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 600 1.15rem var(--cab); }
 .marca small { font: 500 .78rem var(--corpo); color: var(--tx-2); margin-left: 4px; }
 .marca-o { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--acc); box-shadow: 0 0 18px -2px var(--acc); }
 .menu { display: flex; gap: 6px; margin-left: auto; }
 .menu a { text-decoration: none; color: var(--tx-2); padding: 8px 12px; border-radius: 8px; font-size: .92rem; transition: color .2s, background .2s; }
 .menu a:hover { color: var(--tx); background: rgba(255, 255, 255, .05); }
-.menu a[aria-current="page"] { color: var(--tx); background: rgba(61, 242, 192, .1); }
+.menu a[aria-current="page"] { color: var(--tx); background: rgba(101, 233, 248, .1); }
 .plantao { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: .9rem; border: 1px solid rgba(255, 77, 94, .5); color: #ffd6da; padding: 8px 14px; border-radius: 999px; }
 .plantao i { width: 8px; height: 8px; border-radius: 50%; background: var(--alerta); box-shadow: 0 0 0 0 rgba(255, 77, 94, .6); animation: pulso 1.8s infinite; }
 @keyframes pulso { 70% { box-shadow: 0 0 0 9px rgba(255, 77, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 77, 94, 0); } }
@@ -39,12 +39,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 /* palco: rede à esquerda, diagnóstico à direita */
 .palco { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 48px); align-items: center; padding: clamp(20px, 4vw, 48px) clamp(16px, 4vw, 48px) 40px; max-width: 1440px; margin: 0 auto; }
 .palco-rede { position: relative; height: min(78vh, 720px); min-height: 420px; overflow: hidden; }
-.palco-rede canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
-.palco-rede canvas:active { cursor: grabbing; }
-.palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(61, 242, 192, .14), transparent 60%); }
+.palco-rede .foto-3d { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.palco-rede .foto-3d:active { cursor: grabbing; }
+.palco-rede.sem-3d { background: radial-gradient(circle at 50% 50%, rgba(101, 233, 248, .14), transparent 60%); }
 .dica { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); font-size: .75rem; color: var(--tx-2); margin: 0; }
 .rotulos { position: absolute; inset: 0; pointer-events: none; }
-.rotulos span { position: absolute; left: 0; top: 0; margin: -30px 0 0 10px; font: 500 .74rem var(--corpo); color: var(--tx-2); background: rgba(7, 13, 24, .7); border: 1px solid var(--linha); padding: 2px 8px; border-radius: 999px; white-space: nowrap; transition: opacity .2s, color .2s, border-color .2s; }
+.rotulos span { position: absolute; left: 0; top: 0; margin: -30px 0 0 10px; font: 500 .74rem var(--corpo); color: var(--tx-2); background: rgba(3, 6, 23, .7); border: 1px solid var(--linha); padding: 2px 8px; border-radius: 999px; white-space: nowrap; transition: opacity .2s, color .2s, border-color .2s; }
 .rotulos span[data-no="voce"] { color: #ffd6da; border-color: rgba(255, 77, 94, .5); }
 .rotulos span.na-rota { color: var(--fundo); background: var(--acc); border-color: var(--acc); }
 .lead { color: var(--tx-2); font-size: 1.08rem; max-width: 36em; }
@@ -58,10 +58,10 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .diag legend span { display: block; font: 500 .78rem var(--corpo); color: var(--acc); margin-bottom: 4px; }
 .opcoes { display: grid; gap: 8px; }
 .opcoes label { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--linha); border-radius: 10px; cursor: pointer; transition: border-color .2s, background .2s, transform .15s; }
-.opcoes label:hover { border-color: rgba(61, 242, 192, .5); background: rgba(61, 242, 192, .04); }
+.opcoes label:hover { border-color: rgba(101, 233, 248, .5); background: rgba(101, 233, 248, .04); }
 .opcoes label:active { transform: scale(.99); }
 .opcoes input { accent-color: var(--acc); width: 18px; height: 18px; }
-.opcoes label:has(input:checked) { border-color: var(--acc); background: rgba(61, 242, 192, .08); }
+.opcoes label:has(input:checked) { border-color: var(--acc); background: rgba(101, 233, 248, .08); }
 .res-rota { font: 600 .82rem var(--cab); color: var(--acc); letter-spacing: .02em; }
 .res-h { font-size: 1.5rem; }
 .res-p { color: var(--tx-2); }
@@ -102,7 +102,7 @@ section { padding: clamp(56px, 8vw, 104px) clamp(16px, 4vw, 48px); max-width: 13
 @media (max-width: 860px) { .frentes-grade { grid-template-columns: 1fr; } }
 
 .linha { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; position: relative; }
-.linha::before { content: ''; position: absolute; left: 0; right: 0; top: 22px; height: 1px; background: linear-gradient(90deg, var(--acc), rgba(61, 242, 192, .1)); }
+.linha::before { content: ''; position: absolute; left: 0; right: 0; top: 22px; height: 1px; background: linear-gradient(90deg, var(--acc), rgba(101, 233, 248, .1)); }
 .linha li { padding: 0 20px 0 0; }
 .linha b { display: inline-block; font: 600 1.15rem var(--cab); background: var(--fundo); color: var(--acc); padding: 8px 12px 8px 0; position: relative; }
 .linha span { display: block; color: var(--tx-2); margin-top: 10px; }
@@ -119,7 +119,7 @@ section { padding: clamp(56px, 8vw, 104px) clamp(16px, 4vw, 48px); max-width: 13
 
 /* páginas internas */
 .faixa { position: relative; height: 300px; overflow: hidden; border-bottom: 1px solid var(--linha); }
-.faixa canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.faixa .foto-3d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .faixa-txt { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 48px) 0; pointer-events: none; }
 .faixa-txt p { color: var(--tx-2); max-width: 40em; }
 .area { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; border-top: 1px solid var(--linha); padding-top: 48px; padding-bottom: 48px; scroll-margin-top: 80px; }

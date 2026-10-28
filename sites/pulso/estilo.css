@@ -1,7 +1,7 @@
 /* Pulso · concreto claro, preto e laranja de pista. Alto contraste, letras largas. */
 :root {
-  --fundo: #f1efec; --branco: #fff; --preto: #111; --tx-2: #5c5955; --linha: rgba(17, 17, 17, .14);
-  --acc: #ff5a1f;
+  --fundo: #ecebec; --branco: #fff; --preto: #2e2e30; --tx-2: #5d5d61; --linha: rgba(46, 46, 48, .14);
+  --acc: #c40003;
   --f: 'Archivo', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -25,17 +25,17 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .menu a { text-decoration: none; padding: 8px 12px; font-weight: 700; font-size: .92rem; color: #bdbab5; }
 .menu a:hover { color: #fff; }
 .menu a[aria-current="page"] { color: var(--acc); }
-.topo-cta { text-decoration: none; background: var(--acc); color: var(--preto); padding: 10px 16px; font-weight: 800; }
+.topo-cta { text-decoration: none; background: var(--acc); color: #fff; padding: 10px 16px; font-weight: 800; }
 @media (max-width: 760px) { .topo { flex-wrap: wrap; } .menu { order: 3; width: 100%; overflow-x: auto; margin: 0 -12px; } .topo-cta { margin-left: auto; } }
 
 .botao { display: inline-block; text-decoration: none; background: var(--preto); color: #fff; padding: 15px 24px; font: 800 1rem var(--f); border: 0; cursor: pointer; transition: background .2s, transform .15s; }
-.botao:hover { background: var(--acc); color: var(--preto); }
+.botao:hover { background: var(--acc); color: #fff; }
 .botao:active { transform: translateY(1px); }
 
 .abertura { max-width: 1400px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 48px) 56px; display: grid; gap: 16px; }
 .abertura-txt { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 24px; align-items: end; }
 .lead { color: var(--tx-2); font-size: 1.08rem; }
-.vitrine canvas { width: 100%; height: min(52vh, 480px); min-height: 320px; display: block; }
+.vitrine .foto-3d { width: 100%; height: min(52vh, 480px); min-height: 320px; display: block; }
 .vitrine.sem-3d { min-height: 120px; background: linear-gradient(#e5e2dd, var(--fundo)); }
 .planos { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .plano { position: relative; display: grid; gap: 6px; background: var(--branco); padding: 20px; cursor: pointer; border: 2px solid transparent; transition: border-color .2s, transform .2s; }

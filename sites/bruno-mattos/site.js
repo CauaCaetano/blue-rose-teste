@@ -1,4 +1,4 @@
-// Bruno Mattos · região da coluna → causas comuns e tratamento, ligado ao modelo 3D.
+// Bruno Mattos · região da coluna → causas comuns e tratamento, ligado à foto 3D.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

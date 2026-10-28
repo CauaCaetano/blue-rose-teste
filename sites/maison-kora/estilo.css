@@ -1,7 +1,7 @@
 /* Maison Kora · marfim, café e um rosa empoeirado. Editorial, com muito ar. */
 :root {
-  --marfim: #f5f1ea; --marfim-2: #ece5da; --cafe: #1a1714; --cafe-2: #6b5f55; --linha: rgba(26, 23, 20, .14);
-  --acc: #b9817a;
+  --marfim: #f4f0e4; --marfim-2: #e8dfcc; --cafe: #322723; --cafe-2: #8e7463; --linha: rgba(50, 39, 35, .14);
+  --acc: #916b60;
   --titulo: 'Marcellus', Georgia, serif; --texto: 'Inter', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -19,7 +19,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--cafe); color: var(--marfim); padding: 8px 12px; z-index: 100; }
 .pular:focus { left: 8px; }
 
-.topo { position: sticky; top: 0; z-index: 50; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px clamp(16px, 4vw, 56px); background: rgba(245, 241, 234, .9); backdrop-filter: blur(10px); }
+.topo { position: sticky; top: 0; z-index: 50; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px clamp(16px, 4vw, 56px); background: rgba(244, 240, 228, .9); backdrop-filter: blur(10px); }
 .marca { font: 400 1.25rem var(--titulo); letter-spacing: .32em; text-decoration: none; text-transform: uppercase; }
 .menu { display: flex; gap: 30px; font-size: .88rem; }
 .menu a { text-decoration: none; color: var(--cafe-2); transition: color .2s; }
@@ -44,7 +44,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .botao:hover { background: #000; }
 .botao:active { transform: translateY(1px); }
 .vitrine { position: relative; height: min(80vh, 760px); min-height: 460px; background: #efe8de; }
-.vitrine canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.vitrine .foto-3d { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .vitrine.sem-3d { background: radial-gradient(ellipse at 50% 40%, #fff, var(--marfim-2)); }
 .vitrine-dica { position: absolute; bottom: 14px; width: 100%; text-align: center; font-size: .75rem; color: var(--cafe-2); margin: 0; }
 @media (max-width: 900px) { .abertura { grid-template-columns: 1fr; } .vitrine { order: -1; height: 440px; min-height: 0; } }
@@ -64,8 +64,8 @@ section { padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 56px); max-width: 13
 .avaliacao { background: var(--cafe); color: var(--marfim); max-width: none; }
 .avaliacao > * { max-width: 1250px; margin-left: auto; margin-right: auto; }
 .avaliacao form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 16px; align-items: end; margin-top: 28px; }
-.avaliacao label { display: grid; gap: 6px; font-size: .8rem; color: rgba(245, 241, 234, .7); }
-.avaliacao input, .avaliacao select { font: 400 1rem var(--texto); background: transparent; color: var(--marfim); border: 0; border-bottom: 1px solid rgba(245, 241, 234, .4); padding: 10px 0; border-radius: 0; }
+.avaliacao label { display: grid; gap: 6px; font-size: .8rem; color: rgba(244, 240, 228, .7); }
+.avaliacao input, .avaliacao select { font: 400 1rem var(--texto); background: transparent; color: var(--marfim); border: 0; border-bottom: 1px solid rgba(244, 240, 228, .4); padding: 10px 0; border-radius: 0; }
 .avaliacao option { color: var(--cafe); }
 .avaliacao .botao { background: var(--marfim); color: var(--cafe); }
 .erro { grid-column: 1 / -1; color: #f2c4bd; margin: 0; min-height: 1.2em; font-size: .85rem; order: 9; }

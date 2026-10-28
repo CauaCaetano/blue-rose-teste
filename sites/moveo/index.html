@@ -7,17 +7,17 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Moveo · Fisioterapia em Ribeirão Preto</title>
-<meta name="description" content="Fisioterapia ortopédica, neurofuncional e esportiva em Ribeirão Preto. Conheça a sala em 3D e agende a avaliação.">
-<meta name="theme-color" content="#f6efe7">
+<meta name="description" content="Fisioterapia ortopédica, neurofuncional e esportiva em Ribeirão Preto. Conheça a sala e agende a avaliação.">
+<meta name="theme-color" content="#f1ecd8">
 <meta name="robots" content="noindex, follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Ccircle%20cx%3D'20'%20cy%3D'20'%20r%3D'19'%20fill%3D'%23e0664f'%2F%3E%3Cpath%20d%3D'M10%2026c4-10%2016-10%2020%200'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20fill%3D'none'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Ccircle%20cx%3D'20'%20cy%3D'20'%20r%3D'19'%20fill%3D'%23d46e02'%2F%3E%3Cpath%20d%3D'M10%2026c4-10%2016-10%2020%200'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20fill%3D'none'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/04066ce70a.css">
 <link rel="stylesheet" href="../assets/moldura.css?v=2">
 <link rel="stylesheet" href="estilo.css?v=1">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
 <script src="site.js?v=1" defer></script>
-<script type="module" src="cena.js?v=1"></script>
+<script type="module" src="cena.js?v=10"></script>
 </head>
 <body data-slug="moveo" data-marca="Moveo" data-cat="fisioterapia">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -30,11 +30,11 @@
   <section class="abertura">
     <div class="abertura-txt">
       <h1>Volte a se mexer sem dor.</h1>
-      <p class="lead">Esta é a nossa sala. Clique nos objetos e veja como cada um entra no seu tratamento.</p>
+      <p class="lead">Esta é a nossa sala. Escolha um tratamento e veja como ele é feito.</p>
       <div class="servicos" role="group" aria-label="Serviços"><button type="button" data-serv="manual">Terapia manual</button><button type="button" data-serv="miofascial">Liberação miofascial</button><button type="button" data-serv="movimento">Terapia do movimento</button><button type="button" data-serv="ortopedica">Fisioterapia ortopédica</button><button type="button" data-serv="palmilhas">Palmilhas ortopédicas</button></div>
-      <div class="servico-txt" aria-live="polite"><p class="vazio">Clique na maca, no rolo, na bola, nas faixas ou nas palmilhas.</p></div>
+      <div class="servico-txt" aria-live="polite"><p class="vazio">Escolha um dos tratamentos acima.</p></div>
     </div>
-    <div class="sala"><canvas id="sala-3d" aria-label="Sala de atendimento em 3D; clique nos objetos"></canvas></div>
+    <div class="sala"><div id="sala-3d" class="foto-3d" role="img" aria-label="Foto da sala e do tratamento escolhido"></div></div>
   </section>
   <section class="passos" aria-labelledby="passos-t">
     <h2 id="passos-t">Do diagnóstico à alta</h2>

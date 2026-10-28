@@ -1,4 +1,4 @@
-// Pulso · planos ligados aos kettlebells 3D, busca de unidades, grade de aulas e simulador de matrícula.
+// Pulso · planos ligados à foto 3D, busca de unidades, grade de aulas e simulador de matrícula.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

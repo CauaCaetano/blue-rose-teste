@@ -1,4 +1,4 @@
-// Castro Lemos · diagnóstico em 4 perguntas (acende o caminho na rede 3D) e o relógio das medidas.
+// Castro Lemos · diagnóstico em 4 perguntas (troca a foto 3D) e o relógio das medidas.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

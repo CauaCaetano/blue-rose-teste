@@ -1,4 +1,4 @@
-// Moveo · serviços ligados à sala 3D, região → pacote de sessões, agenda com horários livres por dia.
+// Moveo · serviços ligados à foto 3D, região → pacote de sessões, agenda com horários livres por dia.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

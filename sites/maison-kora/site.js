@@ -1,4 +1,4 @@
-// Maison Kora · objetivo escolhido → frasco 3D, itens do protocolo e preço; avaliação vira a simulação do WhatsApp.
+// Maison Kora · objetivo escolhido → foto 3D, itens do protocolo e preço; avaliação vira a simulação do WhatsApp.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };

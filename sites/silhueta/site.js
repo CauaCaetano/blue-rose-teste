@@ -1,4 +1,4 @@
-// Silhueta · localizador (cidade, CEP ou GPS) ligado ao mapa 3D, filtros, comparador, simulador de pacote e agenda por unidade.
+// Silhueta · localizador (cidade, CEP ou GPS) ligado à foto 3D, filtros, comparador, simulador de pacote e agenda por unidade.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };
