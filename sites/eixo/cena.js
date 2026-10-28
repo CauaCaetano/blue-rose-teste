@@ -1,10 +1,10 @@
-// Eixo · foto real de corrida com profundidade (assets/foto3d.js) e, por cima, o mapa de pressão dos pés como sai
+// Eixo · foto real de corrida e, por cima, o mapa de pressão dos pés como sai
 // na tela da plataforma de baropodometria: vista de cima, sensor por sensor, do azul (pouca pressão) ao vermelho.
 // O tipo de pisada muda o mapa; "ver o passo" anima o apoio do calcanhar até a ponta. Números no evento "eixo-dados".
-import { foto3d } from '../assets/foto3d.js';
+import { foto } from '../assets/foto.js';
 
 const caixa = document.getElementById('placa-3d');
-foto3d(caixa, { foto: 'img/corrida.webp', prof: 'img/corrida-p.webp', alt: 'Pés de um corredor no asfalto' });
+foto(caixa, { foto: 'img/corrida.webp', alt: 'Pés de um corredor no asfalto' });
 const COL = 28, LIN = 64;
 const g = (x, m, s) => Math.exp(-((x - m) ** 2) / (2 * s * s));
 const TIPOS = {
