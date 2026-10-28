@@ -13,11 +13,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Ccircle%20cx%3D'20'%20cy%3D'20'%20r%3D'19'%20fill%3D'%23d46e02'%2F%3E%3Cpath%20d%3D'M10%2026c4-10%2016-10%2020%200'%20stroke%3D'%23fff'%20stroke-width%3D'3.5'%20fill%3D'none'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/04066ce70a.css">
 <link rel="stylesheet" href="../assets/moldura.css?v=3">
-<link rel="stylesheet" href="estilo.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=2">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
-<script src="site.js?v=1" defer></script>
-<script type="module" src="cena.js?v=11"></script>
+<script src="site.js?v=2" defer></script>
 </head>
 <body data-slug="moveo" data-marca="Moveo" data-cat="fisioterapia">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -27,14 +26,13 @@
   <a class="topo-cta" href="agenda.html">Agendar</a>
 </header>
 <main id="conteudo">
-  <section class="abertura">
-    <div class="abertura-txt">
-      <h1>Volte a se mexer sem dor.</h1>
-      <p class="lead">Esta é a nossa sala. Escolha um tratamento e veja como ele é feito.</p>
-      <div class="servicos" role="group" aria-label="Serviços"><button type="button" data-serv="manual">Terapia manual</button><button type="button" data-serv="miofascial">Liberação miofascial</button><button type="button" data-serv="movimento">Terapia do movimento</button><button type="button" data-serv="ortopedica">Fisioterapia ortopédica</button><button type="button" data-serv="palmilhas">Palmilhas ortopédicas</button></div>
-      <div class="servico-txt" aria-live="polite"><p class="vazio">Escolha um dos tratamentos acima.</p></div>
+  <section class="mosaico-sec" aria-labelledby="mo-t">
+    <h1 id="mo-t">Volte a se mexer <span>sem dor.</span></h1>
+    <div class="mosaico">
+      <figure class="m-sala"><img src="img/sala.webp" width="1600" height="1067" alt="Sala de atendimento da Moveo com maca e janelas"><figcaption>Nossa sala, na Av. Presidente Vargas</figcaption></figure>
+      <button type="button" class="m-manual" data-serv="manual" aria-pressed="false"><img src="img/manual.webp" alt="Fisioterapeuta mobilizando o ombro de uma paciente na maca" loading="lazy"><span>Terapia manual</span></button><button type="button" class="m-miofascial" data-serv="miofascial" aria-pressed="false"><img src="img/miofascial.webp" alt="Pessoa usando o rolo de liberação miofascial" loading="lazy"><span>Liberação miofascial</span></button><button type="button" class="m-movimento" data-serv="movimento" aria-pressed="false"><img src="img/movimento.webp" alt="Exercício com halteres orientado pelo fisioterapeuta" loading="lazy"><span>Terapia do movimento</span></button><button type="button" class="m-ortopedica" data-serv="ortopedica" aria-pressed="false"><img src="img/ortopedica.webp" alt="Fisioterapeuta avaliando o joelho de um paciente" loading="lazy"><span>Fisioterapia ortopédica</span></button><button type="button" class="m-palmilhas" data-serv="palmilhas" aria-pressed="false"><img src="img/palmilhas.webp" alt="Avaliação do pé para palmilha" loading="lazy"><span>Palmilhas ortopédicas</span></button>
+      <aside class="bilhete" aria-live="polite"><p class="vazio">Toque numa foto e veja como é cada tratamento.</p></aside>
     </div>
-    <div class="sala"><div id="sala-3d" class="foto-3d" role="img" aria-label="Foto da sala e do tratamento escolhido"></div></div>
   </section>
   <section class="passos" aria-labelledby="passos-t">
     <h2 id="passos-t">Do diagnóstico à alta</h2>
