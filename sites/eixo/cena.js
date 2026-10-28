@@ -1,10 +1,15 @@
-// Eixo · foto real de corrida e, por cima, o mapa de pressão dos pés como sai
-// na tela da plataforma de baropodometria: vista de cima, sensor por sensor, do azul (pouca pressão) ao vermelho.
+// Eixo · o tênis de corrida real em 3D (modelo fotorrealista da Shopify, CC BY 4.0, via Khronos) com as cores dele,
+// e o mapa de pressão dos pés como sai na tela da plataforma: vista de cima, sensor por sensor, do azul ao vermelho.
 // O tipo de pisada muda o mapa; "ver o passo" anima o apoio do calcanhar até a ponta. Números no evento "eixo-dados".
-import { foto } from '../assets/foto.js';
+import { vitrine } from '../assets/3d/vitrine.js';
 
-const caixa = document.getElementById('placa-3d');
-foto(caixa, { foto: 'img/corrida.webp', alt: 'Pés de um corredor no asfalto' });
+const caixa = document.getElementById('mapa-pes');
+const NOMES = { midnight: 'Meia-noite', beach: 'Praia', street: 'Rua' };
+vitrine(document.getElementById('tenis-3d'), { arquivo: 'MaterialsVariantsShoe/MaterialsVariantsShoe.glb', medida: 1.2, distancia: 2.5, altura: 0.22, giro: 1.25, inclinacao: 0.12 }).then((v) => {
+  const grupo = document.querySelector('.cores-tenis'); if (!v.variantes.length) return;
+  grupo.innerHTML = v.variantes.map((n, i) => '<button type="button" data-v="' + i + '" aria-pressed="' + (i === 0) + '">' + (NOMES[n] || n) + '</button>').join('');
+  grupo.addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (!b) return; grupo.querySelectorAll('[data-v]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); v.variante(+b.dataset.v); });
+});
 const COL = 28, LIN = 64;
 const g = (x, m, s) => Math.exp(-((x - m) ** 2) / (2 * s * s));
 const TIPOS = {
@@ -40,7 +45,7 @@ function rampa(p) {
   for (let i = 1; i < CORES.length; i++) if (p <= CORES[i][0]) { const [a, ca] = CORES[i - 1], [b, cb] = CORES[i], k = (p - a) / (b - a); return 'rgb(' + ca.map((v, j) => Math.round(v + (cb[j] - v) * k)).join(',') + ')'; }
   return 'rgb(217,47,47)';
 }
-const tela = document.createElement('canvas'); tela.className = 'mapa-pes'; tela.width = 360; tela.height = 380; tela.setAttribute('aria-hidden', 'true');
+const tela = document.createElement('canvas'); tela.className = 'mapa-tela'; tela.width = 360; tela.height = 380; tela.setAttribute('aria-hidden', 'true');
 caixa.appendChild(tela);
 const ctx = tela.getContext('2d'), calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let tipo = 'neutra', andando = false, base = [];
