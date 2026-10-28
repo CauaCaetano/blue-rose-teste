@@ -9,11 +9,11 @@ import { GLTFLoader } from './GLTFLoader.js';
 
 const BASE = new URL('./modelos/', import.meta.url).href;
 
-export function vitrine(caixa, { arquivo, so = '', medida = 2, hdri = 'studio_small_09', forca = 1, altura = 0.45, distancia = 3.2, giro = 0.6, inclinacao = 0.18 } = {}) {
+export function vitrine(caixa, { arquivo, so = '', medida = 2, hdri = 'studio_small_09', forca = 1, altura = 0.45, distancia = 3.2, giro = 0.6, inclinacao = 0.18, auto = true } = {}) {
   const tela = document.createElement('canvas'); tela.className = 'vitrine-tela';
   tela.setAttribute('role', 'img'); tela.setAttribute('aria-label', caixa.dataset.rotulo || 'Objeto em 3D; arraste para girar');
   caixa.appendChild(tela); caixa.classList.add('vitrine');
-  let ang = giro, angAlvo = giro, vel = 0, arrastando = false, ultX = 0, parado = 0, inc = inclinacao, incAlvo = inclinacao;
+  let dist = distancia, distAlvo = distancia, ang = giro, angAlvo = giro, vel = 0, arrastando = false, ultX = 0, parado = 0, inc = inclinacao, incAlvo = inclinacao;
   const p = palco(tela, { fov: 30, pos: [0, 1, 4], quadro });
   if (!p) return Promise.resolve({ variantes: [], variante() {} });
   luz(p, hdri, { forca });
@@ -34,10 +34,10 @@ export function vitrine(caixa, { arquivo, so = '', medida = 2, hdri = 'studio_sm
   function quadro(t, dt) {
     if (!arrastando) {
       angAlvo += vel; vel *= Math.pow(0.04, dt); // inércia depois de soltar
-      parado += dt; if (!calmo && parado > 2.5) angAlvo += dt * 0.22; // giro lento de vitrine
+      parado += dt; if (auto && !calmo && parado > 2.5) angAlvo += dt * 0.22; // giro lento de vitrine
     }
-    ang = aproxima(ang, angAlvo, dt, 10); inc = aproxima(inc, incAlvo, dt, 4);
-    const r = distancia;
+    ang = aproxima(ang, angAlvo, dt, 10); inc = aproxima(inc, incAlvo, dt, 4); dist = aproxima(dist, distAlvo, dt, 4);
+    const r = dist;
     p.camera.position.set(Math.sin(ang) * r * Math.cos(inc), altura * medida + Math.sin(inc) * r, Math.cos(ang) * r * Math.cos(inc));
     p.camera.lookAt(0, altura * medida, 0);
   }
@@ -59,6 +59,8 @@ export function vitrine(caixa, { arquivo, so = '', medida = 2, hdri = 'studio_sm
       p.redesenhar();
     };
     caixa.classList.add('pronta'); p.redesenhar();
-    ok({ variantes, variante, obj, p, olhar(a) { angAlvo = a; parado = -4; p.redesenhar(); } });
+    ok({ variantes, variante, obj, p, olhar(a) { angAlvo = a; parado = -4; p.redesenhar(); },
+      // a rolagem da página conduz a câmera: ângulo, distância e inclinação
+      camera(a, d, i) { angAlvo = a; if (d) distAlvo = d; if (i != null) incAlvo = i; parado = -4; p.redesenhar(); } });
   }, undefined, () => { caixa.classList.add('sem-3d'); ok({ variantes: [], variante() {} }); }));
 }
