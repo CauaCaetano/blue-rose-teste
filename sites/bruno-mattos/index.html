@@ -13,11 +13,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'8'%20fill%3D'%233d5a80'%2F%3E%3Cpath%20d%3D'M20%206v28M15%2011h10M14%2017h12M15%2023h10M16%2029h8'%20stroke%3D'%23fff'%20stroke-width%3D'2.5'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="../assets/fontes/5a5fca16e1.css">
 <link rel="stylesheet" href="../assets/moldura.css?v=3">
-<link rel="stylesheet" href="estilo.css?v=1">
+<link rel="stylesheet" href="estilo.css?v=2">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
-<script src="site.js?v=1" defer></script>
-<script type="module" src="cena.js?v=11"></script>
+<script src="site.js?v=2" defer></script>
 </head>
 <body data-slug="bruno-mattos" data-marca="Bruno Mattos" data-cat="fisioterapia">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -27,20 +26,15 @@
   <a class="topo-cta" href="#" data-wa="Olá, Bruno Mattos! Quero agendar uma avaliação.">Agendar avaliação</a>
 </header>
 <main id="conteudo">
-  <section class="abertura" id="inicio">
-    <div class="abertura-txt" id="dor">
-      <p class="selo">Não precisa de encaminhamento</p>
-      <h1>Toque onde dói. Eu explico o caminho.</h1>
-      <p class="lead">Consultório no Setor Marista, atendimento individual de 50 minutos. Escolha a região da coluna e veja o que costuma causar a dor e como tratamos.</p>
-      <div class="regioes" role="group" aria-label="Região da coluna">
-        <button type="button" data-reg="cervical">Pescoço (cervical)</button>
-        <button type="button" data-reg="toracica">Meio das costas (torácica)</button>
-        <button type="button" data-reg="lombar">Lombar</button>
-        <button type="button" data-reg="sacro">Bacia e cóccix (sacro)</button>
-      </div>
-      <div class="diag" aria-live="polite"><p class="diag-vazio">Escolha a região nos botões acima.</p></div>
+  <section class="prancha" id="inicio" aria-labelledby="pr-t">
+    <div class="prancha-cab"><p class="selo">Não precisa de encaminhamento</p><h1 id="pr-t">Toque onde dói. Eu explico o caminho.</h1>
+      <p class="lead">Consultório no Setor Marista, atendimento individual de 50 minutos. Toque num ponto das costas e veja o que costuma causar a dor e como tratamos.</p></div>
+    <div class="prancha-grade">
+      <div class="col-etq esq"><button type="button" class="etq" data-reg="cervical" style="top:46%"><span>1</span><em><b>Pescoço</b><small>vértebras C1 a C7</small></em></button><button type="button" class="etq" data-reg="toracica" style="top:58%"><span>2</span><em><b>Meio das costas</b><small>vértebras T1 a T12</small></em></button></div>
+      <figure class="costas"><img src="img/costas.webp" width="933" height="1400" alt="Costas de um homem com a mão na região lombar"><button type="button" class="pino" data-reg="cervical" style="left:45%;top:46%" aria-label="Pescoço"><span>1</span></button><button type="button" class="pino" data-reg="toracica" style="left:41%;top:58%" aria-label="Meio das costas"><span>2</span></button><button type="button" class="pino" data-reg="lombar" style="left:36%;top:72%" aria-label="Lombar"><span>3</span></button><button type="button" class="pino" data-reg="sacro" style="left:41%;top:85%" aria-label="Bacia e cóccix"><span>4</span></button></figure>
+      <div class="col-etq dir"><button type="button" class="etq" data-reg="lombar" style="top:72%"><span>3</span><em><b>Lombar</b><small>vértebras L1 a L5</small></em></button><button type="button" class="etq" data-reg="sacro" style="top:85%"><span>4</span><em><b>Bacia e cóccix</b><small>sacro e cóccix</small></em></button></div>
     </div>
-    <div class="modelo"><div id="coluna-3d" class="foto-3d" role="img" aria-label="Foto do atendimento da região escolhida"></div></div>
+    <div class="diag" aria-live="polite" id="dor"><p class="diag-vazio">Toque num dos quatro pontos das costas.</p></div>
   </section>
 
   <section class="especialidades" id="especialidades" aria-labelledby="esp-t">
