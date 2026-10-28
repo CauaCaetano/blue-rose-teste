@@ -54,7 +54,7 @@
     if (sel.size > 1) return;
     sel.__livre = true;
     // texto novo só onde o sistema sabe guardar (o <select> marcado com data-livre); no resto, busca nas opções
-    var cadastro = !sel.hasAttribute('data-livre') || ehCadastro(sel);
+    var cadastro = !sel.hasAttribute('data-livre');
     var id = 'livre-' + (++seq);
     var inp = document.createElement('input');
     inp.type = 'text';
