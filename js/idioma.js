@@ -66,8 +66,9 @@
 
   function trocar(id) {
     try { localStorage.setItem('br-idioma', id); } catch (e) {}
-    var u = new URL(location.href); u.searchParams.delete('lang');
-    location.replace(u.toString());
+    // sem a âncora (#precos etc.): com ela o navegador só rolava a página e não recarregava no idioma novo
+    var u = new URL(location.href); u.searchParams.delete('lang'); u.hash = '';
+    if (!location.hash && u.toString() === location.href) location.reload(); else location.replace(u.toString());
   }
 
   /* ---------- seletor (globo) ---------- */
@@ -84,7 +85,7 @@
     '.br-idi.solto ul{top:auto;bottom:calc(100% + 8px);left:0;right:auto}' +
     '.br-idi.na-barra>button{padding:4px 9px;font-size:12px}' +
     'body:has(.site-de-teste) .br-idi.solto{bottom:46px}' +
-    '@media (max-width:900px){.nav-links .br-idi ul{position:static;margin-top:6px;box-shadow:none}}' +
+    '@media (max-width:900px){.nav-links .br-idi{flex-direction:column;align-items:flex-start}.nav-links .br-idi ul{position:static;margin-top:6px;box-shadow:none}}' +
     '@media print{.br-idi{display:none}}' +
     // textos traduzidos costumam ser mais longos: o menu não quebra linha
     'html:not([lang="pt-BR"]) .nav-links{gap:16px;font-size:13.5px;margin-left:24px}html:not([lang="pt-BR"]) .nav-links a,html:not([lang="pt-BR"]) .brand{white-space:nowrap}';
