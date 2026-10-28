@@ -7,44 +7,62 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atelier Serena · Hair &amp; Beauty Club nos Jardins</title>
-<meta name="description" content="Salão nos Jardins com orçamento por tempo de cadeira, serviços assinatura, bistrô e reserva por profissional.">
+<meta name="description" content="Salão nos Jardins: cor, corte e tratamento com tempo de cadeira que você sabe antes de chegar, bistrô próprio e reserva por profissional.">
 <meta name="theme-color" content="#050817">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2040%2040'%3E%3Crect%20width%3D'40'%20height%3D'40'%20rx%3D'20'%20fill%3D'%23050817'%2F%3E%3Ctext%20x%3D'20'%20y%3D'28'%20font-size%3D'22'%20text-anchor%3D'middle'%20fill%3D'%23c9a849'%20font-family%3D'serif'%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
-<link rel="stylesheet" href="../assets/fontes/7a93d76d08.css">
+<link rel="stylesheet" href="../assets/fontes/a8279e3f95.css">
 <link rel="stylesheet" href="../assets/fontes/12344d647b.css">
 <link rel="stylesheet" href="../assets/moldura.css?v=3">
-<link rel="stylesheet" href="estilo.css?v=2">
+<link rel="stylesheet" href="estilo.css?v=3">
+<link rel="stylesheet" href="inicio.css?v=1">
 <script src="../../js/leads-config.js?v=6" defer></script>
 <script src="../assets/moldura.js?v=1" defer></script>
-<script src="site.js?v=2" defer></script>
-<script type="module" src="cena.js?v=12"></script>
+<script src="site.js?v=3" defer></script>
+<script type="module" src="cena.js?v=13"></script>
 <link rel="stylesheet" href="/blue-rose-teste/teste.css">
 </head>
-<body data-slug="serena" data-marca="Atelier Serena" data-cat="salao">
+<body class="inicio" data-slug="serena" data-marca="Atelier Serena" data-cat="salao">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<header class="topo">
-  <p class="topo-ed">Jardins · São Paulo</p>
-  <a class="marca" href="index.html">Atelier Serena</a>
-  <a class="topo-cta" href="agenda.html">Reservar</a>
-  <nav class="menu" aria-label="Principal"><a href="index.html" aria-current="page">Início</a><a href="servicos.html">Serviços</a><a href="bistro.html">Bistrô</a><a href="agenda.html">Reservar</a></nav>
+<header class="faixa-topo">
+  <a class="wm" href="index.html">Atelier Serena</a>
+  <nav class="links" aria-label="Principal"><a href="servicos.html">Serviços</a><a href="bistro.html">Bistrô</a><a href="agenda.html">Reservar</a></nav>
 </header>
 <main id="conteudo">
-  <section class="capa">
-    <img src="img/estacao.webp" width="1067" height="1600" alt="Estação do salão com cadeira e espelhos de moldura dourada">
-    <div class="capa-txt"><p class="capa-ed">edição de outono · hair &amp; beauty club</p><h1>Beleza com assinatura.</h1><p>Cor, corte e tratamento nos Jardins, com bistrô próprio e tempo de cadeira que você sabe antes de chegar.</p></div>
+
+  <!-- ato 1: a cadeira no centro; a rolagem dá a volta nela e cada capítulo entra com uma foto real -->
+  <section class="ato" id="ato" aria-label="A cadeira da casa">
+    <div class="ato-fixo">
+      <p class="titulo t1" aria-hidden="true">Atelier</p>
+      <div class="cadeira" id="cadeira-3d" data-rotulo="Cadeira de barbeiro de 1920, escaneada em 3D; arraste para girar"></div>
+      <p class="titulo t2" aria-hidden="true">Serena</p>
+      <div class="capitulos">
+        <article class="cap" data-cap="0"><p class="cap-n">i.</p><h1>Beleza com assinatura, nos Jardins.</h1><p>Uma cadeira de 1920, restaurada à mão, e quem senta nela sai do jeito que pediu.</p></article>
+        <article class="cap" data-cap="1"><p class="cap-n">ii.</p><h2>O corte</h2><p>Diagnóstico do fio antes da tesoura. Lavagem com massagem e finalização que dura até a próxima lavagem.</p><figure><img src="img/corte.webp" width="1600" height="1068" alt="Stylist finalizando uma escova" loading="lazy"></figure></article>
+        <article class="cap" data-cap="2"><p class="cap-n">iii.</p><h2>A cor</h2><p>Balayage à mão livre e tonalização sem amônia. A diretora de cor marca o tom com você, na luz do dia.</p><figure><img src="img/mechas.webp" width="1067" height="1600" alt="Cabelo loiro com balayage" loading="lazy"></figure></article>
+        <article class="cap" data-cap="3"><p class="cap-n">iv.</p><h2>O ritual</h2><p>Banho de óleo, vapor e selagem: cinquenta minutos que viraram a assinatura da casa.</p><figure><img src="img/ritual.webp" width="899" height="1600" alt="Cabelo brilhante depois do ritual de hidratação" loading="lazy"></figure></article>
+      </div>
+      <p class="rolar" aria-hidden="true">role para dar a volta</p>
+    </div>
   </section>
-  <section class="palco" aria-labelledby="palco-t">
-    <h2 id="palco-t">Monte a sua tarde</h2>
-    <p class="palco-sub">Esta é a cadeira da casa, escaneada da nossa poltrona de 1920. Arraste para girar. A cada serviço marcado, ela vira para você.</p>
+
+  <!-- ato 2: o cardápio da tarde -->
+  <section class="tarde" aria-labelledby="card-t">
+    <div class="card-cab"><p class="cap-n">v.</p><h2 id="card-t">Monte a sua tarde</h2><p>Marque o que vai fazer. A conta sai em horas de cadeira, como deve ser.</p></div>
     <form id="orcar" class="carta">
       <div class="carta-lista">
-        <label class="serv"><input type="checkbox" name="s" value="corte" data-min="60" data-preco="180" checked><span><b>Corte com lavagem</b><small>Diagnóstico do fio, lavagem com massagem e finalização.</small></span><em>1h · R$ 180</em></label><label class="serv"><input type="checkbox" name="s" value="escova" data-min="45" data-preco="110"><span><b>Escova modelada</b><small>Escova com volume ou lisa, à sua escolha.</small></span><em>45 min · R$ 110</em></label><label class="serv"><input type="checkbox" name="s" value="raiz" data-min="90" data-preco="260"><span><b>Coloração de raiz</b><small>Retoque de até 3 cm com tonalizante sem amônia.</small></span><em>1h30 · R$ 260</em></label><label class="serv"><input type="checkbox" name="s" value="mechas" data-min="210" data-preco="790"><span><b>Mechas e balayage</b><small>Clareamento à mão livre, tonalização e tratamento de reconstrução.</small></span><em>3h30 · R$ 790</em></label><label class="serv"><input type="checkbox" name="s" value="ritual" data-min="50" data-preco="160" checked><span><b>Ritual de hidratação Serena</b><small>Assinatura da casa: banho de óleo, vapor e selagem.</small></span><em>50 min · R$ 160</em></label><label class="serv"><input type="checkbox" name="s" value="mao" data-min="80" data-preco="120"><span><b>Manicure e pedicure</b><small>Mãos e pés com esmaltação, cutícula e hidratação.</small></span><em>1h20 · R$ 120</em></label><label class="serv"><input type="checkbox" name="s" value="make" data-min="60" data-preco="240"><span><b>Maquiagem social</b><small>Pele, olhos e boca para festa ou evento.</small></span><em>1h · R$ 240</em></label><label class="serv"><input type="checkbox" name="s" value="penteado" data-min="75" data-preco="280"><span><b>Penteado</b><small>Coque, semipreso ou ondas, com teste de fixação.</small></span><em>1h15 · R$ 280</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="corte" data-min="60" data-preco="180" checked><span><b>Corte com lavagem</b></span><em>1h · R$ 180</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="escova" data-min="45" data-preco="110"><span><b>Escova modelada</b></span><em>45 min · R$ 110</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="raiz" data-min="90" data-preco="260"><span><b>Coloração de raiz</b></span><em>1h30 · R$ 260</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="mechas" data-min="210" data-preco="790"><span><b>Mechas e balayage</b></span><em>3h30 · R$ 790</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="ritual" data-min="50" data-preco="160" checked><span><b>Ritual de hidratação Serena</b></span><em>50 min · R$ 160</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="mao" data-min="80" data-preco="120"><span><b>Manicure e pedicure</b></span><em>1h20 · R$ 120</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="make" data-min="60" data-preco="240"><span><b>Maquiagem social</b></span><em>1h · R$ 240</em></label>
+        <label class="serv"><input type="checkbox" name="s" value="penteado" data-min="75" data-preco="280"><span><b>Penteado</b></span><em>1h15 · R$ 280</em></label>
         <fieldset class="nivel"><legend>Com quem</legend>
           <label><input type="radio" name="n" value="1" checked><span>Stylist da casa</span></label>
           <label><input type="radio" name="n" value="1.3"><span>Diretora de cor <small>+30%</small></span></label></fieldset>
       </div>
-      <div class="cadeira" id="cadeira-3d" data-rotulo="Cadeira de barbeiro antiga em 3D; arraste para girar"></div>
       <div class="carta-conta">
         <div class="espelho" aria-live="polite"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44"/><circle class="arco" cx="50" cy="50" r="44" pathLength="100"/></svg><p class="esp-rot"></p><p class="esp-tempo"></p><p class="esp-preco"></p></div>
         <p class="soma" aria-live="polite"></p>
@@ -52,14 +70,18 @@
       </div>
     </form>
   </section>
-  <section class="faixa-ed" aria-label="Os serviços da casa">
-    <figure class="f1"><img src="img/mechas.webp" width="1067" height="1600" loading="lazy" alt="Cabelo loiro com balayage"><figcaption>Mechas e balayage · 3h30</figcaption></figure>
-    <figure class="f2"><img src="img/corte.webp" width="1600" height="1068" loading="lazy" alt="Stylist finalizando uma escova"><figcaption>Corte com lavagem · 1h</figcaption></figure>
-    <figure class="f3"><img src="img/ritual.webp" width="899" height="1600" loading="lazy" alt="Cabelo brilhante depois do ritual de hidratação"><figcaption>Ritual Serena · 50 min</figcaption></figure>
-    <figure class="f4"><img src="img/make.webp" width="1600" height="1067" loading="lazy" alt="Maquiadora aplicando batom"><figcaption>Maquiagem social · 1h</figcaption></figure>
+
+  <!-- ato 3: o bistrô, de passagem -->
+  <section class="bistro-ato" aria-labelledby="bis-t">
+    <figure><img src="img/make.webp" width="1600" height="1067" alt="Maquiadora aplicando batom" loading="lazy"></figure>
+    <div><p class="cap-n">vi.</p><h2 id="bis-t">Enquanto a cor age, o bistrô serve.</h2><p>Café coado de grãos do sul de Minas, toast de fermentação natural e espumante brut. Acima de duas horas de cadeira, o primeiro item é da casa.</p><a class="link-ouro" href="bistro.html">Ver o cardápio do bistrô</a></div>
   </section>
 </main>
-<footer class="rodape"><p>Atelier Serena · Alameda Lorena, 1640 · Jardins, São Paulo/SP · terça a sábado, 9h às 21h</p><p>Marca criada para demonstração · Site de exemplo feito pela Blue Rose</p></footer>
+<footer class="fim">
+  <p class="fim-end">Alameda Lorena, 1640<br>Jardins, São Paulo</p>
+  <p class="fim-info">terça a sábado, 9h às 21h · <a href="agenda.html">reservar</a></p>
+  <p class="fim-pe">Marca criada para demonstração · Site de exemplo feito pela Blue Rose · Cadeira 3D: Poly Haven (CC0)</p>
+</footer>
 <div class="site-de-teste" role="note">Site de teste · nada aqui vale de verdade</div>
 </body>
 </html>
