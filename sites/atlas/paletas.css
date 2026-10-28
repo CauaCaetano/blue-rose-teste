@@ -1,0 +1,66 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/atlas/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #f4f0ea; --branco: #fdfcfa; --verde: #0b2a22; --tx: #141c23; --tx-2: #5a6166; --linha: rgba(20, 28, 35, .13); --acc: #163955; --areia: #ead0c5; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .menu a { color: rgba(234, 208, 197, .75); }
+html[data-paleta="pt-PT"] .menu a[aria-current="page"] { background: rgba(234, 208, 197, .12); }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .area-painel p { color: rgba(234, 208, 197, .8); }
+html[data-paleta="pt-PT"] .area-painel li { background: rgba(234, 208, 197, .12); }
+html[data-paleta="pt-PT"] .rotulos-3d button { background: rgba(253, 252, 250, .92); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+html[data-paleta="pt-PT"] .rotulos-3d button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .un.breve .st { color: #8c3f20; }
+html[data-paleta="pt-PT"] .balanco dl div { border-bottom: 1px solid rgba(234, 208, 197, .15); }
+html[data-paleta="pt-PT"] #candidatura::backdrop { background: rgba(11, 42, 34, .5); }
+html[data-paleta="pt-PT"] .erro { color: #994928; }
+html[data-paleta="es"] { --fundo: #f4efea; --branco: #fdfcfa; --verde: #0b2a22; --tx: #211618; --tx-2: #665a5c; --linha: rgba(33, 22, 24, .13); --acc: #5a1111; --areia: #ede0c2; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .menu a { color: rgba(237, 224, 194, .75); }
+html[data-paleta="es"] .menu a[aria-current="page"] { background: rgba(237, 224, 194, .12); }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .area-painel p { color: rgba(237, 224, 194, .8); }
+html[data-paleta="es"] .area-painel li { background: rgba(237, 224, 194, .12); }
+html[data-paleta="es"] .rotulos-3d button { background: rgba(253, 252, 250, .92); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+html[data-paleta="es"] .rotulos-3d button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .un.breve .st { color: #946e18; }
+html[data-paleta="es"] .balanco dl div { border-bottom: 1px solid rgba(237, 224, 194, .15); }
+html[data-paleta="es"] #candidatura::backdrop { background: rgba(11, 42, 34, .5); }
+html[data-paleta="es"] .erro { color: #a17920; }
+html[data-paleta="en"] { --fundo: #eaedf4; --branco: #fafbfd; --verde: #0b2a22; --tx: #141723; --tx-2: #5a5d66; --linha: rgba(20, 23, 35, .13); --acc: #091d62; --areia: #ecc3c6; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .menu a { color: rgba(236, 195, 198, .75); }
+html[data-paleta="en"] .menu a[aria-current="page"] { background: rgba(236, 195, 198, .12); }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .area-painel p { color: rgba(236, 195, 198, .8); }
+html[data-paleta="en"] .area-painel li { background: rgba(236, 195, 198, .12); }
+html[data-paleta="en"] .rotulos-3d button { background: rgba(250, 251, 253, .92); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+html[data-paleta="en"] .rotulos-3d button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .un.breve .st { color: #911b22; }
+html[data-paleta="en"] .balanco dl div { border-bottom: 1px solid rgba(236, 195, 198, .15); }
+html[data-paleta="en"] #candidatura::backdrop { background: rgba(11, 42, 34, .5); }
+html[data-paleta="en"] .erro { color: #9d242b; }
+html[data-paleta="it"] { --fundo: #f4f2ea; --branco: #fdfcfa; --verde: #0b2a22; --tx: #1c2116; --tx-2: #60665a; --linha: rgba(28, 33, 22, .13); --acc: #394d1e; --areia: #e9d1c6; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .menu a { color: rgba(233, 209, 198, .75); }
+html[data-paleta="it"] .menu a[aria-current="page"] { background: rgba(233, 209, 198, .12); }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .area-painel p { color: rgba(233, 209, 198, .8); }
+html[data-paleta="it"] .area-painel li { background: rgba(233, 209, 198, .12); }
+html[data-paleta="it"] .rotulos-3d button { background: rgba(253, 252, 250, .92); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+html[data-paleta="it"] .rotulos-3d button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .un.breve .st { color: #8b4321; }
+html[data-paleta="it"] .balanco dl div { border-bottom: 1px solid rgba(233, 209, 198, .15); }
+html[data-paleta="it"] #candidatura::backdrop { background: rgba(11, 42, 34, .5); }
+html[data-paleta="it"] .erro { color: #974d2a; }
+html[data-paleta="fr"] { --fundo: #efeaf4; --branco: #fcfafd; --verde: #0b2a22; --tx: #181423; --tx-2: #5d5a66; --linha: rgba(24, 20, 35, .13); --acc: #271b50; --areia: #d0c9e6; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .menu a { color: rgba(208, 201, 230, .75); }
+html[data-paleta="fr"] .menu a[aria-current="page"] { background: rgba(208, 201, 230, .12); }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .area-painel p { color: rgba(208, 201, 230, .8); }
+html[data-paleta="fr"] .area-painel li { background: rgba(208, 201, 230, .12); }
+html[data-paleta="fr"] .rotulos-3d button { background: rgba(252, 250, 253, .92); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+html[data-paleta="fr"] .rotulos-3d button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .un.breve .st { color: #3e2785; }
+html[data-paleta="fr"] .balanco dl div { border-bottom: 1px solid rgba(208, 201, 230, .15); }
+html[data-paleta="fr"] #candidatura::backdrop { background: rgba(11, 42, 34, .5); }
+html[data-paleta="fr"] .erro { color: #483091; }

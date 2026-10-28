@@ -1,9 +1,9 @@
-// Lívia Prado · cor escolhida (ligada à bancada 3D) e orçamento com tempo de cadeira, tudo indo para o WhatsApp.
+// Lívia Prado · cor escolhida (troca a foto 3D de unhas feitas na cor) e orçamento com tempo de cadeira, tudo indo para o WhatsApp.
 (function () {
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };
   var $$ = function (s, el) { return [].slice.call((el || document).querySelectorAll(s)); };
-  var CORES = [['Nude rosé', '#d59e94'], ['Vermelho paixão', '#a8162a'], ['Marsala', '#5e1d2c'], ['Rosa chiclete', '#e56497'], ['Coral', '#ef7656'], ['Lilás', '#9f86c4'], ['Azul noite', '#1d2a57'], ['Preto ônix', '#18181c']];
+  var CORES = [['Nude rosé', '#d8a796'], ['Vermelho clássico', '#b0151f'], ['Bordô', '#5c1220'], ['Rosa chá', '#d79aa3'], ['Malva', '#b8a3b8'], ['Tartaruga e preto', 'linear-gradient(135deg, #111 50%, #7a4a1e 50%)'], ['Francesinha com brilho', 'linear-gradient(135deg, #eeeaf2 55%, #b9a9c9 55%)'], ['Arte colorida', 'conic-gradient(#f2c230, #e2462e, #2f6fd1, #f2c230)']];
   var cor = 0, caixa = $('.cores');
   caixa.innerHTML = CORES.map(function (c, i) { return '<button type="button" role="radio" aria-checked="' + (i === 0) + '" aria-label="' + c[0] + '" data-cor="' + i + '" style="background:' + c[1] + '"></button>'; }).join('');
   function escolher(i, doBotao) {

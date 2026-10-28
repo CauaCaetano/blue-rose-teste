@@ -1,7 +1,7 @@
 // Bruno Mattos · a coluna: modelo anatômico de consultório (vértebras de osso, discos azulados, suporte de metal
 // sobre base de madeira), com as curvas da coluna. Tocar numa região (cervical, torácica, lombar, sacro) acende
 // as vértebras dela (evento "bm-regiao"); brunoColuna.marcar(regiao) faz o mesmo pelos botões da página.
-import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('coluna-3d');
 const p = palco(canvas, { fov: 30, pos: [7.5, 1.5, 15.5], alvo: [0, -0.2, 0], quadro, tom: true });
@@ -14,7 +14,7 @@ if (p) montar();
 function montar() {
   const { cena } = p;
   luz(p, 'studio_small_09', { forca: 1 });
-  cena.background = new THREE.Color(0xeef2f3);
+  cena.background = corDaPagina(0xeef2f3);
   const chave = new THREE.DirectionalLight(0xffffff, 2); chave.position.set(-4, 8, 6); chave.castShadow = true;
   chave.shadow.mapSize.set(2048, 2048); Object.assign(chave.shadow.camera, { left: -6, right: 6, top: 7, bottom: -6 }); chave.shadow.bias = -0.0005; cena.add(chave);
   // resina cor de osso, como os modelos anatômicos de consultório

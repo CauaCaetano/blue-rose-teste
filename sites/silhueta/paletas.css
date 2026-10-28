@@ -1,0 +1,136 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/silhueta/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #fcfaf8; --fundo-2: #f8f3ec; --branco: #ffffff; --tx: #11202b; --tx-2: #5a6772; --linha: rgba(17, 32, 43, .12); --acc: #c75e33; --pessego: #f3bf96; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .faixa-promo { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo { background: rgba(252, 250, 248, .9); }
+html[data-paleta="pt-PT"] .marca span { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .localizador { box-shadow: 0 20px 40px -30px rgba(17, 32, 43, .35); }
+html[data-paleta="pt-PT"] .un-painel { color: #ffffff; }
+html[data-paleta="pt-PT"] .un-painel p { color: rgba(255, 255, 255, .78); }
+html[data-paleta="pt-PT"] .tecs li { background: rgba(255, 255, 255, .1); }
+html[data-paleta="pt-PT"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="pt-PT"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
+html[data-paleta="pt-PT"] .rotulos-mapa span.ativo { color: #ffffff; }
+html[data-paleta="pt-PT"] .faixas-grade a { color: #ffffff; }
+html[data-paleta="pt-PT"] .faixas-grade span { background: linear-gradient(transparent, rgba(17, 32, 43, .85)); }
+html[data-paleta="pt-PT"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .tabela-comp thead th { color: #ffffff; }
+html[data-paleta="pt-PT"] .recibo { color: #ffffff; }
+html[data-paleta="pt-PT"] .recibo dl div { border-bottom: 1px dashed rgba(255, 255, 255, .2); }
+html[data-paleta="pt-PT"] .recibo dt { color: rgba(255, 255, 255, .7); }
+html[data-paleta="pt-PT"] .recibo-total span { color: rgba(255, 255, 255, .7); }
+html[data-paleta="pt-PT"] .recibo-total small { color: rgba(255, 255, 255, .7); }
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"],
+html[data-paleta="pt-PT"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="pt-PT"] .erro { color: #a54c27; }
+html[data-paleta="es"] { --fundo: #fdfaf7; --fundo-2: #f9f3eb; --branco: #ffffff; --tx: #25171a; --tx-2: #725a5f; --linha: rgba(37, 23, 26, .12); --acc: #c63436; --pessego: #f5d794; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .faixa-promo { color: #ffffff; }
+html[data-paleta="es"] .topo { background: rgba(253, 250, 247, .9); }
+html[data-paleta="es"] .marca span { color: #ffffff; }
+html[data-paleta="es"] .topo-cta { color: #ffffff; }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .localizador { box-shadow: 0 20px 40px -30px rgba(37, 23, 26, .35); }
+html[data-paleta="es"] .un-painel { color: #ffffff; }
+html[data-paleta="es"] .un-painel p { color: rgba(255, 255, 255, .78); }
+html[data-paleta="es"] .tecs li { background: rgba(255, 255, 255, .1); }
+html[data-paleta="es"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="es"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
+html[data-paleta="es"] .rotulos-mapa span.ativo { color: #ffffff; }
+html[data-paleta="es"] .faixas-grade a { color: #ffffff; }
+html[data-paleta="es"] .faixas-grade span { background: linear-gradient(transparent, rgba(37, 23, 26, .85)); }
+html[data-paleta="es"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .tabela-comp thead th { color: #ffffff; }
+html[data-paleta="es"] .recibo { color: #ffffff; }
+html[data-paleta="es"] .recibo dl div { border-bottom: 1px dashed rgba(255, 255, 255, .2); }
+html[data-paleta="es"] .recibo dt { color: rgba(255, 255, 255, .7); }
+html[data-paleta="es"] .recibo-total span { color: rgba(255, 255, 255, .7); }
+html[data-paleta="es"] .recibo-total small { color: rgba(255, 255, 255, .7); }
+html[data-paleta="es"] .dias button[aria-pressed="true"],
+html[data-paleta="es"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="es"] .erro { color: #a42829; }
+html[data-paleta="en"] { --fundo: #f8f9fc; --fundo-2: #eceff8; --branco: #ffffff; --tx: #11172b; --tx-2: #5a6072; --linha: rgba(17, 23, 43, .12); --acc: #cd2d36; --pessego: #93b0f6; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .faixa-promo { color: #ffffff; }
+html[data-paleta="en"] .topo { background: rgba(248, 249, 252, .9); }
+html[data-paleta="en"] .marca span { color: #ffffff; }
+html[data-paleta="en"] .topo-cta { color: #ffffff; }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .localizador { box-shadow: 0 20px 40px -30px rgba(17, 23, 43, .35); }
+html[data-paleta="en"] .un-painel { color: #ffffff; }
+html[data-paleta="en"] .un-painel p { color: rgba(255, 255, 255, .78); }
+html[data-paleta="en"] .tecs li { background: rgba(255, 255, 255, .1); }
+html[data-paleta="en"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="en"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
+html[data-paleta="en"] .rotulos-mapa span.ativo { color: #ffffff; }
+html[data-paleta="en"] .faixas-grade a { color: #ffffff; }
+html[data-paleta="en"] .faixas-grade span { background: linear-gradient(transparent, rgba(17, 23, 43, .85)); }
+html[data-paleta="en"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .tabela-comp thead th { color: #ffffff; }
+html[data-paleta="en"] .recibo { color: #ffffff; }
+html[data-paleta="en"] .recibo dl div { border-bottom: 1px dashed rgba(255, 255, 255, .2); }
+html[data-paleta="en"] .recibo dt { color: rgba(255, 255, 255, .7); }
+html[data-paleta="en"] .recibo-total span { color: rgba(255, 255, 255, .7); }
+html[data-paleta="en"] .recibo-total small { color: rgba(255, 255, 255, .7); }
+html[data-paleta="en"] .dias button[aria-pressed="true"],
+html[data-paleta="en"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="en"] .erro { color: #aa222a; }
+html[data-paleta="it"] { --fundo: #fcfbf8; --fundo-2: #f7f5ed; --branco: #ffffff; --tx: #1e2418; --tx-2: #66725a; --linha: rgba(30, 36, 24, .12); --acc: #c56335; --pessego: #eed29b; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .faixa-promo { color: #ffffff; }
+html[data-paleta="it"] .topo { background: rgba(252, 251, 248, .9); }
+html[data-paleta="it"] .marca span { color: #ffffff; }
+html[data-paleta="it"] .topo-cta { color: #ffffff; }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .localizador { box-shadow: 0 20px 40px -30px rgba(30, 36, 24, .35); }
+html[data-paleta="it"] .un-painel { color: #ffffff; }
+html[data-paleta="it"] .un-painel p { color: rgba(255, 255, 255, .78); }
+html[data-paleta="it"] .tecs li { background: rgba(255, 255, 255, .1); }
+html[data-paleta="it"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="it"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
+html[data-paleta="it"] .rotulos-mapa span.ativo { color: #ffffff; }
+html[data-paleta="it"] .faixas-grade a { color: #ffffff; }
+html[data-paleta="it"] .faixas-grade span { background: linear-gradient(transparent, rgba(30, 36, 24, .85)); }
+html[data-paleta="it"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .tabela-comp thead th { color: #ffffff; }
+html[data-paleta="it"] .recibo { color: #ffffff; }
+html[data-paleta="it"] .recibo dl div { border-bottom: 1px dashed rgba(255, 255, 255, .2); }
+html[data-paleta="it"] .recibo dt { color: rgba(255, 255, 255, .7); }
+html[data-paleta="it"] .recibo-total span { color: rgba(255, 255, 255, .7); }
+html[data-paleta="it"] .recibo-total small { color: rgba(255, 255, 255, .7); }
+html[data-paleta="it"] .dias button[aria-pressed="true"],
+html[data-paleta="it"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="it"] .erro { color: #a35029; }
+html[data-paleta="fr"] { --fundo: #faf8fc; --fundo-2: #f2ecf8; --branco: #ffffff; --tx: #1a1626; --tx-2: #605a72; --linha: rgba(26, 22, 38, .12); --acc: #553bbf; --pessego: #a997f2; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .faixa-promo { color: #ffffff; }
+html[data-paleta="fr"] .topo { background: rgba(250, 248, 252, .9); }
+html[data-paleta="fr"] .marca span { color: #ffffff; }
+html[data-paleta="fr"] .topo-cta { color: #ffffff; }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .localizador { box-shadow: 0 20px 40px -30px rgba(26, 22, 38, .35); }
+html[data-paleta="fr"] .un-painel { color: #ffffff; }
+html[data-paleta="fr"] .un-painel p { color: rgba(255, 255, 255, .78); }
+html[data-paleta="fr"] .tecs li { background: rgba(255, 255, 255, .1); }
+html[data-paleta="fr"] .mapa canvas { background: radial-gradient(ellipse at 50% 40%, #ffffff, var(--fundo-2)); }
+html[data-paleta="fr"] .rotulos-mapa span { background: rgba(255, 255, 255, .9); }
+html[data-paleta="fr"] .rotulos-mapa span.ativo { color: #ffffff; }
+html[data-paleta="fr"] .faixas-grade a { color: #ffffff; }
+html[data-paleta="fr"] .faixas-grade span { background: linear-gradient(transparent, rgba(26, 22, 38, .85)); }
+html[data-paleta="fr"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .tabela-comp thead th { color: #ffffff; }
+html[data-paleta="fr"] .recibo { color: #ffffff; }
+html[data-paleta="fr"] .recibo dl div { border-bottom: 1px dashed rgba(255, 255, 255, .2); }
+html[data-paleta="fr"] .recibo dt { color: rgba(255, 255, 255, .7); }
+html[data-paleta="fr"] .recibo-total span { color: rgba(255, 255, 255, .7); }
+html[data-paleta="fr"] .recibo-total small { color: rgba(255, 255, 255, .7); }
+html[data-paleta="fr"] .dias button[aria-pressed="true"],
+html[data-paleta="fr"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="fr"] .erro { color: #442d9f; }

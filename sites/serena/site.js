@@ -1,4 +1,4 @@
-// Atelier Serena · orçamento por tempo de cadeira (ligado ao espelho 3D), busca na tabela, pedido do bistrô
+// Atelier Serena · orçamento por tempo de cadeira (ligado à foto 3D e ao cartão do espelho), busca na tabela, pedido do bistrô
 // e reserva que só oferece horários em que cabe todo o atendimento.
 (function () {
   'use strict';
@@ -16,10 +16,11 @@
       var ids = $$('[name=s]:checked', orc).map(function (x) { return x.value; }), n = +$('[name=n]:checked', orc).value;
       var min = ids.reduce(function (a, k) { return a + S[k][1]; }, 0), valor = ids.reduce(function (a, k) { return a + S[k][2]; }, 0) * n;
       $('.soma', orc).innerHTML = ids.length ? real(valor) + '<small>' + tempo(min) + ' de cadeira' + (min > 120 ? ' · um item do bistrô por nossa conta' : '') + '</small>' : '<small>Marque ao menos um serviço.</small>';
-      if (window.serenaEstacao) window.serenaEstacao.orcar(min, Math.round(valor));
+      if (window.serenaEstacao) window.serenaEstacao.orcar(min, Math.round(valor), ultimo || ids[ids.length - 1]);
       return { ids: ids, n: n };
     };
-    orc.addEventListener('change', conta);
+    var ultimo = null;
+    orc.addEventListener('change', function (e) { if (e.target.name === 's') ultimo = e.target.checked ? e.target.value : null; conta(); });
     var tenta = setInterval(function () { if (window.serenaEstacao) { clearInterval(tenta); conta(); } }, 200); // a cena carrega como módulo, depois deste script
     setTimeout(function () { clearInterval(tenta); }, 8000);
     conta();

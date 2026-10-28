@@ -51,16 +51,16 @@
     return brl % 1 ? Math.round(v * 100) / 100 : Math.round(v);
   };
 
-  // paleta do país: o site usa css/paletas.css; cada sistema tem o paletas.css dele, ao lado do próprio CSS
-  // (estilo.css, tema.css ou base/nexo.css; gerado por tools/gerar_paletas_sistemas.py). Os sites de exemplo ficam com as cores deles.
-  if (atual.id !== ORIGEM && !/\/sites\//.test(location.pathname)) {
+  // paleta do país: o site usa css/paletas.css; cada sistema e cada site de exemplo tem o paletas.css dele, ao lado
+  // do próprio CSS (estilo.css, tema.css ou base/nexo.css; gerado por tools/gerar_paletas_sistemas.py)
+  if (atual.id !== ORIGEM) {
     document.documentElement.setAttribute('data-paleta', atual.id);
     var paleta = function (href, depois) {
       var pal = document.createElement('link');
       pal.rel = 'stylesheet'; pal.href = href;
       if (depois) depois.parentNode.insertBefore(pal, depois.nextSibling); else document.head.appendChild(pal);
     };
-    if (/\/demos\/sistemas\//.test(location.pathname)) {
+    if (/\/demos\/sistemas\/|\/sites\//.test(location.pathname)) {
       // este script vem antes dos <link> do sistema: cada CSS de cor que o navegador ler ganha o paletas.css logo depois,
       // antes da primeira pintura (sem piscar a cor antiga)
       var ver = function (l) { if (l.tagName === 'LINK' && !l.__pal && /\/(estilo|tema|nexo)\.css/.test(l.href)) { l.__pal = true; paleta(l.href.replace(/(estilo|tema|nexo)\.css.*$/, 'paletas.css?v=1'), l); } };

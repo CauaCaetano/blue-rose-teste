@@ -1,0 +1,36 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/brisa/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #11202c; --sup: #162c3e; --tx: #f3ebe0; --tx-2: #c1b7a9; --linha: rgba(243, 235, 224, .14); --acc: #e28e4a; --areia: #ecd5c3; }
+html[data-paleta="pt-PT"] .topo { background: rgba(17, 32, 44, .9); }
+html[data-paleta="pt-PT"] .marca span { box-shadow: 0 0 0 5px rgba(226, 142, 74, .18); }
+html[data-paleta="pt-PT"] .corp-res dt { color: #345066; }
+html[data-paleta="pt-PT"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e28e4a 0 13%, transparent 13.5%), linear-gradient(160deg, #204460, #0e1a23); }
+html[data-paleta="pt-PT"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f4ece1 0 22%, transparent 22.5%), linear-gradient(160deg, #e9a167, #d87e36); color: #101e2a; }
+html[data-paleta="pt-PT"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(17, 32, 44, .05) 18px 19px), #ecd5c3; }
+html[data-paleta="es"] { --fundo: #25181b; --sup: #421212; --tx: #f4eadf; --tx-2: #c1b6a9; --linha: rgba(244, 234, 223, .14); --acc: #e5b447; --areia: #ede0c2; }
+html[data-paleta="es"] .topo { background: rgba(37, 24, 27, .9); }
+html[data-paleta="es"] .marca span { box-shadow: 0 0 0 5px rgba(229, 180, 71, .18); }
+html[data-paleta="es"] .corp-res dt { color: #6d2d2d; }
+html[data-paleta="es"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e5b447 0 13%, transparent 13.5%), linear-gradient(160deg, #661a1a, #1e1315); }
+html[data-paleta="es"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f5ebe0 0 22%, transparent 22.5%), linear-gradient(160deg, #ebc265, #dba733); color: #231719; }
+html[data-paleta="es"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(37, 24, 27, .05) 18px 19px), #ede0c2; }
+html[data-paleta="en"] { --fundo: #0e162f; --sup: #0b1949; --tx: #dfe5f4; --tx-2: #a9b0c1; --linha: rgba(223, 229, 244, .14); --acc: #e14b54; --areia: #ecc3c6; }
+html[data-paleta="en"] .topo { background: rgba(14, 22, 47, .9); }
+html[data-paleta="en"] .marca span { box-shadow: 0 0 0 5px rgba(225, 75, 84, .18); }
+html[data-paleta="en"] .corp-res dt { color: #213579; }
+html[data-paleta="en"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #e14b54 0 13%, transparent 13.5%), linear-gradient(160deg, #102670, #0b1126); }
+html[data-paleta="en"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #e1e6f4 0 22%, transparent 22.5%), linear-gradient(160deg, #e86870, #d73741); color: #10162a; }
+html[data-paleta="en"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(14, 22, 47, .05) 18px 19px), #ecc3c5; }
+html[data-paleta="it"] { --fundo: #1f2518; --sup: #2c391b; --tx: #f1eee2; --tx-2: #c1bda9; --linha: rgba(241, 238, 226, .14); --acc: #d9ac53; --areia: #e9ddc6; }
+html[data-paleta="it"] .topo { background: rgba(31, 37, 24, .9); }
+html[data-paleta="it"] .marca span { box-shadow: 0 0 0 5px rgba(217, 172, 83, .18); }
+html[data-paleta="it"] .corp-res dt { color: #4f5b3f; }
+html[data-paleta="it"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #d9ac53 0 13%, transparent 13.5%), linear-gradient(160deg, #445729, #181d14); }
+html[data-paleta="it"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #f2efe3 0 22%, transparent 22.5%), linear-gradient(160deg, #e1bb6f, #ce9f40); color: #1d2317; }
+html[data-paleta="it"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(31, 37, 24, .05) 18px 19px), #e9ddc6; }
+html[data-paleta="fr"] { --fundo: #1a1726; --sup: #211a3a; --tx: #eae0f3; --tx-2: #b5a9c1; --linha: rgba(234, 224, 243, .14); --acc: #7659d3; --areia: #d0c9e6; }
+html[data-paleta="fr"] .topo { background: rgba(26, 23, 38, .9); }
+html[data-paleta="fr"] .marca span { box-shadow: 0 0 0 5px rgba(118, 89, 211, .18); }
+html[data-paleta="fr"] .corp-res dt { color: #443b5f; }
+html[data-paleta="fr"] .cartao[data-estampa="mar"] { background: radial-gradient(circle at 85% 15%, #7659d3 0 13%, transparent 13.5%), linear-gradient(160deg, #32265a, #15121f); }
+html[data-paleta="fr"] .cartao[data-estampa="sol"] { background: radial-gradient(circle at 80% 85%, #ebe1f4 0 22%, transparent 22.5%), linear-gradient(160deg, #8d74dc, #6647c7); color: #191525; }
+html[data-paleta="fr"] .cartao[data-estampa="areia"] { background: repeating-linear-gradient(170deg, transparent 0 18px, rgba(26, 23, 38, .05) 18px 19px), #d0c8e7; }

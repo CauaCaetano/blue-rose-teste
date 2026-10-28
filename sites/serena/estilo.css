@@ -34,9 +34,16 @@ section { padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 48px); max-width: 136
 
 .abertura { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(20px, 4vw, 48px); align-items: start; padding-top: clamp(20px, 3vw, 36px); }
 .estacao { position: sticky; top: 90px; }
-.estacao canvas { width: 100%; height: min(80vh, 760px); min-height: 460px; display: block; touch-action: pan-y; }
-.estacao.sem-3d canvas { background: var(--sup); }
-@media (max-width: 960px) { .abertura { grid-template-columns: 1fr; } .estacao { position: relative; top: 0; } .estacao canvas { height: 420px; min-height: 0; } }
+.estacao { height: min(80vh, 760px); min-height: 460px; background: var(--sup); }
+.espelho { position: absolute; left: 24px; bottom: 24px; width: 190px; padding: 22px 18px 18px; text-align: center; background: rgba(23, 21, 18, .72); backdrop-filter: blur(8px); border: 1px solid rgba(179, 146, 87, .45); border-radius: 95px 95px 6px 6px; }
+.espelho svg { position: absolute; left: 50%; top: 10px; width: 150px; height: 150px; transform: translateX(-50%) rotate(-90deg); fill: none; stroke-width: 1.5; }
+.espelho circle { stroke: rgba(242, 236, 226, .15); }
+.espelho .arco { stroke: var(--acc); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray .8s ease; }
+.espelho p { position: relative; margin: 0; }
+.esp-rot { font-size: .72rem; color: var(--tx-2); margin-top: 38px !important; }
+.esp-tempo { font-family: var(--serif); font-size: 2.6rem; line-height: 1.1; color: var(--acc); }
+.esp-preco { font-family: var(--serif); font-size: 1.2rem; min-height: 1.4em; margin-top: 30px !important; }
+@media (max-width: 960px) { .abertura { grid-template-columns: 1fr; } .estacao { position: relative; top: 0; } .estacao { height: 440px; min-height: 0; } }
 #orcar { display: grid; gap: 6px; margin-top: 18px; }
 .serv { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 12px 14px; border: 1px solid var(--linha); cursor: pointer; transition: border-color .2s, background .2s; }
 .serv:hover { border-color: rgba(179, 146, 87, .5); }

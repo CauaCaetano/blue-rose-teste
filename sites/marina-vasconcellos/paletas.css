@@ -1,0 +1,76 @@
+/* Gerado por tools/gerar_paletas_sistemas.py a partir de sites/marina-vasconcellos/estilo.css: cores por idioma. Não editar à mão. */
+html[data-paleta="pt-PT"] { --fundo: #f6f2ec; --fundo-2: #ece5dc; --branco: #fefdfc; --tx: #2a2e31; --tx-2: #666c70; --linha: rgba(42, 46, 49, .12); --acc: #6f818f; --argila: #dbb3a3; }
+html[data-paleta="pt-PT"] .pular { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo { background: rgba(246, 242, 236, .88); }
+html[data-paleta="pt-PT"] .menu a[aria-current="page"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .topo-cta { color: #ffffff; }
+html[data-paleta="pt-PT"] .regioes button[aria-pressed="true"],
+html[data-paleta="pt-PT"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .ritual { color: #ffffff; }
+html[data-paleta="pt-PT"] .ritual p { color: rgba(255, 255, 255, .72); }
+html[data-paleta="pt-PT"] .ritual .botao { background: #ffffff; }
+html[data-paleta="pt-PT"] .botao { color: #ffffff; }
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"],
+html[data-paleta="pt-PT"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="pt-PT"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="pt-PT"] .erro { color: #a35b3d; }
+html[data-paleta="es"] { --fundo: #f6f1ec; --fundo-2: #ece5dc; --branco: #fefdfc; --tx: #312a2b; --tx-2: #706668; --linha: rgba(49, 42, 43, .12); --acc: #8f6f75; --argila: #e1cc9d; }
+html[data-paleta="es"] .pular { color: #ffffff; }
+html[data-paleta="es"] .topo { background: rgba(246, 241, 236, .88); }
+html[data-paleta="es"] .menu a[aria-current="page"] { color: #ffffff; }
+html[data-paleta="es"] .topo-cta { color: #ffffff; }
+html[data-paleta="es"] .regioes button[aria-pressed="true"],
+html[data-paleta="es"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .ritual { color: #ffffff; }
+html[data-paleta="es"] .ritual p { color: rgba(255, 255, 255, .72); }
+html[data-paleta="es"] .ritual .botao { background: #ffffff; }
+html[data-paleta="es"] .botao { color: #ffffff; }
+html[data-paleta="es"] .dias button[aria-pressed="true"],
+html[data-paleta="es"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="es"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="es"] .erro { color: #ac8734; }
+html[data-paleta="en"] { --fundo: #eceff6; --fundo-2: #dce1ec; --branco: #fcfdfe; --tx: #2a2c31; --tx-2: #666870; --linha: rgba(42, 44, 49, .12); --acc: #6f768f; --argila: #dea0a3; }
+html[data-paleta="en"] .pular { color: #ffffff; }
+html[data-paleta="en"] .topo { background: rgba(236, 239, 246, .88); }
+html[data-paleta="en"] .menu a[aria-current="page"] { color: #ffffff; }
+html[data-paleta="en"] .topo-cta { color: #ffffff; }
+html[data-paleta="en"] .regioes button[aria-pressed="true"],
+html[data-paleta="en"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .ritual { color: #ffffff; }
+html[data-paleta="en"] .ritual p { color: rgba(255, 255, 255, .72); }
+html[data-paleta="en"] .ritual .botao { background: #ffffff; }
+html[data-paleta="en"] .botao { color: #ffffff; }
+html[data-paleta="en"] .dias button[aria-pressed="true"],
+html[data-paleta="en"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="en"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="en"] .erro { color: #a9373e; }
+html[data-paleta="it"] { --fundo: #f6f4ec; --fundo-2: #ece9dc; --branco: #fefdfc; --tx: #2e312a; --tx-2: #6b7066; --linha: rgba(46, 49, 42, .12); --acc: #7f8f6f; --argila: #dac8a4; }
+html[data-paleta="it"] .pular { color: #ffffff; }
+html[data-paleta="it"] .topo { background: rgba(246, 244, 236, .88); }
+html[data-paleta="it"] .menu a[aria-current="page"] { color: #ffffff; }
+html[data-paleta="it"] .topo-cta { color: #ffffff; }
+html[data-paleta="it"] .regioes button[aria-pressed="true"],
+html[data-paleta="it"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .ritual { color: #ffffff; }
+html[data-paleta="it"] .ritual p { color: rgba(255, 255, 255, .72); }
+html[data-paleta="it"] .ritual .botao { background: #ffffff; }
+html[data-paleta="it"] .botao { color: #ffffff; }
+html[data-paleta="it"] .dias button[aria-pressed="true"],
+html[data-paleta="it"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="it"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="it"] .erro { color: #a08040; }
+html[data-paleta="fr"] { --fundo: #f1ecf6; --fundo-2: #e4dcec; --branco: #fdfcfe; --tx: #2c2a31; --tx-2: #686670; --linha: rgba(44, 42, 49, .12); --acc: #766f8f; --argila: #b3a8d6; }
+html[data-paleta="fr"] .pular { color: #ffffff; }
+html[data-paleta="fr"] .topo { background: rgba(241, 236, 246, .88); }
+html[data-paleta="fr"] .menu a[aria-current="page"] { color: #ffffff; }
+html[data-paleta="fr"] .topo-cta { color: #ffffff; }
+html[data-paleta="fr"] .regioes button[aria-pressed="true"],
+html[data-paleta="fr"] .cats button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .ritual { color: #ffffff; }
+html[data-paleta="fr"] .ritual p { color: rgba(255, 255, 255, .72); }
+html[data-paleta="fr"] .ritual .botao { background: #ffffff; }
+html[data-paleta="fr"] .botao { color: #ffffff; }
+html[data-paleta="fr"] .dias button[aria-pressed="true"],
+html[data-paleta="fr"] .horas button[aria-pressed="true"] { color: #ffffff; }
+html[data-paleta="fr"] .dias button[aria-pressed="true"] span { color: rgba(255, 255, 255, .8); }
+html[data-paleta="fr"] .erro { color: #5a469a; }

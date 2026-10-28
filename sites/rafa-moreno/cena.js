@@ -1,7 +1,7 @@
 // Rafa Moreno · o halter: sextavado de borracha, pegada cromada recartilhada e o peso gravado na cabeça,
 // sobre piso de borracha de academia, com uma academia de verdade (foto 360°, Poly Haven) desfocada ao fundo.
 // rafaHalter.peso(kg) troca o tamanho das cabeças e o número gravado.
-import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura, corDaPagina } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('halter-3d');
 const p = palco(canvas, { fov: 34, pos: [0, 3, 10], alvo: [0, 0.7, 0], quadro, tom: true, claro: false });
@@ -14,7 +14,7 @@ function montar() {
   const { cena } = p;
   // a academia de verdade entra nos reflexos do cromo; o fundo fica escuro (a foto inteira estoura em branco no tema preto)
   luz(p, 'crossfit_gym', { forca: 0.8 });
-  cena.background = new THREE.Color(0x0b0b0b); cena.fog = new THREE.Fog(0x0b0b0b, 9, 18);
+  cena.background = corDaPagina(0x0b0b0b); cena.fog = new THREE.Fog(corDaPagina(0x0b0b0b), 9, 18);
   const chave = new THREE.DirectionalLight(0xffffff, 2); chave.position.set(-3, 7, 4); chave.castShadow = true;
   chave.shadow.mapSize.set(2048, 2048); Object.assign(chave.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5 }); chave.shadow.bias = -0.0005; cena.add(chave);
   const recorte = new THREE.SpotLight(acc(), 30, 14, 0.5, 0.6); recorte.position.set(4, 5, -3); recorte.target.position.set(0, 0.5, 0); cena.add(recorte, recorte.target);

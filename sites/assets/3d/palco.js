@@ -6,6 +6,8 @@ import { GLTFLoader } from './GLTFLoader.js';
 import { RGBELoader } from './RGBELoader.js';
 
 export { THREE };
+// cor de fundo da página, já com a paleta do idioma: a cena continua sumindo na página em qualquer paleta
+export function corDaPagina(padrao) { const c = getComputedStyle(document.body).backgroundColor; return new THREE.Color(/^rgb\(/.test(c) ? c : padrao); }
 export const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function palco(canvas, { fov = 40, pos = [0, 0, 8], alvo = [0, 0, 0], quadro, claro = true, tom = true } = {}) {
