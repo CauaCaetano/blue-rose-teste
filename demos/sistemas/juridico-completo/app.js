@@ -317,7 +317,7 @@ function resposta(p) {
 const F = {
   'novo-prazo': (d) => ficha('Novo prazo', `<label class="cp">Processo<select name="p">${opcoesProc(d.p)}</select></label><label class="cp">O que fazer<input name="d" required></label><div class="par"><label class="cp">Responsável<select name="r">${opcoesEquipe(db.eu)}</select></label><label class="cp">Dias úteis a partir de hoje<input name="n" inputmode="numeric" value="15"></label></div>`, 'Contar e salvar', (f) => { const fim = avancaUteis(zero(), Math.floor(valor(f.get('n')))); db.prazos.push({ id: gid(), proc: f.get('p'), desc: f.get('d'), resp: f.get('r'), fatal: emDias(fim), interno: emDias(avancaUteis(fim, -db.ajustes.alertaInterno)), status: 'aberto' }); aviso(`Fatal em ${fim.toLocaleDateString('pt-BR')}`); }),
   'nova-aud': () => ficha('Nova audiência', `<label class="cp">Processo<select name="p">${opcoesProc()}</select></label><div class="par"><label class="cp">Daqui a quantos dias<input name="d" type="number" value="7"></label><label class="cp">Hora<input name="h" type="time" value="14:00"></label></div><label class="cp">Tipo<input name="t" value="Conciliação"></label>`, 'Marcar', (f) => { db.audiencias.push({ id: gid(), proc: f.get('p'), dia: Number(f.get('d')), hora: f.get('h'), tipo: f.get('t') }); }),
-  'novo-processo': () => ficha('Novo processo', `<div class="par"><label class="cp">Cliente<select name="c">${db.clientes.map((c) => `<option value="${c.id}">${sx(c.nome)}</option>`).join('')}</select></label><label class="cp">Responsável<select name="r">${opcoesEquipe(db.eu)}</select></label></div><label class="cp">Número CNJ<input name="n" required></label><div class="par"><label class="cp">Ação<input name="t" required></label><label class="cp">Parte contrária<input name="x"></label></div><label class="cp">Juízo<input name="v"></label>`, 'Cadastrar', (f) => { const contra = String(f.get('x') || '').trim(); if (contra) { const cf = conflitos(contra).filter((t) => t.startsWith('É cliente')); if (cf.length && !confirm(`Atenção, possível conflito de interesses: a parte contrária também ${cf[0].toLowerCase()}.\n\nCadastrar assim mesmo?`)) return false; } db.processos.push({ id: gid(), cnj: f.get('n'), cli: f.get('c'), resp: f.get('r'), tipo: f.get('t'), contra: f.get('x') || '—', vara: f.get('v') || '—', fase: 'Inicial', valorCausa: 0, andamentos: [{ dia: 0, texto: 'Cadastro do processo' }], docs: [] }); }),
+  'novo-processo': () => ficha('Novo processo', `<div class="par"><label class="cp">Cliente<select name="c" data-livre="clientes">${db.clientes.map((c) => `<option value="${c.id}">${sx(c.nome)}</option>`).join('')}</select></label><label class="cp">Responsável<select name="r">${opcoesEquipe(db.eu)}</select></label></div><label class="cp">Número CNJ<input name="n" required></label><div class="par"><label class="cp">Ação<input name="t" required></label><label class="cp">Parte contrária<input name="x"></label></div><label class="cp">Juízo<input name="v"></label>`, 'Cadastrar', (f) => { const contra = String(f.get('x') || '').trim(); if (contra) { const cf = conflitos(contra).filter((t) => t.startsWith('É cliente')); if (cf.length && !confirm(`Atenção, possível conflito de interesses: a parte contrária também ${cf[0].toLowerCase()}.\n\nCadastrar assim mesmo?`)) return false; } db.processos.push({ id: gid(), cnj: f.get('n'), cli: f.get('c'), resp: f.get('r'), tipo: f.get('t'), contra: f.get('x') || '—', vara: f.get('v') || '—', fase: 'Inicial', valorCausa: 0, andamentos: [{ dia: 0, texto: 'Cadastro do processo' }], docs: [] }); }),
   andamento: (d) => ficha('Novo andamento', '<label class="cp">O que aconteceu<textarea name="t" required></textarea></label>', 'Salvar', (f) => { processo(d.p).andamentos.unshift({ dia: 0, texto: f.get('t') }); }),
   protocolar: (d) => { const p = db.prazos.find((x) => x.id === d.id); ficha(`Protocolar · ${sx(p.desc)}`, '<label class="cp">Número do protocolo (se tiver)<input name="n" maxlength="40" placeholder="Ex.: 10000123456"></label><p class="vazio">O prazo sai da lista de abertos e o protocolo entra nos andamentos.</p>', 'Protocolado', (f) => { p.status = 'protocolado'; p.protocolo = String(f.get('n') || '').trim(); processo(p.proc).andamentos?.unshift({ dia: 0, texto: `Protocolado: ${p.desc}${p.protocolo ? ` (nº ${p.protocolo})` : ''}` }); aviso('Prazo cumprido e protocolado.'); }); },
   'prazo-int': (d) => { const i = db.intimacoes.find((x) => x.id === d.id); F['novo-prazo']({ p: i.proc }); },
@@ -475,3 +475,19 @@ document.addEventListener('input', (e) => {
 });
 qs('#recomecar').addEventListener('click', () => { localStorage.removeItem(CHAVE); db = escritorio(); location.hash = '#pauta'; abre(); aviso('Demonstração recomeçada.'); });
 abre();
+
+/* veltria: campos livres */
+// Nome escrito à mão num campo de lista (js/campos-livres.js): vira cadastro novo nesta lista do db,
+// no mesmo formato dos que já existem. O formulário grava como sempre.
+window.veltriaNovoCadastro = (tipo, nome) => {
+  const lista = db && db[tipo];
+  if (!Array.isArray(lista)) return '';
+  const ja = lista.find((x) => String(x.nome || '').trim().toLowerCase() === nome.trim().toLowerCase());
+  if (ja) return ja.id;
+  const mod = lista[0] || {}, n = {};
+  Object.keys(mod).forEach((k) => { const v = mod[k]; n[k] = Array.isArray(v) ? [] : typeof v === 'number' ? 0 : typeof v === 'boolean' ? false : v && typeof v === 'object' ? {} : ''; });
+  n.id = typeof mod.id === 'number' ? Math.max(0, ...lista.map((x) => Number(x.id) || 0)) + 1 : `n${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
+  n.nome = nome.trim();
+  lista.push(n);
+  return n.id;
+};
