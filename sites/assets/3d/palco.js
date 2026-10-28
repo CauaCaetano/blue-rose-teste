@@ -2,6 +2,8 @@
 // Cada site monta a própria cena; aqui ficam o renderizador, o tamanho da tela, a pausa fora da vista
 // e o respeito a "reduzir movimento". Sem WebGL, o contêiner ganha .sem-3d e o CSS do site mostra o plano B.
 import * as THREE from './three.module.min.js';
+import { GLTFLoader } from './GLTFLoader.js';
+import { RGBELoader } from './RGBELoader.js';
 
 export { THREE };
 export const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,6 +21,8 @@ export function palco(canvas, { fov = 40, pos = [0, 0, 8], alvo = [0, 0, 0], qua
   // tom = false: cores do papel e da tinta como estão (o ACES acinzenta tons claros)
   renderer.toneMapping = tom ? THREE.ACESFilmicToneMapping : THREE.NoToneMapping;
   renderer.toneMappingExposure = claro ? 1.05 : 1.2;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const cena = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(fov, 1, 0.1, 200);
   camera.position.set(...pos);
@@ -64,3 +68,43 @@ export function palco(canvas, { fov = 40, pos = [0, 0, 8], alvo = [0, 0, 0], qua
 
 // número suave em direção ao alvo (para animar sem biblioteca)
 export const aproxima = (atual, alvo, dt, vel = 6) => atual + (alvo - atual) * (1 - Math.exp(-vel * dt));
+
+// ---------- modelos e luz reais (Poly Haven, CC0; ver modelos/CREDITOS.txt) ----------
+const BASE = new URL('./', import.meta.url).href;
+const gltf = new GLTFLoader();
+
+// luz de uma foto 360° (HDRI): reflexos e sombras de verdade. fundo: true mostra a foto desfocada atrás.
+export function luz(p, nome, { fundo = false, forca = 1, desfoque = 0.4 } = {}) {
+  return new Promise((ok) => new RGBELoader().load(BASE + 'luz/' + nome + '.hdr', (tex) => {
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    p.cena.environment = tex;
+    p.cena.environmentIntensity = forca;
+    if (fundo) { p.cena.background = tex; p.cena.backgroundBlurriness = desfoque; }
+    p.redesenhar(); ok(tex);
+  }, undefined, () => ok(null)));
+}
+
+// modelo glTF da pasta modelos/<id>/<id>_1k.gltf; devolve a cena dele, já com sombras ligadas
+export function modelo(id) {
+  return new Promise((ok, erro) => gltf.load(BASE + 'modelos/' + id + '/' + id + '_1k.gltf', (g) => {
+    g.scene.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+    ok(g.scene);
+  }, undefined, erro));
+}
+
+// textura PBR da pasta texturas/<id>/ (cor, normal, rugosidade), repetida rx × ry vezes
+const tl = new THREE.TextureLoader();
+export function textura(id, rx = 1, ry = rx) {
+  const carrega = (n, cor) => { const t = tl.load(BASE + 'texturas/' + id + '/' + n + '.jpg'); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.anisotropy = 8; if (cor) t.colorSpace = THREE.SRGBColorSpace; return t; };
+  return { map: carrega('cor', true), normalMap: carrega('normal'), roughnessMap: carrega('rug') };
+}
+
+// ajusta o tamanho do objeto para caber em "medida" (maior lado) e devolve um grupo com a base em y = 0 e o
+// centro no eixo: posição e giro aplicados ao grupo não deslocam o modelo (o pivô original de cada arquivo varia)
+export function encaixar(obj, medida) {
+  const caixa = new THREE.Box3().setFromObject(obj), tam = caixa.getSize(new THREE.Vector3());
+  obj.scale.multiplyScalar(medida / Math.max(tam.x, tam.y, tam.z));
+  const c2 = new THREE.Box3().setFromObject(obj), centro = c2.getCenter(new THREE.Vector3());
+  obj.position.x -= centro.x; obj.position.z -= centro.z; obj.position.y -= c2.min.y;
+  const g = new THREE.Group(); g.add(obj); return g;
+}

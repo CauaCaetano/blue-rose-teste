@@ -1,0 +1,2 @@
+Modelos 3D, texturas e fotos 360° (HDRI) do Poly Haven (https://polyhaven.com), licença CC0 (domínio público).
+Biblioteca Three.js (MIT), ver ../LICENSE-three.txt.

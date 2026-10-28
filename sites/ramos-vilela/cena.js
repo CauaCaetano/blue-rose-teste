@@ -1,12 +1,12 @@
 // Ramos Vilela · a torre: oito andares, um para cada área. Passar o mouse puxa o andar para fora;
 // clicar abre a área (evento "rv-andar"). A lista HTML ao lado faz o mesmo, para quem usa teclado.
-import { palco, THREE, calmo, aproxima } from '../assets/3d/palco.js';
+import { palco, THREE, calmo, aproxima, luz, textura } from '../assets/3d/palco.js';
 
 const canvas = document.getElementById('torre-3d');
 if (canvas) {
   // mini: a maquete no topo das páginas internas (só gira, sem andares para clicar)
   const mini = canvas.dataset.modo === 'mini';
-  const p = palco(canvas, { fov: 30, pos: mini ? [10, 7, 15] : [9, 6.5, 13], alvo: [0, 3.4, 0], quadro, tom: false });
+  const p = palco(canvas, { fov: 30, pos: mini ? [10, 7, 15] : [9, 6.5, 13], alvo: [0, 3.4, 0], quadro, tom: true });
   const acc = () => getComputedStyle(document.documentElement).getPropertyValue('--acc').trim() || '#b08a4e';
   const ANDARES = 8, H = 0.82;
   const andares = [];
@@ -14,25 +14,28 @@ if (canvas) {
 
   if (p) {
     const { cena } = p;
-    cena.add(new THREE.HemisphereLight(0xf4f1ea, 0x6b6257, 1.1));
-    const sol = new THREE.DirectionalLight(0xfff1dc, 1.6); sol.position.set(-6, 12, 8); cena.add(sol);
+    // luz de uma praça de verdade (HDRI): o vidro reflete a cidade
+    luz(p, 'potsdamer_platz', { forca: 1 });
+    const sol = new THREE.DirectionalLight(0xfff1dc, 2.2); sol.position.set(-6, 12, 8); sol.castShadow = true;
+    sol.shadow.mapSize.set(2048, 2048); Object.assign(sol.shadow.camera, { left: -7, right: 7, top: 9, bottom: -3 }); sol.shadow.bias = -0.0005; cena.add(sol);
     const contra = new THREE.DirectionalLight(0xc8d6e6, 0.7); contra.position.set(8, 4, -6); cena.add(contra);
 
     const torre = new THREE.Group(); cena.add(torre); p.torre = torre;
-    const pedra = new THREE.MeshStandardMaterial({ color: 0xe9e4da, roughness: 0.85 });
+    const pedra = new THREE.MeshStandardMaterial({ ...textura('marble_01', 1, 0.15), roughness: 0.4 });
+    const marmore = new THREE.MeshStandardMaterial({ ...textura('marble_01', 2, 0.5), roughness: 0.25 });
     const grafite = new THREE.MeshStandardMaterial({ color: 0x2a2e33, roughness: 0.5, metalness: 0.3 });
-    // chão com sombra suave desenhada
-    const t = document.createElement('canvas'); t.width = t.height = 256; const x = t.getContext('2d');
-    // a sombra usa o degradê como alphaMap (cinza: claro = mais sombra), sem cor própria no canvas
-    const gr = x.createRadialGradient(128, 128, 10, 128, 128, 128); gr.addColorStop(0, '#fff'); gr.addColorStop(1, '#000'); x.fillStyle = gr; x.fillRect(0, 0, 256, 256);
-    const sombra = new THREE.Mesh(new THREE.PlaneGeometry(9, 9), new THREE.MeshBasicMaterial({ color: 0x2a2520, alphaMap: new THREE.CanvasTexture(t), transparent: true, opacity: 0.3, depthWrite: false }));
-    sombra.rotation.x = -Math.PI / 2; sombra.position.y = 0.01; cena.add(sombra);
     // pódio
-    const podio = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.5, 3.4), pedra); podio.position.y = 0.25; torre.add(podio);
+    const podio = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.5, 3.4), marmore); podio.position.y = 0.25; podio.castShadow = podio.receiveShadow = true; torre.add(podio);
+    // calçada de concreto em volta
+    // (some em degradê nas bordas, para não aparecer cortada no quadro)
+    const tc = document.createElement('canvas'); tc.width = tc.height = 256; const xc = tc.getContext('2d');
+    const gc = xc.createRadialGradient(128, 128, 40, 128, 128, 128); gc.addColorStop(0, '#fff'); gc.addColorStop(1, '#000'); xc.fillStyle = gc; xc.fillRect(0, 0, 256, 256);
+    const calcada = new THREE.Mesh(new THREE.CircleGeometry(5.5, 64), new THREE.MeshStandardMaterial({ ...textura('concrete_floor_02', 4, 4), alphaMap: new THREE.CanvasTexture(tc), transparent: true }));
+    calcada.rotation.x = -Math.PI / 2; calcada.receiveShadow = true; cena.add(calcada);
     for (let i = 0; i < ANDARES; i++) {
       const g = new THREE.Group(); g.position.y = 0.5 + i * H;
-      const laje = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.12, 2.4), pedra); laje.position.y = 0.06; g.add(laje);
-      const vidroMat = new THREE.MeshStandardMaterial({ color: 0xb4c4ce, roughness: 0.18, metalness: 0.35, transparent: true, opacity: 0.86 });
+      const laje = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.12, 2.4), pedra); laje.position.y = 0.06; laje.castShadow = laje.receiveShadow = true; g.add(laje);
+      const vidroMat = new THREE.MeshStandardMaterial({ color: 0xb4c4ce, roughness: 0.06, metalness: 0.92, envMapIntensity: 1.3 });
       const vidro = new THREE.Mesh(new THREE.BoxGeometry(3.0, H - 0.12, 2.2), vidroMat); vidro.position.y = 0.12 + (H - 0.12) / 2; g.add(vidro);
       // montantes na fachada
       for (let k = -6; k <= 6; k++) { const m = new THREE.Mesh(new THREE.BoxGeometry(0.03, H - 0.12, 0.04), grafite); m.position.set(k * 0.25, vidro.position.y, 1.11); g.add(m); }
