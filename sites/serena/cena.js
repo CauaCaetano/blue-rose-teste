@@ -1,23 +1,19 @@
-// Atelier Serena · fotos reais do salão. A foto mostra o último serviço
-// marcado; por cima, o cartão do espelho com o tempo de cadeira, o valor e um arco dourado que enche até 4 horas.
-// serenaEstacao.orcar(min, preco, servico) atualiza tudo.
-import { foto } from '../assets/foto.js';
+// Atelier Serena · a cadeira de barbeiro antiga, escaneada de uma cadeira real (Poly Haven, CC0), girando no palco.
+// serenaEstacao.orcar(min, preco) atualiza o cartão do tempo de cadeira e vira a cadeira um pouco a cada serviço.
+import { vitrine } from '../assets/3d/vitrine.js';
 
-const caixa = document.getElementById('estacao');
-const quadro = foto(caixa, { foto: 'img/estacao.webp', alt: 'Estação do salão com cadeira e espelho' });
-const cartao = document.createElement('div'); cartao.className = 'espelho'; cartao.setAttribute('aria-live', 'polite');
-cartao.innerHTML = '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44"/><circle class="arco" cx="50" cy="50" r="44" pathLength="100"/></svg><p class="esp-rot"></p><p class="esp-tempo"></p><p class="esp-preco"></p>';
-caixa.appendChild(cartao);
-let atual = 'estacao';
+const cartao = document.querySelector('.espelho');
 const tempo = (m) => { const h = Math.floor(m / 60), r = m % 60; return h ? h + 'h' + (r ? String(r).padStart(2, '0') : '') : r + ' min'; };
+let v = null, vira = 0.6, ultimo = -1;
+vitrine(document.getElementById('cadeira-3d'), { arquivo: 'BarberShopChair_01/BarberShopChair_01_1k.gltf', medida: 2, distancia: 5.8, altura: 0.46, giro: 0.6, hdri: 'brown_photostudio_02', forca: 1.1 }).then((x) => { v = x; });
 
 window.serenaEstacao = {
-  orcar(min, valor, servico) {
+  orcar(min, valor) {
     cartao.querySelector('.esp-rot').textContent = min ? 'tempo de cadeira' : 'escolha os serviços';
     cartao.querySelector('.esp-tempo').textContent = min ? tempo(min) : '—';
     cartao.querySelector('.esp-preco').textContent = valor ? 'R$ ' + valor.toLocaleString('pt-BR') : '';
     cartao.querySelector('.arco').style.strokeDasharray = Math.min(100, min / 2.4) + ' 100';
-    const novo = min ? servico || atual : 'estacao';
-    if (novo !== atual) { atual = novo; quadro.trocar('img/' + novo + '.webp'); }
+    if (v && ultimo >= 0 && min !== ultimo) { vira += (min > ultimo ? 1 : -1) * 0.9; v.olhar(vira); }
+    ultimo = min;
   },
 };
