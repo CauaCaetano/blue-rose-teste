@@ -1603,3 +1603,6 @@ html[data-theme="light"] body::before {
 .tambem-grade p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; margin: 0; }
 .tambem-preco b { color: var(--ink); font-size: 22px; } .tambem-preco span { font-size: 13.5px; }
 .tambem-grade .btn { margin-top: auto; align-self: flex-start; }
+.tambem-links { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
+.tambem-links a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 14px; border: 1px solid var(--line-2); border-radius: var(--r-sm); color: var(--ink); text-decoration: none; transition: border-color .2s, background .2s; }
+.tambem-links a:hover { border-color: var(--ink-2); background: rgba(255, 255, 255, .04); } .tambem-links span { color: var(--ink-2); font-size: 13.5px; }

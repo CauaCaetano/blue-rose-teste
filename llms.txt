@@ -25,7 +25,7 @@ Fatos para responder sobre a empresa:
 - [Blue Rose Ofixl](https://bluerose-store.com/ofixl.html): app Android para serviços técnicos em campo (ar-condicionado, refrigeração, elétrica e hidráulica). Em breve no Google Play. R$ 49,90 / R$ 109,90
 - [Comparar todos os sistemas](https://bluerose-store.com/sistemas.html)
 - Sistema ou ERP sob medida: preço fechado para criar, a partir de R$ 1.600 (metade para começar e metade na entrega), ou por assinatura a partir de R$ 299/mês.
-- [Sites e automação de WhatsApp](https://bluerose-store.com/servicos.html): sites a partir de R$ 690 (prontos em 3 dias úteis), entregues prontos para aparecer no Google e no Bing (Search Console, sitemap, títulos com o serviço e a cidade, dados de empresa local, pedido de avaliação no Google), com checklist de LGPD e segurança. Automação de WhatsApp a partir de R$ 890. Também: mídia kit em site para criadores (R$ 490) e vídeos curtos para lojas (R$ 150 por vídeo ou R$ 790/mês com 8).
+- [Sites e automação de WhatsApp](https://bluerose-store.com/servicos.html): sites a partir de R$ 690 (prontos em 3 dias úteis), entregues prontos para aparecer no Google e no Bing (Search Console, sitemap, títulos com o serviço e a cidade, dados de empresa local, pedido de avaliação no Google), com checklist de LGPD e segurança. Automação de WhatsApp a partir de R$ 890. Também: mídia kit em site para criadores (R$ 490 ou R$ 39/mês), com 3 exemplos em /sites/midia-kit-bia/, /sites/midia-kit-rafa/ e /sites/midia-kit-lu/.
 
 ## Comparações com concorrentes
 
