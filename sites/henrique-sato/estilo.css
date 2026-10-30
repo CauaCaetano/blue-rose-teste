@@ -40,7 +40,8 @@ a { color: inherit; }
 .prova li { display: grid; color: #9fb6c4; font-size: 14px; }
 .prova b { color: var(--branco); font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
 .hero-dr { position: relative; margin: 0; align-self: end; }
-.hero-dr img { width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; object-position: 50% 15%; border-radius: 160px 160px 0 0; }
+.hero-dr::before { content: ''; position: absolute; right: -14px; top: 4%; bottom: 0; left: 18%; background: var(--amarelo); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+.hero-dr img { position: relative; width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; object-position: 50% 15%; clip-path: polygon(0 12%, 100% 2%, 100% 100%, 0 100%); } /* recorte reto e diagonal, com o amarelo atrás */
 .ficha { position: relative; align-self: center; margin-bottom: clamp(32px, 5vw, 64px); display: grid; gap: 12px; padding: 26px; background: var(--branco); color: var(--petro); border-radius: 14px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6); border-top: 6px solid var(--amarelo); }
 .ficha-t { font-size: 24px; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; }
 .ficha-sub { color: var(--tx-2); font-size: 15px; } .ficha-sub b { color: var(--petro); }
