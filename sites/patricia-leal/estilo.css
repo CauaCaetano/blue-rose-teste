@@ -38,8 +38,9 @@ a { color: inherit; }
 .abre-fatos { list-style: none; margin: 40px 0 0; padding: 22px 0 0; display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255, 255, 255, .16); color: #c9b3c4; font-size: 15px; }
 .abre-fatos b { display: block; color: var(--branco); font: 400 30px/1.1 var(--serif); font-style: italic; }
 .abre-foto { position: relative; margin: 0; }
-.abre-foto img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 10%; border-radius: 999px 999px 0 0; background: var(--ber-2); }
-.abre-foto figcaption { position: absolute; left: -40px; top: 26%; background: var(--papel); color: var(--tinta); padding: 14px 18px; border-radius: 16px; font: 400 22px/1.15 var(--serif); font-style: italic; max-width: 220px; box-shadow: 0 20px 40px -24px rgba(0, 0, 0, .6); }
+.abre-foto { margin-right: calc(-1 * clamp(16px, 4vw, 48px)); }
+.abre-foto img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 10%; border-radius: 0; background: var(--ber-2); } /* foto reta, encostada na borda: página de revista, sem moldura */
+.abre-foto figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 24px 20px; background: linear-gradient(transparent, rgba(46, 26, 46, .92)); color: var(--mel); font: 400 26px/1.15 var(--serif); font-style: italic; }
 
 .situacao, .pensao, .eu, .consulta { max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 48px) 0; }
 .situacao { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
@@ -92,8 +93,9 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .menu { display: none; } .topo .bt { margin-left: auto; }
   .abre { grid-template-columns: 1fr; }
-  .abre-foto { max-width: 420px; justify-self: center; width: 80%; }
-  .abre-foto figcaption { left: -12%; top: auto; bottom: 14%; font-size: 19px; }
+  .abre-foto { margin-right: 0; margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); }
+  .abre-foto img { aspect-ratio: 4 / 5; object-position: 50% 12%; }
+  .abre-foto figcaption { font-size: 22px; }
   .situacao, .pensao, .eu, .consulta { grid-template-columns: 1fr; }
   .carta { position: static; }
   .carta dl { grid-template-columns: 1fr 1fr; }
