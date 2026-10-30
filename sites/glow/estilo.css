@@ -62,7 +62,7 @@ button { font: inherit; color: inherit; }
 .h-fixo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(30, 20, 12, .35), transparent 22%, transparent 55%, var(--fundo) 98%); }
 .heroi h1 { position: absolute; z-index: 2; left: 0; right: 0; top: 34%; padding: 0 16px; font: 500 clamp(54px, 8.75vw, 126px)/1 var(--serif); letter-spacing: -.01em; animation: desfoca-entra 1.6s cubic-bezier(.2, .7, .2, 1) 1.2s both; }
 @keyframes desfoca-entra { from { opacity: 0; filter: blur(18px); transform: translateY(30px); } to { opacity: 1; filter: blur(0); transform: none; } }
-.h-rola { position: absolute; z-index: 2; top: 56%; left: 0; right: 0; font: 600 14px/1 var(--f); text-transform: uppercase; letter-spacing: -.01em; }
+.h-rola { position: absolute; z-index: 2; top: auto; bottom: 9%; left: 0; right: 0; font: 600 14px/1 var(--f); text-transform: uppercase; letter-spacing: -.01em; }
 .h-frase { position: absolute; z-index: 2; left: 0; right: 0; bottom: 14%; margin: 0 auto; max-width: 760px; padding: 0 16px; }
 .h-frase p { font: 500 clamp(26px, 2.8vw, 40px)/1.2 var(--serif); }
 .h-frase .logo { display: inline-block; margin-top: 10px; font-size: 20px; }
