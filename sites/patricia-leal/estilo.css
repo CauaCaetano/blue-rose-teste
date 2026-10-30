@@ -54,7 +54,7 @@ a { color: inherit; }
 .carta-vazia { color: var(--tx-2); font: 400 26px/1.25 var(--serif); font-style: italic; }
 .carta h3 { font-family: var(--serif); font-style: italic; }
 .carta p { color: var(--tx-2); }
-.carta dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 22px 0; padding: 18px 0; border-top: 1px solid var(--rosa); border-bottom: 1px solid var(--rosa); }
+.carta dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 22px 0; padding: 18px 0; border-top: 1px solid var(--rosa); border-bottom: 1px solid var(--rosa); }
 .carta dt { font-size: 13px; color: var(--tx-2); }
 .carta dd { margin: 4px 0 0; font: 400 22px/1.15 var(--serif); color: var(--tinta); }
 .carta .assina { font: 400 20px/1.3 var(--serif); font-style: italic; color: var(--ber-2); margin-bottom: 18px; }
