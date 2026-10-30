@@ -35,6 +35,6 @@
     er.textContent = n.length < 2 ? 'Escreva seu nome.' : t.length < 10 ? 'Confira o WhatsApp com DDD.' : '';
     if (er.textContent) return;
     window.BR_WA && window.BR_WA('Olá, Dra. Patrícia! Sou ' + n + ' e quero marcar a consulta online sobre ' + c.assunto.value.toLowerCase() + '.');
-    c.innerHTML = '<p style="grid-column:1/-1;font-size:1.2rem">Obrigada, ' + n.split(' ')[0] + '. Respondo pessoalmente no seu WhatsApp hoje, com os horários livres.</p>';
+    c.innerHTML = '<p style="font-size:1.2rem">Obrigada, ' + n.split(' ')[0] + '. Respondo pessoalmente no seu WhatsApp hoje, com os horários livres.</p>';
   });
 })();
