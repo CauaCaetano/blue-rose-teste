@@ -109,7 +109,7 @@
     $('.conta').innerHTML = '<p class="c-areas">' + nomes.join(' · ') + '</p><p class="grande">' + real(total) + '</p>' +
       (d || combo ? '<p><s>' + real(cheio) + '</s> · economia de ' + real(cheio - total) + '</p>' : '') +
       '<ul><li>' + s + (s > 1 ? ' sessões' : ' sessão') + ', a cada 30 a 45 dias, ' + min + ' min cada</li><li>' + real(total / s) + ' por sessão' + (combo ? ', com 10% do combo' : '') + '</li><li>em até ' + parc + 'x de ' + real(total / parc) + ' sem juros</li></ul>' +
-      '<a class="botao" href="#" data-wa="Olá, Aurora! Quero o pacote de ' + pacoteTxt + (tom !== null ? ' (pele ' + TOM[tom][0] + ')' : '') + '. Posso agendar a sessão teste grátis?">Agendar sessão teste grátis</a>';
+      '<a class="botao" href="#" data-wa="Olá, Aurora! Quero o pacote de ' + pacoteTxt + (tom !== null ? ' (pele ' + TOM[tom][0] + ')' : '') + '. Posso agendar a sessão de avaliação?">Agendar sessão de avaliação</a>';
   }
   $('.sess').addEventListener('change', conta);
   window.AURORA_CONTA = conta;
@@ -166,7 +166,7 @@
     if (!nome) erro = 'Escreva seu nome.'; else if (tel.replace(/\D/g, '').length < 10) erro = 'Escreva o telefone com DDD.'; else if (!f.aceite.checked) erro = 'Marque o aceite do regulamento.';
     $('.f-erro').textContent = erro; if (erro) return;
     var txt = 'Olá, Aurora! Sou ' + (nome + ' ' + f.sobrenome.value.trim()).trim() + ', telefone ' + tel + (f.email.value.trim() ? ', e-mail ' + f.email.value.trim() : '') +
-      '. Quero agendar a sessão teste grátis' + (servico && servico !== 'Sessão teste grátis' ? ' e saber sobre ' + (servico.indexOf('Clube') === 0 ? 'o ' : '') + servico.charAt(0).toLowerCase() + servico.slice(1) : '') + (tom !== null ? '. Minha pele é ' + TOM[tom][0] : '') + '.';
+      '. Quero agendar a sessão de avaliação' + (servico && servico !== 'Sessão de avaliação' ? ' e saber sobre ' + (servico.indexOf('Clube') === 0 ? 'o ' : '') + servico.charAt(0).toLowerCase() + servico.slice(1) : '') + (tom !== null ? '. Minha pele é ' + TOM[tom][0] : '') + '.';
     if (window.BR_WA) window.BR_WA(txt.replace(/\s+/g, ' '));
   });
 
