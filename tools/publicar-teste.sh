@@ -8,14 +8,12 @@
 # Uso: bash tools/publicar-teste.sh "o que mudou"
 set -euo pipefail
 RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
-PAG="$RAIZ/.pagina"   # pasta da branch gh-pages (fora do Git da main, ver .gitignore)
+PAG="${PAG:-$RAIZ/.pagina}"   # pasta da branch gh-pages (fora do Git da main, ver .gitignore); PAG=... usa outra cópia
 MSG="${1:-Atualiza o site de teste}"
 cd "$RAIZ"
 
-# 1) guarda o que mudou na main (o código de teste, igual ao do site)
-git add -A
-git diff --cached --quiet || git -c user.name="BLUE ROSE" -c user.email="177646042+CauaCaetano@users.noreply.github.com" commit -q -m "$MSG"
-git push -q origin main
+# 1) (03/11/2026) não mexe mais na main: publica exatamente o que está nesta pasta (branch ou PR em revisão);
+#    a main só recebe alterações por Pull Request aprovado pelo dono
 
 # 2) monta a versão protegida na gh-pages
 if [ ! -d "$PAG/.git" ] && [ ! -f "$PAG/.git" ]; then
