@@ -156,6 +156,11 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-medida td a:hover { color: var(--hn-tinta); }
 .hn-preco-col .hn-lista { margin-top: 20px; }
 .hn-preco-col .hn-acoes { margin-top: auto; padding-top: 28px; }
+.hn-medida-faixa { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-top: 24px; padding: 32px; background: var(--hn-folha); border: 1px solid var(--hn-linha); border-radius: var(--hn-r); box-shadow: var(--hn-sombra); }
+.hn-medida-faixa h3 { margin: 10px 0 0; font-size: 28px; line-height: 1.15; }
+.hn-medida-faixa p { max-width: 60ch; }
+.hn-medida-acao .btn { margin-top: 20px; }
+@media (max-width: 760px) { .hn-medida-faixa { grid-template-columns: 1fr; gap: 8px; padding: 24px; } }
 
 /* ---------- 6. perguntas ---------- */
 .hn-faq-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 40px; }
