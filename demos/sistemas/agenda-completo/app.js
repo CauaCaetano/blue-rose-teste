@@ -147,6 +147,8 @@ function periodo(filtro) {
     porServ: soma((a) => a.itens.filter((i) => i.tipo === 's').map((i) => [sv(i.ref).nome, valorItem(i)])), porPro: soma((a) => [[pro(a.pro).nome, a.pago.total, pro(a.pro).cor]]), porCli: soma((a) => [[cli(a.cli).nome, a.pago.total]]),
     formas: soma((a) => (a.pago.partes || [{ forma: a.pago.forma, v: a.pago.total }]).map((x) => [x.forma, x.v])) };
 }
+// grupos da navegação lateral (só rótulo visual; a ordem das seções é a mesma)
+const GRUPOS = { balcao: 'Atendimento', clientes: 'Clientes', produtos: 'Estoque e dinheiro', lembretes: 'Gestão' };
 const SECOES = [['balcao', 'Balcão'], ['online', 'Pedidos de horário'], ['espera', 'Lista de espera'], ['clientes', 'Clientes'], ['retorno', 'Chamar de volta'], ['pacotes', 'Pacotes'], ['fidelidade', 'Fidelidade e vales'], ['produtos', 'Produtos'], ['comissoes', 'Comissões'], ['caixa', 'Caixa do dia'], ['despesas', 'Despesas e metas'], ['lembretes', 'Lembretes'], ['relatorios', 'Resumo'], ['equipe', 'Equipe'], ['ajustes', 'Ajustes']];
 function proximos() {
   const l = db.ags.filter((a) => (a.dia || 0) > 0 && a.st !== 'faltou').sort((a, b) => a.dia - b.dia || a.ini - b.ini);
@@ -261,7 +263,7 @@ function comanda() {
 
 function tela() {
   const r = location.hash.slice(1) || 'balcao', n = { balcao: agsHoje().filter((a) => ['chegou', 'pagar'].includes(a.st)).length, produtos: db.prods.filter((p) => p.qtd < p.min).length, online: lista('online').length };
-  $('#fichas').innerHTML = SECOES.map(([k, t]) => `<a href="#${k}" ${k === r ? 'aria-current="page"' : ''}>${t}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</a>`).join('');
+  $('#fichas').innerHTML = SECOES.map(([k, t]) => `${GRUPOS[k] ? `<span class="grupo" aria-hidden="true">${GRUPOS[k]}</span>` : ''}<a href="#${k}" ${k === r ? 'aria-current="page"' : ''}>${t}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</a>`).join('');
   $('#miolo').innerHTML = (S[r] || S.balcao)();
   $('#salao').textContent = db.salao; $('#data-hoje').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
   document.title = `${(SECOES.find(([k]) => k === r) || SECOES[0])[1]} · Veltria Agenda Completo`;
