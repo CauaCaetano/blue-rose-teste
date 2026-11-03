@@ -1,0 +1,117 @@
+/* =============================================================
+   como-funciona.html · um dia com o sistema · identidade v2
+   Página dos sistemas prontos: papel e marinho se alternam por ramo (marinho = território dos prontos).
+   Composição: o topo é uma régua do dia (7h às 19h) com os 16 momentos da página marcados por ramo;
+   cada ramo tem a linha do tempo em mono de um lado e a tela real parada (sticky) do outro,
+   trocando de lado a cada ramo.
+   ============================================================= */
+
+.pcf h2 { font-size: var(--m-t-36); line-height: 1.08; letter-spacing: -.026em; }
+
+/* ---------- 1. topo com a régua ---------- */
+.cf-topo { padding: 88px 0 104px; }
+.cf-topo-cab { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: end; }
+.cf-topo h1 { max-width: 14ch; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -.036em; }
+.cf-topo-cab p { font-size: 17px; color: var(--m-tinta-2); }
+
+.cf-regua { --col: 200px; position: relative; margin-top: 88px; }
+.cf-regua-horas { position: relative; height: 28px; margin-left: var(--col); border-bottom: 1px solid var(--m-tinta); }
+.cf-regua-horas span { position: absolute; left: calc((var(--h) - 7) / 12 * 100%); bottom: 8px; transform: translateX(-50%); font: 400 var(--m-t-13) var(--m-mono); color: var(--m-tinta-3); }
+.cf-regua-horas span:first-child { transform: none; }
+.cf-regua-horas span:last-child { transform: translateX(-100%); }
+.cf-regua-linha { display: grid; grid-template-columns: var(--col) 1fr; align-items: center; min-height: 60px; border-bottom: 1px solid var(--m-linha); color: var(--m-tinta); text-decoration: none; }
+.cf-regua-linha b { font-weight: 500; font-size: 17px; }
+.cf-regua-faixa { position: relative; height: 100%; min-height: 60px; background: repeating-linear-gradient(90deg, var(--m-linha) 0 1px, transparent 1px calc(100% / 6)); background-size: 100% 100%; }
+.cf-regua-faixa i { position: absolute; top: 50%; left: calc((var(--h) - 7) / 12 * 100%); width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 2px; background: var(--m-marinho); }
+.cf-regua-faixa i::after { content: ''; position: absolute; left: 50%; top: 12px; width: 1px; height: 12px; background: var(--m-linha-forte); }
+.cf-regua-linha:hover b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.cf-regua-linha:hover .cf-regua-faixa i { background: var(--m-rosa); }
+.cf-regua-linha:focus-visible { outline-offset: -2px; }
+
+/* ---------- 2. ramos ---------- */
+.cf-ramo { padding: 120px 0; scroll-margin-top: 64px; }
+.cf-escuro { background: var(--m-marinho); color: var(--m-sobre-marinho-2); }
+.cf-escuro h2, .cf-escuro .cf-dia b { color: var(--m-sobre-marinho); }
+.cf-escuro :focus-visible { outline-color: var(--m-rosa-luz); }
+.cf-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; align-items: start; }
+.cf-grade-inv { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.cf-rotulo { margin-bottom: var(--m-e-3); font-size: var(--m-t-14); font-weight: 500; color: var(--m-rosa); }
+.cf-escuro .cf-rotulo, .cf-escuro .m-link { color: var(--m-rosa-luz); }
+.cf-dia-col h2 { max-width: 16ch; }
+.cf-dia { position: relative; margin-top: var(--m-e-7); }
+.cf-dia::before { content: ''; position: absolute; left: 72px; top: 8px; bottom: 8px; width: 1px; background: var(--m-linha); }
+.cf-escuro .cf-dia::before { background: var(--pa-fio-claro); }
+.cf-dia li { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 0 var(--m-e-6); padding-bottom: var(--m-e-6); }
+.cf-dia li:last-child { padding-bottom: 0; }
+.cf-dia li::after { content: ''; position: absolute; left: 68px; top: 9px; width: 9px; height: 9px; border-radius: 1px; background: var(--m-marinho); }
+.cf-escuro .cf-dia li::after { background: var(--m-rosa-luz); }
+.cf-dia time { padding-top: 2px; font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.cf-escuro .cf-dia time { color: var(--m-sobre-marinho-2); }
+.cf-dia b { display: block; font-size: var(--m-t-18); font-weight: 500; }
+.cf-dia p { margin-top: 4px; color: var(--m-tinta-2); }
+.cf-escuro .cf-dia p { color: var(--m-sobre-marinho-2); }
+.cf-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--m-e-3) var(--m-e-5); margin-top: var(--m-e-7); }
+.cf-acoes .m-link { padding: 8px 0; }
+.cf-preco { margin-top: var(--m-e-4); font-size: var(--m-t-14); color: var(--m-tinta-2); }
+.cf-preco .m-num { font-weight: 600; color: var(--m-tinta); }
+.cf-escuro .cf-preco { color: var(--m-sobre-marinho-2); }
+.cf-escuro .cf-preco .m-num { color: var(--m-sobre-marinho); }
+.cf-tela { position: sticky; top: 104px; }
+.cf-tela img { width: 100%; aspect-ratio: 1200 / 750; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); background: var(--m-branco); box-shadow: var(--m-sombra); }
+.cf-escuro .cf-tela img { border-color: rgba(242, 238, 230, .16); }
+.cf-tela figcaption { margin-top: var(--m-e-3); font-size: var(--m-t-13); color: var(--m-tinta-3); }
+.cf-escuro .cf-tela figcaption { color: var(--m-sobre-marinho-2); }
+
+/* ---------- 3. como começar e outros ramos ---------- */
+.cf-comecar { padding: 112px 0 128px; }
+.cf-comecar-grade { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--m-e-6); }
+.cf-comecar h2 { font-size: var(--m-t-28); letter-spacing: -.02em; }
+.cf-passos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--m-e-6); }
+.cf-passos li { padding-top: var(--m-e-4); border-top: 1px solid var(--m-tinta); font-size: 15px; color: var(--m-tinta-2); }
+.cf-passos .m-mono { display: block; margin-bottom: var(--m-e-4); font-size: var(--m-t-14); color: var(--m-rosa); }
+.cf-passos b { display: block; margin-bottom: var(--m-e-1); font-size: 16px; font-weight: 500; color: var(--m-tinta); }
+.cf-outros { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--m-e-5) 80px; margin-top: 112px; padding-top: var(--m-e-6); border-top: 1px solid var(--m-linha); }
+.cf-outros h2 { font-size: var(--m-t-28); letter-spacing: -.02em; }
+.cf-outros > div > p { margin-top: var(--m-e-3); color: var(--m-tinta-2); }
+.cf-outros-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--m-tinta); }
+.cf-outros-lista a { display: flex; align-items: center; min-height: 56px; border-bottom: 1px solid var(--m-linha); color: var(--m-tinta); font-size: 17px; font-weight: 500; text-decoration: none; }
+.cf-outros-lista li:nth-child(odd) a { margin-right: var(--m-e-5); }
+.cf-outros-lista a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.cf-outros-acoes { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: var(--m-e-3) var(--m-e-5); }
+.cf-outros-acoes .m-link { padding: 8px 0; }
+
+/* ---------- tablet ---------- */
+@media (max-width: 1100px) {
+  .cf-topo-cab, .cf-grade, .cf-grade-inv, .cf-comecar-grade, .cf-outros { grid-template-columns: 1fr; gap: var(--m-e-6); }
+  .cf-tela { position: static; order: -1; }
+  .cf-outros-acoes { grid-column: 1; }
+}
+
+/* ---------- celular ---------- */
+@media (max-width: 760px) {
+  .pcf h2 { font-size: var(--m-t-28); }
+  .cf-topo { padding: 40px 0 56px; }
+  .cf-topo h1 { font-size: 34px; line-height: 1.06; }
+  .cf-topo-cab p { font-size: 16px; }
+  .cf-regua { --col: 0px; margin-top: var(--m-e-7); }
+  .cf-regua-horas { margin-left: 0; }
+  .cf-regua-linha { grid-template-columns: 1fr; padding: 10px 0 0; }
+  .cf-regua-linha b { font-size: 15px; }
+  .cf-regua-faixa { min-height: 36px; }
+  .cf-ramo { padding: 64px 0 72px; }
+  .cf-tela { margin-inline: calc(var(--m-gutter) * -1); }
+  .cf-tela img { border-radius: 0; border-inline: 0; box-shadow: none; }
+  .cf-tela figcaption { padding-inline: var(--m-gutter); }
+  .cf-dia { margin-top: var(--m-e-6); }
+  .cf-dia::before { left: 52px; }
+  .cf-dia li { grid-template-columns: 52px minmax(0, 1fr); gap: 0 var(--m-e-5); }
+  .cf-dia li::after { left: 48px; }
+  .cf-dia b { font-size: 17px; }
+  .cf-acoes .btn { width: 100%; }
+  .cf-comecar { padding: 64px 0 80px; }
+  .cf-passos { grid-template-columns: 1fr; gap: var(--m-e-5); }
+  .cf-outros { margin-top: var(--m-e-8); }
+  .cf-outros-lista { grid-template-columns: 1fr; }
+  .cf-outros-lista li:nth-child(odd) a { margin-right: 0; }
+  .cf-outros-acoes .btn { width: 100%; }
+}

@@ -24,12 +24,10 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png?v=3">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=62">
-<link rel="stylesheet" href="css/luxo.css?v=21">
-<link rel="stylesheet" href="css/creme.css?v=1"><link rel="stylesheet" href="css/areia.css?v=2">
-<link rel="stylesheet" href="css/tinta.css?v=1">
-<script src="js/luxo.js?v=5" defer></script>
+<link rel="stylesheet" href="css/marca.css?v=2">
+<link rel="stylesheet" href="css/pg-a-comum.css?v=1">
+<link rel="stylesheet" href="css/pg-legal.css?v=1">
+
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="js/site.js?v=23" defer></script>
@@ -38,23 +36,23 @@
 <script src="js/assistente.js?v=23" defer></script>
 <script src="js/cookies.js?v=2" defer></script>
 </head>
-<body>
+<body class="pa plg">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./" aria-label="Blue Rose Express, página inicial">
-      <img src="img/blue-rose-logo-128.png" alt="" width="30" height="30">BLUE ROSE
+      <img src="img/blue-rose-logo-128.png" alt="" width="28" height="28">Blue Rose
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-list"/></svg>
     </button>
     <nav class="nav-links" id="menu" aria-label="Principal">
-      <a href="sistemas.html">Produtos</a>
-      <a href="servicos.html">Sites e automação</a>
+      <a href="sistemas.html">Sistemas prontos</a>
+      <a href="servicos.html">Sob medida</a>
       <a href="como-funciona.html">Como funciona</a>
-      <a href="./#precos">Preços</a>
-      <a class="btn btn-primary" href="./#contato">Agendar demonstração</a>
+      <a href="index.html#precos">Preços</a>
+      <a class="btn btn-primary" href="index.html#contato">Agendar demonstração</a>
     </nav>
   </div>
 </header>
@@ -177,19 +175,16 @@
 </main>
 
 <footer class="rodape-site">
-  <div class="wrap">
-    <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="30" height="30" loading="lazy">BLUE ROSE</a>
-    <nav aria-label="Rodapé">
-      <a href="projetos.html">Projetos</a>
-      <a href="laboratorio.html">Laboratório</a>
-      <a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a>
-      <a href="exemplos.html">Exemplos de sites</a>
-      <a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">Instagram @blue.rose.express</a>
-      <a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a>
-      <a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a>
-      <a href="termos.html">Termos de Serviço</a>
-      <a href="privacidade.html">Privacidade</a>
-      <a href="checklist.html">Checklists grátis</a>
+  <div class="wrap hn-rodape">
+    <div class="hn-rodape-marca">
+      <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="28" height="28" loading="lazy">Blue Rose</a>
+      <p>Sistemas Veltria por assinatura e software sob medida para pequenas empresas.</p>
+    </div>
+    <nav aria-label="Rodapé" class="hn-rodape-nav">
+      <div><p class="hn-rodape-tit">Sistemas prontos</p><a href="sistemas.html">Todos os sistemas</a><a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a><a href="como-funciona.html">Como funciona</a></div>
+      <div><p class="hn-rodape-tit">Sob medida</p><a href="servicos.html">Sites e automação</a><a href="exemplos.html">Sites de exemplo</a><a href="projetos.html">Projetos</a><a href="laboratorio.html">Laboratório</a><a href="checklist.html">Checklists grátis</a></div>
+      <div><p class="hn-rodape-tit">Instagram</p><a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">@blue.rose.express</a><a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a><a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a></div>
+      <div><p class="hn-rodape-tit">Legal</p><a href="termos.html">Termos de Serviço</a><a href="privacidade.html">Privacidade</a><a href="conta.html">Minha conta</a></div>
     </nav>
     <div class="linha2">
       <span>© 2026 Blue Rose Express. Atendimento de segunda a sexta, das 8h às 18h.</span>

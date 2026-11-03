@@ -12,38 +12,34 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png?v=3">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/css/site.css?v=62">
-<link rel="stylesheet" href="/css/luxo.css?v=21">
-<link rel="stylesheet" href="/css/creme.css?v=1">
-<link rel="stylesheet" href="/css/areia.css?v=2">
-<link rel="stylesheet" href="/css/tinta.css?v=1">
+<link rel="stylesheet" href="/css/marca.css?v=2">
+<link rel="stylesheet" href="/css/pg-a-comum.css?v=1">
+<link rel="stylesheet" href="/css/pg-avulsas.css?v=1">
+
+
 <script src="/js/pagamento.js?v=1" defer></script>
-<style>
-  .pag { min-height: 100dvh; display: grid; place-items: center; padding: 48px 0; }
-  .pag .wrap { max-width: 640px; }
-  .pag .selo { display: grid; place-items: center; width: 64px; height: 64px; margin-top: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 30px; }
-  .pag h1 { margin-top: 18px; font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.035em; }
-  .pag p { margin-top: 14px; color: var(--ink-2); font-size: 17px; }
-  .pag ol { margin-top: 22px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; color: var(--ink-2); }
-  .pag .ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
-</style>
 <script src="js/cookies.js?v=2" defer></script>
 </head>
-<body>
-<main class="pag">
-  <div class="wrap">
-    <a class="brand" href="/"><img src="/img/blue-rose-logo-128.png" alt="" width="30" height="30">BLUE ROSE</a>
-    <div class="selo" id="pg-selo" aria-hidden="true">✓</div>
-    <h1 id="pg-titulo">Pagamento recebido.</h1>
-    <p id="pg-texto">Obrigado pela confiança. O seu projeto já está na fila.</p>
-    <ol id="pg-passos">
-      <li>Em até 1 dia útil você recebe um e-mail no endereço usado no Mercado Pago.</li>
-      <li>Nele, levantamos juntos o que você precisa: marca, serviços, páginas e referências.</li>
-      <li>Você acompanha a prévia e pede os ajustes incluídos no plano.</li>
-    </ol>
-    <div class="ctas">
-      <a class="btn btn-primary" href="/">Voltar ao início</a>
-      <a class="btn btn-ghost" href="/#contato">Falar comigo</a>
+<body class="pa ppg">
+<main class="pag" id="conteudo">
+  <div class="pag-cab"><a class="brand" href="/"><img src="/img/blue-rose-logo-128.png" alt="" width="28" height="28">Blue Rose</a></div>
+  <div class="pag-grade">
+    <div class="pag-txt">
+      <div class="selo" id="pg-selo" aria-hidden="true">✓</div>
+      <h1 id="pg-titulo">Pagamento recebido.</h1>
+      <p id="pg-texto">Obrigado pela confiança. O seu projeto já está na fila.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/">Voltar ao início</a>
+        <a class="btn btn-sec" href="/#contato">Falar com a equipe</a>
+      </div>
+    </div>
+    <div class="pag-passos-col">
+      <p class="pag-passos-t">O que acontece agora</p>
+      <ol id="pg-passos">
+        <li>Em até 1 dia útil você recebe um e-mail no endereço usado no Mercado Pago.</li>
+        <li>Nele, levantamos juntos o que você precisa: marca, serviços, páginas e referências.</li>
+        <li>Você acompanha a prévia e pede os ajustes incluídos no plano.</li>
+      </ol>
     </div>
   </div>
 </main>
