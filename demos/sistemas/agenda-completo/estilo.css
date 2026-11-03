@@ -207,3 +207,127 @@ td input[data-com] { min-height: 34px; border: 1px solid var(--areia); border-ra
 .msg-var:hover { background: var(--azul); color: var(--papel); border-style: solid; }
 .msg-previa { margin: auto 0 0; background: var(--papel); border: 1px solid var(--areia); border-left: 4px solid var(--argila); border-radius: 0 8px 8px 0; padding: 9px 12px; font-size: .86rem; color: var(--tx); white-space: pre-line; }
 .msg-previa b { display: block; font: 600 .68rem var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--argila-esc); margin-bottom: 2px; }
+
+/* ── redesenho 11/2026: produto de balcão, não painel genérico ──
+   A navegação vira uma coluna fixa à esquerda (o índice de fichas da recepção), agrupada por assunto;
+   o conteúdo ganha largura, os painéis perdem a sombra e o arredondado de cartão, as tabelas ficam densas e legíveis.
+   No celular a coluna vira uma barra curta com as seções rolando de lado. */
+:root { --n11-1: #3c5466; --n11-2: #b9c3c9; --n11-3: #4d6576; --n11-4: #9fb0ba; --n11-5: #dbe2e6; --n11-6: #3a5163; --n11-7: #fff; --n11-8: #5b7384; --n11-9: #d9cbb8; --n11-10: #fffdf9; --n11-11: #fdfbf7; --n11-12: #cdbca5; --n11-13: #f6f0e6; --n11-14: #efe7da; --n11-15: #faf5ec; --n11-16: rgba(28, 40, 50, .55); --n11-17: rgba(20, 30, 40, .55); }
+
+:root { --sombra: none; --linha: #e6dccd; --lado: 236px; --demo: 37px; }
+.barra-demo { position: sticky; top: 0; z-index: 30; min-height: var(--demo); }
+body { font-size: 14.5px; -webkit-font-smoothing: antialiased; }
+.casca { display: grid; grid-template-columns: var(--lado) minmax(0, 1fr); align-items: start; }
+.recepcao { position: sticky; top: var(--demo); height: calc(100vh - var(--demo)); height: calc(100dvh - var(--demo)); display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding: 0; background: var(--azul-3); color: var(--papel); overflow: hidden; }
+.salao { flex: none; gap: 10px; padding: 16px 16px 14px; border-bottom: 1px solid var(--n11-1); }
+.salao img.v-logo { height: 30px; }
+.salao b { font-size: .98rem; font-weight: 650; letter-spacing: -.01em; line-height: 1.2; }
+.salao small { display: block; margin-top: 2px; font-size: .74rem; color: var(--n11-2); }
+.salao small::first-letter { text-transform: uppercase; }
+.fichas { order: 0; flex: 1 1 auto; display: flex; flex-direction: column; gap: 1px; padding: 10px 8px 16px; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: var(--n11-3) transparent; }
+.fichas .grupo { display: block; padding: 14px 10px 5px; font-size: .72rem; font-weight: 600; color: var(--n11-4); }
+.fichas .grupo:first-child { padding-top: 4px; }
+.fichas a { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 10px; border-radius: 6px; font-size: .9rem; font-weight: 500; color: var(--n11-5); background: transparent; -webkit-mask: none; mask: none; transition: background .15s, color .15s; }
+.fichas a:hover { background: var(--n11-6); color: var(--n11-7); }
+.fichas a[aria-current="page"] { background: var(--papel); color: var(--azul-3); font-weight: 650; box-shadow: inset 3px 0 0 var(--argila); }
+.fichas a .n { margin-left: auto; min-width: 20px; text-align: center; border-radius: 10px; padding: 1px 6px; background: var(--argila-esc); }
+.recepcao .bt-ia { flex: none; margin: 0 12px 14px; padding: 9px 12px; border-radius: 8px; text-align: center; background: transparent; border: 1px solid var(--n11-8); color: var(--papel); font-weight: 600; }
+.recepcao .bt-ia:hover { background: var(--n11-6); filter: none; }
+
+main { max-width: 1480px; width: 100%; margin: 0; padding: 26px 32px 64px; }
+.topo-s { align-items: flex-end; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--linha); }
+.topo-s h1 { font-size: 1.7rem; font-weight: 650; letter-spacing: -.025em; }
+.topo-s p { margin-top: 4px; font-size: .95rem; color: var(--tx-2); }
+.bt { min-height: 38px; padding: 0 14px; border-radius: 7px; font-size: .88rem; border-color: var(--n11-9); background: var(--n11-10); }
+.bt:hover { border-color: var(--azul-2); background: var(--n11-7); }
+.bt.az { background: var(--azul-3); border-color: var(--azul-3); color: var(--n11-7); font-weight: 600; }
+.bt.az:hover { background: var(--azul); border-color: var(--azul); }
+.bt.p { min-height: 30px; padding: 0 10px; font-size: .8rem; border-radius: 6px; }
+
+/* painéis: superfície lisa, borda fina, título com peso e sem enfeite */
+.caixa-b { border-radius: 10px; padding: 18px 20px; border: 1px solid var(--linha); box-shadow: none; background: var(--n11-11); }
+.caixa-b h2 { font-size: .98rem; font-weight: 650; margin-bottom: 12px; letter-spacing: -.005em; }
+.cols { gap: 14px; }
+.num { font-size: 1.65rem; font-weight: 600; letter-spacing: -.03em; margin: 4px 0 2px; }
+.rot { font-size: .78rem; color: var(--tx-2); }
+.total-com { background: var(--azul-3); border-color: var(--azul-3); }
+.total-com .num { font-size: 2.1rem; }
+
+/* balcão: fila, grade e comanda lado a lado, sem caixa flutuando */
+.balcao { grid-template-columns: 264px minmax(0, 1fr) 320px; gap: 14px; }
+.balcao > .caixa-b { min-height: calc(100dvh - 190px); }
+.balcao > .grade-p { max-height: calc(100dvh - 190px); }
+.cartela { background: var(--n11-7); border-color: var(--linha); border-left-color: var(--c, var(--salvia)); border-radius: 7px; padding: 9px 11px; margin-bottom: 6px; }
+.cartela:hover { transform: none; box-shadow: none; border-color: var(--n11-12); }
+.cartela[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--azul-3); }
+.fila .etapa > small { font-size: .76rem; color: var(--tx-2); }
+.grade-p .cab-p { background: var(--n11-11); }
+.grade-p .cab-p div { font-size: .88rem; font-weight: 650; }
+.grade-p .bloco { border-radius: 5px; padding: 5px 8px; }
+.grade-p .bloco:hover { transform: none; box-shadow: 0 0 0 2px var(--n11-7), 0 0 0 3px var(--c); }
+.comanda.vazia > .vazio:first-of-type { border-radius: 8px; background: transparent; }
+
+/* tabelas: cabeçalho discreto, número alinhado, linha que se lê de uma vez */
+table { font-size: .9rem; }
+th { padding: 9px 12px; font-size: .75rem; font-weight: 600; color: var(--tx-2); background: var(--n11-13); border-bottom: 1px solid var(--linha); }
+th:first-child { border-radius: 6px 0 0 6px; } th:last-child { border-radius: 0 6px 6px 0; }
+td { padding: 11px 12px; font-size: .9rem; border-bottom: 1px solid var(--n11-14); }
+td b, td strong { font-weight: 600; }
+tbody tr:hover td { background: var(--n11-15); }
+.etq { border-radius: 4px; font-size: .7rem; padding: 2px 7px; }
+.barras .l { padding: 6px 0; font-size: .9rem; }
+.barras .t { height: 8px; border-radius: 4px; }
+
+/* formulários e diálogos */
+.cmp { font-size: .82rem; font-weight: 500; }
+.cmp input, .cmp select, .cmp textarea { border-color: var(--n11-9); border-radius: 7px; }
+.cmp input:focus, .cmp select:focus, .cmp textarea:focus { border-color: var(--azul); }
+.sombra { background: var(--n11-16); }
+.dialogo { border-radius: 12px; padding: 22px 24px; box-shadow: 0 24px 60px -24px var(--n11-17); background: var(--n11-11); }
+.dialogo h2 { font-size: 1.12rem; font-weight: 650; letter-spacing: -.01em; padding-bottom: 12px; border-bottom: 1px solid var(--linha); }
+.vazio { font-size: .88rem; }
+.aviso { border-radius: 6px; }
+.msg-topo { scroll-margin-top: 24px; }
+
+@media (max-width: 1180px) { .balcao { grid-template-columns: 250px minmax(0, 1fr); } .balcao > .comanda { grid-column: 1 / -1; min-height: 0; } }
+/* tablet e celular: a coluna vira barra curta no topo, com as seções rolando de lado */
+@media (max-width: 900px) {
+  .casca { display: block; }
+  .barra-demo { position: static; min-height: 0; }
+  .balcao { grid-template-columns: minmax(0, 1fr); } .balcao > .caixa-b, .balcao > .grade-p { min-height: 0; max-height: none; }
+  .recepcao { top: 0; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; overflow: visible; padding: 8px 12px 0; gap: 6px 10px; }
+  .salao { flex: 1 1 auto; min-width: 0; padding: 0; border: 0; }
+  .salao img.v-logo { height: 26px; padding: 3px 6px; }
+  .salao b { font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .salao > div { min-width: 0; }
+  .recepcao .bt-ia { margin: 0; padding: 6px 12px; font-size: .84rem; }
+  .fichas { order: 3; flex: 1 1 100%; flex-direction: row; gap: 2px; padding: 6px 0 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .fichas::-webkit-scrollbar { display: none; }
+  .fichas .grupo { display: none; }
+  .fichas a { flex: none; padding: 7px 12px; font-size: .86rem; white-space: nowrap; }
+  .fichas a[aria-current="page"] { box-shadow: none; }
+  main { padding: 18px 16px 56px; }
+  .topo-s { margin-bottom: 16px; padding-bottom: 12px; }
+  .topo-s h1 { font-size: 1.45rem; }
+  .topo-s p { font-size: .9rem; }
+  .caixa-b { padding: 14px; }
+  td, th { padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 520px) { .barra-demo { gap: 8px; padding: 5px 10px; } .salao small { display: none; } }
+@media print { .casca { display: block; } }
+/* números do topo: faixa editorial (filete escuro em cima, sem caixa), e não uma fileira de cartões */
+.caixa-b.c3, .caixa-b.c4:not(.total-com):has(> .rot:first-child) { background: transparent; border: 0; border-top: 2px solid var(--azul-3); border-radius: 0; padding: 12px 4px 6px; }
+.caixa-b.c3 .num { font-size: 1.8rem; }
+/* ações da linha numa linha só, botões menores dentro da tabela */
+td .bt { min-height: 30px; padding: 0 10px; font-size: .8rem; border-radius: 6px; }
+td:has(> .bt), td:has(> .acoes) { white-space: nowrap; }
+td .acoes { flex-wrap: nowrap; }
+.m, .d, .num { letter-spacing: -.02em; }
+.alerta-c, .msg-previa b { text-transform: none; letter-spacing: 0; }
+/* as paletas por idioma repetem regras antigas com html[data-paleta] na frente: a seção atual e o recorte das fichas precisam de um nível a mais */
+.recepcao .fichas a { -webkit-mask: none; mask: none; }
+.recepcao .fichas a[aria-current="page"] { background: var(--papel); color: var(--azul-3); }
+/* contraste AA: texto de apoio e botão da faixa de demonstração */
+:root { --tx-3: #5f6866; }
+.barra-demo .teste { background: var(--argila-esc); }
+@media (max-width: 760px) { .barra-demo { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; } .barra-demo > * { flex: none; } }

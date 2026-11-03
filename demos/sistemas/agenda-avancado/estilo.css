@@ -171,3 +171,105 @@ tbody tr { transition: background .15s; } tbody tr:hover td { background: #fbf4e
 .msg-liga input { appearance: none; -webkit-appearance: none; width: 42px; height: 24px; border-radius: 999px; background: var(--areia); position: relative; cursor: pointer; flex: none; margin: 0; transition: background .2s; }
 .msg-liga input::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform .2s; }
 .msg-liga input:checked { background: var(--ber); } .msg-liga input:checked::after { transform: translateX(18px); }
+
+/* ── redesenho 11/2026: sala de operação da rede ──
+   A doca flutuante com 22 ícones vira um trilho fixo à esquerda, lido de cima para baixo como um índice;
+   o cabeçalho encolhe para uma barra com a rede e o seletor de casa; as peças perdem sombra e arredondado de cartão,
+   os números do topo viram faixa editorial com filete, e a serifa fica só nos títulos e nos números grandes.
+   No celular o trilho volta a ser uma barra embaixo, presa à borda (sem flutuar), rolando de lado. */
+:root { --n11-1: #4a3650; --n11-2: #3d2c43; --n11-3: #d9cbd6; --n11-4: #3a2940; --n11-5: #fff; --n11-6: #54405b; --n11-7: #2c1f31; --n11-8: #c9b7c6; --n11-9: #5a4461; --n11-10: #2f2135; --n11-11: #d8c7d4; --n11-12: #45324c; --n11-13: #fffaf4; --n11-14: #dccab6; --n11-15: #fdf9f4; --n11-16: #f5ebdf; --n11-17: #f9f0e6; --n11-18: rgba(30, 20, 34, .55); --n11-19: rgba(30, 20, 34, .6); }
+
+:root { --trilho: 212px; --linha-a: #e5d7c6; }
+body { padding: 0 0 0 var(--trilho); font-size: 14.5px; -webkit-font-smoothing: antialiased; }
+.fita { justify-content: flex-start; padding: 6px 32px; }
+
+.doca { left: 0; top: 0; bottom: 0; translate: none; width: var(--trilho); max-width: none; flex-direction: column; align-items: stretch; gap: 1px; padding: 16px 10px 12px; border-radius: 0; background: var(--ber-3); backdrop-filter: none; box-shadow: none; overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--n11-1) transparent; }
+.doca::before { content: "Veltria Agenda"; display: block; padding: 0 10px 14px; margin-bottom: 8px; border-bottom: 1px solid var(--n11-2); font: 400 1.35rem/1 var(--serif); color: var(--seda); }
+.doca a, .doca button { position: relative; display: flex; align-items: center; justify-items: start; gap: 10px; width: auto; padding: 6px 10px; border-radius: 6px; font-size: .86rem; font-weight: 500; color: var(--n11-3); text-align: left; transform: none; white-space: nowrap; }
+.doca svg { width: 18px; height: 18px; flex: none; stroke-width: 1.7; opacity: .85; }
+.doca a:hover, .doca button:hover { transform: none; background: var(--n11-4); color: var(--n11-5); }
+.doca a[aria-current="page"] { background: var(--seda); color: var(--ber); font-weight: 650; }
+.doca a[aria-current="page"] svg { opacity: 1; }
+.doca .sep { width: auto; height: 1px; align-self: stretch; margin: 6px 10px; background: var(--n11-2); }
+.doca .n { position: static; margin: 0 0 0 auto; min-width: 20px; text-align: center; font-size: .68rem; font-weight: 700; padding: 1px 6px; }
+.doca button[data-ia] { margin-top: 6px; border: 1px solid var(--n11-6); justify-content: center; color: var(--seda); }
+
+.cabeca { position: sticky; top: 0; z-index: 25; align-items: center; padding: 12px 32px; gap: 12px 20px; border-bottom: 1px solid var(--n11-7); }
+.cabeca img.v-logo { height: 30px; }
+.rede { flex: 1; min-width: 0; }
+.rede b { font-size: 1.55rem; line-height: 1.05; }
+.rede small { font-size: .76rem; color: var(--n11-8); }
+.unidades { gap: 0; padding: 3px; border: 1px solid var(--n11-9); border-radius: 8px; background: var(--n11-10); }
+.unidades button { border: 0; border-radius: 6px; padding: 6px 12px; font-size: .84rem; color: var(--n11-11); }
+.unidades button:hover { color: var(--n11-5); background: var(--n11-12); }
+.unidades button[aria-pressed="true"] { background: var(--seda); color: var(--ber); }
+.unidades button[data-a="nova-unidade"] { margin-left: 4px; color: var(--areia); }
+
+main { max-width: 1440px; margin: 0; padding: 28px 32px 56px; }
+.abre { align-items: flex-end; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--linha-a); }
+.abre h1 { font-size: 2.35rem; line-height: 1.02; letter-spacing: -.005em; }
+.abre p { font-size: .95rem; margin-top: 6px; }
+.bt { min-height: 38px; padding: 0 15px; border-radius: 7px; font-size: .86rem; background: var(--n11-13); border-color: var(--n11-14); }
+.bt.b { background: var(--ber); border-color: var(--ber); }
+.bt.mini { min-height: 30px; padding: 0 10px; border-radius: 6px; }
+
+.mosaico { gap: 14px; }
+.peca { border-radius: 10px; padding: 20px 22px; border-color: var(--linha-a); box-shadow: none; background: var(--n11-15); }
+.peca h2 { font-size: 1.35rem; margin-bottom: 12px; }
+/* números do topo: filete escuro e número em serifa, sem caixa nem sombra */
+.peca.m3:has(> .leve:first-child), .peca.m4:has(> .leve:first-child) { background: transparent; border: 0; border-top: 2px solid var(--ber); border-radius: 0; padding: 12px 4px 6px; }
+.grande { font-size: 2.5rem; letter-spacing: -.01em; }
+.leve { font-size: .8rem; color: var(--tx-2); }
+
+table { font-size: .9rem; }
+th { padding: 9px 12px; font-size: .75rem; font-weight: 600; color: var(--tx-2); background: var(--n11-16); border-bottom: 1px solid var(--linha-a); }
+th:first-child { border-radius: 6px 0 0 6px; } th:last-child { border-radius: 0 6px 6px 0; }
+td { padding: 11px 12px; font-size: .9rem; }
+tbody tr:hover td { background: var(--n11-17); }
+td .bt { min-height: 30px; padding: 0 10px; font-size: .8rem; }
+.pilha { border-radius: 4px; padding: 2px 8px; font-size: .72rem; }
+.lista li { padding: 11px 0; }
+.seg { border-radius: 10px; min-height: 140px; }
+.seg button { border-radius: 6px; }
+.calor { gap: 3px; } .calor button { border-radius: 4px; } .calor button:hover { transform: none; outline: 2px solid var(--ber-2); }
+
+.cp { font-size: .82rem; font-weight: 500; }
+.cp input, .cp select, .cp textarea { border-radius: 7px; border-color: var(--n11-14); }
+.num-a, .nav-dia input[type=date], .busca-a { border-radius: 7px; }
+.veu-a { background: var(--n11-18); }
+.cartao-a { border-radius: 12px; padding: 22px 24px; box-shadow: 0 24px 60px -24px var(--n11-19); }
+.cartao-a h2 { font-size: 1.55rem; padding-bottom: 10px; border-bottom: 1px solid var(--linha-a); }
+.conselheira { bottom: 20px; border-radius: 12px; }
+.conselheira input { border-radius: 8px; }
+.recados div { border-radius: 8px; }
+.msg-previa { box-shadow: none; }
+
+@media (max-width: 1050px) { :root { --trilho: 188px; } }
+/* celular e tablet estreito: barra embaixo presa à borda, rolando de lado; cabeçalho em uma linha */
+@media (max-width: 860px) {
+  body { padding: 0 0 76px; }
+  .fita { justify-content: center; padding: 6px 12px; }
+  .doca { top: auto; bottom: 0; width: 100%; height: auto; flex-direction: row; align-items: stretch; gap: 2px; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); overflow-x: auto; overflow-y: hidden; border-top: 1px solid var(--n11-2); scrollbar-width: none; }
+  .doca::-webkit-scrollbar { display: none; }
+  .doca::before { display: none; }
+  .doca a, .doca button { flex-direction: column; justify-content: center; gap: 3px; width: 70px; flex: none; padding: 6px 2px; font-size: .66rem; text-align: center; }
+  .doca .n { position: absolute; top: 2px; right: 10px; margin: 0; min-width: 0; padding: 0 5px; }
+  .doca .sep { width: 1px; height: auto; margin: 6px 2px; }
+  .doca button[data-ia] { margin: 0; border: 0; }
+  .cabeca { position: static; padding: 10px 14px; }
+  .rede b { font-size: 1.3rem; }
+  .rede small { display: none; }
+  .unidades { max-width: 100%; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+  .unidades button { flex: none; }
+  main { padding: 18px 14px 40px; }
+  .abre { padding-bottom: 14px; margin-bottom: 16px; }
+  .abre h1 { font-size: 1.9rem; }
+  .peca { padding: 16px; }
+  .grande { font-size: 2.1rem; }
+  .conselheira { bottom: 86px; }
+}
+@media (max-width: 860px) { .mosaico > .peca.m3:has(> .leve:first-child) { grid-column: span 6; } .mosaico > .peca.m3:has(> .leve:first-child) .grande { font-size: 1.85rem; } .mosaico { gap: 12px; } }
+/* contraste AA: texto de apoio, valor positivo e botão da faixa de demonstração */
+:root { --tx-3: #6c6571; --bom: #4b705c; }
+.fita .quero { background: var(--malva-esc); }
+@media (max-width: 860px) { .fita { gap: 8px; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; } .fita > * { flex: none; } }

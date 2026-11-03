@@ -246,3 +246,67 @@ h2 .ver { margin-left: auto; font-weight: 600; font-size: .86rem; }
 @media (min-width: 1024px) { .nav .fab[hidden] { display: flex; } .teclado { max-width: 520px; margin-inline: auto; } .visor-valor { font-size: 3.4rem; } }
 .qr-pix svg, .qr-pix svg * { stroke: none; } /* o QR do PIX tem desenho próprio: o contorno dos ícones o deixava ilegível */
 
+
+/* ── redesenho 11/2026: app de bolso, mais calmo e mais direto ──
+   O saldo é a única peça escura da tela (sem o círculo decorativo); os quatro atalhos viram uma régua só,
+   com divisórias, em vez de quatro cartões com ícone em quadrado colorido; potes, contas e listas perdem
+   o arredondado de bolha e ganham ritmo de lista. No computador o menu lateral marca a seção com um filete. */
+:root { --n11-1: rgba(255, 255, 255, .07); --n11-2: #fff; }
+
+:root { --r-g: 16px; --r-m: 12px; --sombra: none; }
+[tabindex="-1"]:focus { outline: none; }
+.topo { backdrop-filter: saturate(1.2) blur(8px); -webkit-backdrop-filter: saturate(1.2) blur(8px); }
+.bt-redondo { border-radius: 12px; }
+h1 { font-size: 1.8rem; letter-spacing: -.01em; }
+h2 { font-size: .95rem; margin: 24px 0 8px; }
+
+.heroi { border-radius: 18px; padding: 20px 20px 16px; }
+.heroi::after { display: none; }
+.heroi small { font-size: .82rem; }
+.heroi .livre { border-radius: 10px; background: var(--n11-1); }
+.barra-potes { height: 8px; }
+
+/* atalhos: uma régua com divisórias */
+.atalhos { gap: 0; margin: 12px 0 4px; border: 1px solid var(--linha); border-radius: 14px; background: var(--sup); overflow: hidden; }
+.atalhos button, .atalhos a { gap: 4px; padding: 12px 4px 10px; border: 0; border-radius: 0; background: transparent; font-size: .8rem; }
+.atalhos > * + * { border-left: 1px solid var(--linha); }
+.atalhos svg { width: 22px; height: 22px; padding: 0; border-radius: 0; background: none; color: var(--esm); }
+.atalhos .sai svg { background: none; }
+.atalhos button:hover, .atalhos a:hover { background: var(--n11-2); border-color: var(--linha); }
+
+/* potes: cartões mais baixos, valor em destaque */
+.potes { gap: 8px; }
+.pote { padding: 12px 14px; border-radius: 14px; gap: 12px; }
+.pote .valor { font-size: 1.28rem; }
+.pote .pct { border-radius: 4px; background: transparent; padding: 0; color: var(--tx-3); font-weight: 600; }
+
+/* listas, contas e resumo */
+.cartao { border-radius: 14px; }
+.cartao.liso { padding: 2px 16px; }
+.mov .ic, .lista-mais .ic { border-radius: 10px; width: 36px; height: 36px; }
+.mov { grid-template-columns: 36px 1fr auto; }
+.lista-mais a { grid-template-columns: 36px 1fr auto; }
+.resumo-c div { border-radius: 12px; }
+.item-c { border-radius: 12px; border-left-width: 4px; }
+.etq { border-radius: 6px; }
+.chips button, .chip-data { border-radius: 8px; border-width: 1px; }
+.busca input { border-radius: 12px; border-width: 1px; }
+.campo input, .campo select, .campo textarea { border-width: 1px; border-radius: 10px; }
+.alterna { border-radius: 12px; } .alterna button { border-radius: 9px; }
+.teclado button { border-radius: 10px; }
+.detalhes { border-radius: 14px; }
+.folha { border-radius: 20px 20px 0 0; }
+.aviso { border-radius: 10px; }
+
+@media (min-width: 640px) { .folha { border-radius: 18px; } }
+@media (min-width: 1024px) {
+  .app { grid-template-columns: 228px minmax(0, 1fr) 330px; }
+  .nav { gap: 2px; padding: 18px 12px; }
+  .nav a, .nav .fab { height: 42px; padding: 0 12px; border-radius: 8px; font-size: .92rem; }
+  .nav a[aria-current="page"] { background: var(--sup); box-shadow: inset 3px 0 0 var(--esm); }
+  .nav .fab { height: 46px; margin-bottom: 12px; border-radius: 10px; }
+  main { max-width: 780px; padding: 20px 36px 56px; }
+  .lado { padding: 20px 24px 24px 0; }
+  .lado .cartao { background: transparent; border-width: 0 0 0 1px; border-radius: 0; padding: 0 0 0 16px; }
+}
+.lado .mov { font-size: .88rem; gap: 10px; } .lado .mov .num { font-size: .98rem; } .lado .pend-i { font-size: .88rem; padding: 11px 0; }

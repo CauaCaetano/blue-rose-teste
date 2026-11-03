@@ -324,3 +324,54 @@ tr.melhor td { background: var(--pos-f); }
 
 /* filtros em segmentos: no celular quebram linha em vez de sair da tela */
 @media (max-width: 700px) { .seg { display: flex; flex-wrap: wrap; max-width: 100%; } .seg button { flex: 1 1 auto; border-bottom: 1px solid var(--borda); } }
+
+/* ── redesenho 11/2026: mesa de operação, mesma paleta clara (Emerald Executive, aprovada pelo dono) ──
+   Menu lateral em esmeralda sólida (sem degradê) e marca sem caixa-alta espaçada; os indicadores do topo deixam de ser
+   cartões com ícone em quadrado colorido e viram uma linha de leitura, separada por filetes, como num terminal financeiro;
+   painéis com raio menor; no celular a barra de ferramentas de cada tela rola de lado em vez de empilhar botões. */
+:root { --n11-1: #123d35; }
+
+:root { --r: 9px; --r-p: 7px; }
+[tabindex="-1"]:focus { outline: none; }
+body { -webkit-font-smoothing: antialiased; }
+.lado-nav { background: var(--n11-1); }
+.logo b { font: 600 1.25rem/1 var(--serif); letter-spacing: 0; }
+.abas .gr { letter-spacing: .01em; font-size: .72rem; }
+.abas a[aria-current="page"] { border-color: transparent; }
+.cab { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--borda); }
+.cab h1 { font-size: 2rem; }
+.cab-fluxo h1 { font-size: 2.2rem; }
+.b { border-radius: 7px; }
+.seg { border-radius: 7px; }
+.painel { border-radius: var(--r); box-shadow: none; }
+.st { border-radius: 4px; }
+
+/* indicadores: linha de leitura com filetes, sem cartão e sem ícone */
+.kpis, .kpis-fx { gap: 0; border-top: 2px solid var(--acento); border-bottom: 1px solid var(--borda); background: transparent; }
+.kpis > div, .kpis-fx > div { background: transparent; border: 0; border-radius: 0; padding: 12px 16px 12px; }
+.kpis > div + div, .kpis-fx > div + div { border-left: 1px solid var(--borda); }
+.kpis > div:first-child, .kpis-fx > div:first-child { padding-left: 2px; }
+.kpis-fx small { padding-right: 0; }
+.ico-k { display: none; }
+.cartao-i { border-radius: var(--r); }
+
+@media (max-width: 1180px) {
+  .kpis-fx > div:nth-child(3) { border-left: 0; padding-left: 2px; }
+  .kpis-fx > div:nth-child(n+3) { border-top: 1px solid var(--borda); }
+}
+@media (max-width: 760px) {
+  .cab { padding-bottom: 12px; }
+  .cab .ferr { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; scrollbar-width: none; padding-bottom: 2px; }
+  .cab .ferr::-webkit-scrollbar { display: none; }
+  .cab .ferr > * { flex: none; }
+  .kpis-fx { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpis > div, .kpis-fx > div { padding: 10px 12px; }
+  .kpis > div:nth-child(odd), .kpis-fx > div:nth-child(odd) { border-left: 0; padding-left: 2px; }
+  .kpis > div:nth-child(n+3), .kpis-fx > div:nth-child(n+3) { border-top: 1px solid var(--borda); }
+}
+@media (max-width: 760px) { .tira-demo { gap: 8px; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; } .tira-demo .so-lg { display: none; } .tira-demo > * { flex: none; } }
+/* contraste AA: números coloridos dos indicadores e rótulo do cartão da empresa */
+:root { --pos-k: #33694f; --neg-k: #a4472f; }
+.kpis .pos b, .kpis-fx .e b, .kpis-fx .pos b { color: var(--pos-k); }
+.kpis .neg b, .kpis-fx .s b, .kpis-fx .neg b { color: var(--neg-k); }
+.empresa small { color: var(--tx-2); }
