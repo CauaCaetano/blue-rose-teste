@@ -233,3 +233,111 @@ span.cal-i { display: inline-block; width: auto; }
 @media (max-width: 620px) { #ilha-crono { top: auto; bottom: 88px; } #ilha-crono .o-que, #ilha-crono .ver { display: none; } }
 @media (prefers-reduced-motion: reduce) { #ilha-crono, #ilha-crono .ponto { animation: none; } }
 @media print { #ilha-crono { display: none; } }
+
+/* ===== redesenho 11/2026: mesa de escritório de advocacia, sem efeito de pasta =====
+   Fundo papel liso, folha de trabalho sem moldura, índice bordô plano. Rótulos em texto normal (sem caixa alta
+   espaçada), números em Caslon, tabelas de leitura, pauta com cartões de borda e sem sombra. Cores só por variável. */
+:root { --sombra: none; --l1: color-mix(in srgb, var(--bordo) 11%, transparent); --l2: color-mix(in srgb, var(--bordo) 24%, transparent); --tinta: color-mix(in srgb, var(--rosa) 13%, var(--folha)); }
+body { background: var(--papel); font-size: 15px; -webkit-font-smoothing: antialiased; }
+.escritorio { padding: 16px 28px; border-bottom: 1px solid var(--l1); margin-bottom: 22px; }
+.escritorio .v-logo { height: 36px !important; }
+.nome-esc b { font-size: 1.2rem; letter-spacing: 0; }
+.nome-esc small { font-size: .82rem; }
+.procura input { border-radius: 8px; border-color: var(--l2); background: var(--folha); width: 340px; }
+.ia-chama, .b { border-radius: 8px; box-shadow: none !important; }
+.ia-chama { background: transparent; color: var(--bordo); }
+.ia-chama:hover { background: var(--bordo); color: var(--papel); }
+.b { border-color: var(--l2); font-weight: 600; }
+.b:hover { border-color: var(--bordo); }
+.b.bordo { border-color: var(--bordo); }
+
+/* índice */
+.indice-j { box-shadow: none; border-radius: 10px; padding: 12px 8px 14px; }
+.grupo-j { font: 600 .76rem/1 var(--sans); letter-spacing: 0; text-transform: none; color: color-mix(in srgb, var(--rosa-cla) 62%, transparent); margin: 16px 12px 6px; }
+.fichario a, .fichario .mais-j { font: 500 .9rem/1.2 var(--sans); padding: 8px 12px; border-radius: 6px; color: color-mix(in srgb, var(--rosa-cla) 92%, transparent); }
+.fichario a[aria-current="page"] { box-shadow: none; font-weight: 600; }
+.fichario a[aria-current="page"]::before { display: none; }
+
+/* folha de trabalho: sem moldura, sem furos */
+.mesa-j .pasta { background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 4px 8px 48px 20px; min-height: 0; }
+.titulo { border-bottom: 0; padding-bottom: 0; margin-bottom: 26px; }
+.titulo h1 { font-size: 2.3rem; line-height: 1.1; }
+.titulo p { color: var(--tx-2); margin-top: 8px; }
+h2 { font: 700 1.05rem/1.3 var(--serif); color: var(--tx); margin-bottom: 14px; }
+.grade { gap: 18px; }
+.ficha { background: var(--folha); border: 1px solid var(--l1); border-radius: 8px; box-shadow: none; padding: 18px 20px; }
+/* indicadores: rótulo normal, número grande; o principal em bordô sólido */
+.num small { font-size: .82rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--tx-2); }
+.num b { margin: 6px 0 2px; font-variant-numeric: tabular-nums; }
+.num span { color: var(--tx-3); font-size: .82rem; }
+.num.bordo { background: var(--bordo); border-color: var(--bordo); }
+.num.bordo small { color: var(--rosa-cla); }
+
+/* pauta: colunas de dia sem sombra, eventos com borda à esquerda */
+.dia-p { border-radius: 8px; border-color: var(--l1); box-shadow: none; background: var(--folha); min-height: 300px; }
+.dia-p header { background: transparent; border-bottom: 1px solid var(--l1); font-weight: 600; }
+.dia-p.hoje { border-color: var(--bordo); }
+.dia-p.hoje header { background: var(--bordo); color: var(--papel); }
+.ev { box-shadow: none; border-radius: 4px; margin: 8px; padding: 9px 11px; background: var(--tinta); border-left-width: 3px; }
+.ev:hover { transform: none; box-shadow: none; background: color-mix(in srgb, var(--rosa) 22%, var(--folha)); }
+.ev.prazo { background: color-mix(in srgb, var(--vermelho) 9%, var(--folha)); }
+.ev.aud { background: color-mix(in srgb, var(--bordo) 8%, var(--folha)); }
+
+/* tabelas */
+th { font-size: .78rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--tx-2); border-bottom: 1px solid var(--l2); padding: 9px 10px; }
+td { border-bottom: 1px solid var(--l1); padding: 11px 10px; }
+tbody tr:hover td, tr.linha-click:hover td { background: var(--tinta); }
+.et { border-radius: 4px; font-weight: 600; }
+.et.v { background: color-mix(in srgb, var(--vermelho) 13%, var(--folha)); }
+.et.a { background: color-mix(in srgb, var(--ambar) 15%, var(--folha)); color: color-mix(in srgb, var(--ambar) 85%, var(--tx)); }
+.et.ok { background: color-mix(in srgb, var(--verde) 14%, var(--folha)); }
+td select, td input { border-color: var(--l2); border-radius: 5px; }
+
+/* capa do processo e abas internas */
+.capa { border: 1px solid var(--l2); border-left: 4px solid var(--bordo); border-radius: 6px; background: var(--folha); padding: 18px 20px; }
+.capa .cnj { font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.sub-abas { gap: 2px; border-bottom-color: var(--l1); }
+.sub-abas button { border-bottom-width: 2px; padding: 9px 12px; }
+.linha-tempo { border-left-color: var(--l2); }
+
+/* funil de atendimento */
+.etapa-f { background: color-mix(in srgb, var(--pedra-2) 55%, transparent); border: 0; border-radius: 8px; }
+.etapa-f h3 { font-size: .86rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--tx); }
+.lead { border-color: var(--l1); border-radius: 6px; padding: 10px 12px; background: var(--folha); }
+.peca { border-color: var(--l1); border-radius: 4px; background: #fff; }
+
+/* janelas e formulários */
+.veu { background: color-mix(in srgb, var(--bordo-esc) 52%, transparent); }
+.janela { border-top: 0; border-radius: 10px; padding: 22px 24px; box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--bordo-esc) 70%, transparent); }
+.janela h2 { font-size: 1.35rem; }
+.cp { gap: 5px; margin-bottom: 12px; color: var(--tx-2); font-size: .84rem; }
+.cp input, .cp select, .cp textarea { border-color: var(--l2); border-radius: 6px; padding: 9px 11px; color: var(--tx); font-size: .94rem; }
+.cp input:focus, .cp select:focus, .cp textarea:focus { border-color: var(--bordo); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--bordo) 14%, transparent); }
+.pe { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--l1); flex-wrap: wrap; }
+@media (max-width: 480px) { .par { grid-template-columns: 1fr; gap: 0; } .janela { padding: 18px 16px; } }
+.gaveta-ia { border-left: 1px solid var(--l2); }
+.atalhos button { border: 1px solid var(--l2); background: var(--folha); }
+.vazio { color: var(--tx-3); }
+.grade > .vazio { padding: 16px; background: var(--tinta); border-radius: 6px; }
+
+/* calendário */
+.cal { border-color: var(--l1); border-radius: 8px; }
+.cal-s span { text-transform: none; font-weight: 600; background: transparent; border-bottom: 1px solid var(--l1); }
+.cal-d { border-color: var(--l1); }
+.cal-d.hoje { background: var(--tinta); }
+.cal-i { background: color-mix(in srgb, var(--pedra) 40%, var(--folha)); }
+.cal-i.v { background: color-mix(in srgb, var(--vermelho) 14%, var(--folha)); color: var(--vermelho); }
+.cal-i.a { background: color-mix(in srgb, var(--ambar) 16%, var(--folha)); color: color-mix(in srgb, var(--ambar) 80%, var(--tx)); }
+.cal-i.b { background: color-mix(in srgb, var(--bordo) 12%, var(--folha)); color: var(--bordo); }
+
+@media (max-width: 860px) {
+  .escritorio { margin-bottom: 4px; }
+  .mesa-j .pasta { padding: 14px 14px 24px; }
+  .titulo h1 { font-size: 1.75rem; }
+  .procura input { width: 100%; }
+  td.mono, .mono { white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* contraste AA do texto de apoio (11/2026) */
+:root { --tx-3: #72696b; }
