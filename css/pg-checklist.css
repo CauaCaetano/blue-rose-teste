@@ -1,0 +1,48 @@
+/* =============================================================
+   checklist.html · checklists grátis em PDF · identidade v2
+   Os PDFs são a peça: a prévia de cada folha aparece em tamanho de leitura, em duas colunas
+   desencontradas (a da direita desce 96px), sobre a faixa marinho dos sistemas prontos,
+   porque cada checklist leva ao sistema Veltria do ramo.
+   ============================================================= */
+
+.cl-topo { padding: 88px 0 96px; }
+.cl-topo-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: end; }
+.cl-assina { margin-bottom: var(--m-e-5); font-size: var(--m-t-14); font-weight: 500; color: var(--m-tinta-2); }
+.cl-topo h1 { max-width: 14ch; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -.036em; }
+.cl-topo-txt > p { font-size: 17px; color: var(--m-tinta-2); }
+.cl-fatos { margin-top: var(--m-e-5); border-bottom: 1px solid var(--m-linha); }
+.cl-fatos div { display: grid; grid-template-columns: 112px 1fr; gap: var(--m-e-4); padding: 10px 0; border-top: 1px solid var(--m-linha); }
+.cl-fatos dt { font-size: var(--m-t-14); color: var(--m-tinta-3); }
+
+.cl-lista { padding: 96px 0 112px; background: var(--m-marinho); color: var(--m-sobre-marinho-2); }
+.cl-lista :focus-visible { outline-color: var(--m-rosa-luz); }
+.cl-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 72px var(--m-e-7); counter-reset: ck; }
+.cl-item:nth-child(even) { margin-top: 96px; }
+.cl-item:nth-child(n+3):nth-child(odd) { margin-top: -96px; } /* a coluna da esquerda sobe para manter o desencontro sem buraco */
+.cl-item { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: var(--m-e-5); align-items: end; }
+.cl-item img { width: 100%; aspect-ratio: 520 / 736; border-radius: 2px; background: #fff; box-shadow: var(--m-sombra); }
+.cl-item-txt { padding-bottom: var(--m-e-2); }
+.cl-ramo { font-size: var(--m-t-14); color: var(--m-rosa-luz); }
+.cl-item h2 { margin-top: 4px; font-size: var(--m-t-22); line-height: 1.25; letter-spacing: -.012em; color: var(--m-sobre-marinho); }
+.cl-acoes { display: grid; gap: var(--m-e-2); justify-items: start; margin-top: var(--m-e-5); }
+.cl-acoes .btn-primary { background: var(--m-sobre-marinho); border-color: var(--m-sobre-marinho); color: var(--m-marinho); }
+.cl-acoes .btn-primary:hover { background: #fff; border-color: #fff; }
+.cl-acoes .m-link { padding: 8px 0; color: var(--m-rosa-luz); }
+.cl-ajuda { margin-top: 96px; padding-top: var(--m-e-4); border-top: 1px solid var(--pa-fio-claro); color: var(--m-sobre-marinho-2); }
+.cl-ajuda .m-link { color: var(--m-rosa-luz); }
+
+@media (max-width: 1100px) {
+  .cl-topo-grade { grid-template-columns: 1fr; gap: var(--m-e-6); }
+  .cl-grade { grid-template-columns: 1fr; gap: var(--m-e-8); }
+  .cl-item:nth-child(n) { margin-top: 0; }
+}
+@media (max-width: 760px) {
+  .cl-topo { padding: 40px 0 56px; }
+  .cl-topo h1 { font-size: 34px; line-height: 1.06; }
+  .cl-topo-txt > p { font-size: 16px; }
+  .cl-lista { padding: 56px 0 72px; }
+  .cl-item { grid-template-columns: 42% 1fr; gap: var(--m-e-4); align-items: start; }
+  .cl-item h2 { font-size: 19px; }
+  .cl-acoes .btn { width: 100%; }
+  .cl-ajuda { margin-top: var(--m-e-8); }
+}

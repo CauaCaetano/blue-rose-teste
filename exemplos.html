@@ -24,11 +24,10 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png?v=3">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=62">
-<link rel="stylesheet" href="css/luxo.css?v=21">
-<link rel="stylesheet" href="css/creme.css?v=1"><link rel="stylesheet" href="css/areia.css?v=2">
-<script src="js/luxo.js?v=5" defer></script>
+<link rel="stylesheet" href="css/marca.css?v=2">
+<link rel="stylesheet" href="css/pg-a-comum.css?v=1">
+<link rel="stylesheet" href="css/pg-exemplos.css?v=1">
+
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="sites/catalogo.js?v=13" defer></script>
@@ -39,39 +38,43 @@
 <script src="js/assistente.js?v=23" defer></script>
 <script src="js/cookies.js?v=2" defer></script>
 </head>
-<body>
+<body class="pa pex">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./" aria-label="Blue Rose Express, página inicial">
-      <img src="img/blue-rose-logo-128.png" alt="" width="30" height="30">BLUE ROSE
+      <img src="img/blue-rose-logo-128.png" alt="" width="28" height="28">Blue Rose
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-list"/></svg>
     </button>
     <nav class="nav-links" id="menu" aria-label="Principal">
-      <a href="sistemas.html">Produtos</a>
-      <a href="servicos.html">Sites e automação</a>
+      <a href="sistemas.html">Sistemas prontos</a>
+      <a href="servicos.html">Sob medida</a>
       <a href="como-funciona.html">Como funciona</a>
-      <a href="./#precos">Preços</a>
-      <a class="btn btn-primary" href="./#contato">Agendar demonstração</a>
+      <a href="index.html#precos">Preços</a>
+      <a class="btn btn-primary" href="index.html#contato">Agendar demonstração</a>
     </nav>
   </div>
 </header>
 
 <main id="conteudo">
-  <section aria-labelledby="t-ex" style="padding-bottom:40px">
-    <div class="wrap">
-      <span class="eyebrow reveal">Exemplos de sites</span>
-      <h1 id="t-ex" class="sec-title reveal" style="font-size:clamp(36px,5.4vw,64px);max-width:16ch">15 sites prontos para você navegar.</h1>
-      <p class="sec-lede reveal">Escolha uma categoria e entre no site que quiser. Não são capas: dá para agendar horário, simular preços, filtrar unidades e chamar no WhatsApp com a mensagem já escrita.</p>
-      <div class="perso reveal" data-perso>
-        <div class="perso-txt"><span class="perso-tag">Prévia ao vivo</span><h2>Veja os sites com a cara do seu negócio.</h2><p>Coloque o nome, envie a sua logo e escolha as cores. Todos os modelos abrem com a sua marca, antes de você pagar qualquer coisa.</p><p class="perso-privado">A logo fica só neste navegador. Nada é enviado para o nosso servidor.</p></div>
+  <!-- 1. Topo creme: título e a bancada de personalização lado a lado -->
+  <section class="ex-topo" aria-labelledby="t-ex">
+    <div class="wrap ex-topo-grade">
+      <div class="ex-topo-txt">
+        <p class="ex-assina">Sites de exemplo · sob medida</p>
+        <h1 id="t-ex">15 sites prontos para você navegar.</h1>
+        <p>Escolha uma categoria e entre no site que quiser. Não são capas: dá para agendar horário, simular preços, filtrar unidades e chamar no WhatsApp com a mensagem já escrita.</p>
+        <p class="ex-ficticio">As marcas, pessoas, preços e depoimentos dos exemplos são fictícios. As fotos são do Unsplash, de uso livre.</p>
+      </div>
+      <div class="perso" data-perso>
+        <div class="perso-txt"><h2>Veja os sites com a cara do seu negócio</h2><p>Coloque o nome, envie a sua logo e escolha as cores. Todos os modelos abrem com a sua marca, antes de você pagar qualquer coisa.</p><p class="perso-privado">A logo fica só neste navegador. Nada é enviado para o nosso servidor.</p></div>
         <div class="perso-campos">
           <label class="perso-nome"><span>Nome do negócio</span><input type="text" maxlength="40" autocomplete="organization" placeholder="Ex.: Studio Bella Vista" data-perso-nome></label>
           <div class="perso-logo">
-            <label class="perso-envio" data-perso-envio><input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" data-perso-arquivo><span class="perso-envio-vazio"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-upload-simple"/></svg><b>Enviar sua logo</b><small>PNG, JPG, WEBP ou SVG, até 5 MB</small></span><img alt="Sua logo" data-perso-logo-img hidden></label>
+            <label class="perso-envio" data-perso-envio><input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" data-perso-arquivo><span class="perso-envio-vazio"><b>Enviar sua logo</b><small>PNG, JPG, WEBP ou SVG, até 5 MB</small></span><img alt="Sua logo" data-perso-logo-img hidden></label>
             <div class="perso-logo-op" data-perso-logo-op hidden>
               <label class="perso-check"><input type="checkbox" data-perso-so-logo><span>Minha logo já tem o nome escrito</span></label>
               <button type="button" class="perso-limpar perso-tirar" data-perso-tirar>Tirar logo</button>
@@ -83,32 +86,45 @@
           <button type="button" class="perso-limpar" data-perso-limpar>Limpar tudo</button>
         </div>
       </div>
-      <div class="cats" data-categorias aria-live="polite"></div>
-      <noscript><p class="sec-lede">Ative o JavaScript para ver as categorias.</p></noscript>
     </div>
   </section>
 
-  <section aria-labelledby="t-rec" style="padding-top:56px">
+  <!-- 2. Categorias (montadas por js/catalogo-sites.js): cada uma é uma linha com as miniaturas reais -->
+  <section class="ex-cats" aria-labelledby="t-cats">
     <div class="wrap">
-      <span class="eyebrow reveal">O que vem em cada site</span>
-      <h2 id="t-rec" class="sec-title reveal">Feitos para virar cliente, não só visita.</h2>
-      <div class="ex-recursos">
-        <div class="reveal" style="--i:0"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-whatsapp-logo"/></svg><h3>WhatsApp em cada etapa</h3><p>Botão fixo e mensagens prontas com o serviço, o dia e o valor escolhidos.</p></div>
-        <div class="reveal" style="--i:1"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-receipt"/></svg><h3>Preço na hora</h3><p>Calculadoras de orçamento, pacotes, planos, laser por área e rescisão.</p></div>
-        <div class="reveal" style="--i:2"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-lightning"/></svg><h3>Agenda com dia e hora</h3><p>O cliente escolhe a data real e o horário. A equipe só confirma.</p></div>
-        <div class="reveal" style="--i:3"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-browser"/></svg><h3>Várias páginas</h3><p>De 3 a 6 páginas por site, rápidas no celular e prontas para o Google.</p></div>
+      <div class="ex-cats-cab">
+        <h2 id="t-cats">Escolha a categoria</h2>
+        <p>Cada categoria abre a lista dos sites dela, com o que cada um tem e o preço do modelo.</p>
       </div>
-      <p class="sec-lede reveal" style="margin-top:28px">As marcas, pessoas, preços e depoimentos dos exemplos são fictícios. As fotos são do Unsplash, de uso livre.</p>
+      <div class="cats" data-categorias aria-live="polite"></div>
+      <noscript><p>Ative o JavaScript para ver as categorias.</p></noscript>
     </div>
   </section>
 
-  <section class="fim-cta" aria-labelledby="t-fim">
-    <div class="wrap">
-      <h2 id="t-fim" class="sec-title reveal">Gostou de algum? O seu sai com a sua marca.</h2>
-      <p class="sec-lede reveal">Escolha o modelo que mais combina com o seu negócio e eu adapto: nome, fotos, serviços, preços e o seu WhatsApp.</p>
-      <div class="acoes reveal" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn-primary" href="./#contato">Quero um site assim</a>
-        <a class="btn btn-ghost" href="https://wa.me/WHATSAPP?text=Ol%C3%A1!%20Vi%20os%20exemplos%20de%20sites%20e%20quero%20um%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-whatsapp-logo"/></svg>Chamar no WhatsApp</a>
+  <!-- 3. O que vem em cada site -->
+  <section class="ex-rec" aria-labelledby="t-rec">
+    <div class="wrap ex-rec-grade">
+      <h2 id="t-rec">O que vem em cada site</h2>
+      <dl class="ex-recursos">
+        <div><dt>WhatsApp em cada etapa</dt><dd>Botão fixo e mensagens prontas com o serviço, o dia e o valor escolhidos.</dd></div>
+        <div><dt>Preço na hora</dt><dd>Calculadoras de orçamento, pacotes, planos, laser por área e rescisão.</dd></div>
+        <div><dt>Agenda com dia e hora</dt><dd>O cliente escolhe a data real e o horário. A equipe só confirma.</dd></div>
+        <div><dt>Várias páginas</dt><dd>De 3 a 6 páginas por site, rápidas no celular e prontas para o Google.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 4. Fim -->
+  <section class="ex-fim" aria-labelledby="t-fim">
+    <div class="wrap ex-fim-grade">
+      <div>
+        <h2 id="t-fim">Gostou de algum? O seu sai com a sua marca.</h2>
+        <p>Escolha o modelo que mais combina com o seu negócio e nós adaptamos: nome, fotos, serviços, preços e o seu WhatsApp. Sites a partir de <span class="m-num">R$ 690</span>, com o preço fechado antes de começar.</p>
+      </div>
+      <div class="ex-fim-acoes">
+        <a class="btn btn-primary" href="index.html#contato">Quero um site assim</a>
+        <a class="btn btn-sec" href="https://wa.me/WHATSAPP?text=Ol%C3%A1!%20Vi%20os%20exemplos%20de%20sites%20e%20quero%20um%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="m-link" href="servicos.html#precos">Ver os planos de site</a>
       </div>
     </div>
   </section>
@@ -117,25 +133,22 @@
 <dialog class="dlg-sites" id="dlg-sites" aria-labelledby="dlg-titulo">
   <div class="dlg-topo">
     <div><h2 id="dlg-titulo" data-dlg-titulo></h2><p data-dlg-sub></p></div>
-    <button type="button" class="dlg-x" data-dlg-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-x"/></svg></button>
+    <button type="button" class="dlg-x" data-dlg-fechar aria-label="Fechar">×</button>
   </div>
   <div class="dlg-lista" data-dlg-lista></div>
 </dialog>
 
 <footer class="rodape-site">
-  <div class="wrap">
-    <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="30" height="30" loading="lazy">BLUE ROSE</a>
-    <nav aria-label="Rodapé">
-      <a href="projetos.html">Projetos</a>
-      <a href="laboratorio.html">Laboratório</a>
-      <a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a>
-      <a href="exemplos.html">Exemplos de sites</a>
-      <a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">Instagram @blue.rose.express</a>
-      <a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a>
-      <a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a>
-      <a href="termos.html">Termos de Serviço</a>
-      <a href="privacidade.html">Privacidade</a>
-      <a href="checklist.html">Checklists grátis</a>
+  <div class="wrap hn-rodape">
+    <div class="hn-rodape-marca">
+      <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="28" height="28" loading="lazy">Blue Rose</a>
+      <p>Sistemas Veltria por assinatura e software sob medida para pequenas empresas.</p>
+    </div>
+    <nav aria-label="Rodapé" class="hn-rodape-nav">
+      <div><p class="hn-rodape-tit">Sistemas prontos</p><a href="sistemas.html">Todos os sistemas</a><a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a><a href="como-funciona.html">Como funciona</a></div>
+      <div><p class="hn-rodape-tit">Sob medida</p><a href="servicos.html">Sites e automação</a><a href="exemplos.html">Sites de exemplo</a><a href="projetos.html">Projetos</a><a href="laboratorio.html">Laboratório</a><a href="checklist.html">Checklists grátis</a></div>
+      <div><p class="hn-rodape-tit">Instagram</p><a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">@blue.rose.express</a><a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a><a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a></div>
+      <div><p class="hn-rodape-tit">Legal</p><a href="termos.html">Termos de Serviço</a><a href="privacidade.html">Privacidade</a><a href="conta.html">Minha conta</a></div>
     </nav>
     <div class="linha2">
       <span>© 2026 Blue Rose Express. Atendimento de segunda a sexta, das 8h às 18h.</span>

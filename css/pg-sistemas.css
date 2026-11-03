@@ -1,0 +1,196 @@
+/* =============================================================
+   sistemas.html · catálogo dos sistemas prontos (Veltria) · identidade v2
+   Território marinho: o topo inteiro e a tabela das 18 versões ficam no marinho.
+   Composição: a tabela de preços por versão é a peça de abertura (o catálogo em uma vista);
+   depois os 4 sistemas em destaque, cada um numa grade diferente (tela larga, par invertido,
+   tela de ponta a ponta com 3 colunas de texto, texto estreito + tela + lista numerada),
+   e os outros 3 em linhas de tabela. O sob medida aparece só no fim, no creme.
+   ============================================================= */
+
+.pss h2 { font-size: var(--m-t-36); line-height: 1.08; letter-spacing: -.026em; }
+.ss-ramo { font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.ss-preco { color: var(--m-tinta-2); }
+.ss-preco .m-num { font-weight: 600; color: var(--m-tinta); }
+.pss h2 a, .pss h3 a { color: inherit; text-decoration: none; }
+.pss h2 a:hover, .pss h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.ss-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--m-e-3) var(--m-e-5); margin-top: var(--m-e-6); }
+.ss-acoes .m-link { padding: 8px 0; }
+
+/* ---------- 1. topo + tabela (marinho) ---------- */
+.ss-topo { padding: 96px 0 104px; background: var(--m-marinho); color: var(--m-sobre-marinho-2); }
+.ss-topo :focus-visible { outline-color: var(--m-rosa-luz); }
+.ss-topo-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: end; }
+.ss-assina { margin-bottom: var(--m-e-5); font-size: var(--m-t-14); font-weight: 500; color: var(--m-rosa-luz); }
+.ss-topo h1 { max-width: 15ch; font-size: clamp(34px, 3.9vw, 52px); line-height: 1.04; letter-spacing: -.034em; color: var(--m-sobre-marinho); }
+.ss-topo-lado > p { font-size: 17px; color: var(--m-sobre-marinho-2); }
+.ss-fatos { margin-top: var(--m-e-6); border-bottom: 1px solid var(--pa-fio-claro); }
+.ss-fatos div { display: grid; grid-template-columns: 128px 1fr; gap: var(--m-e-4); padding: 11px 0; border-top: 1px solid var(--pa-fio-claro); }
+.ss-fatos dt { font-size: var(--m-t-14); }
+.ss-fatos dd { color: var(--m-sobre-marinho); }
+.ss-fatos .m-num { font-weight: 600; }
+
+.ss-matriz { margin-top: 112px; scroll-margin-top: 80px; }
+.ss-matriz-cab { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: end; margin-bottom: var(--m-e-7); }
+.ss-matriz h2 { font-size: var(--m-t-28); letter-spacing: -.02em; color: var(--m-sobre-marinho); max-width: 16ch; }
+.ss-matriz-cab p { color: var(--m-sobre-marinho-2); }
+.ss-tabela { width: 100%; border-collapse: collapse; font-size: 16px; }
+.ss-tabela th, .ss-tabela td { padding: 0; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--pa-fio-claro); }
+.ss-tabela thead th { padding: 0 0 14px; font-size: var(--m-t-14); font-weight: 400; color: var(--m-sobre-marinho-2); border-bottom: 1px solid var(--m-sobre-marinho); }
+.ss-tabela thead th:nth-child(n+3) { text-align: right; }
+.ss-tabela tbody th { width: 22%; font-size: var(--m-t-22); font-weight: 500; letter-spacing: -.012em; }
+.ss-tabela tbody th a { display: block; padding: 18px 0; color: var(--m-sobre-marinho); text-decoration: none; }
+.ss-tabela tbody th a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.ss-tabela tbody td:nth-child(2) { width: 30%; font-size: 15px; color: var(--m-sobre-marinho-2); }
+.ss-tabela tbody td:nth-child(n+3) { width: 16%; text-align: right; }
+.ss-tabela td a { display: block; padding: 18px 0 18px 12px; color: var(--m-sobre-marinho); text-decoration: none; }
+.ss-tabela td a .m-num { font-size: var(--m-t-22); font-weight: 500; letter-spacing: -.01em; }
+.ss-tabela td a:hover .m-num { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.ss-tabela td a:focus-visible, .ss-tabela th a:focus-visible { outline-offset: -2px; }
+.ss-tabela .ss-sem { color: rgba(185, 192, 207, .55); padding-right: 0; }
+.ss-tabela tbody tr:hover > * { background: rgba(242, 238, 230, .04); }
+.ss-matriz-nota { margin-top: var(--m-e-4); font-size: var(--m-t-14); color: var(--m-sobre-marinho-2); }
+
+/* ---------- 2. destaques ---------- */
+.ss-destaques { padding: 128px 0 96px; }
+.ss-sis { display: grid; gap: var(--m-e-7); align-items: start; scroll-margin-top: 96px; }
+.ss-sis + .ss-sis { margin-top: 144px; }
+.ss-tela { position: relative; display: block; border-radius: var(--m-r-2); }
+.ss-tela img { width: 100%; aspect-ratio: 1200 / 750; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); background: var(--m-branco); transition: border-color var(--m-dur); }
+.ss-tela:hover img { border-color: var(--m-linha-forte); }
+.ss-play { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 14px 0 12px; border-radius: var(--m-r-1); background: var(--m-marinho); color: var(--m-sobre-marinho); font-size: var(--m-t-14); font-weight: 500; }
+.ss-play::before { content: ''; border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent currentColor; }
+.ss-tela:hover .ss-play { background: var(--m-marinho-700); }
+.ss-txt h2 { margin-top: 4px; }
+.ss-para { margin-top: var(--m-e-3); font-size: 17px; color: var(--m-tinta-2); }
+.ss-txt .ss-preco { margin-top: var(--m-e-4); font-size: 17px; }
+.ss-func { display: grid; gap: 8px; margin-top: var(--m-e-5); padding-top: var(--m-e-5); border-top: 1px solid var(--m-linha); font-size: 15px; color: var(--m-tinta-2); }
+.ss-func li { position: relative; padding-left: 20px; }
+.ss-func li::before { content: ''; position: absolute; left: 0; top: .74em; width: 10px; height: 1px; background: currentColor; }
+
+/* A: tela larga (8) + texto (4) */
+.ss-sis-a { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+.ss-sis-a h2 { font-size: var(--m-t-48); line-height: 1.02; letter-spacing: -.032em; }
+/* B: texto (5) + tela (7), a tela desce 96px: os dois blocos não começam na mesma linha */
+.ss-sis-b { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; }
+.ss-sis-b .ss-tela { margin-top: 96px; }
+/* C: tela de ponta a ponta + três colunas de texto */
+.ss-sis-c { grid-template-columns: 1fr; gap: var(--m-e-6); }
+.ss-sis-c .ss-txt { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr); gap: var(--m-e-6); }
+.ss-c-cab .ss-preco { margin-top: var(--m-e-3); }
+.ss-sis-c .ss-para { margin-top: 0; font-size: 15px; }
+.ss-sis-c .ss-func { margin-top: 0; padding-top: 0; border-top: 0; }
+.ss-sis-c .ss-acoes { grid-column: 1 / -1; margin-top: 0; padding-top: var(--m-e-5); border-top: 1px solid var(--m-linha); }
+/* D: texto estreito (4) + tela (8) e a lista numerada embaixo, alinhada à tela */
+.ss-sis-d { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+.ss-sis-d .ss-func-num { grid-column: 2; margin-top: 0; counter-reset: f; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px var(--m-e-6); }
+.ss-func-num li { counter-increment: f; padding-left: 32px; }
+.ss-func-num li::before { content: counter(f); top: 0; width: auto; height: auto; background: none; font: 400 var(--m-t-14)/1.6 var(--m-mono); color: var(--m-rosa); }
+
+/* ---------- 3. também na Veltria ---------- */
+.ss-tambem { padding: 96px 0 112px; }
+.ss-tambem-cab { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: end; margin-bottom: var(--m-e-6); }
+.ss-tambem-cab p { color: var(--m-tinta-2); }
+.ss-linha { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr); gap: var(--m-e-6); align-items: start; padding: var(--m-e-6) 0; border-top: 1px solid var(--m-linha); scroll-margin-top: 96px; }
+.ss-linha:first-of-type { border-top-color: var(--m-tinta); }
+.ss-linha:last-child { border-bottom: 1px solid var(--m-linha); }
+.ss-mini img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; border: 1px solid var(--m-linha); border-radius: var(--m-r-1); background: var(--m-branco); }
+.ss-linha h3 { margin-top: 4px; font-size: var(--m-t-28); letter-spacing: -.02em; }
+.ss-linha .ss-func { margin-top: var(--m-e-3); padding-top: 0; border-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px var(--m-e-5); font-size: var(--m-t-14); }
+.ss-linha-acao { display: grid; gap: var(--m-e-2); justify-items: start; }
+.ss-linha-acao .ss-preco { margin-bottom: var(--m-e-2); font-size: 17px; }
+.ss-linha-acao .btn { width: 100%; }
+.ss-linha-acao .m-link { padding: 6px 0; font-size: 15px; }
+
+/* ---------- 4. o que a assinatura inclui ---------- */
+.ss-inclui { padding: 104px 0; background: var(--m-branco); border-block: 1px solid var(--m-linha); }
+.ss-inclui-grade { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr); gap: var(--m-e-7) var(--m-e-6); }
+.ss-inclui-cab h2 { font-size: var(--m-t-28); letter-spacing: -.02em; }
+.ss-inclui-cab p { margin-top: var(--m-e-3); color: var(--m-tinta-2); }
+.ss-inclui-col h3, .ss-indique h3 { padding-bottom: var(--m-e-3); border-bottom: 1px solid var(--m-tinta); font-size: var(--m-t-18); }
+.ss-inclui-col ul { display: grid; gap: 0; }
+.ss-inclui-col li { padding: 10px 0; border-bottom: 1px solid var(--m-linha); font-size: 15px; color: var(--m-tinta-2); }
+.ss-indique { grid-column: 2 / 4; }
+.ss-indique p { margin-top: var(--m-e-3); color: var(--m-tinta-2); }
+.ss-inclui-nota { grid-column: 2 / 4; font-size: var(--m-t-14); color: var(--m-tinta-3); }
+
+/* ---------- 5. saídas ---------- */
+.ss-saidas { padding: 96px 0 112px; }
+.ss-saidas-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--m-e-5); align-items: stretch; }
+.ss-medida { padding: 40px; background: var(--m-creme); border-top: 4px solid #b9a67f; border-radius: var(--m-r-2); }
+.ss-medida h2 { margin-top: 4px; font-size: var(--m-t-28); letter-spacing: -.02em; }
+.ss-medida > p:not([class]) { margin: var(--m-e-3) 0 var(--m-e-5); color: var(--m-tinta-2); }
+.ss-medida .m-num { font-weight: 600; color: var(--m-tinta); }
+.app-play { display: grid; align-content: space-between; gap: var(--m-e-5); padding: 40px; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); }
+.app-play h2 { font-size: var(--m-t-22); letter-spacing: -.012em; }
+.app-play p { margin-top: var(--m-e-2); color: var(--m-tinta-2); font-size: 15px; }
+.app-play .play-badge { justify-self: start; color: var(--m-tinta); }
+
+/* ---------- tablet ---------- */
+@media (max-width: 1100px) {
+  .ss-topo-grade, .ss-matriz-cab, .ss-tambem-cab { grid-template-columns: 1fr; gap: var(--m-e-5); }
+  .ss-sis-a, .ss-sis-b, .ss-sis-d { grid-template-columns: 1fr; gap: var(--m-e-5); }
+  .ss-sis-b .ss-tela { margin-top: 0; order: -1; }
+  .ss-sis-d .ss-tela { order: -1; }
+  .ss-sis-d .ss-func-num { grid-column: 1; }
+  .ss-sis-c .ss-txt { grid-template-columns: 1fr 1fr; }
+  .ss-c-cab { grid-column: 1 / -1; }
+  .ss-linha { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+  .ss-linha-acao { grid-column: 2; }
+  .ss-inclui-grade { grid-template-columns: 1fr 1fr; }
+  .ss-inclui-cab { grid-column: 1 / -1; }
+  .ss-indique, .ss-inclui-nota { grid-column: 1 / -1; }
+  .ss-saidas-grade { grid-template-columns: 1fr; }
+}
+
+/* ---------- celular ---------- */
+@media (max-width: 760px) {
+  .pss h2 { font-size: var(--m-t-28); }
+  .ss-topo { padding: 40px 0 64px; }
+  .ss-assina { margin-bottom: var(--m-e-4); font-size: var(--m-t-13); }
+  .ss-topo h1 { font-size: 31px; line-height: 1.1; letter-spacing: -.028em; }
+  .ss-topo-lado > p { font-size: 16px; }
+  .ss-fatos div { grid-template-columns: 108px 1fr; }
+  .ss-matriz { margin-top: var(--m-e-8); }
+  .ss-matriz h2 { font-size: 24px; }
+  /* a tabela vira uma lista: cada sistema numa linha, as versões embaixo */
+  .ss-tabela, .ss-tabela tbody, .ss-tabela tr { display: block; }
+  .ss-tabela thead { display: none; }
+  .ss-tabela tbody tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px 0; border-bottom: 1px solid var(--pa-fio-claro); }
+  .ss-tabela tbody tr:first-child { border-top: 1px solid var(--m-sobre-marinho); }
+  .ss-tabela th, .ss-tabela td { border: 0; width: auto !important; }
+  .ss-tabela tbody th { grid-column: 1 / -1; font-size: 20px; }
+  .ss-tabela tbody th a { padding: 2px 0; }
+  .ss-tabela tbody td:nth-child(2) { grid-column: 1 / -1; margin-bottom: var(--m-e-2); font-size: var(--m-t-14); }
+  .ss-tabela tbody td:nth-child(n+3) { text-align: left; }
+  .ss-tabela td a { padding: 6px 0; }
+  .ss-tabela td a::before { display: block; font-size: var(--m-t-13); color: var(--m-sobre-marinho-2); }
+  .ss-tabela td:nth-child(3) a::before { content: 'Essencial'; }
+  .ss-tabela td:nth-child(4) a::before { content: 'Completo'; }
+  .ss-tabela td:nth-child(5) a::before { content: 'Avançado'; }
+  .ss-tabela td a .m-num { font-size: 18px; }
+  .ss-tabela .ss-sem { display: none; }
+
+  .ss-destaques { padding: 72px 0 48px; }
+  .ss-sis + .ss-sis { margin-top: 88px; }
+  .ss-sis-a h2 { font-size: 34px; }
+  .ss-tela { margin-inline: calc(var(--m-gutter) * -1); }
+  .ss-tela img { border-radius: 0; border-inline: 0; }
+  .ss-play { left: var(--m-gutter); bottom: 12px; }
+  .ss-sis-c .ss-txt { grid-template-columns: 1fr; gap: var(--m-e-4); }
+  .ss-sis-d .ss-func-num { grid-template-columns: 1fr; }
+  .ss-acoes .btn { width: 100%; }
+  .ss-para { font-size: 16px; }
+
+  .ss-tambem { padding: 64px 0 80px; }
+  .ss-linha { grid-template-columns: 36% 1fr; gap: var(--m-e-4); padding: var(--m-e-5) 0; }
+  .ss-linha h3 { font-size: 20px; }
+  .ss-linha .ss-ramo { font-size: var(--m-t-13); }
+  .ss-linha .ss-func { display: none; } /* as funções ficam na página do sistema; aqui a lista precisa caber */
+  .ss-linha-acao { grid-column: 1 / -1; }
+
+  .ss-inclui { padding: 64px 0; }
+  .ss-inclui-grade { grid-template-columns: 1fr; gap: var(--m-e-6); }
+  .ss-saidas { padding: 64px 0 80px; }
+  .ss-medida, .app-play { padding: var(--m-e-5) 20px var(--m-e-6); }
+  .ss-medida .btn { width: 100%; }
+}

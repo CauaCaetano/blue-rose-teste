@@ -1,0 +1,48 @@
+/* =============================================================
+   404.html e pagamento.html · páginas avulsas, sem menu · identidade v2
+   404: metade papel com a mensagem, metade marinho com o mapa do site (o que a pessoa procurava).
+   Pagamento: página de confirmação, com o resultado grande à esquerda e os próximos passos
+   em lista numerada à direita (js/pagamento.js troca os textos e esconde a lista quando falha).
+   ============================================================= */
+
+/* ---------- 404 ---------- */
+.e404 { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); min-height: 100dvh; }
+.e404-txt { display: flex; flex-direction: column; justify-content: center; padding: 64px max(var(--m-gutter), calc((100vw - var(--m-largura)) / 2)) 64px; padding-right: 72px; }
+.e404-txt .brand { align-self: flex-start; margin-bottom: auto; }
+.e404-cod { margin-top: 64px; font-size: 96px; line-height: 1; letter-spacing: -.04em; color: var(--m-rosa); }
+.e404 h1 { margin-top: var(--m-e-4); font-size: clamp(34px, 4vw, 52px); line-height: 1.04; letter-spacing: -.034em; }
+.e404-txt > p:not([class]) { margin-top: var(--m-e-4); max-width: 44ch; font-size: 17px; color: var(--m-tinta-2); }
+.e404 .ctas, .pag .ctas { display: flex; flex-wrap: wrap; gap: var(--m-e-3); margin: var(--m-e-6) 0 auto; }
+.e404-mapa { display: flex; flex-direction: column; justify-content: center; padding: 64px 48px; background: var(--m-marinho); color: var(--m-sobre-marinho-2); }
+.e404-mapa :focus-visible { outline-color: var(--m-rosa-luz); }
+.e404-mapa-t { padding-bottom: var(--m-e-3); border-bottom: 1px solid var(--m-sobre-marinho); font-size: var(--m-t-14); font-weight: 500; color: var(--m-sobre-marinho); }
+.e404-mapa a { display: grid; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--pa-fio-claro); text-decoration: none; }
+.e404-mapa b { font-weight: 500; font-size: 17px; color: var(--m-sobre-marinho); }
+.e404-mapa span { font-size: var(--m-t-14); }
+.e404-mapa a:hover b { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+
+/* ---------- pagamento ---------- */
+.pag { min-height: 100dvh; display: flex; flex-direction: column; width: min(100% - var(--m-gutter) * 2, var(--m-largura)); margin-inline: auto; padding: 32px 0 64px; }
+.pag-cab { padding-bottom: var(--m-e-4); border-bottom: 1px solid var(--m-linha); }
+.pag-grade { flex: 1; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 80px; align-items: center; padding-top: 64px; }
+.pag .selo { display: grid; place-items: center; width: 72px; height: 72px; border-radius: var(--m-r-1); background: var(--m-marinho); color: var(--m-sobre-marinho); font: 400 32px/1 var(--m-mono); }
+.pag h1 { margin-top: var(--m-e-5); max-width: 16ch; font-size: clamp(34px, 4vw, 52px); line-height: 1.04; letter-spacing: -.034em; }
+.pag-txt > p { margin-top: var(--m-e-4); max-width: 46ch; font-size: 17px; color: var(--m-tinta-2); }
+.pag .ctas { margin-bottom: 0; }
+.pag-passos-t { padding-bottom: var(--m-e-3); border-bottom: 1px solid var(--m-tinta); font-size: var(--m-t-14); font-weight: 500; }
+.pag-passos-col:has(#pg-passos[hidden]) { display: none; }
+#pg-passos { counter-reset: p; }
+#pg-passos li { counter-increment: p; position: relative; padding: 16px 0 16px 40px; border-bottom: 1px solid var(--m-linha); color: var(--m-tinta-2); }
+#pg-passos li::before { content: counter(p); position: absolute; left: 0; top: 16px; font: 400 var(--m-t-18)/1.4 var(--m-mono); color: var(--m-rosa); }
+
+@media (max-width: 900px) {
+  .e404 { grid-template-columns: 1fr; }
+  .e404-txt { padding: 32px var(--m-gutter) 48px; }
+  .e404-cod { margin-top: 48px; font-size: 72px; }
+  .e404-mapa { padding: 48px var(--m-gutter); }
+  .pag-grade { grid-template-columns: 1fr; gap: var(--m-e-7); align-items: start; padding-top: 48px; }
+}
+@media (max-width: 760px) {
+  .e404 .ctas .btn, .pag .ctas .btn { flex: 1 1 100%; }
+  .e404 h1, .pag h1 { font-size: 32px; line-height: 1.08; }
+}

@@ -1,0 +1,78 @@
+/* =============================================================
+   Lote A (páginas comerciais e institucionais) · peças comuns sobre marca.css
+   Cada página do lote carrega: marca.css + este arquivo + o CSS próprio dela (pg-<nome>.css).
+   Aqui fica só o que se repete por função, não por layout: rodapé novo (o mesmo da home),
+   as janelas criadas pelos scripts (contratar.js, videos.js) e o estado atual do menu.
+   As composições de cada página ficam no arquivo dela.
+   ============================================================= */
+
+.pa { --pa-fio: rgba(20, 33, 61, .18); --pa-fio-claro: rgba(242, 238, 230, .2); }
+.pa h1, .pa h2, .pa h3 { color: var(--m-tinta); }
+.pa p { max-width: 68ch; }
+.pa .m-link { padding-block: 2px; }
+.pa-num { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+
+/* menu: página atual */
+.pa .nav-links a[aria-current="page"]:not(.btn) { color: var(--m-tinta); box-shadow: inset 0 -2px 0 var(--m-marinho); border-radius: 0; background: none; }
+@media (max-width: 900px) { .pa .nav-links a[aria-current="page"]:not(.btn) { box-shadow: inset 3px 0 0 var(--m-marinho); padding-left: 12px; } }
+
+/* ---------- rodapé (mesma marcação e medidas da home) ---------- */
+.pa .rodape-site { padding: 72px 0 32px; }
+.pa .hn-rodape { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--m-e-7) var(--m-e-6); }
+.pa .hn-rodape-marca p { margin-top: var(--m-e-4); max-width: 30ch; }
+.pa .hn-rodape-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--m-e-5); }
+.pa .hn-rodape-nav div { display: grid; align-content: start; }
+.pa .hn-rodape-nav a { padding: 7px 0; }
+.pa .hn-rodape-tit { margin-bottom: var(--m-e-2); font-size: var(--m-t-13); color: var(--m-sobre-marinho-2); }
+.pa .rodape-site .linha2 { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--m-e-3); padding-top: var(--m-e-5); border-top: 1px solid rgba(242, 238, 230, .14); }
+@media (max-width: 1100px) { .pa .hn-rodape { grid-template-columns: 1fr; } .pa .hn-rodape-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .pa .rodape-site { padding: 56px 0 32px; } }
+
+/* ---------- janela "Contratar" (js/contratar.js) ---------- */
+dialog.contratar { width: min(480px, calc(100vw - 32px)); padding: 0; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); background: var(--m-branco); color: var(--m-tinta); box-shadow: var(--m-sombra); }
+dialog.contratar::backdrop { background: rgba(12, 22, 41, .55); }
+.contratar-caixa { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 28px 24px 24px; }
+.contratar-caixa .eyebrow { font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.contratar-caixa h3 { font-size: var(--m-t-22); letter-spacing: -.015em; padding-right: 40px; }
+.contratar-x { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 0; border-radius: var(--m-r-1); background: none; color: var(--m-tinta-2); font-size: 24px; cursor: pointer; }
+.contratar-x:hover { background: rgba(20, 33, 61, .06); }
+.contratar-valor b { display: block; font-size: var(--m-t-28); font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.contratar-valor small { display: block; margin-top: 4px; font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.contratar-passos { display: grid; gap: 8px; padding: 14px 0 14px 20px; border-block: 1px solid var(--m-linha); list-style: decimal; font-size: 15px; color: var(--m-tinta-2); }
+.contratar-aceite { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: var(--m-tinta-2); cursor: pointer; }
+.contratar-aceite input { flex: none; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--m-marinho); }
+.contratar-aceite a { color: var(--m-rosa); }
+.contratar-caixa .btn { width: 100%; min-height: 48px; }
+.contratar-caixa .btn[aria-disabled="true"] { background: var(--m-linha); border-color: var(--m-linha); color: var(--m-tinta-3); cursor: not-allowed; }
+.contratar-falar { align-self: center; padding: 8px 0; font-size: 14px; color: var(--m-tinta-2); text-decoration: underline; text-underline-offset: 3px; }
+.contratar-mp { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--m-tinta); }
+.contratar-mp[hidden] { display: none; }
+.contratar-mp input { min-height: 48px; padding: 12px 14px; font-weight: 400; background: var(--m-branco); border: 1px solid var(--m-linha-forte); border-radius: var(--m-r-1); }
+.contratar-mp input:focus { outline: 2px solid var(--m-rosa); outline-offset: 0; border-color: var(--m-rosa); }
+.contratar-mp small { font-weight: 400; font-size: 13px; color: var(--m-tinta-3); }
+
+/* ---------- vídeo tutorial (js/videos.js) ---------- */
+.video-dlg { width: min(1040px, calc(100vw - 24px)); max-width: none; padding: 0; border: 0; border-radius: var(--m-r-2); background: var(--m-marinho-950); color: var(--m-sobre-marinho); box-shadow: var(--m-sombra); }
+.video-dlg::backdrop { background: rgba(12, 22, 41, .72); }
+.video-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 20px; font-size: 15px; }
+.video-cab b { font-weight: 500; }
+.video-x { width: 44px; height: 44px; border: 1px solid rgba(242, 238, 230, .3); border-radius: var(--m-r-1); background: none; color: inherit; font-size: 22px; line-height: 1; cursor: pointer; }
+.video-x:focus-visible, .video-pe :focus-visible { outline-color: var(--m-rosa-luz); }
+.video-dlg video { display: block; width: 100%; aspect-ratio: 16 / 10; background: #000; }
+.video-pe { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding: 12px; }
+.video-pe .btn-primary { background: var(--m-sobre-marinho); border-color: var(--m-sobre-marinho); color: var(--m-marinho); }
+.video-pe .btn-ghost { border-color: rgba(242, 238, 230, .4); color: var(--m-sobre-marinho); }
+@media (max-width: 560px) { .video-pe .btn { flex: 1; } }
+
+/* ---------- pedaços que os scripts injetam ---------- */
+.status-wa { display: inline-flex; margin-top: 10px; }
+.carrossel-pontos, .precos2-pontos, .precos2-dica { display: none !important; } /* site.js e contratar.js criam pontos de carrossel; aqui nada é carrossel */
+
+/* app Veltria na Play Store (site.js: data-play) */
+.play-badge { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 16px; border: 1px solid currentColor; border-radius: var(--m-r-1); color: inherit; text-decoration: none; }
+.play-badge svg { width: 18px; height: 18px; }
+.play-badge span { display: grid; line-height: 1.15; }
+.play-badge small { font-size: 12px; opacity: .85; }
+.play-badge b { font-weight: 500; font-size: 15px; }
+.play-badge[aria-disabled="true"] { cursor: default; }
+.vai-produto { cursor: pointer; } /* js/versao.js: o cartão inteiro leva à página do produto */
