@@ -1,26 +1,13 @@
-/* Página inicial (03/11/2026): só enfeites que não podem pesar no primeiro carregamento.
-   - Cantos pintados do topo e estampas das laterais: entram depois do load, só em tela de computador (html.hn-cantos).
-   - Cantos do rodapé: baixam quando o rodapé chega perto da tela (.rodape-site.cantos-ok).
-   Nenhuma animação contínua; nada roda enquanto a página está parada. */
+/* Página inicial · identidade v2 (03/11/2026)
+   Sem enfeite carregado depois e sem animação: só comportamento.
+   - Quem chega por #perguntas encontra a primeira pergunta frequente já aberta.
+   - Os botões "Pedir proposta" (data-plano) continuam com o site.js, que preenche a mensagem do formulário. */
 (function () {
-  var html = document.documentElement;
-
-  // topo: depois do load e com o navegador livre, para nunca virar o elemento do LCP
-  var cantosTopo = function () {
-    if (!window.matchMedia || !matchMedia('(min-width: 1100px)').matches) return;
-    var ir = function () { html.classList.add('hn-cantos'); };
-    if ('requestIdleCallback' in window) requestIdleCallback(ir, { timeout: 3000 }); else setTimeout(ir, 1200);
+  var faq = document.querySelectorAll('.hn-faq details');
+  if (!faq.length) return;
+  var abrirPeloEndereco = function () {
+    if (location.hash === '#perguntas') faq[0].open = true;
   };
-  if (document.readyState === 'complete') cantosTopo(); else addEventListener('load', cantosTopo);
-
-  // rodapé: quando estiver a até 600 px de aparecer
-  var rodape = document.querySelector('.rodape-site');
-  if (rodape) {
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (es) {
-        if (es.some(function (e) { return e.isIntersecting; })) { rodape.classList.add('cantos-ok'); obs.disconnect(); }
-      }, { rootMargin: '600px 0px' });
-      obs.observe(rodape);
-    } else rodape.classList.add('cantos-ok');
-  }
+  abrirPeloEndereco();
+  addEventListener('hashchange', abrirPeloEndereco);
 })();
