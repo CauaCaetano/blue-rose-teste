@@ -36,7 +36,12 @@ for f in glob.glob(os.path.join(d, '**', '*.html'), recursive=True):
     s = re.sub(r'<link rel="canonical"[^>]*>\n?', '', s)
     s = re.sub(r'<link rel="alternate" hreflang[^>]*>\n?', '', s)
     if 'name="robots"' in s: s = re.sub(r'<meta name="robots"[^>]*>', '<meta name="robots" content="noindex, nofollow">', s)
-    else: s = re.sub(r'(<meta charset="[^"]*">)', r'\1\n<meta name="robots" content="noindex, nofollow">', s, count=1, flags=re.I)
+    else:
+        # (03/11/2026) aceita <meta charset="utf-8"/> e página sem charset: nenhum HTML do teste fica indexável
+        s2 = re.sub(r'(<meta\s+charset=[^>]*>)', r'\1\n<meta name="robots" content="noindex, nofollow">', s, count=1, flags=re.I)
+        if s2 == s: s2 = re.sub(r'(<head[^>]*>)', r'\1\n<meta name="robots" content="noindex, nofollow">', s, count=1, flags=re.I)
+        if s2 == s: s2 = '<meta name="robots" content="noindex, nofollow">\n' + s
+        s = s2
     # o site oficial usa links a partir da raiz do domínio; aqui ele fica na subpasta /blue-rose-teste/
     s = re.sub(r'(href|src|action)="/(?!/)', r'\1="/blue-rose-teste/', s)
     raiz = '/blue-rose-teste/'
