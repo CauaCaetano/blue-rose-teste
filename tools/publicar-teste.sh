@@ -43,11 +43,19 @@ for f in glob.glob(os.path.join(d, '**', '*.html'), recursive=True):
     if '</head>' in s and 'teste.css' not in s: s = s.replace('</head>', aviso.format(r=raiz), 1)
     if '</body>' in s and 'site-de-teste' not in s: s = s.replace('</body>', faixa, 1)
     open(f, 'w', encoding='utf-8', newline='\n').write(s)
-# nada do teste grava no banco de verdade
-for f in glob.glob(os.path.join(d, '**', '*.js'), recursive=True) + glob.glob(os.path.join(d, '**', '*.json'), recursive=True):
-    s = open(f, encoding='utf-8', errors='ignore').read()
-    if 'yihnfzwtkqdfnwziutqa.supabase.co' in s:
-        open(f, 'w', encoding='utf-8', newline='\n').write(s.replace('yihnfzwtkqdfnwziutqa.supabase.co', 'banco-desligado-no-teste.invalid'))
+# nada do teste grava no banco de verdade (03/11/2026: vale para .js, .mjs, .json, .html e .webmanifest,
+# e no fim confere que não sobrou nenhuma referência; se sobrar, a publicação é cancelada)
+PROD = 'yihnfzwtkqdfnwziutqa'
+for ext in ('js', 'mjs', 'json', 'html', 'webmanifest'):
+    for f in glob.glob(os.path.join(d, '**', '*.' + ext), recursive=True):
+        s = open(f, encoding='utf-8', errors='ignore').read()
+        if PROD in s:
+            s = s.replace(PROD + '.supabase.co', 'banco-desligado-no-teste.invalid').replace(PROD, 'banco-desligado-no-teste')
+            open(f, 'w', encoding='utf-8', newline='\n').write(s)
+sobrou = [f for ext in ('js', 'mjs', 'json', 'html', 'webmanifest', 'css', 'txt') for f in glob.glob(os.path.join(d, '**', '*.' + ext), recursive=True) if PROD in open(f, encoding='utf-8', errors='ignore').read()]
+if sobrou:
+    print('PUBLICAÇÃO CANCELADA: ainda há referência ao banco de produção em', sobrou[:5])
+    sys.exit(1)
 open(os.path.join(d, 'teste.css'), 'w').write('.site-de-teste{position:fixed;left:12px;bottom:12px;z-index:2147483647;padding:6px 12px;border-radius:999px;background:#c0392b;color:#fff;font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none}\n')
 open(os.path.join(d, 'robots.txt'), 'w').write('User-agent: *\nDisallow: /\n')
 open(os.path.join(d, '.nojekyll'), 'w').write('')
