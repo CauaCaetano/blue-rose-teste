@@ -119,3 +119,88 @@ h1, h2 { font-variant-numeric: lining-nums; }
   html.web .contagem { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   html.web main > p > .largo { width: auto; min-width: 320px; }
 }
+
+/* ===== redesenho 11/2026: app de bolso do advogado =====
+   Cabeçalho limpo, contagem de dias como peça central (sem caixa alta espaçada), filtros em controle segmentado,
+   cartões planos, folha que sobe com alça, barra de baixo com marcador. Cores só por variável da paleta. */
+:root { --l1: color-mix(in srgb, var(--marinho) 10%, transparent); --l2: color-mix(in srgb, var(--marinho) 20%, transparent); }
+body { -webkit-font-smoothing: antialiased; }
+.tira button { border-color: color-mix(in srgb, var(--perg) 25%, transparent); cursor: pointer; }
+.cabeca { border-bottom: 1px solid color-mix(in srgb, var(--ouro) 55%, transparent); padding: 10px 16px; }
+.cabeca .v-logo { height: 34px !important; }
+.selo-ouro { background: var(--ouro); box-shadow: none; }
+.quem b { font-size: 1.2rem; }
+.quem small { letter-spacing: 0; font-size: .8rem; }
+.botao-ia { width: 40px; height: 40px; border-color: color-mix(in srgb, var(--ouro) 60%, transparent); }
+.botao-ia:hover { background: color-mix(in srgb, var(--ouro) 16%, transparent); }
+
+main { padding: 22px 16px 24px; }
+h1 { font-size: 2.15rem; line-height: 1.05; margin-bottom: 6px; letter-spacing: -.005em; }
+h2 { font: 600 .92rem/1.25 var(--sans); color: var(--tx-2); margin: 26px 0 10px; }
+.sub { margin-bottom: 18px; }
+
+/* filtros: controle segmentado */
+.faixa-dia { gap: 2px; padding: 3px; margin: 4px 0 16px; background: color-mix(in srgb, var(--linho) 55%, transparent); border-radius: 11px; }
+.faixa-dia button { flex: 1 0 auto; border: 0; background: transparent; border-radius: 8px; padding: 8px 12px; color: var(--tx-2); }
+.faixa-dia button[aria-pressed="true"] { background: var(--perg-2); color: var(--marinho); box-shadow: 0 1px 2px color-mix(in srgb, var(--marinho) 18%, transparent); }
+
+/* contagem: o número de dias é a peça principal */
+.contagem { gap: 8px; }
+.prazo { grid-template-columns: 64px 1fr; gap: 14px; border-radius: 14px; padding: 12px 14px 12px 12px; border-color: var(--l1); }
+.prazo:hover { border-color: var(--l2); }
+.prazo .dias { height: 64px; border-radius: 11px; }
+.prazo .dias b { font-size: 2rem; }
+.prazo .dias small { font-size: .68rem; letter-spacing: 0; text-transform: none; margin-top: 2px; }
+.prazo.vermelho .dias small { color: color-mix(in srgb, #fff 82%, transparent); }
+.prazo b.t { line-height: 1.3; margin-bottom: 2px; }
+.prazo:has(.feito-bt) .dias { grid-row: span 2; }
+.prazo .feito-bt { position: static; grid-column: 2; justify-self: start; border-color: var(--l2); background: transparent; padding: 4px 12px; font-weight: 600; color: var(--marinho); margin-top: -4px; }
+.prazo .feito-bt:hover { background: var(--marinho); color: var(--perg); border-color: var(--marinho); }
+
+/* cartões e listas planos */
+.cartao { border-radius: 14px; border-color: var(--l1); padding: 16px; }
+.lista { border-radius: 14px; border-color: var(--l1); }
+.lista li { padding: 14px 16px; border-bottom-color: var(--l1); min-height: 58px; }
+.etiq { font-weight: 600; }
+.etiq.ouro { background: color-mix(in srgb, var(--ouro) 22%, var(--perg-2)); }
+.etiq.verm { background: color-mix(in srgb, var(--urgente) 13%, var(--perg-2)); }
+.etiq.ok { background: color-mix(in srgb, var(--ok) 15%, var(--perg-2)); }
+.juridiques { background: var(--perg-2); border-left-color: var(--l2); border-radius: 0 6px 6px 0; }
+.simples { background: var(--perg-2); border-color: color-mix(in srgb, var(--ouro) 60%, transparent); }
+.numeros > div { border-radius: 14px; border-color: var(--l1); padding: 14px 16px; }
+.numeros b { font-size: 1.65rem; }
+
+/* botões e formulário */
+.bt { border-radius: 11px; }
+.bt.cheio:hover { background: var(--marinho-2); }
+.campo { gap: 6px; margin-bottom: 14px; color: var(--tx-2); }
+.campo input, .campo select, .campo textarea { border-color: var(--l2); border-radius: 11px; color: var(--tx); font-size: 1rem; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--marinho); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ouro) 30%, transparent); }
+
+/* folha que sobe, com alça */
+.folha { position: relative; border-top: 0; border-radius: 20px 20px 0 0; padding-top: 26px; }
+.folha::before { content: ""; position: absolute; top: 9px; left: 50%; translate: -50% 0; width: 40px; height: 4px; border-radius: 2px; background: var(--linho); }
+.folha h2 { font: 700 1.55rem/1.15 var(--serif); color: var(--tx); margin-bottom: 14px; }
+.trava .folha { border-radius: 18px; padding-top: 20px; }
+.trava .folha::before { display: none; }
+@media (min-width: 700px) { .veu { align-items: center; } .folha { border-radius: 18px; padding-top: 20px; } .folha::before { display: none; } }
+.chips button { border-color: var(--l2); background: var(--perg-2); text-align: left; }
+.chips button:hover { border-color: var(--ouro); }
+
+/* barra de baixo: marcador dourado em cima do item atual */
+.menu { padding-top: 0; border-top: 1px solid color-mix(in srgb, var(--ouro) 30%, transparent); }
+.menu a { position: relative; padding: 10px 2px 6px; border-radius: 0; font-size: .74rem; }
+.menu a[aria-current="page"] { background: none; color: var(--perg); }
+.menu a[aria-current="page"]::before { content: ""; position: absolute; top: 0; left: 28%; right: 28%; height: 2px; border-radius: 0 0 2px 2px; background: var(--ouro); }
+.menu a[aria-current="page"] .ic { color: var(--ouro); }
+.recado { border-color: color-mix(in srgb, var(--ouro) 50%, transparent); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .5); }
+.vazio { background: var(--perg-2); border: 1px dashed var(--l2); border-radius: 14px; padding: 22px 16px; }
+.lista li.vazio { background: none; border: 0; border-radius: 0; justify-content: center; }
+@media (max-width: 480px) {
+  .lista li:has(> .bt ~ .bt) { flex-wrap: wrap; row-gap: 8px; }
+  .lista li:has(> .bt ~ .bt) > .cresce { flex: 1 0 100%; }
+  .lista li:has(> .bt ~ .bt) > .etiq { margin-right: auto; }
+}
+
+/* contraste AA do texto de apoio (11/2026) */
+:root { --tx-3: #636a7d; }
