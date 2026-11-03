@@ -152,6 +152,8 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-tabela tr:last-child th, .hn-tabela tr:last-child td { border-bottom: 1px solid var(--hn-linha); }
 .hn-tabela th { font-weight: 500; color: var(--hn-tinta); padding-right: 16px; }
 .hn-tabela td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--hn-tinta); font-weight: 600; }
+.hn-medida td a { color: #2f4c8a; text-decoration: underline; text-underline-offset: 3px; white-space: normal; }
+.hn-medida td a:hover { color: var(--hn-tinta); }
 .hn-preco-col .hn-lista { margin-top: 20px; }
 .hn-preco-col .hn-acoes { margin-top: auto; padding-top: 28px; }
 
