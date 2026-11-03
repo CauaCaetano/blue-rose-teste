@@ -140,6 +140,9 @@
 .hn-plano { padding: 40px; border-radius: var(--m-r-2); }
 .hn-plano-pronto { background: var(--m-branco); border: 1px solid var(--m-linha); border-top: 4px solid var(--m-marinho); }
 .hn-plano-medida { background: var(--m-creme); border-top: 4px solid #b9a67f; }
+.hn-plano-sistema { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--m-e-6); align-items: end; margin-top: 24px; background: var(--m-branco); border: 1px solid var(--m-linha); border-top: 4px solid var(--m-rosa); }
+.hn-plano-sistema .hn-cond { max-width: 60ch; }
+@media (max-width: 760px) { .hn-plano-sistema { grid-template-columns: 1fr; gap: 8px; } }
 .hn-plano h3 { font-size: var(--m-t-28); letter-spacing: -.02em; }
 .hn-valor { margin-top: var(--m-e-5); color: var(--m-tinta-2); }
 .hn-valor .m-num { margin: 0 4px; font-size: var(--m-t-48); line-height: 1; letter-spacing: -.03em; font-weight: 500; color: var(--m-tinta); }
