@@ -1,0 +1,172 @@
+/* =============================================================
+   ofixl.html · identidade v2 (03/11/2026). Carrega só marca.css + este arquivo.
+   O Ofixl virou o futuro módulo de ordens de serviço do Veltria Financeiro: a página explica o que vem
+   e manda para o Financeiro. Por isso o fechamento comercial fica no marinho (território dos prontos).
+   Composição própria: topo em 7/5 com o celular real, passos numerados em fio, tabela dor x resposta,
+   tela larga das preventivas, ficha técnica em lista e banda marinho com a tela do Financeiro.
+   Nenhuma animação de entrada.
+   ============================================================= */
+
+.pg-of h2 { font-size: var(--m-t-36); line-height: 1.1; letter-spacing: -.024em; }
+.pg-of h3 { font-size: var(--m-t-18); line-height: 1.3; letter-spacing: -.01em; }
+.of-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--m-e-4) var(--m-e-5); margin-top: var(--m-e-6); }
+
+/* ---------- 1. topo ---------- */
+.of-topo { padding: 56px 0 96px; }
+.of-topo-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--m-e-8); align-items: start; }
+.of-trilha { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--m-e-7); font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.of-trilha a { color: var(--m-tinta-2); text-underline-offset: 3px; }
+.of-estado { display: flex; align-items: center; gap: var(--m-e-3); margin-bottom: var(--m-e-5); font-size: var(--m-t-14); color: var(--m-tinta-2); }
+.of-estado img { width: 40px; height: 40px; border-radius: var(--m-r-2); background: #0f2a52; padding: 4px; }
+.of-estado b { font-weight: 500; color: var(--m-tinta); }
+.of-topo h1 { max-width: 18ch; font-size: clamp(34px, 4vw, 56px); line-height: 1.04; letter-spacing: -.034em; }
+.of-lede { max-width: 56ch; margin-top: var(--m-e-6); font-size: var(--m-t-18); line-height: 1.6; color: var(--m-tinta-2); }
+.of-aviso { max-width: 56ch; margin-top: var(--m-e-5); padding: var(--m-e-4) 0 0; border-top: 1px solid var(--m-linha); font-size: var(--m-t-16); color: var(--m-tinta); }
+/* o celular desce em relação ao título: o desencontro é proposital */
+.of-cel { margin-top: 120px; max-width: 360px; justify-self: end; }
+.of-cel img { width: 100%; border: 1px solid var(--m-linha); border-radius: 22px; background: var(--m-branco); box-shadow: var(--m-sombra); }
+.of-cel figcaption { margin-top: var(--m-e-3); font-size: var(--m-t-13); color: var(--m-tinta-3); }
+
+/* ---------- 2. como anda uma OS ---------- */
+.of-dia { padding: 96px 0 104px; border-top: 1px solid var(--m-linha); }
+.of-dia-grade { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--m-e-6); }
+.of-dia h2 { position: sticky; top: 96px; align-self: start; max-width: 12ch; }
+.of-passos { border-bottom: 1px solid var(--m-linha); }
+.of-passos li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--m-e-4); padding: var(--m-e-6) 0; border-top: 1px solid var(--m-linha); }
+.of-n { font: 400 var(--m-t-14)/1.6 var(--m-mono); color: var(--m-rosa); }
+.of-passos p { max-width: 60ch; margin-top: var(--m-e-2); color: var(--m-tinta-2); }
+
+/* ---------- 3. dor x resposta ---------- */
+.of-dores { padding: 0 0 112px; }
+.of-dores h2 { margin-bottom: var(--m-e-7); font-size: var(--m-t-28); }
+.of-tabela { border-bottom: 1px solid var(--m-linha); }
+.of-tabela div { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--m-e-6); padding: var(--m-e-5) 0; border-top: 1px solid var(--m-linha); }
+.of-tabela dt { font-size: var(--m-t-22); line-height: 1.3; letter-spacing: -.012em; color: var(--m-tinta); }
+.of-tabela dd { margin: 0; padding-top: 4px; color: var(--m-tinta-2); }
+
+/* ---------- 4. preventivas: tela larga, sobre o creme claro do papel ---------- */
+.of-prev { padding: 104px 0 112px; background: var(--m-branco); border-block: 1px solid var(--m-linha); }
+.of-prev-cab { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--m-e-6); align-items: end; margin-bottom: var(--m-e-7); }
+.of-prev-cab h2 { font-size: var(--m-t-48); line-height: 1.04; letter-spacing: -.03em; max-width: 10ch; }
+.of-prev-cab p { max-width: 58ch; color: var(--m-tinta-2); }
+/* a tela passa da grade, pela direita, até a borda: mostra a largura real do sistema */
+.of-prev-tela { margin-left: max(var(--m-gutter), calc((100% - var(--m-largura)) / 2)); }
+.of-prev-tela img { width: 100%; border: 1px solid var(--m-linha); border-right: 0; border-radius: var(--m-r-2) 0 0 var(--m-r-2); box-shadow: var(--m-sombra); }
+.of-prev-tela figcaption { margin: var(--m-e-3) 0 0; padding: 0; width: auto; font-size: var(--m-t-13); color: var(--m-tinta-3); }
+
+/* ---------- 5. ficha técnica ---------- */
+.of-ficha { padding: 112px 0; }
+.of-ficha-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--m-e-8); align-items: start; }
+.of-ficha-txt { position: sticky; top: 96px; }
+.of-ficha h2 { max-width: 14ch; }
+.pg-of .of-video { max-width: none; margin: var(--m-e-6) 0 0; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); box-shadow: var(--m-sombra); }
+.pg-of .of-video .vs-tut-txt { border-radius: var(--m-r-1); background: var(--m-marinho); }
+.of-video-nota { margin-top: var(--m-e-3); font-size: var(--m-t-14); color: var(--m-tinta-3); }
+.of-lista { border-bottom: 1px solid var(--m-linha); }
+.of-lista div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--m-e-5); padding: 18px 0; border-top: 1px solid var(--m-linha); }
+.of-lista dt { font-weight: 500; color: var(--m-tinta); }
+.of-lista dd { margin: 0; color: var(--m-tinta-2); }
+
+/* ---------- 6. onde vai ficar: marinho ---------- */
+.of-onde { padding: 112px 0 0; background: var(--m-marinho); color: var(--m-sobre-marinho-2); overflow: hidden; }
+.of-onde-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--m-e-8); align-items: end; }
+.of-onde-txt { padding-bottom: 112px; }
+.of-onde h2 { max-width: 14ch; margin-bottom: var(--m-e-5); color: var(--m-sobre-marinho); }
+.of-onde p + p { margin-top: var(--m-e-4); }
+.of-onde :focus-visible { outline-color: var(--m-rosa-luz); }
+.of-link-claro { color: var(--m-rosa-luz); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+/* a tela do Financeiro encosta na base da banda, como se saísse dela */
+.of-onde-tela { margin-right: calc(-1 * max(var(--m-gutter), (100vw - var(--m-largura)) / 2)); }
+.of-onde-tela img { width: 100%; border-radius: var(--m-r-2) 0 0 0; background: var(--m-branco); }
+.of-onde-tela figcaption { padding: var(--m-e-3) 0 var(--m-e-4); font-size: var(--m-t-13); color: var(--m-sobre-marinho-2); }
+
+/* ---------- 7. perguntas ---------- */
+.of-faq { padding: 96px 0; }
+.of-faq-grade { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--m-e-6); }
+.of-faq h2 { font-size: var(--m-t-28); }
+.of-faq-lista { border-bottom: 1px solid var(--m-linha); }
+.of-faq details { border-top: 1px solid var(--m-linha); }
+.of-faq summary { display: flex; justify-content: space-between; align-items: baseline; gap: var(--m-e-4); min-height: 48px; padding: 18px 0; list-style: none; cursor: pointer; font-size: var(--m-t-18); font-weight: 500; color: var(--m-tinta); }
+.of-faq summary::-webkit-details-marker { display: none; }
+.of-faq summary::after { content: '+'; flex: none; font: 400 22px/1 var(--m-mono); color: var(--m-rosa); }
+.of-faq details[open] summary::after { content: '−'; }
+.of-faq summary:focus-visible { outline-offset: -2px; }
+.of-faq details p { max-width: 64ch; padding-bottom: var(--m-e-5); color: var(--m-tinta-2); }
+
+/* ---------- 8. fechamento ---------- */
+.of-fim { padding: 88px 0 112px; border-top: 1px solid var(--m-linha); }
+.of-fim-grade { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: var(--m-e-6); align-items: end; }
+.of-fim h2 { max-width: 20ch; font-size: var(--m-t-36); }
+.of-fim .of-acoes { margin: 0; justify-content: flex-end; }
+
+/* ---------- janelas que os scripts abrem (vídeo e contratar) ---------- */
+.video-dlg { width: min(1040px, calc(100vw - 24px)); max-width: none; padding: 0; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); background: var(--m-branco); color: var(--m-tinta); box-shadow: var(--m-sombra); }
+.video-dlg::backdrop { background: rgba(12, 22, 41, .72); }
+.video-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 16px; border-bottom: 1px solid var(--m-linha); }
+.video-cab b { font-weight: 500; }
+.video-x { width: 44px; height: 44px; border: 0; border-radius: var(--m-r-1); background: none; color: var(--m-tinta-2); font-size: 22px; line-height: 1; cursor: pointer; }
+.video-x:hover { background: rgba(20, 33, 61, .06); }
+.video-dlg video { display: block; width: 100%; aspect-ratio: 16 / 10; background: var(--m-marinho-950); }
+.video-pe { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--m-linha); }
+.contratar { width: min(460px, calc(100vw - 24px)); padding: 0; border: 1px solid var(--m-linha); border-radius: var(--m-r-2); background: var(--m-branco); color: var(--m-tinta); box-shadow: var(--m-sombra); }
+.contratar::backdrop { background: rgba(12, 22, 41, .55); }
+.contratar-caixa { position: relative; display: grid; gap: 14px; padding: 28px 24px 22px; }
+.contratar-x { position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; background: none; font-size: 22px; cursor: pointer; }
+.contratar-passos { display: grid; gap: 8px; padding-left: 20px; list-style: decimal; color: var(--m-tinta-2); }
+.contratar-aceite { display: flex; gap: 10px; font-size: 14px; color: var(--m-tinta-2); }
+.contratar-aceite a, .contratar-falar { color: var(--m-rosa); }
+.contratar-falar { font-size: 14px; text-align: center; }
+
+/* ---------- rodapé (mesma marcação da home) ---------- */
+.pg-of .rodape-site { padding: 72px 0 32px; }
+.hn-rodape { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--m-e-7) var(--m-e-6); }
+.hn-rodape-marca p { margin-top: var(--m-e-4); max-width: 30ch; }
+.hn-rodape-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--m-e-5); }
+.hn-rodape-nav div { display: grid; align-content: start; }
+.hn-rodape-nav a { padding: 7px 0; }
+.hn-rodape-tit { margin-bottom: var(--m-e-2); font-size: var(--m-t-13); color: var(--m-sobre-marinho-2); }
+.pg-of .rodape-site .linha2 { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--m-e-3); padding-top: var(--m-e-5); border-top: 1px solid rgba(242, 238, 230, .14); }
+
+/* ---------- tablet ---------- */
+@media (max-width: 1100px) {
+  .of-topo-grade { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--m-e-6); }
+  .of-ficha-grade, .of-onde-grade { grid-template-columns: 1fr; gap: var(--m-e-6); }
+  .of-ficha-txt { position: static; max-width: 640px; }
+  .of-onde-txt { padding-bottom: 0; }
+  .of-onde-tela { margin-right: calc(-1 * var(--m-gutter)); }
+  .hn-rodape { grid-template-columns: 1fr; }
+  .hn-rodape-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- celular ---------- */
+@media (max-width: 760px) {
+  .pg-of h2 { font-size: var(--m-t-28); }
+  .of-topo { padding: 32px 0 64px; }
+  .of-topo-grade { grid-template-columns: 1fr; gap: var(--m-e-6); }
+  .of-trilha { margin-bottom: var(--m-e-6); }
+  .of-topo h1 { font-size: 34px; }
+  .of-lede { font-size: var(--m-t-16); }
+  .of-acoes .btn { flex: 1 1 100%; }
+  .of-cel { margin-top: 0; justify-self: center; max-width: 300px; }
+  .of-dia { padding: 64px 0 72px; }
+  .of-dia-grade, .of-faq-grade, .of-prev-cab, .of-fim-grade { grid-template-columns: 1fr; gap: var(--m-e-5); }
+  .of-dia h2 { position: static; }
+  .of-passos li { grid-template-columns: 36px minmax(0, 1fr); gap: var(--m-e-3); padding: var(--m-e-5) 0; }
+  .of-dores { padding-bottom: 72px; }
+  .of-dores h2 { margin-bottom: var(--m-e-5); }
+  .of-tabela div { grid-template-columns: 1fr; gap: var(--m-e-2); }
+  .of-tabela dt { font-size: var(--m-t-18); }
+  .of-prev { padding: 64px 0 72px; }
+  .of-prev-cab { margin-bottom: var(--m-e-6); }
+  .of-prev-cab h2 { font-size: 34px; }
+  .of-prev-tela figcaption { padding-right: var(--m-gutter); }
+  .of-ficha { padding: 72px 0; }
+  .of-lista div { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .of-onde { padding-top: 72px; }
+  .of-faq { padding: 64px 0; }
+  .of-faq summary { font-size: 17px; }
+  .of-fim { padding: 64px 0 80px; }
+  .of-fim h2 { font-size: var(--m-t-28); }
+  .of-fim .of-acoes { justify-content: flex-start; }
+  .pg-of .rodape-site { padding: 56px 0 32px; }
+}
