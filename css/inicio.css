@@ -133,6 +133,9 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 }
 
 /* ---------- 2. escolha o seu ramo ---------- */
+.hn-arq { margin: 32px 0 0; padding-top: 18px; border-top: 1px solid var(--hn-linha); font-size: 16px; line-height: 1.55; color: var(--hn-grafite); }
+.hn-arq b { color: var(--hn-tinta); font-weight: 600; }
+.hn-arq a { color: var(--hn-rosa); font-weight: 600; white-space: nowrap; text-underline-offset: 3px; }
 .hn-cab { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: 40px; }
 .hn-ramos-grade { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .hn-ramo { position: relative; display: flex; flex-direction: column; background: var(--hn-folha); border: 1px solid var(--hn-linha); border-radius: var(--hn-r); overflow: hidden; transition: border-color .2s ease; }
