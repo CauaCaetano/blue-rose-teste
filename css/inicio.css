@@ -83,10 +83,42 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-porta h2 { margin: 10px 0 0; font-size: 28px; line-height: 1.15; }
 .hn-porta-d { margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: var(--hn-grafite); }
 .hn-porta .hn-acoes { margin-top: auto; padding-top: 24px; }
-/* cantos pintados: só no computador e só depois do load (html.hn-cantos, js/inicio.js) */
+/* topo marinho: a rosa da marca desabrocha uma vez (img/home/rosa-abre.svg); cor sólida, sem brilho */
 .hn-topo::before, .hn-topo::after { content: none; }
-@media (min-width: 1100px) {
-  html.hn-cantos .hn-topo::before { content: ""; position: absolute; z-index: -1; top: 0; right: 0; width: 260px; height: 260px; pointer-events: none; background: url("../img/home/canto-d.webp") right top / 260px auto no-repeat; opacity: .9; }
+.hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f3ebdd; --topo-apoio: #c5cddc; --topo-azul: #6cc4ff; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
+.hn-topo .wrap > :not(.hn-rosa) { position: relative; z-index: 1; max-width: 58%; }
+.hn-rosa { position: absolute; top: 40px; right: 3.5vw; width: min(40vw, 640px); height: auto; aspect-ratio: 640 / 620; overflow: visible; pointer-events: none; }
+/* a rosa desabrocha uma vez: hastes, folhas e depois as pétalas, na ordem do atraso de cada path */
+.hn-rosa path{fill:#0eacfd;animation:.62s cubic-bezier(.16,.84,.3,1) both}.hn-rosa .e{fill:#1073eb}.hn-rosa .h{transform-box:fill-box;transform-origin:center;animation-name:rosa-h}.hn-rosa .f{transform-origin:285px 300px;animation-name:rosa-f}.hn-rosa .p{transform-origin:345px 190px;animation-name:rosa-p;animation-duration:.8s}
+@keyframes rosa-h{from{opacity:0;transform:scale(.72) rotate(-10deg)}}@keyframes rosa-f{from{opacity:0;transform:scale(.25) rotate(-22deg)}}@keyframes rosa-p{from{opacity:0;transform:scale(.2) rotate(-55deg)}}
+@media (prefers-reduced-motion: reduce) { .hn-rosa path { animation: none; } }
+.hn .hn-topo .eyebrow { color: var(--topo-apoio); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.hn .hn-topo .eyebrow::before { background: var(--topo-azul); }
+.hn .hn-topo h1 { color: var(--topo-texto); font-size: clamp(42px, 4.9vw, 72px); line-height: 1.02; }
+.hn .hn-topo h1 em { color: var(--topo-azul) !important; -webkit-text-fill-color: var(--topo-azul) !important; background: none !important; }
+.hn-topo .hn-sub { color: var(--topo-apoio); }
+.hn-topo .hn-portas { gap: 40px; margin-top: 32px; }
+.hn-topo .hn-porta { padding: 18px 0 0; background: none; border: 0; border-top: 1px solid rgba(243, 235, 221, .3); border-radius: 0; box-shadow: none; }
+.hn-topo .hn-tag { color: var(--topo-azul); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.hn-topo .hn-porta h2 { color: var(--topo-texto); font-size: 25px; }
+.hn-topo .hn-lista { gap: 6px; margin-top: 12px; }
+.hn-topo .hn-lista li { font-size: 15px; }
+.hn-topo .hn-porta .hn-acoes { padding-top: 18px; margin-top: auto; gap: 2px 20px; }
+.hn-topo .hn-porta-d, .hn-topo .hn-lista li { color: var(--topo-apoio); }
+.hn-topo .hn-lista b { color: var(--topo-texto); }
+.hn-topo .hn-lista li::before { border-color: var(--topo-azul); }
+.hn .hn-topo .btn-primary { background: var(--topo-texto) !important; border-color: var(--topo-texto) !important; color: #101b36 !important; box-shadow: none !important; }
+.hn .hn-topo .btn-primary:hover { background: #fff !important; border-color: #fff !important; }
+.hn-topo .hn-link { color: var(--topo-texto); }
+.hn-topo .hn-link:hover { color: var(--topo-azul); }
+.hn-topo a:focus-visible { outline: 2px solid var(--topo-azul); outline-offset: 3px; }
+.hn .brand { white-space: nowrap; }
+@media (max-width: 1000px) {
+  .hn main > section.hn-topo { padding: 24px 0 56px; }
+  .hn-topo .wrap > :not(.hn-rosa) { max-width: none; }
+  .hn-rosa { position: static; display: block; width: min(46vw, 300px); margin: 0 0 -36px auto; }
+  .hn .hn-topo .eyebrow { max-width: 54%; }
+  .hn-topo .hn-portas { gap: 28px; margin-top: 32px; }
 }
 
 /* ---------- 2. escolha o seu ramo ---------- */
@@ -182,7 +214,6 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 }
 @media (max-width: 900px) {
   .hn main > section { padding: 64px 0; }
-  .hn main > section.hn-topo { padding: 40px 0 56px; }
   .hn-sub { font-size: 17px; }
   .hn-portas, .hn-precos-grade, .hn-testar-grade, .hn-faq-lista { grid-template-columns: minmax(0, 1fr); }
   .hn-portas { gap: 16px; margin-top: 28px; }

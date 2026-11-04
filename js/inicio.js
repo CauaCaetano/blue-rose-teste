@@ -13,6 +13,20 @@
   };
   if (document.readyState === 'complete') cantosTopo(); else addEventListener('load', cantosTopo);
 
+  // a rosa acompanha a rolagem só enquanto o topo está na tela; parada, não gasta nada
+  var rosa = document.querySelector('.hn-rosa');
+  if (rosa && window.matchMedia && matchMedia('(min-width: 1001px) and (prefers-reduced-motion: no-preference)').matches) {
+    var pedido = 0;
+    var move = function () {
+      pedido = 0;
+      var y = Math.min(window.scrollY, 1000);
+      rosa.style.transform = 'translateY(' + (y * .16).toFixed(1) + 'px) rotate(' + (y * .014).toFixed(2) + 'deg)';
+    };
+    addEventListener('scroll', function () {
+      if (!pedido && window.scrollY < 1000) pedido = requestAnimationFrame(move);
+    }, { passive: true });
+  }
+
   // rodapé: quando estiver a até 600 px de aparecer
   var rodape = document.querySelector('.rodape-site');
   if (rodape) {
