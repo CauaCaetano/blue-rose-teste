@@ -9,7 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blue Rose Express | Sistemas prontos e sites sob medida para empresas</title>
 <meta name="description" content="Sistemas prontos por assinatura, com 7 dias grátis e a partir de R$ 49/mês, e sites, automação de WhatsApp e sistemas sob medida com preço fechado.">
-<meta name="theme-color" content="#f7f6f2">
+<meta name="theme-color" content="#0b0e13" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Blue Rose Express">
 <meta property="og:locale" content="pt_BR">
@@ -24,11 +25,13 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/blue-rose-teste/img/favicon-96.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/blue-rose-teste/img/favicon-192.png?v=3">
 <link rel="apple-touch-icon" href="/blue-rose-teste/img/apple-touch-icon.png?v=2">
-<link rel="preload" href="img/home/tela-financeiro-720.webp" as="image" type="image/webp" media="(max-width: 760px)" fetchpriority="high">
-<link rel="preload" href="img/home/tela-financeiro-1280.webp" as="image" type="image/webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/marca.css?v=2">
-<link rel="stylesheet" href="css/inicio.css?v=16">
+<link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css?v=62">
+<link rel="stylesheet" href="css/luxo.css?v=21">
+<link rel="stylesheet" href="css/creme.css?v=1"><link rel="stylesheet" href="css/areia.css?v=2">
+<link rel="stylesheet" href="css/tinta.css?v=1">
+<link rel="stylesheet" href="css/inicio.css?v=15">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="js/leads-config.js?v=6" defer></script>
@@ -37,7 +40,7 @@
 <script src="js/conta.js?v=10" defer></script>
 <script src="js/assistente.js?v=23" defer></script>
 <script src="js/cookies.js?v=2" defer></script>
-<script src="js/inicio.js?v=7" defer></script>
+<script src="js/inicio.js?v=6" defer></script>
 <link rel="stylesheet" href="/blue-rose-teste/teste.css">
 </head>
 <body class="hn">
@@ -46,295 +49,274 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./" aria-label="Blue Rose Express, página inicial">
-      <img src="img/blue-rose-logo-128.png" alt="" width="28" height="28">Blue Rose
+      <img src="img/blue-rose-logo-128.png" alt="" width="30" height="30">BLUE ROSE
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-list"/></svg>
     </button>
     <nav class="nav-links" id="menu" aria-label="Principal">
-      <a href="sistemas.html">Sistemas prontos</a>
-      <a href="servicos.html">Sob medida</a>
+      <a href="sistemas.html">Produtos</a>
+      <a href="servicos.html">Sites e automação</a>
       <a href="como-funciona.html">Como funciona</a>
       <a href="#precos">Preços</a>
       <a class="btn btn-primary" href="#contato">Agendar demonstração</a>
     </nav>
   </div>
 </header>
-
-<main id="conteudo">
-  <!-- 1. Quem somos e o produto, de cara -->
+<main id="conteudo" class="lx-rosas">
   <section class="hn-topo" aria-labelledby="titulo">
-    <div class="wrap hn-topo-cab">
-      <div>
-        <p class="hn-assina">Blue Rose Express · software para pequenas empresas</p>
-        <h1 id="titulo">Sistemas de gestão prontos e software sob medida para pequenas empresas.</h1>
+    <div class="wrap">
+      <p class="eyebrow">Blue Rose Express · para pequenas empresas</p>
+      <h1 id="titulo">Sistemas prontos e projetos sob medida <em>para a sua empresa.</em></h1>
+      <p class="hn-sub">Escolha por onde começar: um sistema pronto para o seu ramo, que você testa hoje, ou um site, uma automação ou um sistema feito para o jeito que você trabalha.</p>
+      <div class="hn-portas">
+        <article class="hn-porta" aria-labelledby="porta-pronto">
+          <p class="hn-tag">Pronto para usar</p>
+          <h2 id="porta-pronto">Sistemas Veltria por assinatura</h2>
+          <p class="hn-porta-d">Para obras, advocacia, salão, empresa de serviço, oficina, farmácia e mais.</p>
+          <ul class="hn-lista">
+            <li>Teste 7 dias grátis com os seus dados</li>
+            <li>A partir de <b>R$ 49/mês</b>, sem entrada e sem fidelidade</li>
+            <li>No computador e no celular</li>
+          </ul>
+          <div class="hn-acoes">
+            <a class="btn btn-primary" href="#produtos">Escolher o meu ramo</a>
+            <a class="hn-link" href="sistemas.html">Ver todos os sistemas</a>
+          </div>
+        </article>
+        <article class="hn-porta" aria-labelledby="porta-medida">
+          <p class="hn-tag">Feito para você</p>
+          <h2 id="porta-medida">Sites, automação de WhatsApp e sistemas sob medida</h2>
+          <p class="hn-porta-d">Feito do zero para o seu negócio, com o que você precisa e nada a mais.</p>
+          <ul class="hn-lista">
+            <li>Sites a partir de <b>R$ 690</b></li>
+            <li>Automação de WhatsApp a partir de <b>R$ 890</b></li>
+            <li>Preço fechado por escrito antes de começar</li>
+          </ul>
+          <div class="hn-acoes">
+            <a class="btn btn-primary" href="servicos.html#monte">Pedir orçamento</a>
+            <a class="hn-link" href="exemplos.html">Ver exemplos de sites</a>
+          </div>
+        </article>
       </div>
-      <p class="hn-sub">Os sistemas Veltria já vêm montados para o seu ramo e você testa hoje, no navegador. Quando o seu caso pede outra coisa, fazemos o site, a automação de WhatsApp ou o sistema do zero, com preço fechado por escrito.</p>
     </div>
-    <div class="hn-palco">
-      <figure class="wrap hn-tela-topo">
-        <picture>
-          <source media="(max-width: 760px)" srcset="img/home/tela-financeiro-720.webp" width="720" height="432">
-          <img src="img/home/tela-financeiro-1280.webp" width="1280" height="767" fetchpriority="high" decoding="async" alt="Tela real do Veltria Financeiro Completo: saldo de hoje, previsão de 30 dias, o que falta receber e pagar, e o gráfico do saldo dia a dia">
-        </picture>
-        <figcaption>Veltria Financeiro Completo, visão geral. Tela da demonstração, com dados de exemplo.</figcaption>
+  </section>
+
+  <section id="produtos" class="hn-ramos" aria-labelledby="t-ramos">
+    <div class="wrap" id="ramos">
+      <div class="hn-cab">
+        <div>
+          <p class="eyebrow">Pronto para usar</p>
+          <h2 id="t-ramos" class="sec-title">Escolha o seu ramo.</h2>
+          <p class="sec-lede">Cada sistema Veltria já vem pronto para o seu tipo de negócio, em 3 versões: Essencial (app de celular), Completo e Avançado.</p>
+        </div>
+        <a class="hn-link" href="sistemas.html">Comparar todos os sistemas <svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-arrow-right"/></svg></a>
+      </div>
+      <div class="hn-ramos-grade">
+        <article class="hn-ramo reveal">
+          <img src="img/home/ramo-agenda.webp" width="640" height="400" loading="lazy" decoding="async" alt="Tela do Veltria Agenda com os horários do dia">
+          <div class="hn-ramo-txt">
+            <p class="hn-tag">Salão, estética e barbearia</p>
+            <h3><a href="veltria-agenda.html">Veltria Agenda</a></h3>
+            <p>Horários de cada profissional, confirmação pelo WhatsApp e link para a cliente marcar sozinha.</p>
+            <p class="hn-preco">a partir de <b>R$ 49</b>/mês</p>
+            <span class="hn-ir" aria-hidden="true">Ver o sistema <svg class="ico"><use href="img/icones.svg#i-arrow-right"/></svg></span>
+          </div>
+        </article>
+        <article class="hn-ramo reveal" style="--i:1">
+          <img src="img/home/ramo-obras.webp" width="640" height="400" loading="lazy" decoding="async" alt="Tela do Veltria Obras com as etapas de uma obra">
+          <div class="hn-ramo-txt">
+            <p class="hn-tag">Obras e reformas</p>
+            <h3><a href="veltria-obras.html">Veltria Obras</a></h3>
+            <p>Cronograma, gastos, equipe e o que falta receber de cada obra, do escritório ou do canteiro.</p>
+            <p class="hn-preco">a partir de <b>R$ 69</b>/mês</p>
+            <span class="hn-ir" aria-hidden="true">Ver o sistema <svg class="ico"><use href="img/icones.svg#i-arrow-right"/></svg></span>
+          </div>
+        </article>
+        <article class="hn-ramo reveal" style="--i:2">
+          <img src="img/home/ramo-financeiro.webp" width="640" height="400" loading="lazy" decoding="async" alt="Tela do Veltria Financeiro com o saldo e as contas do mês">
+          <div class="hn-ramo-txt">
+            <p class="hn-tag">Empresa de serviço</p>
+            <h3><a href="veltria-financeiro.html">Veltria Financeiro</a></h3>
+            <p>Saldo, contas a pagar e a receber, cobrança de quem atrasou e previsão do caixa dos próximos meses.</p>
+            <p class="hn-preco">a partir de <b>R$ 59</b>/mês</p>
+            <span class="hn-ir" aria-hidden="true">Ver o sistema <svg class="ico"><use href="img/icones.svg#i-arrow-right"/></svg></span>
+          </div>
+        </article>
+        <article class="hn-ramo reveal" style="--i:3">
+          <img src="img/home/ramo-juridico.webp" width="640" height="400" loading="lazy" decoding="async" alt="Tela do Veltria Jurídico com as intimações e os prazos">
+          <div class="hn-ramo-txt">
+            <p class="hn-tag">Advocacia</p>
+            <h3><a href="veltria-juridico.html">Veltria Jurídico</a></h3>
+            <p>Busca as intimações do DJEN sozinho, conta os prazos e põe tudo na agenda de cada advogado.</p>
+            <p class="hn-preco">a partir de <b>R$ 89</b>/mês</p>
+            <span class="hn-ir" aria-hidden="true">Ver o sistema <svg class="ico"><use href="img/icones.svg#i-arrow-right"/></svg></span>
+          </div>
+        </article>
+      </div>
+      <p class="hn-outros"><span>Também para:</span> <a href="veltria-oficina.html">Oficina mecânica</a> <a href="veltria-crm.html">CRM de vendas</a> <a href="veltria-farmacia.html">Farmácia</a> <a href="veltria-gestao.html">Estoque e vendas</a> <a href="demos/sistemas/vetnature/">Clínica veterinária</a></p>
+    </div>
+  </section>
+
+  <section id="como-testar" class="hn-testar" aria-labelledby="t-testar">
+    <div class="wrap hn-testar-grade">
+      <div>
+        <p class="eyebrow">Sem compromisso</p>
+        <h2 id="t-testar" class="sec-title">Como é testar.</h2>
+        <ol class="hn-passos">
+          <li><b>Veja funcionando agora.</b> Cada sistema abre no navegador com dados de exemplo, sem cadastro.</li>
+          <li><b>Teste 7 dias grátis com os seus dados.</b> Chame a sua equipe e suba as planilhas do Excel em Importar planilha.</li>
+          <li><b>Gostou? Assine por mês.</b> Sem entrada e sem fidelidade, com um plano só e a equipe sem limite.</li>
+        </ol>
+        <div class="hn-acoes"><a class="btn btn-ghost" href="sistemas.html">Abrir uma demonstração</a></div>
+      </div>
+      <figure class="hn-print reveal">
+        <img src="img/home/testar-agenda.webp" width="560" height="569" loading="lazy" decoding="async" alt="Tela real do Veltria Agenda aberta no navegador, com a agenda do dia">
+        <figcaption>Tela real do Veltria Agenda, com dados de exemplo.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- 2. As duas entradas: cada uma no seu território de cor -->
-  <section class="hn-portas" aria-label="Por onde começar">
-    <article class="hn-porta hn-porta-pronto" aria-labelledby="porta-pronto">
-      <div class="hn-porta-in">
-        <p class="hn-rotulo">Pronto para usar</p>
-        <h2 id="porta-pronto">Sistemas Veltria por assinatura</h2>
-        <p class="hn-porta-d">Para obras, advocacia, salão, empresa de serviço, oficina, farmácia e mais.</p>
-        <dl class="hn-fatos">
-          <div><dt>Teste</dt><dd>7 dias grátis com os seus dados</dd></div>
-          <div><dt>Preço</dt><dd>a partir de <span class="m-num">R$ 49</span>/mês</dd></div>
-          <div><dt>Contrato</dt><dd>sem entrada e sem fidelidade</dd></div>
-          <div><dt>Onde usa</dt><dd>no computador e no celular</dd></div>
-        </dl>
-        <div class="hn-acoes">
-          <a class="btn btn-claro" href="#produtos">Escolher o meu ramo</a>
-          <a class="m-link" href="sistemas.html">Abrir uma demonstração</a>
-        </div>
-      </div>
-    </article>
-    <article class="hn-porta hn-porta-medida" aria-labelledby="porta-medida">
-      <div class="hn-porta-in">
-        <p class="hn-rotulo">Feito para você</p>
-        <h2 id="porta-medida">Sites, automação de WhatsApp e sistemas sob medida</h2>
-        <p class="hn-porta-d">Feito do zero para o jeito que a sua empresa trabalha, com o que você precisa e nada a mais.</p>
-        <dl class="hn-fatos">
-          <div><dt>Sites</dt><dd>a partir de <span class="m-num">R$ 690</span></dd></div>
-          <div><dt>Automação</dt><dd>a partir de <span class="m-num">R$ 890</span></dd></div>
-          <div><dt>Sistema ou ERP</dt><dd>a partir de <span class="m-num">R$ 1.600</span></dd></div>
-          <div><dt>Proposta</dt><dd>preço fechado por escrito antes de começar</dd></div>
-        </dl>
-        <div class="hn-acoes">
-          <a class="btn btn-primary" href="servicos.html#monte">Pedir orçamento</a>
-          <a class="m-link" href="exemplos.html">Ver exemplos de sites</a>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <!-- 3. Os produtos, mostrados pelas telas reais -->
-  <section id="produtos" class="hn-produtos" aria-labelledby="t-produtos">
-    <div class="wrap" id="ramos">
-      <div class="hn-cab">
-        <h2 id="t-produtos">Sistemas Veltria</h2>
-        <p>Cada sistema é feito para um ramo e tem 3 versões: Essencial (app de celular), Completo e Avançado. Todos abrem com dados de exemplo, sem cadastro.</p>
-        <a class="m-link" href="sistemas.html">Comparar todos os sistemas</a>
-      </div>
-
-      <article class="hn-destaque">
-        <a class="hn-destaque-tela" href="veltria-agenda.html" tabindex="-1" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/home/tela-agenda-720.webp" width="720" height="430">
-            <img src="img/home/tela-agenda-1280.webp" width="1280" height="764" loading="lazy" decoding="async" alt="">
-          </picture>
-        </a>
-        <div class="hn-destaque-txt">
-          <p class="hn-ramo">Salão, estética e barbearia</p>
-          <h3><a href="veltria-agenda.html">Veltria Agenda</a></h3>
-          <p>Horários de cada profissional, confirmação pelo WhatsApp e link para a cliente marcar sozinha.</p>
-          <p class="hn-preco">a partir de <span class="m-num">R$ 49</span>/mês</p>
-          <p class="hn-legenda">Na tela: o balcão do Veltria Agenda Completo, com a fila, a agenda de cada profissional e a comanda.</p>
-        </div>
-      </article>
-
-      <div class="hn-par">
-        <article class="hn-prod hn-prod-a">
-          <img src="img/home/tela-obras-960.webp" width="960" height="600" loading="lazy" decoding="async" alt="Tela real do Veltria Obras Completo: painel da construtora com medições a receber e obras na régua">
-          <p class="hn-ramo">Obras e reformas</p>
-          <h3><a href="veltria-obras.html">Veltria Obras</a></h3>
-          <p>Cronograma, gastos, equipe e o que falta receber de cada obra, do escritório ou do canteiro.</p>
-          <p class="hn-preco">a partir de <span class="m-num">R$ 69</span>/mês</p>
-        </article>
-        <article class="hn-prod hn-prod-b">
-          <img src="img/home/tela-juridico-960.webp" width="960" height="573" loading="lazy" decoding="async" alt="Tela real do Veltria Jurídico Completo: pauta dos próximos dias com prazos e audiências">
-          <p class="hn-ramo">Advocacia</p>
-          <h3><a href="veltria-juridico.html">Veltria Jurídico</a></h3>
-          <p>Busca as intimações do DJEN sozinho, conta os prazos e põe tudo na agenda de cada advogado.</p>
-          <p class="hn-preco">a partir de <span class="m-num">R$ 89</span>/mês</p>
-        </article>
-      </div>
-
-      <div class="hn-linha-prod">
-        <p class="hn-ramo">Empresa de serviço</p>
-        <h3><a href="veltria-financeiro.html">Veltria Financeiro</a></h3>
-        <p>Saldo, contas a pagar e a receber, cobrança de quem atrasou e previsão do caixa dos próximos meses. É a tela do alto desta página.</p>
-        <p class="hn-preco">a partir de <span class="m-num">R$ 59</span>/mês</p>
-      </div>
-
-      <div class="hn-outros">
-        <p>Também para</p>
-        <ul>
-          <li><a href="veltria-oficina.html">Oficina mecânica</a></li>
-          <li><a href="veltria-crm.html">CRM de vendas</a></li>
-          <li><a href="veltria-farmacia.html">Farmácia</a></li>
-          <li><a href="veltria-gestao.html">Estoque e vendas</a></li>
-          <li><a href="demos/sistemas/vetnature/">Clínica veterinária</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Como é o teste: faixa marinho estreita, lida em uma linha -->
-  <section id="como-testar" class="hn-testar" aria-labelledby="t-testar">
-    <div class="wrap hn-testar-grade">
-      <h2 id="t-testar">Como é o teste</h2>
-      <ol class="hn-passos">
-        <li><span class="m-mono" aria-hidden="true">1</span><b>Veja funcionando agora.</b> Cada sistema abre no navegador com dados de exemplo, sem cadastro.</li>
-        <li><span class="m-mono" aria-hidden="true">2</span><b>Teste 7 dias grátis com os seus dados.</b> Chame a sua equipe e suba as planilhas do Excel em Importar planilha.</li>
-        <li><span class="m-mono" aria-hidden="true">3</span><b>Gostou? Assine por mês.</b> Sem entrada e sem fidelidade, com um plano só e a equipe sem limite.</li>
-      </ol>
-      <a class="btn btn-claro" href="sistemas.html">Abrir uma demonstração</a>
-    </div>
-  </section>
-
-  <!-- 5. Sob medida: território creme -->
   <section id="solucoes" class="hn-medida" aria-labelledby="t-medida">
-    <div class="wrap hn-medida-grade">
-      <div class="hn-medida-intro">
-        <p class="hn-rotulo">Feito para você</p>
-        <h2 id="t-medida">Sob medida, com preço fechado</h2>
-        <p>Você diz o que precisa e recebe a proposta por escrito, com o valor fechado, antes de começar. Metade para começar e metade na entrega, por PIX, cartão em até 6x ou boleto.</p>
+    <div class="wrap">
+      <div class="hn-cab">
+        <div>
+          <p class="eyebrow">Feito para você</p>
+          <h2 id="t-medida" class="sec-title">Sob medida, com preço fechado.</h2>
+          <p class="sec-lede">Você diz o que precisa e recebe a proposta por escrito, com o valor fechado, antes de começar.</p>
+        </div>
         <a class="btn btn-primary" href="servicos.html#monte">Pedir orçamento</a>
       </div>
-      <ol class="hn-servicos">
-        <li>
+      <div class="hn-medida-grade">
+        <article class="hn-cartao reveal">
+          <span class="hn-ico" aria-hidden="true"><svg class="ico"><use href="img/icones.svg#i-browser"/></svg></span>
           <h3>Site que traz clientes</h3>
-          <p class="hn-serv-preco">a partir de <span class="m-num">R$ 690</span></p>
           <p>Serviços, preços, agenda e botão de WhatsApp, feito para aparecer no Google.</p>
-          <a class="m-link" href="servicos.html#precos">Ver os planos de site</a>
-        </li>
-        <li>
+          <p class="hn-preco">a partir de <b>R$ 690</b></p>
+          <a class="hn-link" href="servicos.html#precos">Ver os planos de site</a>
+        </article>
+        <article class="hn-cartao reveal" style="--i:1">
+          <span class="hn-ico" aria-hidden="true"><svg class="ico"><use href="img/icones.svg#i-whatsapp-logo"/></svg></span>
           <h3>Automação de WhatsApp</h3>
-          <p class="hn-serv-preco">a partir de <span class="m-num">R$ 890</span></p>
           <p>Responde na hora, entende o que o cliente quer e lembra o PIX pendente, no número que você já usa.</p>
-          <a class="m-link" href="servicos.html#demo">Ver a automação funcionando</a>
-        </li>
-        <li>
+          <p class="hn-preco">a partir de <b>R$ 890</b></p>
+          <a class="hn-link" href="servicos.html#demo">Ver a automação funcionando</a>
+        </article>
+        <article class="hn-cartao reveal" style="--i:2">
+          <span class="hn-ico" aria-hidden="true"><svg class="ico"><use href="img/icones.svg#i-package"/></svg></span>
           <h3>Sistema ou ERP sob medida</h3>
-          <p class="hn-serv-preco">a partir de <span class="m-num">R$ 1.600</span></p>
           <p>Estoque, compras, vendas, clientes e indicadores, feitos do zero para o jeito que a sua empresa trabalha.</p>
-          <a class="m-link" href="#contato" data-plano="Olá! Quero uma proposta de sistema ou ERP sob medida.">Pedir uma proposta</a>
-        </li>
-      </ol>
-    </div>
-    <div class="wrap hn-exemplos">
-      <div class="hn-exemplos-cab">
-        <h3>Sites de exemplo</h3>
-        <p>As marcas, as pessoas e os preços destes exemplos são fictícios. <a class="m-link" href="exemplos.html">Ver todos os exemplos</a></p>
+          <p class="hn-preco">a partir de <b>R$ 1.600</b></p>
+          <a class="hn-link" href="#contato" data-plano="Olá! Quero uma proposta de sistema ou ERP sob medida.">Pedir uma proposta</a>
+        </article>
       </div>
-      <a class="hn-site hn-site-1" href="sites/vertice/index.html"><img src="img/home/site-vertice-960.webp" width="960" height="600" loading="lazy" decoding="async" alt=""><span><b>Vértice Residence</b> Lançamento imobiliário</span></a>
-      <a class="hn-site hn-site-2" href="sites/lumi-odonto/index.html"><img src="img/home/site-lumi-odonto-960.webp" width="960" height="600" loading="lazy" decoding="async" alt=""><span><b>Lumi Odontologia</b> Clínica que agenda pelo site</span></a>
-      <a class="hn-site hn-site-3" href="sites/aguiar-monteiro/index.html"><img src="img/home/site-aguiar-monteiro-960.webp" width="960" height="600" loading="lazy" decoding="async" alt=""><span><b>Aguiar &amp; Monteiro</b> Escritório de advocacia</span></a>
+      <div class="hn-exemplos">
+        <h3 class="hn-exemplos-tit">Alguns sites de exemplo</h3>
+        <div class="hn-exemplos-grade">
+          <a class="hn-site reveal" href="sites/lumi-odonto/index.html"><img src="img/home/site-lumi-odonto.webp" width="560" height="350" loading="lazy" decoding="async" alt=""><span><b>Lumi Odontologia</b> Clínica que agenda pelo site</span></a>
+          <a class="hn-site reveal" style="--i:1" href="sites/aguiar-monteiro/index.html"><img src="img/home/site-aguiar-monteiro.webp" width="560" height="350" loading="lazy" decoding="async" alt=""><span><b>Aguiar &amp; Monteiro</b> Escritório de advocacia</span></a>
+          <a class="hn-site reveal" style="--i:2" href="sites/vertice/index.html"><img src="img/home/site-vertice.webp" width="560" height="350" loading="lazy" decoding="async" alt=""><span><b>Vértice Residence</b> Lançamento imobiliário</span></a>
+        </div>
+        <p class="hn-nota">Sites de exemplo: as marcas, as pessoas e os preços são fictícios. <a href="exemplos.html">Ver todos os exemplos</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Preços: prontos e sob medida separados, cada um na sua cor -->
   <section id="precos" class="hn-precos" aria-labelledby="t-precos">
     <div class="wrap">
-      <div class="hn-cab hn-cab-precos">
-        <h2 id="t-precos">Preços</h2>
-        <p>Dois jeitos de contratar, separados: assinatura mensal para os sistemas prontos e pagamento único para o que é feito sob medida.</p>
-      </div>
+      <p class="eyebrow">Preços</p>
+      <h2 id="t-precos" class="sec-title">Preço claro, <em>sem surpresa.</em></h2>
       <div class="hn-precos-grade">
-        <article class="hn-plano hn-plano-pronto" aria-labelledby="t-assinatura">
-          <p class="hn-rotulo">Sistemas prontos · assinatura mensal</p>
+        <article class="hn-preco-col" aria-labelledby="t-assinatura">
+          <p class="hn-tag">Assinatura · sistemas prontos</p>
           <h3 id="t-assinatura">Sistemas Veltria</h3>
-          <p class="hn-valor">a partir de <span class="m-num">R$ 49</span>/mês</p>
-          <p class="hn-cond">7 dias grátis com os seus dados, sem entrada e sem fidelidade.</p>
+          <p class="hn-valor"><small>a partir de</small> R$ 49<small>/mês</small></p>
+          <p class="hn-cond">7 dias grátis com os seus dados · sem entrada · sem fidelidade</p>
           <table class="hn-tabela">
-            <caption class="sr">Preço inicial de cada sistema pronto, por mês</caption>
+            <caption class="sr">Preço inicial de cada sistema pronto</caption>
             <tbody>
-              <tr><th scope="row">Veltria Agenda</th><td>a partir de <span class="m-num">R$ 49</span>/mês</td></tr>
-              <tr><th scope="row">Veltria Financeiro</th><td>a partir de <span class="m-num">R$ 59</span>/mês</td></tr>
-              <tr><th scope="row">Veltria Obras</th><td>a partir de <span class="m-num">R$ 69</span>/mês</td></tr>
-              <tr><th scope="row">Veltria Jurídico</th><td>a partir de <span class="m-num">R$ 89</span>/mês</td></tr>
+              <tr><th scope="row">Veltria Agenda</th><td>a partir de R$ 49/mês</td></tr>
+              <tr><th scope="row">Veltria Financeiro</th><td>a partir de R$ 59/mês</td></tr>
+              <tr><th scope="row">Veltria Obras</th><td>a partir de R$ 69/mês</td></tr>
+              <tr><th scope="row">Veltria Jurídico</th><td>a partir de R$ 89/mês</td></tr>
             </tbody>
           </table>
-          <ul class="hn-inclui">
+          <ul class="hn-lista">
             <li>Equipe sem limite de pessoas, cada uma com o próprio login</li>
             <li>O dono escolhe o que cada pessoa vê e edita</li>
             <li>Histórico da equipe: quem fez o quê</li>
             <li>Até 10 empresas ou filiais</li>
             <li>Hospedagem, atualizações, suporte e Assistente IA inclusos</li>
           </ul>
-          <div class="hn-acoes"><a class="btn btn-primary" href="#produtos">Escolher o meu ramo</a><a class="m-link" href="sistemas.html">Ver os preços de todos</a></div>
+          <div class="hn-acoes"><a class="btn btn-primary" href="#produtos">Escolher o meu ramo</a><a class="hn-link" href="sistemas.html">Ver os preços de todos</a></div>
         </article>
-        <article class="hn-plano hn-plano-medida" aria-labelledby="t-unico">
-          <p class="hn-rotulo">Sob medida · pagamento único</p>
+        <article class="hn-preco-col" aria-labelledby="t-unico">
+          <p class="hn-tag">Pagamento único · sob medida</p>
           <h3 id="t-unico">Sites e automação</h3>
-          <p class="hn-valor">a partir de <span class="m-num">R$ 690</span></p>
-          <p class="hn-cond">Preço fechado por escrito antes de começar.</p>
+          <p class="hn-valor"><small>a partir de</small> R$ 690</p>
+          <p class="hn-cond">Preço fechado por escrito antes de começar</p>
           <table class="hn-tabela">
-            <caption class="sr">Preço de cada projeto sob medida, pagamento único</caption>
+            <caption class="sr">Preço de cada projeto sob medida</caption>
             <tbody>
-              <tr><th scope="row">Site Presença</th><td><span class="m-num">R$ 690</span></td></tr>
-              <tr><th scope="row">Site Completo</th><td><span class="m-num">R$ 1.490</span></td></tr>
-              <tr><th scope="row">Site Completo + Automação</th><td><span class="m-num">R$ 2.290</span></td></tr>
-              <tr><th scope="row">Só automação de WhatsApp</th><td><span class="m-num">R$ 890</span></td></tr>
+              <tr><th scope="row">Site Presença</th><td>R$ 690</td></tr>
+              <tr><th scope="row">Site Completo</th><td>R$ 1.490</td></tr>
+              <tr><th scope="row">Site Completo + Automação</th><td>R$ 2.290</td></tr>
+              <tr><th scope="row">Só automação de WhatsApp</th><td>R$ 890</td></tr>
             </tbody>
           </table>
-          <ul class="hn-inclui">
+          <ul class="hn-lista">
             <li>Metade para começar e metade na entrega</li>
             <li>PIX, cartão em até 6x ou boleto</li>
             <li>O que foi construído é seu</li>
             <li>Sites e automações também saem por assinatura mensal, sem entrada</li>
           </ul>
-          <div class="hn-acoes"><a class="btn btn-primary" href="servicos.html#monte">Pedir orçamento</a><a class="m-link" href="servicos.html#precos">Ver os detalhes de cada plano</a></div>
+          <div class="hn-acoes"><a class="btn btn-primary" href="servicos.html#monte">Pedir orçamento</a><a class="hn-link" href="servicos.html#precos">Ver os detalhes de cada plano</a></div>
         </article>
       </div>
-      <article class="hn-plano hn-plano-sistema" aria-labelledby="t-sistema">
+      <article class="hn-medida-faixa" aria-labelledby="t-medida-faixa">
         <div>
-          <p class="hn-rotulo">Sistema sob medida · pagamento único</p>
-          <h3 id="t-sistema">Sistema ou ERP sob medida</h3>
-          <p class="hn-cond">Não achou o seu ramo nos sistemas prontos? Fazemos do zero para o jeito que a sua empresa trabalha: estoque, compras, vendas, clientes e indicadores, no computador e no celular.</p>
+          <p class="hn-tag">Software sob medida</p>
+          <h3 id="t-medida-faixa">Sistema ou ERP sob medida</h3>
+          <p>Feito do zero para o jeito que a sua empresa trabalha: estoque, compras, vendas, clientes e indicadores, no computador e no celular. Hospedagem, cópias de segurança e atualizações inclusas.</p>
         </div>
-        <div class="hn-sistema-acao">
-          <p class="hn-valor">a partir de <span class="m-num">R$ 1.600</span></p>
-          <p class="hn-cond">Preço fechado por escrito. Metade para começar e metade na entrega.</p>
-          <div class="hn-acoes"><a class="btn btn-primary" href="#contato" data-plano="Olá! Quero uma proposta de sistema ou ERP sob medida.">Pedir proposta</a></div>
+        <div class="hn-medida-acao">
+          <p class="hn-valor"><small>a partir de</small> R$ 1.600</p>
+          <p class="hn-cond">Preço fechado por escrito · metade para começar, metade na entrega</p>
+          <a class="btn btn-primary" href="#contato" data-plano="Olá! Quero uma proposta de sistema ou ERP sob medida.">Pedir proposta</a>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- 7. Perguntas -->
   <section id="perguntas" class="hn-faq" aria-labelledby="t-faq">
-    <div class="wrap hn-faq-grade">
-      <h2 id="t-faq">Perguntas frequentes</h2>
+    <div class="wrap">
+      <p class="eyebrow">Dúvidas</p>
+      <h2 id="t-faq" class="sec-title">Perguntas frequentes.</h2>
       <div class="hn-faq-lista">
-        <details><summary>Posso testar antes de contratar?</summary><p>Sim. Cada sistema Veltria abre no navegador com dados de exemplo, sem cadastro. Depois, você testa 7 dias grátis com os seus dados e a sua equipe.</p></details>
-        <details><summary>O que a assinatura inclui?</summary><p>Um plano só, sem entrada e sem fidelidade: equipe sem limite, histórico de quem fez o quê, até 10 empresas, hospedagem, atualizações, suporte e Assistente IA.</p></details>
-        <details><summary>Vocês levam os dados das minhas planilhas?</summary><p>Nos sistemas prontos, você sobe a planilha do Excel em Importar planilha e o sistema preenche sozinho. No sob medida, nós importamos e testamos com você antes de entregar.</p></details>
-        <details><summary>Funciona no celular?</summary><p>Sim. No computador e no celular, pelo navegador ou instalado como aplicativo. Os dados ficam salvos na nuvem e aparecem em qualquer aparelho.</p></details>
-        <details><summary>Como funciona o pagamento do sob medida?</summary><p>Preço fechado por escrito antes de começar: metade para começar e metade na entrega, por PIX, cartão em até 6x ou boleto. Sites e automações também podem ser por assinatura mensal.</p></details>
-        <details><summary>A automação usa o meu número de WhatsApp?</summary><p>Sim. Ela funciona no número que você já usa no negócio e só responde dentro das regras que você aprovar, como atender quem chamou ou lembrar um PIX pendente.</p></details>
+        <div><h3>Posso testar antes de contratar?</h3><p>Sim. Cada sistema Veltria abre no navegador com dados de exemplo, sem cadastro. Depois, você testa 7 dias grátis com os seus dados e a sua equipe.</p></div>
+        <div><h3>O que a assinatura inclui?</h3><p>Um plano só, sem entrada e sem fidelidade: equipe sem limite, histórico de quem fez o quê, até 10 empresas, hospedagem, atualizações, suporte e Assistente IA.</p></div>
+        <div><h3>Vocês levam os dados das minhas planilhas?</h3><p>Nos sistemas prontos, você sobe a planilha do Excel em Importar planilha e o sistema preenche sozinho. No sob medida, nós importamos e testamos com você antes de entregar.</p></div>
+        <div><h3>Funciona no celular?</h3><p>Sim. No computador e no celular, pelo navegador ou instalado como aplicativo. Os dados ficam salvos na nuvem e aparecem em qualquer aparelho.</p></div>
+        <div><h3>Como funciona o pagamento do sob medida?</h3><p>Preço fechado por escrito antes de começar: metade para começar e metade na entrega, por PIX, cartão em até 6x ou boleto. Sites e automações também podem ser por assinatura mensal.</p></div>
+        <div><h3>A automação usa o meu número de WhatsApp?</h3><p>Sim. Ela funciona no número que você já usa no negócio e só responde dentro das regras que você aprovar, como atender quem chamou ou lembrar um PIX pendente.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 8. Contato -->
   <section id="contato" class="hn-contato" aria-labelledby="t-contato">
-    <div class="wrap contato-grid hn-contato-grade">
-      <div class="hn-contato-txt">
-        <h2 id="t-contato">Fale com a equipe</h2>
-        <p>Conte como a sua empresa trabalha hoje e o que mais toma tempo. Respondemos com o sistema indicado ou com uma proposta de preço fechado, sem compromisso.</p>
-        <ul class="contato-alt hn-canais">
-          <li><a href="https://wa.me/WHATSAPP">Chamar no WhatsApp</a></li>
-          <li><a href="mailto:EMAIL">Mandar um e-mail</a></li>
-          <li><a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">Instagram da Blue Rose <span>@blue.rose.express</span></a></li>
-          <li><a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">Cauã, fundador <span>@cau4caetano</span></a></li>
-          <li><a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">Lucas, vendas <span>@leone.008</span></a></li>
-        </ul>
+    <div class="wrap contato-grid">
+      <div class="reveal">
+        <h2 id="t-contato" class="sec-title">Vamos falar sobre a sua operação.</h2>
+        <p class="sec-lede">Conte como a sua empresa trabalha hoje. Respondemos em até 1 dia útil com o sistema mais indicado e um valor fechado, sem compromisso.</p>
+        <div class="contato-alt">
+          <a href="https://wa.me/WHATSAPP"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-whatsapp-logo"/></svg>Chamar no WhatsApp</a>
+          <a href="mailto:EMAIL"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-envelope-simple"/></svg>Mandar um e-mail</a>
+          <a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-instagram-logo"/></svg>Seguir a Blue Rose no Instagram @blue.rose.express</a>
+          <a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-instagram-logo"/></svg>Cauã, fundador: @cau4caetano</a>
+          <a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-instagram-logo"/></svg>Lucas, vendas: @leone.008</a>
+        </div>
       </div>
-      <form class="form" data-form-contato novalidate>
+      <form class="form reveal" data-form-contato novalidate>
         <div class="campo" data-campo="nome">
           <label for="f-nome">Seu nome</label>
           <input id="f-nome" name="nome" type="text" autocomplete="name" required>
@@ -372,7 +354,7 @@
           <label class="aceite"><input type="checkbox" name="aceite" value="sim"><span>Li e concordo com a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e os <a href="termos.html" target="_blank" rel="noopener">Termos de Serviço</a>.</span></label>
           <p class="erro" aria-live="polite"></p>
         </div>
-        <button class="btn btn-primary" type="submit">Enviar para a equipe</button>
+        <button class="btn btn-primary" type="submit">Falar com a equipe <svg class="ico ico-move" aria-hidden="true"><use href="img/icones.svg#i-arrow-right"/></svg></button>
         <p class="rodape"><span data-status aria-live="polite">Atendimento de segunda a sexta, das 8h às 18h. Respondemos em até 1 dia útil.</span> <a href="mailto:EMAIL" data-email-form>Prefiro por e-mail</a></p>
       </form>
     </div>
@@ -381,16 +363,20 @@
 </main>
 
 <footer class="rodape-site">
-  <div class="wrap hn-rodape">
-    <div class="hn-rodape-marca">
-      <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="28" height="28" loading="lazy">Blue Rose</a>
-      <p>Sistemas Veltria por assinatura e software sob medida para pequenas empresas.</p>
-    </div>
-    <nav aria-label="Rodapé" class="hn-rodape-nav">
-      <div><p class="hn-rodape-tit">Sistemas prontos</p><a href="sistemas.html">Todos os sistemas</a><a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a><a href="como-funciona.html">Como funciona</a></div>
-      <div><p class="hn-rodape-tit">Sob medida</p><a href="servicos.html">Sites e automação</a><a href="exemplos.html">Sites de exemplo</a><a href="laboratorio.html">Laboratório</a><a href="checklist.html">Checklists grátis</a></div>
-      <div><p class="hn-rodape-tit">Instagram</p><a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">@blue.rose.express</a><a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a><a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a></div>
-      <div><p class="hn-rodape-tit">Legal</p><a href="termos.html">Termos de Serviço</a><a href="privacidade.html">Privacidade</a></div>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/blue-rose-logo-128.png" alt="" width="30" height="30" loading="lazy">BLUE ROSE</a>
+    <nav aria-label="Rodapé">
+      <a href="sistemas.html">Produtos</a>
+      <a href="como-funciona.html">Como funciona</a>
+      <a href="exemplos.html">Sites</a>
+      <a href="laboratorio.html">Laboratório</a>
+      <a href="demos/sistemas/gestao-completo/">Veltria Gestão ao vivo</a>
+      <a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">Instagram @blue.rose.express</a>
+      <a href="https://www.instagram.com/cau4caetano/" target="_blank" rel="noopener">@cau4caetano</a>
+      <a href="https://www.instagram.com/leone.008/" target="_blank" rel="noopener">@leone.008</a>
+      <a href="termos.html">Termos de Serviço</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="checklist.html">Checklists grátis</a>
     </nav>
     <div class="linha2">
       <span>© 2026 Blue Rose Express. Atendimento de segunda a sexta, das 8h às 18h.</span>
