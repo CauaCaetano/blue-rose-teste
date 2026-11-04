@@ -76,6 +76,8 @@ body.vt { background: #101b36; color: var(--creme); font: 400 17px/1.55 'Geist',
 .vt-trocas { display: inline-flex; margin-top: 24px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(244, 235, 221, .5); }
 .vt-trocas button { min-height: 44px; min-width: 72px; padding: 0 14px; border: 0; border-radius: 4px; background: transparent; color: var(--creme); font: 500 15px 'Geist', system-ui, sans-serif; cursor: pointer; }
 .vt-trocas button[aria-pressed="true"] { background: var(--creme); color: #101b36; }
+.vt-cliente .vt-camadas img { object-fit: cover; object-position: top; }
+.vt-cliente .vt-nota { max-width: 44ch; }
 .vt-arq .vt-abrir { display: flex; width: max-content; margin-top: 20px; }
 .vt-arq .vt-mais { margin: 6px 0 0; }
 
