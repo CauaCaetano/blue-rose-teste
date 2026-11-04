@@ -574,7 +574,7 @@ h1, h2, h3, h4, p, li, dd, dt, a, button, span, b, strong, em { word-break: norm
 .il-info b { white-space: nowrap; }
 .il-preso::after { height: 46%; }
 @media (max-width: 760px) {
-  .jt-abas { bottom: 64px; }
+  .jt-abas { bottom: 10px; }
   .il-nome, .il-info, .il-cont { text-shadow: 0 1px 10px rgba(0, 0, 0, .85); }
   .ab-vela { background: linear-gradient(180deg, rgba(10, 14, 13, .42), rgba(10, 14, 13, .1) 30%, rgba(10, 14, 13, .55) 58%, rgba(10, 14, 13, .72) 100%), rgba(10, 14, 13, calc(var(--p) * .62)); }
 }

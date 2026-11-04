@@ -687,3 +687,12 @@ h1, h2, h3, h4, p, li, dd, dt, a, button, span, b, strong, em { word-break: norm
   .tb-comp td:first-child { grid-column: 1 / -1; }
   .tb-comp td[data-l]::before { content: attr(data-l); display: block; font-size: 11px; color: var(--tx-3); margin-bottom: 2px; }
 }
+.mapa-nota { left: auto; right: 10px; }
+.fc-sec h2 { text-wrap: wrap; }
+@media (max-width: 760px) {
+  .mapa-nota { bottom: 52px; right: 8px; }
+  .fc-abas a { padding: 12px 3px; font-size: 12px; }
+  .fc-sec h2 small { display: block; margin: 4px 0 0; line-height: 1.5; }
+  .m-rot-p { display: none; }
+  .m-rot { font-size: 12px; }
+}
