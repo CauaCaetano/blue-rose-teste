@@ -15,24 +15,24 @@
   // cod, fotos, título, tipo, bairro, rua, modo, valor (venda) ou aluguel, condomínio, IPTU/mês, m², quartos, banheiros, vagas, pet, dias no ar, ano, piscina, mobiliado, varanda, corretor
   var COR = ['Ana Lúcia Prado', 'Marcos Teixeira', 'Juliana Okada'];
   var BR = [
-    ['LP-1031', 'i0 sala-lareira cozinha-janela quarto-casal sala-jardim', 'Casa com piscina', 'Casa', 'Nova Campinas', 'Rua Sampaio Ferraz, 418', 'venda', 2450000, 0, 690, 310, 4, 5, 3, 1, 4, 2019, 1, 0, 1, 0],
-    ['LP-1042', 'sala-clara i1 cozinha-branca quarto-casal sala-varanda', 'Apartamento 3 quartos', 'Apartamento', 'Cambuí', 'Rua Maria Monteiro, 812', 'aluguel', 4200, 1180, 260, 118, 3, 2, 2, 1, 2, 2014, 0, 0, 1, 0],
-    ['LP-1047', 'sala-poltrona-amarela i2 cozinha-americana home-office quarto-casal', 'Studio mobiliado', 'Studio', 'Centro', 'Rua Barão de Jaguara, 1.090', 'aluguel', 1950, 520, 85, 38, 1, 1, 0, 0, 1, 2021, 0, 1, 0, 1],
-    ['LP-1018', 'i3 sala-plantas cozinha-branca quarto-casal sala-jantar', 'Apartamento 2 quartos', 'Apartamento', 'Taquaral', 'Av. Dr. Heitor Penteado, 1.540', 'aluguel', 2600, 690, 140, 72, 2, 2, 1, 1, 6, 2009, 0, 0, 1, 2],
-    ['LP-1009', 'sala-jantar i4 cozinha-americana quarto-casal sala-sofa-azul', 'Apartamento 2 quartos', 'Apartamento', 'Barão Geraldo', 'Av. Albino J. B. de Oliveira, 2.210', 'venda', 520000, 480, 150, 68, 2, 1, 1, 1, 9, 2016, 0, 0, 0, 2],
-    ['LP-1003', 'i5 sala-pe-direito cozinha-janela quarto-casal sala-varanda', 'Cobertura duplex', 'Cobertura', 'Cambuí', 'Rua Coronel Quirino, 1.480', 'venda', 1680000, 1650, 520, 196, 3, 4, 3, 1, 12, 2015, 1, 0, 1, 1],
-    ['LP-1036', 'i6 sala-madeira cozinha-branca varanda-entrada quarto-casal', 'Casa térrea', 'Casa', 'Barão Geraldo', 'Rua Eduardo Modesto, 377', 'aluguel', 5800, 0, 420, 210, 3, 3, 4, 1, 3, 2006, 0, 0, 0, 2],
-    ['LP-1027', 'i7 sala-lareira cozinha-janela quarto-casal sala-jardim', 'Casa em condomínio', 'Casa em condomínio', 'Mansões Santo Antônio', 'Rua Hermantino Coelho, 901', 'venda', 1890000, 980, 610, 280, 4, 4, 4, 1, 5, 2017, 1, 0, 1, 0],
-    ['LP-1015', 'i8 sala-pe-direito cozinha-americana quarto-casal home-office', 'Sobrado moderno', 'Sobrado', 'Nova Campinas', 'Rua Jasmim, 230', 'aluguel', 8900, 0, 780, 260, 4, 4, 3, 1, 8, 2020, 0, 0, 1, 1],
-    ['LP-1001', 'i9 sala-lareira sala-pe-direito cozinha-janela sala-jardim', 'Casa de alto padrão', 'Casa em condomínio', 'Mansões Santo Antônio', 'Rua Hermantino Coelho, 1.450', 'venda', 3900000, 1300, 1100, 520, 5, 7, 6, 1, 15, 2018, 1, 0, 1, 1],
-    ['LP-1012', 'i10 sala-sofa-azul cozinha-americana quarto-casal', 'Apartamento 1 quarto', 'Apartamento', 'Centro', 'Av. Francisco Glicério, 1.310', 'aluguel', 1600, 430, 70, 45, 1, 1, 1, 0, 11, 1998, 0, 0, 0, 2],
-    ['LP-1021', 'i11 sala-plantas cozinha-branca quarto-casal sala-clara', 'Apartamento 3 quartos', 'Apartamento', 'Taquaral', 'Rua Uruguai, 640', 'venda', 780000, 820, 230, 104, 3, 2, 2, 0, 7, 2012, 0, 0, 1, 0],
-    ['LP-1049', 'sala-varanda sala-clara cozinha-janela quarto-casal', 'Apartamento com varanda', 'Apartamento', 'Guanabara', 'Av. Brasil, 1.870', 'aluguel', 2900, 610, 120, 64, 2, 2, 1, 1, 2, 2019, 0, 0, 1, 1],
-    ['LP-1033', 'casa-sobrado-azul sala-madeira cozinha-branca varanda-entrada', 'Sobrado 3 quartos', 'Sobrado', 'Taquaral', 'Rua Uruguai, 95', 'aluguel', 4900, 0, 310, 170, 3, 3, 2, 1, 5, 2004, 0, 0, 1, 0],
-    ['LP-1050', 'home-office sala-poltrona-amarela cozinha-americana quarto-casal', 'Studio com escritório', 'Studio', 'Cambuí', 'Rua Guilherme da Silva, 255', 'aluguel', 2350, 640, 95, 42, 1, 1, 1, 0, 1, 2022, 0, 1, 0, 2],
-    ['LP-1029', 'casa-tijolo sala-madeira cozinha-janela varanda-entrada', 'Casa térrea com quintal', 'Casa', 'Barão Geraldo', 'Rua Eduardo Modesto, 1.020', 'venda', 1150000, 0, 380, 230, 3, 3, 3, 1, 6, 2008, 0, 0, 0, 2],
-    ['LP-1044', 'sala-pe-direito sala-jardim cozinha-branca quarto-casal', 'Apartamento garden', 'Apartamento', 'Guanabara', 'Rua Padre Vieira, 410', 'venda', 690000, 720, 190, 96, 3, 2, 2, 1, 3, 2017, 0, 0, 1, 1],
-    ['LP-1024', 'casa-telhado sala-clara cozinha-janela quarto-casal', 'Casa em condomínio', 'Casa em condomínio', 'Taquaral', 'Rua Uruguai, 1.880', 'venda', 1320000, 650, 420, 205, 3, 3, 2, 1, 10, 2013, 1, 0, 0, 0]
+    ['LP-1031', 'i0 sala-lareira cozinha-janela quarto-casal sala-jardim', 'Casa com piscina', 'Casa', 'Nova Campinas', 'Rua de Exemplo, 900', 'venda', 2450000, 0, 690, 310, 4, 5, 3, 1, 4, 2019, 1, 0, 1, 0],
+    ['LP-1042', 'sala-clara i1 cozinha-branca quarto-casal sala-varanda', 'Apartamento 3 quartos', 'Apartamento', 'Cambuí', 'Rua de Exemplo, 500', 'aluguel', 4200, 1180, 260, 118, 3, 2, 2, 1, 2, 2014, 0, 0, 1, 0],
+    ['LP-1047', 'sala-poltrona-amarela i2 cozinha-americana home-office quarto-casal', 'Studio mobiliado', 'Studio', 'Centro', 'Rua de Exemplo, 1900', 'aluguel', 1950, 520, 85, 38, 1, 1, 0, 0, 1, 2021, 0, 1, 0, 1],
+    ['LP-1018', 'i3 sala-plantas cozinha-branca quarto-casal sala-jantar', 'Apartamento 2 quartos', 'Apartamento', 'Taquaral', 'Rua de Exemplo, 400', 'aluguel', 2600, 690, 140, 72, 2, 2, 1, 1, 6, 2009, 0, 0, 1, 2],
+    ['LP-1009', 'sala-jantar i4 cozinha-americana quarto-casal sala-sofa-azul', 'Apartamento 2 quartos', 'Apartamento', 'Barão Geraldo', 'Rua de Exemplo, 300', 'venda', 520000, 480, 150, 68, 2, 1, 1, 1, 9, 2016, 0, 0, 0, 2],
+    ['LP-1003', 'i5 sala-pe-direito cozinha-janela quarto-casal sala-varanda', 'Cobertura duplex', 'Cobertura', 'Cambuí', 'Rua de Exemplo, 1500', 'venda', 1680000, 1650, 520, 196, 3, 4, 3, 1, 12, 2015, 1, 0, 1, 1],
+    ['LP-1036', 'i6 sala-madeira cozinha-branca varanda-entrada quarto-casal', 'Casa térrea', 'Casa', 'Barão Geraldo', 'Rua de Exemplo, 1300', 'aluguel', 5800, 0, 420, 210, 3, 3, 4, 1, 3, 2006, 0, 0, 0, 2],
+    ['LP-1027', 'i7 sala-lareira cozinha-janela quarto-casal sala-jardim', 'Casa em condomínio', 'Casa em condomínio', 'Mansões Santo Antônio', 'Rua de Exemplo, 1100', 'venda', 1890000, 980, 610, 280, 4, 4, 4, 1, 5, 2017, 1, 0, 1, 0],
+    ['LP-1015', 'i8 sala-pe-direito cozinha-americana quarto-casal home-office', 'Sobrado moderno', 'Sobrado', 'Nova Campinas', 'Rua de Exemplo, 1700', 'aluguel', 8900, 0, 780, 260, 4, 4, 3, 1, 8, 2020, 0, 0, 1, 1],
+    ['LP-1001', 'i9 sala-lareira sala-pe-direito cozinha-janela sala-jardim', 'Casa de alto padrão', 'Casa em condomínio', 'Mansões Santo Antônio', 'Rua de Exemplo, 1000', 'venda', 3900000, 1300, 1100, 520, 5, 7, 6, 1, 15, 2018, 1, 0, 1, 1],
+    ['LP-1012', 'i10 sala-sofa-azul cozinha-americana quarto-casal', 'Apartamento 1 quarto', 'Apartamento', 'Centro', 'Rua de Exemplo, 200', 'aluguel', 1600, 430, 70, 45, 1, 1, 1, 0, 11, 1998, 0, 0, 0, 2],
+    ['LP-1021', 'i11 sala-plantas cozinha-branca quarto-casal sala-clara', 'Apartamento 3 quartos', 'Apartamento', 'Taquaral', 'Rua de Exemplo, 600', 'venda', 780000, 820, 230, 104, 3, 2, 2, 0, 7, 2012, 0, 0, 1, 0],
+    ['LP-1049', 'sala-varanda sala-clara cozinha-janela quarto-casal', 'Apartamento com varanda', 'Apartamento', 'Guanabara', 'Rua de Exemplo, 700', 'aluguel', 2900, 610, 120, 64, 2, 2, 1, 1, 2, 2019, 0, 0, 1, 1],
+    ['LP-1033', 'casa-sobrado-azul sala-madeira cozinha-branca varanda-entrada', 'Sobrado 3 quartos', 'Sobrado', 'Taquaral', 'Rua de Exemplo, 1600', 'aluguel', 4900, 0, 310, 170, 3, 3, 2, 1, 5, 2004, 0, 0, 1, 0],
+    ['LP-1050', 'home-office sala-poltrona-amarela cozinha-americana quarto-casal', 'Studio com escritório', 'Studio', 'Cambuí', 'Rua de Exemplo, 1800', 'aluguel', 2350, 640, 95, 42, 1, 1, 1, 0, 1, 2022, 0, 1, 0, 2],
+    ['LP-1029', 'casa-tijolo sala-madeira cozinha-janela varanda-entrada', 'Casa térrea com quintal', 'Casa', 'Barão Geraldo', 'Rua de Exemplo, 1400', 'venda', 1150000, 0, 380, 230, 3, 3, 3, 1, 6, 2008, 0, 0, 0, 2],
+    ['LP-1044', 'sala-pe-direito sala-jardim cozinha-branca quarto-casal', 'Apartamento garden', 'Apartamento', 'Guanabara', 'Rua de Exemplo, 800', 'venda', 690000, 720, 190, 96, 3, 2, 2, 1, 3, 2017, 0, 0, 1, 1],
+    ['LP-1024', 'casa-telhado sala-clara cozinha-janela quarto-casal', 'Casa em condomínio', 'Casa em condomínio', 'Taquaral', 'Rua de Exemplo, 1200', 'venda', 1320000, 650, 420, 205, 3, 3, 2, 1, 10, 2013, 1, 0, 0, 0]
   ];
   var IM = BR.map(function (r) {
     return { id: r[0], f: r[1].split(' '), t: r[2], tipo: r[3], b: r[4], rua: r[5], m: r[6], v: r[7], c: r[8], ip: r[9], a: r[10], q: r[11], bh: r[12], vg: r[13], pet: r[14], d: r[15], ano: r[16], pisc: r[17], mob: r[18], vr: r[19], cor: COR[r[20]] };
@@ -54,7 +54,7 @@
     'Barão Geraldo': 'Barão Geraldo é o bairro da Unicamp: mais verde e mais calmo, com comércio próprio e ciclovia.',
     'Nova Campinas': 'A Nova Campinas é residencial e arborizada, colada no Cambuí e a poucos minutos do Shopping Iguatemi.',
     'Mansões Santo Antônio': 'Mansões Santo Antônio tem ruas largas, condomínios de casas e acesso rápido à Rod. D. Pedro I.',
-    'Guanabara': 'O Guanabara fica entre o Centro e o Taquaral, com a Av. Brasil, mercados e escolas tradicionais por perto.'
+    'Guanabara': 'O Guanabara fica entre o Centro e o Taquaral, com a Rua de Exemplo, mercados e escolas tradicionais por perto.'
   };
   var PERTO = {
     'Cambuí': [['Centro de Convivência', '#2f8a46'], ['Escola Estadual Carlos Gomes', '#e0912f'], ['Supermercado', '#7a54d1'], ['Ponto de ônibus', '#1b67ee'], ['Hospital Vera Cruz', '#d0393f']],
@@ -63,7 +63,7 @@
     'Barão Geraldo': [['Unicamp', '#2f8a46'], ['Escola estadual', '#e0912f'], ['Supermercado', '#7a54d1'], ['Ponto de ônibus', '#1b67ee'], ['Hospital de Clínicas', '#d0393f']],
     'Nova Campinas': [['Praça arborizada', '#2f8a46'], ['Colégio particular', '#e0912f'], ['Shopping Iguatemi', '#7a54d1'], ['Ponto de ônibus', '#1b67ee'], ['Hospital', '#d0393f']],
     'Mansões Santo Antônio': [['Parque Ecológico', '#2f8a46'], ['Colégio bilíngue', '#e0912f'], ['Supermercado', '#7a54d1'], ['Acesso à D. Pedro I', '#1b67ee'], ['Hospital', '#d0393f']],
-    'Guanabara': [['Praça do bairro', '#2f8a46'], ['Escola estadual', '#e0912f'], ['Supermercado', '#7a54d1'], ['Corredor da Av. Brasil', '#1b67ee'], ['Hospital', '#d0393f']]
+    'Guanabara': [['Praça do bairro', '#2f8a46'], ['Escola estadual', '#e0912f'], ['Supermercado', '#7a54d1'], ['Corredor da Rua de Exemplo', '#1b67ee'], ['Hospital', '#d0393f']]
   };
   // ---------- estado ----------
   var VAZIO = { modo: 'aluguel', bairro: '', tipos: [], pmin: '', pmax: '', qmin: '', qmax: '', bmin: '', bmax: '', amin: '', amax: '', vmin: '', vmax: '', ymin: '', ymax: '', cmin: '', cmax: '', feats: [], ordem: 'novo', texto: '' };

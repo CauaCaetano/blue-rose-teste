@@ -110,7 +110,7 @@
   }
 
   /* ---------- unidades (home e unidade.html) ---------- */
-  var UN = [['Moema', 'Av. Ibirapuera, 2.120', '040'], ['Pinheiros', 'Rua dos Pinheiros, 870', '054'], ['Jardins', 'Rua Oscar Freire, 1.340', '014'], ['Vila Mariana', 'Rua Domingos de Morais, 2.780', '041'], ['Tatuapé', 'Rua Tuiuti, 2.010', '033'], ['Santana', 'Rua Voluntários da Pátria, 3.120', '020'], ['Morumbi', 'Av. Giovanni Gronchi, 5.600', '056'], ['Brooklin', 'Rua Joaquim Nabuco, 380', '045'], ['Perdizes', 'Rua Cardoso de Almeida, 1.150', '050'], ['Santo André', 'Av. Industrial, 600', '090'], ['Alphaville', 'Al. Rio Negro, 1.030', '064']];
+  var UN = [['Moema', 'Rua de Exemplo, 100', '040'], ['Pinheiros', 'Rua dos Pinheiros, 870', '054'], ['Jardins', 'Rua de Exemplo, 200', '014'], ['Vila Mariana', 'Rua de Exemplo, 300', '041'], ['Tatuapé', 'Rua de Exemplo, 400', '033'], ['Santana', 'Rua de Exemplo, 500', '020'], ['Morumbi', 'Rua de Exemplo, 600', '056'], ['Brooklin', 'Rua de Exemplo, 700', '045'], ['Perdizes', 'Rua de Exemplo, 800', '050'], ['Santo André', 'Rua de Exemplo, 900', '090'], ['Alphaville', 'Rua de Exemplo, 1000', '064']];
   var sem = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
   var unQ = $('#un-q');
   if (unQ) {

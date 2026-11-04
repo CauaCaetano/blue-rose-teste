@@ -104,7 +104,7 @@
   }
 
   // unidades: escolha no formulário e lista no rodapé
-  var UN = [['Savassi', 'Rua Pernambuco, 1.120', '(31) 3334-5500', 'Seg a sáb 7h às 22h · Dom 8h às 14h'], ['Buritis', 'Av. Prof. Mário Werneck, 1.540', '(31) 3378-2100', 'Seg a sáb 8h às 21h · Dom 8h às 14h'], ['Contagem · Eldorado', 'Av. João César de Oliveira, 1.870', '(31) 3352-0900', 'Seg a sáb 8h às 22h · Dom 8h às 14h']];
+  var UN = [['Savassi', 'Rua de Exemplo, 100', '(31) 3334-5500', 'Seg a sáb 7h às 22h · Dom 8h às 14h'], ['Buritis', 'Rua de Exemplo, 200', '(31) 3378-2100', 'Seg a sáb 8h às 21h · Dom 8h às 14h'], ['Contagem · Eldorado', 'Rua de Exemplo, 300', '(31) 3352-0900', 'Seg a sáb 8h às 22h · Dom 8h às 14h']];
   var un = $('.fn-un');
   if (un) un.insertAdjacentHTML('beforeend', UN.map(function (u, i) { return '<label><input type="radio" name="un" value="' + u[0] + '"' + (i ? '' : ' checked') + '>' + u[0] + '</label>'; }).join('') + '<label><input type="radio" name="un" value="outra unidade">Outras 6 unidades</label>');
   var fu = $('.fn-unid');
