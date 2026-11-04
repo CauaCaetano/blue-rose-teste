@@ -1,4 +1,4 @@
-// Ana Ribeiro · "Uma nova perspectiva": a Ilha do Campeche real (fotogrametria com textura de verdade) sobre o mar escuro.
+// Ana Ribeiro · "Uma nova perspectiva": a Ilha do Bairro Exemplo G real (fotogrametria com textura de verdade) sobre o mar escuro.
 // A rolagem leva a câmera numa volta em torno da ilha, descendo perto dela no meio do caminho; os quadros dos bairros
 // sobem do mar, param ao lado da ilha quando é a vez deles e saem girando como uma porta (contador e legendas em site.js).
 // Sem WebGL, ou com erro, fica o quadro simples em CSS (.il-plano).

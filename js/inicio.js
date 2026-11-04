@@ -26,7 +26,7 @@
     if (document.readyState === 'complete') ligaTela(); else addEventListener('load', ligaTela);
   }
 
-  // escolha o ramo: passar o mouse ou focar troca a tela e a cor; sozinho, gira só enquanto a seção está na tela
+  // escolha o ramo: passar o mouse ou focar troca a tela; sozinho, gira só enquanto a seção está na tela
   var ramos = document.querySelector('.hq-ramos');
   if (ramos) {
     var itens = [].slice.call(ramos.querySelectorAll('.hq-ramo'));
@@ -38,7 +38,6 @@
       atual = i;
       itens.forEach(function (e, k) { e.classList.toggle('on', k === i); });
       telas.forEach(function (e, k) { e.classList.toggle('on', k === i); });
-      if (largo && largo.matches) ramos.style.backgroundColor = itens[i].dataset.cor;
     };
     var para = function () { mexeu = true; clearInterval(giro); giro = 0; };
     itens.forEach(function (e, i) {
