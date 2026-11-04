@@ -150,3 +150,6 @@
 }
 
 .hn .hn-medida-faixa .hn-medida-acao .btn { margin-top: 16px; }
+
+/* na home o conteúdo é um pouco mais largo, então a caixa das rosas acompanha */
+.hn main > section:not(.hn-topo)::after { width: min(474px, max(0px, calc(100vw - 1232px))); }

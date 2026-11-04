@@ -57,3 +57,11 @@
   .preco2.preco2-erp { grid-template-columns: minmax(0, 1fr); }
   .preco2-erp > ul, .preco2-erp > .preco2-acao { grid-column: 1; grid-row: auto; }
 }
+
+/* rosas inteiras (04/11/2026): a arte tem o desenho forte à esquerda e some aos poucos. A caixa ocupa a arte toda, em vez
+   de cortá-la na margem, e repete só um número inteiro de vezes, para não terminar com rosa cortada no fim da seção. */
+main > section:not(.ini-hero):not(.lx-hero)::after {
+  width: min(474px, max(0px, calc(100vw - 1200px)));
+  background-size: 100% auto; background-repeat: no-repeat round; background-position: left top;
+}
+main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background-position: right top; }
