@@ -267,3 +267,7 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
   html.js .hn .reveal { opacity: 1; transform: none; transition: none; }
   .hn-ramo, .hn-site { transition: none; }
 }
+
+/* servicos: pedido de orçamento do site personalizado */
+.orc-pedido { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; }
+.orc-pedido .orc-cab { flex: 1 1 420px; margin: 0; }
