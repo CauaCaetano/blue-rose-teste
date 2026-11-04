@@ -293,3 +293,12 @@ a.item-bt { text-decoration: none; }
   .doc section { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
   .doc .corpo { font-size: 1rem; }
 }
+
+/* ---------- correção visual: barra com fundo (o relógio e o menu não se misturam ao texto que passa), valores inteiros ---------- */
+.topo { background: var(--creme); min-height: 44px; }
+html { scroll-padding-top: 60px; }
+.texto p, .texto, .cab-sub, .item-corpo p, .prazos span, .dados dd, .grupos ul li, .doc .corpo p, .doc .corpo li, .pn-txt p { text-wrap: pretty; }
+.item-bt span { display: inline-block; text-wrap: balance; }
+.grupos h3, .prazos b { text-wrap: balance; }
+.faixa, .num, .prazos b { white-space: nowrap; }
+@media (max-width: 760px) { .faixa { font-size: clamp(1.45rem, 7.6vw, 2.05rem); } }

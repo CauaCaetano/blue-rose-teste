@@ -5,7 +5,7 @@
   'use strict';
   var $ = function (s, el) { return (el || document).querySelector(s); };
   var $$ = function (s, el) { return [].slice.call((el || document).querySelectorAll(s)); };
-  var real = function (v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); };
+  var real = function (v) { return 'R$\u00A0' + Math.round(v).toLocaleString('pt-BR'); };
   var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var raiz = document.documentElement;
   raiz.classList.add('js');
@@ -110,7 +110,7 @@
   }
 
   /* ---------- unidades (home e unidade.html) ---------- */
-  var UN = [['Moema', 'Rua de Exemplo, 100', '040'], ['Pinheiros', 'Rua dos Pinheiros, 870', '054'], ['Jardins', 'Rua de Exemplo, 200', '014'], ['Vila Mariana', 'Rua de Exemplo, 300', '041'], ['Tatuapé', 'Rua de Exemplo, 400', '033'], ['Santana', 'Rua de Exemplo, 500', '020'], ['Morumbi', 'Rua de Exemplo, 600', '056'], ['Brooklin', 'Rua de Exemplo, 700', '045'], ['Perdizes', 'Rua de Exemplo, 800', '050'], ['Santo André', 'Rua de Exemplo, 900', '090'], ['Alphaville', 'Rua de Exemplo, 1000', '064']];
+  var UN = [['Bairro Exemplo 1', 'Rua de Exemplo, 100', '001'], ['Bairro Exemplo 2', 'Rua de Exemplo, 200', '002'], ['Bairro Exemplo 3', 'Rua de Exemplo, 300', '003'], ['Bairro Exemplo 4', 'Rua de Exemplo, 400', '004'], ['Bairro Exemplo 5', 'Rua de Exemplo, 500', '005'], ['Bairro Exemplo 6', 'Rua de Exemplo, 600', '006'], ['Bairro Exemplo 7', 'Rua de Exemplo, 700', '007'], ['Bairro Exemplo 8', 'Rua de Exemplo, 800', '008'], ['Bairro Exemplo 9', 'Rua de Exemplo, 900', '009'], ['Bairro Exemplo 10', 'Rua de Exemplo, 1000', '010'], ['Bairro Exemplo 11', 'Rua de Exemplo, 1100', '011']];
   var sem = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
   var unQ = $('#un-q');
   if (unQ) {
