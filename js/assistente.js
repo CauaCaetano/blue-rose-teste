@@ -528,7 +528,6 @@
 
   // em outro idioma do pacote de idiomas, pede à IA a resposta no idioma de quem pergunta
   function comIdioma(texto) { return window.__brIdioma && window.__brIdioma.comIdioma ? window.__brIdioma.comIdioma(texto) : texto; }
-  // pergunta escrita: a IA responde só com as informações do site; se falhar, oferece a equipe
   VirtualAssistant.prototype.ramos = function () {
     return this.k.d.sistemas.map(function (s) { return { id: s.id, rotulo: s.negocio || s.ramo }; })
       .sort(function (a, b) { return a.rotulo.localeCompare(b.rotulo, 'pt'); });
