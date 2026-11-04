@@ -83,21 +83,29 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-porta h2 { margin: 10px 0 0; font-size: 28px; line-height: 1.15; }
 .hn-porta-d { margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: var(--hn-grafite); }
 .hn-porta .hn-acoes { margin-top: auto; padding-top: 24px; }
-/* topo marinho: a rosa da marca desabrocha uma vez (img/home/rosa-abre.svg); cor sólida, sem brilho */
+/* topo marinho: notebook com telas reais em movimento; o play leva a um site interativo de exemplo */
 .hn-topo::before, .hn-topo::after { content: none; }
 .hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f3ebdd; --topo-apoio: #c5cddc; --topo-azul: #6cc4ff; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
-.hn-topo .wrap > :not(.hn-rosa) { position: relative; z-index: 1; max-width: 58%; }
-.hn-rosa { position: absolute; top: 40px; right: 3.5vw; width: min(40vw, 640px); height: auto; aspect-ratio: 640 / 620; overflow: visible; pointer-events: none; }
-/* a rosa desabrocha uma vez: hastes, folhas e depois as pétalas, na ordem do atraso de cada path */
-.hn-rosa path{fill:#0eacfd;animation:.62s cubic-bezier(.16,.84,.3,1) both}.hn-rosa .e{fill:#1073eb}.hn-rosa .h{transform-box:fill-box;transform-origin:center;animation-name:rosa-h}.hn-rosa .f{transform-origin:285px 300px;animation-name:rosa-f}.hn-rosa .p{transform-origin:345px 190px;animation-name:rosa-p;animation-duration:.8s}
-@keyframes rosa-h{from{opacity:0;transform:scale(.72) rotate(-10deg)}}@keyframes rosa-f{from{opacity:0;transform:scale(.25) rotate(-22deg)}}@keyframes rosa-p{from{opacity:0;transform:scale(.2) rotate(-55deg)}}
-@media (prefers-reduced-motion: reduce) { .hn-rosa path { animation: none; } }
+.hn-topo .wrap { display: grid; grid-template-columns: minmax(0, 1fr) min(40vw, 600px); column-gap: 40px; }
+.hn-topo .wrap > * { grid-column: 1; }
+.hn-topo .eyebrow { justify-self: start; }
+.hn-topo .wrap > .hn-note { grid-column: 2; grid-row: 1 / span 3; align-self: center; position: relative; width: 100%; aspect-ratio: 968 / 625; }
+.hn-topo .wrap > .hn-portas { grid-column: 1 / -1; }
+.hn-note-foto { display: block; width: 100%; height: 100%; }
+/* a tela é o retângulo exato do visor na foto */
+.hn-note-tela { position: absolute; left: 12.81%; top: 4.16%; width: 74.38%; height: 70.08%; object-fit: cover; background: #06060a; }
+.hn-play { position: absolute; left: 12.81%; top: 4.16%; width: 74.38%; height: 70.08%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #101b36; text-decoration: none; }
+.hn-play-bola { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: var(--topo-texto); box-shadow: 0 0 0 10px rgba(16, 27, 54, .28); transition: transform .2s ease, background-color .2s ease; }
+.hn-play-txt { padding: 6px 12px; border-radius: 4px; background: #101b36; color: var(--topo-texto); font-size: 14px; font-weight: 500; }
+.hn-play:hover .hn-play-bola { transform: scale(1.08); background: #fff; }
+.hn-play:active .hn-play-bola { transform: scale(.98); }
+.hn-topo a.hn-play:focus-visible { outline-offset: -4px; }
 .hn .hn-topo .eyebrow { color: var(--topo-apoio); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .hn .hn-topo .eyebrow::before { background: var(--topo-azul); }
 .hn .hn-topo h1 { color: var(--topo-texto); font-size: clamp(42px, 4.9vw, 72px); line-height: 1.02; }
 .hn .hn-topo h1 em { color: var(--topo-azul) !important; -webkit-text-fill-color: var(--topo-azul) !important; background: none !important; }
 .hn-topo .hn-sub { color: var(--topo-apoio); }
-.hn-topo .hn-portas { gap: 40px; margin-top: 32px; }
+.hn-topo .hn-portas { gap: 40px; margin-top: 36px; }
 .hn-topo .hn-porta { padding: 18px 0 0; background: none; border: 0; border-top: 1px solid rgba(243, 235, 221, .3); border-radius: 0; box-shadow: none; }
 .hn-topo .hn-tag { color: var(--topo-azul); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .hn-topo .hn-porta h2 { color: var(--topo-texto); font-size: 25px; }
@@ -115,9 +123,12 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn .brand { white-space: nowrap; }
 @media (max-width: 1000px) {
   .hn main > section.hn-topo { padding: 24px 0 56px; }
-  .hn-topo .wrap > :not(.hn-rosa) { max-width: none; }
-  .hn-rosa { position: static; display: block; width: min(46vw, 300px); margin: 0 0 -36px auto; }
-  .hn .hn-topo .eyebrow { max-width: 54%; }
+  .hn-topo .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hn-topo .wrap > .hn-note { grid-column: 1; grid-row: auto; max-width: 620px; margin: 28px auto 0; }
+  .hn-play-bola { width: 64px; height: 64px; box-shadow: 0 0 0 7px rgba(16, 27, 54, .28); }
+  .hn-play-bola svg { width: 24px; height: 24px; }
+  .hn-play { gap: 8px; }
+  .hn-play-txt { font-size: 13px; padding: 4px 10px; }
   .hn-topo .hn-portas { gap: 28px; margin-top: 32px; }
 }
 
