@@ -44,3 +44,16 @@
 .conta-fundo { background: none !important; }
 .conta-avatar { background: #101b36 !important; }
 .palco-dash { background: #101b36 !important; }
+
+/* cartão largo em duas colunas: site personalizado (serviços) e sistema sob medida (sistemas) */
+.preco2.preco2-erp { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px; align-items: start; height: auto; }
+.preco2-erp > * { grid-column: 1; }
+.preco2-erp > .preco2-tag { justify-self: start; }
+.preco2-erp > ul { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; }
+.preco2-erp > .preco2-acao { grid-column: 2; margin-top: 16px; }
+.preco2-valor.preco2-sob { font-size: 30px; }
+.orc-site { margin-top: 24px; scroll-margin-top: 96px; }
+@media (max-width: 760px) {
+  .preco2.preco2-erp { grid-template-columns: minmax(0, 1fr); }
+  .preco2-erp > ul, .preco2-erp > .preco2-acao { grid-column: 1; grid-row: auto; }
+}

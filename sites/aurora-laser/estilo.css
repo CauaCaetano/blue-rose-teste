@@ -311,3 +311,10 @@ body.na-areia .topo { background: var(--areia); }
   .heroi-luz { display: none; }
   .js .ta, .js .ta-lado { opacity: 1; transform: none; }
 }
+
+/* no celular os três links ficam numa linha só, sem quebrar "Sessão de avaliação" */
+@media (max-width: 600px) {
+  .heroi-links { padding-top: 28px; justify-content: space-between; gap: 6px; }
+  .heroi-links a { margin-right: 0; font-size: 14px; line-height: 22px; white-space: nowrap; }
+  .heroi-links a::after { display: none; }
+}
