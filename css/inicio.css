@@ -1,7 +1,7 @@
 /* =============================================================
    Página inicial (03/11/2026): duas portas (pronto x sob medida), 7 blocos, leve no celular.
    Na index este arquivo é carregado por ÚLTIMO (depois do tinta.css); tudo da home fica sob body.hn.
-   Paleta "pintura, não metal": marinho #14213D, creme #F4EBDD, creme claro #FBF6EE, ultramar da rosa #2F4C8A,
+   Paleta "pintura, não metal": marinho #101b36, creme #F4EBDD, creme claro #FBF6EE, ultramar da rosa #2F4C8A,
    grafite #4A4F5C, terracota #9A4A31 (raro), linha #D9CBB3, sálvia #3E6B4F. Cormorant Garamond + Geist.
    Desempenho: sem imagem decorativa na primeira pintura (os cantos pintados entram depois do load, só no
    computador; os do rodapé quando ele se aproxima), nada animando parado, nada animando width ou filter.
@@ -18,9 +18,9 @@
    Home
    ============================================================= */
 .hn {
-  --hn-tinta: #14213d; --hn-tinta-2: #22345a; --hn-papel: #f4ebdd; --hn-folha: #fbf6ee; --hn-rosa: #2f4c8a;
+  --hn-tinta: #101b36; --hn-tinta-2: #22345a; --hn-papel: #f4ebdd; --hn-folha: #fbf6ee; --hn-rosa: #2f4c8a;
   --hn-grafite: #4a4f5c; --hn-terracota: #9a4a31; --hn-linha: #d9cbb3; --hn-salvia: #3e6b4f;
-  --hn-sombra: 0 1px 2px rgba(20, 33, 61, .06), 0 12px 32px -20px rgba(20, 33, 61, .25);
+  --hn-sombra: 0 1px 2px rgba(16, 27, 54, .06), 0 12px 32px -20px rgba(16, 27, 54, .25);
   --hn-r: 6px;
   background: var(--hn-papel); background-attachment: scroll; color: var(--hn-tinta);
 }
@@ -54,7 +54,7 @@ html:not(.hn-cantos) .hn main > section::after { background-image: none; }
 .hn .btn { min-height: 48px; padding: 0 24px; border-radius: var(--hn-r); font: 600 14px/1 var(--font, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; }
 .hn .nav .btn { min-height: 42px; padding: 0 18px; font-size: 12.5px; }
 .hn .btn-ghost { border: 1px solid var(--hn-tinta); color: var(--hn-tinta); background: transparent; }
-.hn .btn-ghost:hover { background: rgba(20, 33, 61, .06); color: var(--hn-tinta); border-color: var(--hn-tinta); }
+.hn .btn-ghost:hover { background: rgba(16, 27, 54, .06); color: var(--hn-tinta); border-color: var(--hn-tinta); }
 .hn .btn .ico { width: 16px; height: 16px; }
 .hn a:focus-visible, .hn button:focus-visible, .hn input:focus-visible, .hn textarea:focus-visible, .hn summary:focus-visible { outline: 2px solid var(--hn-rosa); outline-offset: 2px; }
 .hn .nav a:focus-visible, .hn .nav button:focus-visible, .hn .rodape-site a:focus-visible { outline-color: var(--hn-papel); }
@@ -85,7 +85,7 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-porta .hn-acoes { margin-top: auto; padding-top: 24px; }
 /* topo marinho: notebook com telas reais em movimento; o play leva a um site interativo de exemplo */
 .hn-topo::before, .hn-topo::after { content: none; }
-.hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f3ebdd; --topo-apoio: #c5cddc; --topo-azul: #6cc4ff; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
+.hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f4ebdd; --topo-apoio: #c5cddc; --topo-azul: #6cc4ff; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
 .hn-topo .wrap { display: grid; grid-template-columns: minmax(0, 1fr) min(40vw, 600px); column-gap: 40px; }
 .hn-topo .wrap > * { grid-column: 1; }
 .hn-topo .eyebrow { justify-self: start; }
@@ -106,7 +106,7 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn .hn-topo h1 em { color: var(--topo-azul) !important; -webkit-text-fill-color: var(--topo-azul) !important; background: none !important; }
 .hn-topo .hn-sub { color: var(--topo-apoio); }
 .hn-topo .hn-portas { gap: 40px; margin-top: 36px; }
-.hn-topo .hn-porta { padding: 18px 0 0; background: none; border: 0; border-top: 1px solid rgba(243, 235, 221, .3); border-radius: 0; box-shadow: none; }
+.hn-topo .hn-porta { padding: 18px 0 0; background: none; border: 0; border-top: 1px solid rgba(244, 235, 221, .3); border-radius: 0; box-shadow: none; }
 .hn-topo .hn-tag { color: var(--topo-azul); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .hn-topo .hn-porta h2 { color: var(--topo-texto); font-size: 25px; }
 .hn-topo .hn-lista { gap: 6px; margin-top: 12px; }
