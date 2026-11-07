@@ -82,6 +82,23 @@ function lerFoto(arq) {
     r.readAsDataURL(arq);
   });
 }
+// novidades da atualização: aparece uma vez em cada aparelho; a marca fica fora dos dados da agenda
+const NOVIDADES = 'agenda-essencial-novidades', VISTA = '2026-11-07';
+function novidades() {
+  if (window !== window.top || document.querySelector('.trava, .veu')) return;
+  try { if (localStorage.getItem(NOVIDADES) === VISTA) return; } catch { return; }
+  const visto = () => { try { localStorage.setItem(NOVIDADES, VISTA); } catch { /* sem espaço: mostra de novo na próxima */ } };
+  if (!db.clientes.length && !db.ags.length) { visto(); return; } // conta nova: não há o que contar de novidade
+  folha(`<h2>Seu app ganhou a sua cara</h2><p class="sub">Novidades desta atualização. Sua agenda, seus clientes e os valores continuam do mesmo jeito.</p>
+    <ul class="novidades"><li><b>Sua foto ou logo no topo</b><span>No lugar da logo da Veltria, que atrapalhava no celular. Toque no seu nome lá em cima para trocar.</span></li>
+    <li><b>Escolha a cor do app</b><span>Seis cores para combinar com o seu negócio, em Mais › Configurações › Sua marca no app.</span></li>
+    <li><b>Bom dia com o resumo de hoje</b><span>Quantos horários, quanto vai entrar, quantos faltam e se chegou pedido novo pelo link.</span></li></ul>
+    <div style="display:grid;gap:8px"><a class="bt cheio largo" href="#config" data-fecha>Personalizar agora</a><button type="button" class="bt largo" data-fecha>Ver depois</button></div>`, (f) => {
+    const veu = f.parentElement;
+    veu.addEventListener('click', (e) => { if (e.target === veu || e.target.closest('[data-fecha]')) visto(); });
+    veu.addEventListener('keydown', (e) => { if (e.key === 'Escape') visto(); });
+  });
+}
 const zap = (tel, m) => `https://wa.me/55${String(tel).replace(/\D/g, '')}?text=${encodeURIComponent(m)}`;
 const $ = (s) => document.querySelector(s);
 
@@ -534,3 +551,4 @@ $('#recomecar').addEventListener('click', () => { localStorage.removeItem(CHAVE)
 if (window !== window.top) document.documentElement.classList.add('no-celular');
 if ('serviceWorker' in navigator && window === window.top) navigator.serviceWorker.register('sw.js').catch(() => {});
 mostra();
+setTimeout(novidades, 1500); // depois da nuvem: se a conta recarregar a tela, o aviso ainda aparece
