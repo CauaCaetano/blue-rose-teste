@@ -115,13 +115,6 @@
 .sg-roteiro .sg-acoes { margin-top: 24px; }
 
 /* perguntas */
-.sg-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
-.sg-faq details { border-top: 1px solid var(--sg-linha); }
-.sg-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 0; cursor: pointer; list-style: none; font-weight: 600; font-size: 16.5px; color: var(--sg-tinta); }
-.sg-faq summary::-webkit-details-marker { display: none; }
-.sg-faq summary::after { content: '+'; flex: none; font: 400 22px/1 var(--font, system-ui, sans-serif); color: var(--sg-azul); }
-.sg-faq details[open] summary::after { content: '−'; }
-.sg-faq p { margin: 0 0 18px; max-width: 60ch; color: var(--sg-grafite); font-size: 15.5px; line-height: 1.6; }
 
 /* fim */
 .sg .sg-fim { background: var(--sg-tinta); color: var(--sg-papel); padding: 64px 0; }
@@ -132,7 +125,6 @@
 
 @media (max-width: 900px) {
   .sg-topo-grade, .sg-duas { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .sg-faq { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 560px) {
   .sg .sg-topo { padding: 48px 0; }
@@ -185,3 +177,6 @@
 
 /* rodada 5: item ativo do índice com anel além do fundo */
 .sg .sg-indice a[aria-current] { box-shadow: 0 0 0 2px var(--sg-folha), 0 0 0 3px var(--sg-tinta); }
+
+/* 09/11: perguntas no formato de caixas do site inteiro (.np-faq em tinta.css) */
+.sg-faq.np-faq { margin-top: 24px; }

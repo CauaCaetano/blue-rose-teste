@@ -279,14 +279,6 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .sv .sv-escopo ul { list-style: none; margin: 14px 0 0; padding: 0; }
 .sv .sv-escopo li { padding: 10px 0; border-top: 1px solid rgba(16, 27, 54, .14); font-size: 15.5px; line-height: 1.5; color: #464c58; }
 .sv .sv-escopo li:first-child { border-top: 0; }
-.sv .sv-faq-lista { margin-top: 32px; max-width: 880px; border-top: 1px solid rgba(16, 27, 54, .2); }
-.sv .sv-faq-lista details { border-bottom: 1px solid rgba(16, 27, 54, .2); }
-.sv .sv-faq-lista summary { position: relative; display: block; min-height: 44px; padding: 18px 44px 18px 0; cursor: pointer; list-style: none; font: 500 clamp(22px, 2vw, 26px)/1.25 'Cormorant Garamond', Georgia, serif; color: #101b36; }
-.sv .sv-faq-lista summary::-webkit-details-marker { display: none; }
-.sv .sv-faq-lista summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 400 26px/1 var(--font, 'Geist', system-ui, sans-serif); color: #101b36; }
-.sv .sv-faq-lista details[open] summary::after { content: "\2212"; }
-.sv .sv-faq-lista summary:focus-visible { outline: 2px solid #101b36; outline-offset: 2px; }
-.sv .sv-faq-lista p { margin: 0 0 20px; max-width: 68ch; font-size: 16px; line-height: 1.6; color: #464c58; }
 .sv .sv-faq-pe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
 @media (max-width: 900px) {
   .sv .sv-escopo { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -399,3 +391,6 @@ body.sv .sites-filtro button[aria-pressed="true"] { background: #101b36; border-
 .sv .sv-esqueleto i { background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%); background-size: 220% 100%; animation: sv-brilho 2.4s ease-in-out infinite; }
 @keyframes sv-brilho { from { background-position: 120% 0; } to { background-position: -120% 0; } }
 @media (prefers-reduced-motion: reduce) { .sv .sv-esqueleto i { animation: none; background-image: none; } }
+
+/* 09/11: perguntas no formato de caixas do site inteiro (.np-faq em tinta.css) */
+.sv .sv-faq-lista { margin-top: 28px; }

@@ -391,3 +391,8 @@
   .hr-acoes { margin-top: 20px; }
   .hr-cel { width: 180px; max-height: 240px; }
 }
+
+/* 09/11: perguntas frequentes no mesmo formato de caixas das páginas de sistema (.np-faq), título em cima */
+.hn-faq > .wrap { display: block; }
+.hn .hn-faq-lista { margin-top: 28px; }
+.hn-faq-lista > details { border-top: 0; }
