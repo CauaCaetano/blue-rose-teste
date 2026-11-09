@@ -26,33 +26,6 @@
     if (document.readyState === 'complete') ligaTela(); else addEventListener('load', ligaTela);
   }
 
-  // escolha o ramo: passar o mouse ou focar troca a tela; sozinho, gira só enquanto a seção está na tela
-  var ramos = document.querySelector('.hq-ramos');
-  if (ramos) {
-    var itens = [].slice.call(ramos.querySelectorAll('.hq-ramo'));
-    var telas = [].slice.call(ramos.querySelectorAll('.hq-ramos-palco img'));
-    var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var largo = window.matchMedia && matchMedia('(min-width: 901px)');
-    var atual = 0, giro = 0, mexeu = false;
-    var mostra = function (i) {
-      atual = i;
-      itens.forEach(function (e, k) { e.classList.toggle('on', k === i); });
-      telas.forEach(function (e, k) { e.classList.toggle('on', k === i); });
-    };
-    var para = function () { mexeu = true; clearInterval(giro); giro = 0; };
-    itens.forEach(function (e, i) {
-      e.addEventListener('pointerenter', function (ev) { if (ev.pointerType === 'mouse') { para(); mostra(i); } });
-      e.addEventListener('focusin', function () { para(); mostra(i); });
-    });
-    if (!calmo && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (es) {
-        var dentro = es[es.length - 1].isIntersecting;
-        if (dentro && !mexeu && !giro && largo.matches) giro = setInterval(function () { if (!document.hidden) mostra((atual + 1) % itens.length); }, 4500);
-        else if (!dentro && giro) { clearInterval(giro); giro = 0; }
-      }, { threshold: .35 }).observe(ramos);
-    }
-  }
-
   // os celulares de "Como é testar" abrem em leque quando chegam na tela
   var leque = document.querySelector('.hq-celulares');
   if (leque && 'IntersectionObserver' in window) {

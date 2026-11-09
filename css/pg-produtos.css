@@ -1,0 +1,103 @@
+/* Páginas de produto (P3 · rodada 2): sistemas.html, veltria-*.html, peplo.html, annona.html.
+   Só usa os tokens globais (--surface, --line, --ink, --ink-2, --ink-3, --sis, --r-lg, --r-sm).
+   Sem animação de entrada em títulos; sem cursor customizado. */
+
+/* ---------- seções comuns ---------- */
+.pp-sec { padding-block: clamp(40px, 6vw, 72px) 0; }
+.pp-sec > .sec-title { margin-bottom: 8px; }
+.pp-intro { color: var(--ink-2); max-width: 66ch; margin: 0 0 22px; font-size: 16.5px; line-height: 1.55; }
+
+/* selo "dados de exemplo" (legível, não miúdo) */
+.pp-exemplo { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 8px 14px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.35; }
+.pp-exemplo::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--sis, #2f4c8a); }
+
+/* ---------- demonstração: o que testar ---------- */
+.pp-demo { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+.pp-demo-foto { display: block; border-radius: var(--r-lg, 18px); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.pp-demo-foto img { display: block; width: 100%; height: auto; }
+.pp-testar { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 12px; counter-reset: pp; }
+.pp-testar li { position: relative; padding: 14px 16px 14px 52px; border-radius: var(--r-sm, 12px); background: var(--surface); border: 1px solid var(--line);
+  font-size: 16px; line-height: 1.5; color: var(--ink); counter-increment: pp; }
+.pp-testar li::before { content: counter(pp); position: absolute; left: 14px; top: 13px; width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center; font: 700 13px/1 var(--mono, ui-monospace, monospace); color: #fff; background: var(--sis, #2f4c8a); }
+.pp-testar li b { font-weight: 650; }
+.pp-testar li small { display: block; margin-top: 4px; color: var(--ink-2); font-size: 14.5px; }
+
+/* ---------- botões da página (usa .btn global; só organiza) ---------- */
+.pp-bts { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.pp-bts .btn { min-height: 48px; }
+
+/* ---------- como funciona (componente de etapas) ---------- */
+.pp-passos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: passo; }
+.pp-passos li { position: relative; padding: 20px; border-radius: var(--r-lg, 18px); background: var(--surface); border: 1px solid var(--line); counter-increment: passo; }
+.pp-passos li::before { content: counter(passo, decimal-leading-zero); display: block; margin-bottom: 10px; font: 700 13px/1 var(--mono, ui-monospace, monospace); color: var(--sis, #2f4c8a); letter-spacing: .06em; }
+.pp-passos b { display: block; font-size: 17px; font-weight: 650; color: var(--ink); margin-bottom: 6px; }
+.pp-passos span { display: block; color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+
+/* ---------- o que a assinatura inclui (lista visual com ícones) ---------- */
+.pp-inclui { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 14px; }
+.pp-inclui li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: start; padding: 18px; border-radius: var(--r-lg, 18px);
+  background: var(--surface); border: 1px solid var(--line); }
+.pp-inclui .pp-ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--sis, #2f4c8a) 12%, transparent); color: var(--sis, #2f4c8a); }
+.pp-inclui .pp-ico .ico { width: 22px; height: 22px; }
+.pp-inclui b { display: block; font-size: 16px; font-weight: 650; color: var(--ink); }
+.pp-inclui span:not(.pp-ico) { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+
+/* ---------- limites e compatibilidade ---------- */
+.pp-limites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pp-limites > div { padding: 22px; border-radius: var(--r-lg, 18px); background: var(--surface); border: 1px solid var(--line); }
+.pp-limites h3 { margin: 0 0 12px; font-size: 18px; font-weight: 650; font-family: var(--font, inherit); color: var(--ink); }
+.pp-limites ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pp-limites li { position: relative; padding-left: 26px; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
+.pp-limites li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 10px; height: 2px; background: var(--ink-3, #6b6b6b); }
+.pp-limites .pp-sim li::before { width: 6px; height: 11px; top: .3em; left: 6px; background: none; border: solid var(--sis, #2f4c8a); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+/* ---------- segurança e dados ---------- */
+.pp-dados { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 32px; align-items: center; padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--r-lg, 18px); background: var(--surface); border: 1px solid var(--line); }
+.pp-dados h2 { margin: 0 0 8px; }
+.pp-dados ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pp-dados li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
+.pp-dados li .ico { flex: none; width: 18px; height: 18px; margin-top: 3px; color: var(--sis, #2f4c8a); }
+
+/* ---------- catálogo (sistemas.html) ---------- */
+.pp-indice { padding-block: 8px 28px; }
+.pp-indice h2 { margin: 0 0 6px; }
+.pp-indice-grade { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pp-indice-grade a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; min-height: 64px; height: 100%; box-sizing: border-box;
+  padding: 14px 16px; border-radius: var(--r-sm, 12px); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sis, #2f4c8a);
+  color: var(--ink); text-decoration: none; }
+.pp-indice-grade a:hover { border-color: var(--sis, #2f4c8a); }
+.pp-indice-grade a:focus-visible { outline: 3px solid var(--sis, #2f4c8a); outline-offset: 2px; }
+.pp-indice-grade b { font-size: 16px; font-weight: 650; }
+.pp-indice-grade small { grid-column: 1; font-size: 14px; color: var(--ink-2); }
+.pp-indice-grade em { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-weight: 650; font-size: 15px; white-space: nowrap; }
+.pp-fora { margin: 14px 0 0; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+
+/* cards do catálogo: botões iguais e sem quebra estranha */
+.sis-botoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 10px; }
+.sis-botoes .btn { min-height: 48px; white-space: normal; text-align: center; line-height: 1.2; }
+.sis-botoes .btn-primary { grid-column: 1 / -1; }
+.sis-limite { margin: 10px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+.sis-limite b { color: var(--ink); font-weight: 650; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 960px) {
+  .pp-passos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pp-indice-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .pp-demo, .pp-limites, .pp-dados { grid-template-columns: 1fr; }
+  .pp-passos, .pp-indice-grade { grid-template-columns: 1fr; }
+  .pp-bts .btn { flex: 1 1 100%; }
+  .pp-dados .btn { width: 100%; }
+}
+/* site.css força 2 colunas com !important; no celular os botões ficam um por linha, sem quebrar o texto */
+@media (max-width: 480px) {
+  .sis-corpo .sis-botoes { grid-template-columns: minmax(0, 1fr) !important; }
+  .sis-corpo .sis-botoes .btn { white-space: nowrap; }
+}
+/* título da seção do catálogo não encosta no parágrafo (o parágrafo tem margem negativa inline) */
+.sis-comparar .sec-title + .planos-nota { margin-top: 6px !important; }
+@media (prefers-reduced-motion: reduce) { .pp-indice-grade a { transition: none; } }

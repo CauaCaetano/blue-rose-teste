@@ -29,7 +29,13 @@
     };
     botaoMenu.addEventListener('click', function () { alternar(!nav.classList.contains('aberto')); });
     nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { alternar(false); }); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') alternar(false); });
+    // Esc fecha o menu e devolve o foco ao botão que o abriu (teclado não se perde)
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || !nav.classList.contains('aberto')) return;
+      var dentro = nav.contains(document.activeElement);
+      alternar(false);
+      if (dentro) botaoMenu.focus();
+    });
   }
 
   /* ---------------- revelação ao rolar ---------------- */

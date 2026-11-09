@@ -18,18 +18,7 @@
   color: var(--tinta-azul-claro) !important;
 }
 
-/* botão principal: marinho chapado, sem degradê, sem sombra colorida, sem brilho interno */
-.btn-primary {
-  background: var(--tinta-marinho) !important; border-color: var(--tinta-marinho) !important; box-shadow: none !important;
-  color: var(--tinta-creme) !important; -webkit-text-fill-color: currentColor !important;
-}
-.btn-primary:hover { background: var(--tinta-marinho-2) !important; box-shadow: none !important; transform: none !important; }
-/* sobre o marinho ele inverte: creme chapado com letra marinho */
-:is(.nav, .lx-hero, .p-hero, .np-hero, main > .hero, .hero, .cf-hero, .rodape-site) .btn-primary {
-  background: var(--tinta-creme) !important; border-color: var(--tinta-creme) !important; color: var(--tinta-marinho) !important;
-}
-:is(.nav, .lx-hero, .p-hero, .np-hero, main > .hero, .hero, .cf-hero, .rodape-site) .btn-primary:hover { background: var(--tinta-creme-2) !important; }
-.btn-primary:focus-visible { outline: 2px solid var(--tinta-rosa); outline-offset: 2px; }
+/* botões: ver "componente único de botão" no fim deste arquivo */
 
 /* sem halo de luz atrás do notebook do topo */
 .nb::before { display: none !important; }
@@ -37,10 +26,6 @@
 /* um azul só (04/11/2026): marinho nas faixas, ultramar sobre claro e azul-claro sobre marinho */
 :root { --accent: #2f4c8a; --accent-solid: #2f4c8a; --accent-soft: rgba(47, 76, 138, .1); }
 ::selection { background: #2f4c8a; color: #fff; }
-.aviso-cookies { background: #101b36 !important; color: #f4ebdd !important; }
-.aviso-cookies a { color: #6cc4ff !important; }
-.aviso-cookies p, .aviso-cookies span { color: #f4ebdd !important; }
-.aviso-cookies .btn, .aviso-cookies button { background: #f4ebdd !important; color: #101b36 !important; }
 .conta-fundo { background: none !important; }
 .conta-avatar { background: #101b36 !important; }
 .palco-dash { background: #101b36 !important; }
@@ -69,19 +54,19 @@ main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background
 /* 07/11/2026 · caminho (Início / Sistemas) e links de navegação com cara de botão, e perguntas frequentes com respiro */
 .np-trilha { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0; padding-top: 18px; padding-bottom: 6px; }
 .np-trilha > * { font-size: 14px; }
-.np-trilha a { display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 0 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 9%, transparent); color: inherit; font-weight: 600; text-decoration: none; box-shadow: 0 1px 2px rgba(20, 24, 32, .06); transition: transform .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.np-trilha a { display: inline-flex; align-items: center; gap: 7px; min-height: var(--alvo-min); padding: 0 16px; border-radius: var(--r-btn); border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 9%, transparent); color: inherit; font-weight: 600; text-decoration: none; box-shadow: 0 1px 2px rgba(20, 24, 32, .06); transition: transform .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .np-trilha a::before { content: ""; width: 7px; height: 7px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-right: 2px; opacity: .7; }
 .np-trilha a:hover { background: color-mix(in srgb, currentColor 18%, transparent); transform: translateY(-1px); box-shadow: 0 6px 16px -8px rgba(20, 24, 32, .35); border-color: color-mix(in srgb, currentColor 40%, transparent); }
 .np-trilha a:active { transform: translateY(0) scale(.97); }
 .np-trilha a:focus-visible { outline: 3px solid color-mix(in srgb, var(--sis, #6b5bd2) 55%, transparent); outline-offset: 2px; }
-.np-trilha > span { display: inline-flex; align-items: center; min-height: 38px; padding: 0 6px; font-weight: 600; opacity: .75; }
+.np-trilha > span { display: inline-flex; align-items: center; min-height: var(--alvo-min); padding: 0 6px; font-weight: 600; opacity: .75; }
 
-.sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); font-weight: 600; text-decoration: none !important; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a { display: inline-flex; align-items: center; gap: 8px; min-height: var(--alvo-min); padding: 0 18px; border-radius: var(--r-btn); border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); font-weight: 600; text-decoration: none !important; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
 .sis-mais:hover, .vs-demo:hover, .vs-pos-bt:hover, .np-comparar p > a:hover { background: color-mix(in srgb, currentColor 16%, transparent); transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(20, 24, 32, .35); }
 .sis-mais:active, .vs-demo:active, .vs-pos-bt:active, .np-comparar p > a:active { transform: scale(.97); }
 .np-comparar p > a { margin-top: 10px; }
 
-.np-faq details { padding: 0 !important; margin-bottom: 10px; border-radius: 14px; overflow: hidden; transition: box-shadow .2s ease, background .2s ease; }
+.np-faq details { padding: 0 !important; margin-bottom: 10px; border-radius: var(--r-card); overflow: hidden; transition: box-shadow .2s ease, background .2s ease; }
 .np-faq details:hover { box-shadow: 0 8px 22px -14px rgba(20, 24, 32, .35); }
 .np-faq summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; min-height: 58px; font-size: 16.5px; line-height: 1.35; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .np-faq summary::-webkit-details-marker { display: none; }
@@ -93,14 +78,14 @@ main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background
 .np-faq details p { margin: 0 !important; padding: 0 22px 20px; max-width: 75ch; }
 .np-faq details[open] summary { padding-bottom: 12px; }
 @media (max-width: 720px) {
-  .np-trilha a, .np-trilha > span { min-height: 42px; }
+  .np-trilha a, .np-trilha > span { min-height: var(--alvo-min); }
   .np-faq summary { padding: 16px 16px; font-size: 16px; }
   .np-faq details p { padding: 0 16px 18px; }
-  .sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a { min-height: 46px; justify-content: center; }
+  .sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a { min-height: var(--alvo-min); justify-content: center; }
 }
 /* 08/11/2026 (pedido do dono): todo link de chamada sublinhado vira botão, no site inteiro */
 .hn-link, .hq-seta, .np-direto, .vs-tut, .aq-link, .preco2-perso, .vt-mais, .hq-servicos article > a, .stack li > a {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: var(--r-btn);
   border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent);
   font-weight: 600; text-decoration: none !important; line-height: 1.2; transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
@@ -108,13 +93,147 @@ main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background
 .hn-link:hover, .hq-seta:hover, .np-direto:hover, .vs-tut:hover, .aq-link:hover, .preco2-perso:hover, .vt-mais:hover, .hq-servicos article > a:hover, .stack li > a:hover { background: color-mix(in srgb, currentColor 16%, transparent); transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(20, 24, 32, .35); }
 .hn-link:active, .hq-seta:active, .np-direto:active, .vs-tut:active, .aq-link:active, .preco2-perso:active, .vt-mais:active, .hq-servicos article > a:active, .stack li > a:active { transform: scale(.97); }
 .hq-servicos article > a { margin-top: auto; align-self: flex-start; }
-.stack li > a { min-height: 36px; padding: 0 14px; font-size: .92em; }
-@media (max-width: 640px) { .hn-link, .hq-seta, .np-direto, .vt-mais, .aq-link, .preco2-perso, .hq-servicos article > a { min-height: 46px; } }
+.stack li > a { min-height: var(--alvo-min); padding: 0 14px; font-size: .92em; }
+@media (max-width: 640px) { .hn-link, .hq-seta, .np-direto, .vt-mais, .aq-link, .preco2-perso, .hq-servicos article > a { min-height: var(--alvo-min); } }
 .pl-preco { text-decoration: none !important; display: inline-flex; align-items: baseline; gap: 4px; padding: 8px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); transition: background .2s ease, transform .2s ease; }
 .pl-preco:hover { background: color-mix(in srgb, currentColor 16%, transparent); transform: translateY(-1px); }
 .p-mosaico a, .p-mosaico a span { text-decoration: none !important; }
 .hq-servicos article > a { margin-top: 0; align-self: center; justify-self: end; white-space: nowrap; }
 @media (max-width: 640px) { .hq-servicos article > a { justify-self: start; white-space: normal; } }
 .hq-seta { justify-self: start; align-self: flex-start; width: auto !important; }
-.hn-arq > a { display: inline-flex; align-items: center; min-height: 38px; padding: 0 16px; margin-left: 6px; border-radius: 999px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); font-weight: 600; text-decoration: none !important; transition: background .2s ease, transform .2s ease; }
+.hn-arq > a { display: inline-flex; align-items: center; min-height: var(--alvo-min); padding: 0 16px; margin-left: 6px; border-radius: var(--r-btn); border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); font-weight: 600; text-decoration: none !important; transition: background .2s ease, transform .2s ease; }
 .hn-arq > a:hover { background: color-mix(in srgb, currentColor 16%, transparent); transform: translateY(-1px); }
+
+/* =============================================================
+   SISTEMA DE DESIGN · camada final (P1, rodada 2 · 08/11/2026)
+   Tokens em css/tokens.css. Aqui: tipografia, ritmo vertical, componente único de botão,
+   foco, alvos de toque, aviso de cookies e proteções contra rolagem lateral.
+   Contrato para as outras áreas: relatorios/site-teste-avaliacao/p1-contrato.md
+   ============================================================= */
+
+/* ---------- escala tipográfica única ---------- */
+body { font-size: var(--fs-corpo); line-height: var(--lh-corpo); }
+h1, h2, h3, h4 { overflow-wrap: break-word; }
+h1 { font-size: var(--fs-h1); line-height: var(--lh-titulo); }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-titulo); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-titulo-p); }
+h4 { font-size: var(--fs-h4); line-height: var(--lh-titulo-p); }
+p, li, dd, figcaption { overflow-wrap: break-word; }
+/* títulos dos topos e das seções (todas as páginas que usam estas classes globais) */
+.cf-hero h1, .t-display { font-size: var(--fs-display); line-height: 1; }
+.hero h1, .p-hero h1, .np-hero h1, .t-h1 { font-size: var(--fs-h1); line-height: var(--lh-titulo); }
+.sec-title, .np .sec-title, .t-h2 { font-size: var(--fs-h2); line-height: var(--lh-titulo); max-width: var(--medida-titulo); }
+.t-h3 { font-size: var(--fs-h3); line-height: var(--lh-titulo-p); }
+.t-h4 { font-size: var(--fs-h4); line-height: var(--lh-titulo-p); }
+.sec-lede, .hero .sub, .cf-hero .sub, .t-lede { font-size: var(--fs-corpo-g); line-height: var(--lh-corpo); max-width: var(--medida-texto); }
+.t-corpo-p { font-size: var(--fs-corpo-p); }
+.t-legenda { font-size: var(--fs-legenda); line-height: 1.5; color: var(--ink-2); }
+.t-label { font-size: var(--fs-label); font-weight: 600; letter-spacing: .02em; }
+.t-aux { font-size: var(--fs-aux); }
+/* rótulo pequeno acima do título: espaçamento menor (o de 0,32em quebrava em 3 linhas no celular) */
+.eyebrow { font-family: var(--font-texto); font-size: var(--fs-aux); font-weight: 600; line-height: 1.5; letter-spacing: var(--ls-rotulo); margin-bottom: var(--esp-rotulo-titulo); max-width: 100%; }
+@media (max-width: 600px) { .eyebrow { letter-spacing: .1em; } }
+
+/* ---------- ritmo vertical único ---------- */
+section { padding-block: var(--sec-y); }
+.sec-title + .sec-lede, .sec-title + p, h2 + .sec-lede { margin-top: var(--esp-titulo-sub); }
+.sec-lede + * { margin-top: var(--esp-sub-conteudo); }
+.hero .ctas, .cf-ramo .ctas, .t-acoes { margin-top: var(--esp-conteudo-acoes); display: flex; flex-wrap: wrap; gap: var(--esp-3); }
+.cf-hero { padding-top: var(--sec-y-topo); padding-bottom: var(--esp-7); }
+.wrap { width: min(100% - 2 * var(--gutter), var(--largura)); }
+
+/* ---------- componente único de botão ----------
+   Uso: <a class="btn btn-primary">  · variantes: btn-primary | btn-secondary | btn-outline (= btn-ghost, nome antigo) | btn-texto
+   Tamanhos: btn-s (44) | padrão M (48) | btn-l (56) · largura total: btn-bloco
+   Estados: :hover, :focus-visible, :active, [disabled] / [aria-disabled="true"] / .is-disabled, .is-loading / [aria-busy="true"]
+   As cores vêm de variáveis; sobre fundo marinho (.sobre-escuro e faixas do topo/rodapé) elas se invertem sozinhas.
+   !important só em fundo/cor/borda/sombra: as paletas por idioma e regras antigas pintavam o botão por cima. */
+.btn {
+  --btn-h: var(--btn-h-m); --btn-px: var(--btn-px-m);
+  --btn-bg: transparent; --btn-fg: var(--c-marinho); --btn-bd: transparent;
+  --btn-bg-h: var(--btn-bg); --btn-fg-h: var(--btn-fg); --btn-bd-h: var(--btn-bd);
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--esp-2);
+  min-height: var(--btn-h); min-width: var(--alvo-min); padding: 0 var(--btn-px);
+  border: var(--borda) solid var(--btn-bd) !important; border-radius: var(--r-btn);
+  background: var(--btn-bg) !important; color: var(--btn-fg) !important; -webkit-text-fill-color: currentColor !important; box-shadow: none !important;
+  font: 600 var(--btn-fs)/1.2 var(--font-texto); letter-spacing: var(--ls-botao); text-transform: uppercase; text-align: center; text-decoration: none !important;
+  white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--dur-rapida) ease, border-color var(--dur-rapida) ease, color var(--dur-rapida) ease, transform var(--dur-rapida) ease;
+}
+.btn:hover { background: var(--btn-bg-h) !important; color: var(--btn-fg-h) !important; border-color: var(--btn-bd-h) !important; transform: none; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: var(--foco-largura) solid var(--foco-cor); outline-offset: var(--foco-offset); }
+.btn .ico { width: 1.15em; height: 1.15em; transition: transform var(--dur-media) var(--ease-saida); }
+.btn:hover .ico-move { transform: translateX(3px); }
+/* variantes (fundo claro) */
+.btn-primary { --btn-bg: var(--c-marinho); --btn-fg: var(--c-creme); --btn-bd: var(--c-marinho); --btn-bg-h: var(--c-marinho-2); --btn-bd-h: var(--c-marinho-2); }
+.btn-secondary { --btn-bg: var(--c-areia); --btn-fg: var(--c-marinho); --btn-bd: var(--c-areia); --btn-bg-h: #cdbb9c; --btn-bd-h: #cdbb9c; }
+.btn-outline, .btn-ghost { --btn-bg: transparent; --btn-fg: var(--c-marinho); --btn-bd: var(--c-taupe-escuro); --btn-bg-h: rgba(216, 200, 174, .35); --btn-bd-h: var(--c-marinho); }
+.btn-texto { --btn-bg: transparent; --btn-fg: var(--c-marinho); --btn-bd: transparent; --btn-bg-h: rgba(16, 27, 54, .06); --btn-px: var(--esp-3); }
+/* tamanhos */
+.btn-s { --btn-h: var(--btn-h-s); --btn-px: var(--btn-px-s); }
+.btn-l { --btn-h: var(--btn-h-l); --btn-px: var(--btn-px-l); }
+.btn-bloco { display: flex; width: 100%; }
+/* desabilitado e carregando */
+.btn:disabled, .btn[aria-disabled="true"], .btn.is-disabled { opacity: .5; cursor: not-allowed; pointer-events: none; transform: none; }
+.btn.is-loading, .btn[aria-busy="true"] { color: transparent !important; -webkit-text-fill-color: transparent !important; pointer-events: none; }
+.btn.is-loading::after, .btn[aria-busy="true"]::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--btn-fg); border-right-color: transparent; animation: btn-gira .7s linear infinite;
+}
+@keyframes btn-gira { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn, .btn .ico { transition: none; } .btn.is-loading::after, .btn[aria-busy="true"]::after { animation-duration: 2s; } }
+/* sobre fundo marinho: faixas do topo, menu, rodapé, aviso de cookies e qualquer bloco com .sobre-escuro */
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .aviso-cookies, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) {
+  --foco-cor: var(--c-azul-claro);
+}
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .aviso-cookies, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-primary { --btn-bg: var(--c-creme); --btn-fg: var(--c-marinho); --btn-bd: var(--c-creme); --btn-bg-h: var(--c-creme-2); --btn-bd-h: var(--c-creme-2); }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .aviso-cookies, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-secondary { --btn-bg: rgba(216, 200, 174, .18); --btn-fg: var(--c-creme); --btn-bd: transparent; --btn-bg-h: rgba(216, 200, 174, .28); --btn-bd-h: transparent; }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .aviso-cookies, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) :is(.btn-outline, .btn-ghost) { --btn-fg: var(--c-creme); --btn-bd: rgba(216, 200, 174, .55); --btn-bg-h: rgba(216, 200, 174, .12); --btn-bd-h: var(--c-areia); }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .aviso-cookies, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-texto { --btn-fg: var(--c-creme); --btn-bg-h: rgba(216, 200, 174, .12); }
+/* menu do topo: botão tamanho S */
+.nav .btn { --btn-h: var(--btn-h-s); --btn-px: var(--btn-px-s); font-size: var(--btn-fs); }
+
+/* links de chamada com cara de botão (pedido do dono, 08/11): mesma letra, altura e raio do .btn contorno */
+.hn-link, .hq-seta, .np-direto, .vs-tut, .aq-link, .preco2-perso, .vt-mais, .hq-servicos article > a, .sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a {
+  min-height: var(--alvo-min); border-radius: var(--r-btn); font: 600 var(--btn-fs)/1.2 var(--font-texto); letter-spacing: var(--ls-botao); text-transform: uppercase;
+}
+.np-trilha a { border-radius: var(--r-btn); }
+
+/* ---------- foco visível e alvos de toque ---------- */
+:focus-visible { outline: var(--foco-largura) solid var(--foco-cor); outline-offset: var(--foco-offset); }
+.nav-links a:not(.btn), .nav-links .lang { min-height: var(--alvo-min); display: inline-flex; align-items: center; }
+.nav-toggle { width: var(--alvo-min); height: var(--alvo-min); border-radius: var(--r-btn); }   /* display continua com site.css (some no computador) */
+.nav-links .lang { padding: 0 12px; border-radius: var(--r-btn); }
+.rodape-site a, .ck-rodape { display: inline-block; padding-block: 4px; }    /* alvo de 24 px ou mais (WCAG 2.5.8) nos links de texto do rodapé */
+.skip { z-index: var(--z-modal); }
+.skip:focus { left: var(--gutter); }
+
+/* ---------- aviso de cookies: faixa no topo da página, no fluxo ----------
+   Não fica por cima de nada (nem de botão, nem de texto, nem do assistente): ocupa o próprio espaço e sai com a rolagem. */
+.aviso-cookies {
+  position: relative; z-index: var(--z-aviso); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--esp-2) var(--esp-4);
+  padding: var(--esp-2) max(var(--gutter), calc((100% - var(--largura)) / 2));
+  background: var(--c-marinho); color: var(--c-creme); border-bottom: 1px solid rgba(216, 200, 174, .18);
+  font: 400 var(--fs-legenda)/1.45 var(--font-texto);
+}
+.aviso-cookies p { margin: 0; flex: 1 1 260px; color: var(--c-creme); }
+.aviso-cookies a { color: var(--c-azul-claro); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding-block: 4px; }
+.aviso-cookies .ck-acoes-aviso { display: flex; gap: var(--esp-2); flex: none; }
+.aviso-cookies .btn { --btn-h: var(--btn-h-s); --btn-px: var(--btn-px-s); }
+@media (max-width: 560px) {
+  .aviso-cookies .ck-acoes-aviso { flex: 1 1 100%; }
+  .aviso-cookies .ck-acoes-aviso .btn { flex: 1 1 0; }
+}
+.ck-dialogo { border-radius: var(--r-painel); max-height: calc(100dvh - 32px); overflow: auto; }
+.ck-op { min-height: var(--alvo-min); }
+.ck-acoes .btn { --btn-h: var(--btn-h-s); --btn-px: var(--btn-px-s); }
+.ck-link { display: inline-block; padding-block: 6px; }
+
+/* ---------- sem rolagem lateral de 320 a 1920 px ---------- */
+img, video, canvas, iframe { max-width: 100%; }
+@media (max-width: 380px) {
+  :root { --gutter: 14px; }
+  .btn { white-space: normal; }
+}
+[tabindex="-1"]:focus { outline: none; }

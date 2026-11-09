@@ -259,6 +259,53 @@
     if (pedida) abrirCategoria(pedida);
   }
 
+  // ---------- fichas: ramo, objetivo, recursos e link de cada exemplo ----------
+  // objetivo = a chamada principal do topo de cada site (conferida em sites/<slug>/index.html em 08/11/2026)
+  var OBJETIVO = {
+    'henrique-sato': 'Levar o paciente a agendar a avaliação',
+    'atelier-oral': 'Levar o paciente a agendar uma conversa',
+    'ninho-odontopediatria': 'Levar os responsáveis a agendar a consulta',
+    'ferreira-reformas': 'Gerar pedidos de orçamento',
+    'base-forte': 'Gerar pedidos de orçamento',
+    'monolito': 'Levar o cliente a iniciar o projeto',
+    'patricia-leal': 'Levar a pessoa a agendar uma conversa',
+    'aguiar-monteiro': 'Levar o trabalhador a agendar uma conversa',
+    'bastos-lacerda': 'Levar a empresa a agendar uma conversa',
+    'bianca-moraes': 'Levar a paciente a agendar',
+    'glow': 'Levar a cliente a agendar a avaliação na unidade mais perto',
+    'maison-elora': 'Levar a cliente a agendar o horário',
+    'ana-ribeiro': 'Levar o comprador a agendar a visita',
+    'prisma-adm': 'Levar proprietários e inquilinos a falar com a administradora',
+    'terra-nobre': 'Levar o comprador a agendar a visita'
+  };
+  var fichas = document.querySelector('[data-exemplos-fichas]');
+  if (fichas && !en) {
+    var filtros = fichas.querySelector('[data-fichas-filtros]'), listaF = fichas.querySelector('[data-fichas-lista]');
+    var catDe = function (id) { return dados.categorias.filter(function (x) { return x.id === id; })[0] || {}; };
+    var ordem = todos.slice().sort(function (a, b) {
+      var ca = dados.categorias.indexOf(catDe(a.cat)), cb = dados.categorias.indexOf(catDe(b.cat));
+      return ca - cb || (a.ordem || 0) - (b.ordem || 0);
+    });
+    listaF.innerHTML = ordem.map(function (s) {
+      var obj = OBJETIVO[s.slug];
+      return '<li class="pd-ficha" data-cat="' + esc(s.cat) + '">' +
+        '<figure class="pd-moldura">' + imgTag(s, false, 'alt="Página inicial do site de exemplo ' + esc(s.nome) + '"') + '</figure>' +
+        '<div class="pd-ficha-txt"><h3>' + esc(s.nome) + '</h3>' +
+        '<dl><dt>Ramo</dt><dd>' + esc(nomeCat(catDe(s.cat))) + (s.sub ? ' · ' + esc(s.sub) : '') + '</dd>' +
+        (obj ? '<dt>Objetivo</dt><dd>' + esc(obj) + '</dd>' : '') +
+        '<dt>Recursos</dt><dd><ul>' + (s.recursos || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></dd>' +
+        '<dt>Páginas</dt><dd>' + s.paginas + '</dd></dl>' +
+        '<div class="pd-ficha-acoes"><a class="btn btn-primary" data-site-link="' + s.slug + '" href="' + url(s) + '">Abrir o exemplo' + ico('arrow-up-right') + '</a></div></div></li>';
+    }).join('');
+    var filtrar = function (id) {
+      filtros.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === id)); });
+      listaF.querySelectorAll('.pd-ficha').forEach(function (li) { li.hidden = id !== 'todos' && li.getAttribute('data-cat') !== id; });
+    };
+    filtros.innerHTML = '<button type="button" data-f="todos" aria-pressed="true">Todos <small>' + todos.length + '</small></button>' +
+      dados.categorias.map(function (c) { return '<button type="button" data-f="' + esc(c.id) + '" aria-pressed="false">' + esc(nomeCat(c)) + ' <small>' + doCat(c.id).length + '</small></button>'; }).join('');
+    filtros.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { filtrar(b.getAttribute('data-f')); }); });
+  }
+
   // ---------- vitrine (projetos) ----------
   var vit = document.querySelector('[data-vitrine-sites]');
   if (vit) {

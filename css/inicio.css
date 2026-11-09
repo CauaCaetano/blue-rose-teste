@@ -50,11 +50,7 @@ html:not(.hn-cantos) .hn main > section::after { background-image: none; }
 .hn .eyebrow::before { content: ""; width: 28px; height: 1px; margin: 0; background: var(--hn-linha); transform: none; filter: none; }
 .hn p { color: inherit; }
 
-/* botões: chapados, raio único, foco visível */
-.hn .btn { min-height: 48px; padding: 0 24px; border-radius: var(--hn-r); font: 600 14px/1 var(--font, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; }
-.hn .nav .btn { min-height: 42px; padding: 0 18px; font-size: 12.5px; }
-.hn .btn-ghost { border: 1px solid var(--hn-tinta); color: var(--hn-tinta); background: transparent; }
-.hn .btn-ghost:hover { background: rgba(16, 27, 54, .06); color: var(--hn-tinta); border-color: var(--hn-tinta); }
+/* botões: componente único de css/tinta.css (sem redefinir aqui) e foco visível */
 .hn .btn .ico { width: 16px; height: 16px; }
 .hn a:focus-visible, .hn button:focus-visible, .hn input:focus-visible, .hn textarea:focus-visible, .hn summary:focus-visible { outline: 2px solid var(--hn-rosa); outline-offset: 2px; }
 .hn .nav a:focus-visible, .hn .nav button:focus-visible, .hn .rodape-site a:focus-visible { outline-color: var(--hn-papel); }
@@ -115,8 +111,6 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-topo .hn-porta-d, .hn-topo .hn-lista li { color: var(--topo-apoio); }
 .hn-topo .hn-lista b { color: var(--topo-texto); }
 .hn-topo .hn-lista li::before { border-color: var(--topo-azul); }
-.hn .hn-topo .btn-primary { background: var(--topo-texto) !important; border-color: var(--topo-texto) !important; color: #101b36 !important; box-shadow: none !important; }
-.hn .hn-topo .btn-primary:hover { background: #fff !important; border-color: #fff !important; }
 .hn-topo .hn-link { color: var(--topo-texto); }
 .hn-topo .hn-link:hover { color: var(--topo-azul); }
 .hn-topo a:focus-visible { outline: 2px solid var(--topo-azul); outline-offset: 3px; }
@@ -268,3 +262,35 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
   .hn-ramo, .hn-site { transition: none; }
 }
 
+
+/* =============================================================
+   servicos.html (08/11): blocos novos, só sob body.sv (este arquivo também é carregado pela arquitetura)
+   ============================================================= */
+.sv .sv-outra { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(244, 235, 221, .25); }
+.sv .sv-outra p { margin: 0; max-width: 40ch; font-size: 16px; line-height: 1.5; color: #c5cddc; }
+.sv .sv-outra b { color: #f4ebdd; }
+.sv .sv-outra .btn { min-height: 44px; }
+.sv .sv-ilustra { margin: 8px 0 0; font-size: 13px; opacity: .8; }
+.sv .sv-aviso { margin: 18px 0 0; max-width: 62ch; padding: 14px 16px; border: 1px solid rgba(16, 27, 54, .25); border-radius: 6px; background: #fbf6ee; color: #101b36; font-size: 15px; line-height: 1.55; }
+.sv .sv-aviso b { font-weight: 600; }
+.sv .sv-escopo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); margin-top: clamp(40px, 5vw, 64px); }
+.sv .sv-escopo > div { padding-top: 20px; border-top: 2px solid #101b36; }
+.sv .sv-escopo h3 { margin: 0; font: 500 clamp(24px, 2vw, 30px)/1.15 'Cormorant Garamond', Georgia, serif; color: #101b36; }
+.sv .sv-escopo ul { list-style: none; margin: 14px 0 0; padding: 0; }
+.sv .sv-escopo li { padding: 10px 0; border-top: 1px solid rgba(16, 27, 54, .14); font-size: 15.5px; line-height: 1.5; color: #464c58; }
+.sv .sv-escopo li:first-child { border-top: 0; }
+.sv .sv-faq-lista { margin-top: 32px; max-width: 880px; border-top: 1px solid rgba(16, 27, 54, .2); }
+.sv .sv-faq-lista details { border-bottom: 1px solid rgba(16, 27, 54, .2); }
+.sv .sv-faq-lista summary { position: relative; display: block; min-height: 44px; padding: 18px 44px 18px 0; cursor: pointer; list-style: none; font: 500 clamp(22px, 2vw, 26px)/1.25 'Cormorant Garamond', Georgia, serif; color: #101b36; }
+.sv .sv-faq-lista summary::-webkit-details-marker { display: none; }
+.sv .sv-faq-lista summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 400 26px/1 var(--font, 'Geist', system-ui, sans-serif); color: #2f4c8a; }
+.sv .sv-faq-lista details[open] summary::after { content: "\2212"; }
+.sv .sv-faq-lista summary:focus-visible { outline: 2px solid #2f4c8a; outline-offset: 2px; }
+.sv .sv-faq-lista p { margin: 0 0 20px; max-width: 68ch; font-size: 16px; line-height: 1.6; color: #464c58; }
+.sv .sv-faq-pe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+@media (max-width: 900px) {
+  .sv .sv-escopo { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 600px) {
+  .sv .sv-outra .btn, .sv .sv-faq-pe .btn { width: 100%; justify-content: center; }
+}
