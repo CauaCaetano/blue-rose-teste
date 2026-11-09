@@ -90,7 +90,7 @@ open(os.path.join(d, '.nojekyll'), 'w').write('')
 PY
 
 # (09/11/2026) o Pages publica por GitHub Actions (fonte "GitHub Actions" nas configurações do repo de teste):
-# o deploy tem 30 min de prazo em vez dos 10 do build automático, que estourava com o site grande.
+# se o deploy estourar os 10 min (o máximo que o GitHub aceita), ele tenta de novo sozinho mais uma vez.
 mkdir -p "$PAG/.github/workflows"
 cat > "$PAG/.github/workflows/pages.yml" <<'YML'
 name: Publica o site de teste
@@ -111,17 +111,19 @@ jobs:
     timeout-minutes: 45
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy1.outputs.page_url || steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - id: deploy
+      - id: deploy1
         uses: actions/deploy-pages@v4
-        with:
-          timeout: 1800000
+        continue-on-error: true
+      - id: deploy
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
 YML
 
 cd "$PAG"
