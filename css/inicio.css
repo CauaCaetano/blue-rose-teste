@@ -356,3 +356,38 @@ body.sv .contato-alt a, body.hn .contato-alt a { min-height: var(--alvo-min, 44p
   .sv .hero .sub + .ctas { margin-top: var(--ritmo-m, 48px); }
   .hn-play-dest { font-size: 11px; padding: 1px 8px; }
 }
+
+/* =============================================================
+   Rodada 4 · Grok (09/11): Serviços
+   ============================================================= */
+/* quatro tipos de projeto: o mesmo padding (32 px) em todos e a conversa de exemplo inteira */
+@media (min-width: 641px) {
+  body.sv .bento .cel { padding: var(--ritmo-p, 32px); min-height: 280px; }
+  body.sv .bento .c-site img { margin-bottom: calc(-1 * var(--ritmo-p, 32px)); }
+}
+@media (max-width: 640px) {
+  body.sv .bento .cel { padding: var(--card-p, 24px); }
+  body.sv .bento .c-site img { margin-bottom: calc(-1 * var(--card-p, 24px)); }
+}
+body.sv .bento .c-whats { overflow: visible; }
+body.sv .mini-chat .msg { max-width: 92%; overflow-wrap: anywhere; }
+
+/* simulação: estado vazio com uma conversa apagada (esqueleto) acima da instrução */
+.sv .chat-vazio[data-p2] { justify-items: center; }
+.sv .sv-esqueleto { display: flex; flex-direction: column; gap: 8px; width: min(260px, 100%); margin: 0 0 var(--esp-4, 16px); }
+.sv .sv-esqueleto i { display: block; height: 30px; border-radius: 12px; background: rgba(16, 27, 54, .07); border: 1px dashed rgba(16, 27, 54, .16); }
+.sv .sv-esqueleto .sv-esq-c { width: 62%; align-self: flex-start; border-bottom-left-radius: 4px; }
+.sv .sv-esqueleto .sv-esq-b { width: 74%; align-self: flex-end; border-bottom-right-radius: 4px; background: rgba(16, 27, 54, .12); }
+.sv .sv-esqueleto i:nth-child(3) { width: 48%; }
+
+/* rodar automação: 32 px depois da lista de etapas; opção com caixa de 24 px e área de toque de 44 px */
+body.sv .demo-actions { margin-top: var(--ritmo-p, 32px); gap: 12px 20px; }
+body.sv .demo-actions .opcao { min-height: var(--alvo-min, 44px); gap: 10px; font-size: var(--fs-corpo-p, 15px); color: #101b36; }
+body.sv .demo-actions .opcao input { width: 24px; height: 24px; margin: 0; flex: none; accent-color: #101b36; }
+
+/* sites que já fizemos: filtro ativo bem marcado (fundo marinho cheio e anel duplo) */
+body.sv .sites-filtro button { border: 1px solid rgba(16, 27, 54, .3); color: #101b36; background: transparent; }
+body.sv .sites-filtro button[aria-pressed="true"] { background: #101b36; border-color: #101b36; color: #f4ebdd; font-weight: 600; box-shadow: 0 0 0 2px #f4ebdd, 0 0 0 4px #101b36; }
+
+/* fim da simulação: link para Segurança e dados */
+.sv .sv-dados { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: var(--ritmo-p, 32px) 0 0; font-size: var(--fs-corpo-p, 15px); color: #101b36; }

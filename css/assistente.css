@@ -175,3 +175,11 @@ body:has(:is(input:not([type="checkbox"]):not([type="radio"]):not([type="button"
   .va-sp { animation: none !important; transition: none; }
   .va-anima:is([data-anim="ideia"], [data-anim="joinha"]) .va-sp { background-position-x: 100%; }
 }
+
+/* ---------- rodada 4 (09/11): no celular a aba recuada mostra o avatar inteiro ----------
+   Antes sobravam 14 px na borda e o assistente parecia sumir. Recuado, o avatar fica com 46 px, encostado na borda
+   da tela (dentro da margem lateral o quanto dá) e meio transparente; tocar traz de volta. */
+@media (max-width: 640px) {
+  .va.va-recua:not([data-aberto="true"]) { --va-h: 46px; --va-av: 46px; transform: translateX(max(12px, env(safe-area-inset-right))); opacity: .75; }
+  .va.va-recua:not([data-aberto="true"]):hover, .va.va-recua:not([data-aberto="true"]):focus-within { transform: none; opacity: 1; }
+}

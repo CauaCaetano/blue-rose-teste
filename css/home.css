@@ -239,3 +239,40 @@
 .hq-testar .hq-demos { margin-top: var(--ritmo-p, 32px); }
 .hq-testar .hq-nota-demo { margin-top: var(--ritmo-m, 48px); }
 .hq-p > img, .hq-o > img { aspect-ratio: var(--thumb-proporcao, 16 / 10); object-fit: cover; object-position: left top; }
+
+/* =============================================================
+   Rodada 4 · Grok (09/11)
+   ============================================================= */
+/* topo: no computador o convite sobre o notebook fica menor e discreto; no celular some (miniatura limpa) e vira um botão abaixo */
+.hn-note-btn { display: none; }
+@media (min-width: 761px) {
+  .hn-topo .hn-play { gap: 8px; }
+  .hn-topo .hn-play-bola { width: 56px; height: 56px; box-shadow: 0 0 0 6px rgba(16, 27, 54, .22); opacity: .92; }
+  .hn-topo .hn-play-bola svg { width: 22px; height: 22px; }
+  .hn-topo .hn-play-txt { padding: 4px 10px; font-size: var(--fs-label, 13px); background: rgba(16, 27, 54, .86); }
+  .hn-topo .hn-play-dest { font-size: var(--fs-aux, 12px); }
+  .hn-topo .hn-play:is(:hover, :focus-visible) .hn-play-bola { opacity: 1; }
+}
+@media (max-width: 760px) {
+  .hn-topo .hn-play { display: none; }
+  .hn-topo .wrap > .hn-note-btn { display: inline-flex; justify-self: center; margin-top: var(--esp-4, 16px); }
+}
+
+/* aviso discreto, junto do título dos 4 sistemas: ramos ainda não atendidos */
+.hq-cab .hq-fora-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; margin-top: var(--esp-4, 16px); font-size: var(--fs-legenda, 14px); }
+.hq-cab .hq-fora-topo .btn { --btn-h: var(--btn-h-s, 44px); padding-inline: 0; }
+
+/* 4 sistemas: cartões da mesma linha com a mesma altura e preço + botões na mesma linha de base,
+   mesma ordem no celular e no computador (selo → nome → texto → preço → botões) */
+.hq-prod-grade { align-items: stretch; }
+.hq-p { height: 100%; }
+.hq-p-dor { min-height: 3em; }
+@media (min-width: 901px) { .hq-p-lista { min-height: calc(4 * 1.5em + 3 * 8px + 14px + 1.5em); } }
+.hq-p-acoes { order: 0; }
+@media (max-width: 600px) {
+  .hq-p-acoes .btn, .hq-trilha-acoes .btn, .hq-pe-acoes .btn, .hq-conf-acoes .btn, .hq-conf-lista .btn, .hq-demos .btn { white-space: nowrap; }
+}
+
+/* "Abra o sistema agora": 64 px entre os celulares e a legenda, e folga no fim para o assistente nunca encostar */
+.hq-celulares figcaption { margin-top: var(--ritmo-g, 64px); }
+.hq-testar .hq-testar-grade { padding-bottom: var(--ritmo-g, 64px); }
