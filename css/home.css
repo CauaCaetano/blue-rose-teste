@@ -227,3 +227,9 @@
 
 /* na home o conteúdo é um pouco mais largo, então a caixa das rosas acompanha */
 .hn main > section:not(.hn-topo)::after { width: min(474px, max(0px, calc(100vw - 1232px))); }
+
+/* ---------- rodada 3 (P2, 08/11): miniaturas 16/10 e aviso de demonstração neutro ---------- */
+.hq-p > img { aspect-ratio: 16 / 10; }
+.hq-site img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center top; background: #fff; }
+.hq-medida-pe .hq-aviso { padding: 2px 0 2px 12px; border: 0; border-left: 2px solid rgba(16, 27, 54, .28); border-radius: 0; background: none; font-size: 14px; line-height: 1.5; color: var(--q-texto); }
+.hn .hn-contato .contato-alt a { min-height: 44px; }

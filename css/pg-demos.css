@@ -84,8 +84,97 @@
 @media (max-width: 900px) {
   .pd-caminhos, .pd-legenda { grid-template-columns: minmax(0, 1fr); }
   .pd-caminho { padding: 22px 18px; }
-  .pd-aviso { padding: 14px 16px; font-size: 15.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pd-filtros button, .pd-abas label { transition: none; }
+}
+
+/* =====================================================================
+   Rodada 3 (08/11/2026) · P4: ritmo 32/48/64, aviso leve, miniaturas 16/10,
+   um primário por bloco, atalhos em dois grupos e tela alinhada à linha do tempo.
+   Só tokens de css/tokens.css; .btn não é redefinido aqui.
+   ===================================================================== */
+
+/* ritmo: seção que continua o assunto da anterior encosta em 48 px */
+.pd-sec-topo { padding-bottom: var(--esp-7); }
+.pd-sec-junta { padding-top: var(--esp-7); }
+.pd-sec-sem-baixo { padding-bottom: 0; }
+.pd-h1 { max-width: 16ch; }
+
+/* aviso de demonstração: tom neutro, menor, só borda esquerda e fundo sutil */
+.pd-aviso { gap: var(--esp-3); margin-top: var(--esp-6); padding: var(--esp-3) var(--esp-4); max-width: 68ch; border: 0; border-left: 3px solid var(--c-taupe); border-radius: 0 var(--r-card) var(--r-card) 0; background: rgba(216, 200, 174, .2); color: var(--ink-2); font-size: var(--fs-corpo-p); line-height: 1.55; }
+.pd-aviso .ico { width: 18px; height: 18px; margin-top: 2px; color: var(--c-taupe-escuro); }
+.pd-aviso b { color: var(--ink); font-weight: 600; }
+
+/* cartões de categoria: miniatura 16/10 igual em todos, mesma altura, botão de verdade no pé */
+.cats { gap: var(--grade-gap); margin-top: var(--esp-7); align-items: stretch; }
+.cat-card { min-height: 100%; border-color: var(--line-2); border-radius: var(--r-card); box-shadow: var(--sombra-2); }
+.cat-card:hover { box-shadow: var(--sombra-3); }
+.cat-card:focus-visible { outline: var(--foco-largura) solid var(--foco-cor); outline-offset: var(--foco-offset); }
+.cat-pilha { aspect-ratio: 16 / 10; }
+.cat-pilha img { width: 70%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; left: calc(6% + var(--k) * 8%); top: calc(6% + var(--k) * 9%); border-radius: var(--r-card); }
+.cat-txt { flex: 1; gap: var(--esp-2); padding: var(--card-p); }
+.cat-txt strong { font-size: var(--fs-h4); }
+.cat-nomes { margin-bottom: var(--esp-4); font-size: var(--fs-corpo-p); line-height: 1.5; }
+.cat-txt .link { display: inline-flex; align-items: center; align-self: flex-start; gap: var(--esp-2); min-height: var(--alvo-min); margin-top: auto; padding: 0 var(--esp-4); border: 1px solid var(--c-taupe-escuro); border-radius: var(--r-btn); color: var(--c-marinho); font-family: var(--font-texto); font-size: var(--fs-label); font-weight: 600; line-height: 1; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color var(--dur-rapida), border-color var(--dur-rapida); }
+.cat-card:hover .link { background: rgba(216, 200, 174, .35); border-color: var(--c-marinho); }
+.cat-txt .link .ico { width: 16px; height: 16px; }
+.cat-cta { justify-content: flex-start; border-style: dashed; box-shadow: none; }
+.cat-cta .cat-txt { padding: var(--card-p); }
+.cat-cta .cat-txt strong { font-size: var(--fs-h3); }
+.cat-cta .link { color: var(--c-marinho); }
+
+/* fichas: cartão com elevação no bege, títulos na escala */
+.pd-fichas { gap: var(--grade-gap); margin-top: var(--esp-6); }
+.pd-ficha { border-radius: var(--r-card); box-shadow: var(--sombra-2); }
+.pd-ficha-txt { padding: var(--card-p); }
+.pd-ficha h3 { font-size: var(--fs-h3); }
+.pd-ficha dl { font-size: var(--fs-corpo-p); }
+.pd-filtros { gap: var(--esp-2); margin-top: var(--esp-6); }
+.pd-filtros button { white-space: nowrap; }
+
+/* como funciona · atalhos em dois grupos que quebram linha */
+.cf-hero .cf-atalhos { display: grid; gap: var(--esp-4); margin-top: var(--esp-6); }
+.cf-atalhos-grupo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--esp-2); }
+.cf-atalhos-grupo > span { flex: 0 0 8.5em; color: #d8c8ae; font-family: var(--font-texto); font-size: var(--fs-label); font-weight: 600; line-height: 1.3; letter-spacing: .12em; text-transform: uppercase; }
+.cf-hero .cf-atalhos a { min-height: var(--alvo-min); padding: 0 var(--esp-4); border-radius: var(--r-pill); font-size: var(--fs-corpo-p); font-weight: 500; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+@media (max-width: 760px) {
+  .cf-atalhos-grupo > span { flex-basis: 100%; }
+  .cf-hero .cf-atalhos a { padding: 0 var(--esp-3); }
+}
+
+/* como funciona · passos com elevação e respiro iguais */
+.pd-caminhos { gap: var(--grade-gap); margin-top: var(--esp-7); }
+.pd-caminho { padding: var(--card-p); border-radius: var(--r-card); box-shadow: var(--sombra-2); }
+.pd-caminho h3 { font-size: var(--fs-h3); }
+.pd-etapas { margin-top: var(--esp-5); }
+.pd-etapas li { padding-bottom: var(--esp-5); }
+.pd-caminho .btn { margin-top: var(--esp-5); }
+
+/* como funciona · um dia com cada sistema: a tela começa na altura do primeiro horário
+   e o botão fecha o bloco (no celular, logo depois da tela) */
+.cf-ramo .cf-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); column-gap: var(--esp-8); row-gap: 0; align-items: start; }
+.cf-ramo .cf-grid > div { display: contents; }
+.cf-ramo .cf-grid > div > .eyebrow { justify-self: start; }
+.cf-ramo .cf-grid > div > h2 { margin-bottom: 0; }
+@media (min-width: 901px) {
+  .cf-ramo .cf-grid > div > * { grid-column: 1; }
+  .cf-ramo .cf-grid > div > .eyebrow { grid-row: 1; grid-column: 1 / -1; }
+  .cf-ramo .cf-grid > div > h2 { grid-row: 2; }
+  .cf-ramo .cf-grid > div > .cf-dia { grid-row: 3; margin-top: var(--esp-7); }
+  .cf-ramo .cf-grid > div > .ctas { grid-row: 4; }
+  .cf-ramo .cf-grid > div > .cf-preco { grid-row: 5; }
+  .cf-ramo .cf-grid > .cf-tela { grid-column: 2; grid-row: 3 / span 3; align-self: start; margin-top: calc(var(--esp-7) + var(--esp-3)); }
+}
+.cf-dia li { padding: var(--esp-3) 0; }
+.cf-dia li + li { margin-top: var(--esp-3); }
+@media (max-width: 900px) {
+  .cf-ramo .cf-grid { grid-template-columns: minmax(0, 1fr); }
+  .cf-ramo .cf-grid > .cf-tela { order: 1; margin-top: var(--esp-6); }
+  .cf-ramo .cf-grid > div > .ctas { order: 2; margin-top: var(--esp-6); }
+  .cf-ramo .cf-grid > div > .cf-preco { order: 3; }
+  .cf-ramo .cf-grid > div > .cf-dia { margin-top: var(--esp-6); }
+}
+@media (max-width: 480px) {
+  .cf-ramo .ctas .btn, .pd-caminho .btn { width: 100%; justify-content: center; }
 }

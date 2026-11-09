@@ -27,24 +27,24 @@
 <link rel="apple-touch-icon" href="/blue-rose-teste/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=67">
+<link rel="stylesheet" href="css/site.css?v=68">
 <script src="js/luxo.js?v=5" defer></script>
 <link rel="stylesheet" href="css/luxo.css?v=22">
 <link rel="stylesheet" href="css/creme.css?v=2"><link rel="stylesheet" href="css/areia.css?v=4">
-<link rel="stylesheet" href="css/tinta.css?v=10">
-<link rel="stylesheet" href="css/pg-demos.css?v=1">
+<link rel="stylesheet" href="css/tinta.css?v=11">
+<link rel="stylesheet" href="css/pg-demos.css?v=2">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="js/leads-config.js?v=6" defer></script>
-<script src="js/site.js?v=24" defer></script>
+<script src="js/site.js?v=25" defer></script>
 <script src="js/orcamento.js?v=99" defer></script>
 <script src="js/planos.js?v=4" defer></script>
 <script src="js/paypal-config.js?v=1" defer></script>
 <script src="js/contratar.js?v=13" defer></script>
 <script src="js/videos.js?v=9" defer></script>
 <script src="js/conta.js?v=11" defer></script>
-<link rel="stylesheet" href="css/assistente.css?v=9">
-<script src="js/assistente.js?v=32" defer></script>
+<link rel="stylesheet" href="css/assistente.css?v=10">
+<script src="js/assistente.js?v=34" defer></script>
 <script src="js/cookies.js?v=4" defer></script>
 <link rel="stylesheet" href="/blue-rose-teste/teste.css">
 </head>
@@ -76,7 +76,8 @@
       <h1 id="titulo">Como contratar <em>e como é o dia a dia.</em></h1>
       <p class="sub">Os passos para assinar um sistema da Veltria ou pedir um site sob medida, e um dia de trabalho com cada sistema. As telas são dos próprios sistemas, com dados de exemplo.</p>
       <nav class="cf-atalhos" aria-label="Ir para">
-        <a href="#caminhos">Assinar um sistema</a><a href="#caminhos">Site sob medida</a><a href="#obras">Obras</a><a href="#juridico">Advocacia</a><a href="#agenda">Agenda</a><a href="#financeiro">Autônomo e MEI</a>
+        <div class="cf-atalhos-grupo"><span>Contratar</span><a href="#assinatura">Assinar um sistema</a><a href="#site">Site sob medida</a></div>
+        <div class="cf-atalhos-grupo"><span>Um dia com</span><a href="#obras">Obras</a><a href="#juridico">Advocacia</a><a href="#agenda">Agenda</a><a href="#financeiro">Autônomo e MEI</a></div>
       </nav>
     </div>
   </section>
@@ -110,13 +111,13 @@
             <li><div><strong>Pague os 50% e receba o site</strong><p>O site é publicado no seu domínio e os acessos passam para você depois da quitação.</p></div></li>
           </ol>
           <p class="pd-fonte">Regras completas nos <a href="termos.html#orcamento">Termos de Serviço, itens 2 a 5</a>.</p>
-          <a class="btn btn-primary" href="servicos.html">Ver os sites e os preços</a>
+          <a class="btn btn-outline" href="servicos.html">Ver os sites e os preços</a>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="dia" aria-labelledby="t-dia" style="padding-bottom:0">
+  <section id="dia" class="pd-sec-sem-baixo" aria-labelledby="t-dia">
     <div class="wrap">
       <span class="eyebrow">Um dia com cada sistema</span>
       <h2 id="t-dia" class="sec-title">O que você faz no app, <em>hora por hora.</em></h2>
@@ -130,11 +131,11 @@
         <span class="eyebrow">Obras e reformas · Veltria Obras Essencial</span>
         <h2 id="t-obras" class="sec-title">Uma obra organizada, <em>do orçamento ao PIX.</em></h2>
         <ol class="cf-dia"><li class="reveal" style="--i:0"><b>7h30</b><div><strong>No canteiro</strong><p>Você anota o dia no diário da obra pelo celular, com as fotos.</p></div></li><li class="reveal" style="--i:1"><b>10h</b><div><strong>Chegou a nota do material</strong><p>O gasto entra na obra certa, junto com os outros gastos dela.</p></div></li><li class="reveal" style="--i:2"><b>15h</b><div><strong>Etapa pronta</strong><p>A parede da obra sobe um tijolo e a cobrança da etapa sai por PIX, com a mensagem pronta para o WhatsApp.</p></div></li><li class="reveal" style="--i:3"><b>18h</b><div><strong>Orçamento aprovado</strong><p>O orçamento que você mandou pelo WhatsApp vira obra quando o cliente aprova.</p></div></li></ol>
-        <div class="ctas reveal">
+        <div class="ctas">
           <a class="btn btn-primary" href="app/obrasessencial/" data-teste="obrasessencial" data-teste-nome="Veltria Obras Essencial" data-teste-mensal="69">Testar 7 dias grátis</a>
           <a class="btn btn-ghost" href="veltria-obras.html">Conhecer o Veltria Obras</a>
         </div>
-        <p class="cf-preco reveal">Versão Essencial: <b>R$&nbsp;69/mês</b> · 7 dias grátis · sem fidelidade</p>
+        <p class="cf-preco">Versão Essencial: <b>R$&nbsp;69/mês</b> · 7 dias grátis · sem fidelidade</p>
       </div>
       <figure class="cf-tela pd-moldura"><img src="img/sistemas/obras-essencial.webp?v=5" width="1200" height="750" loading="lazy" alt="Tela do Veltria Obras Essencial com dados de exemplo"></figure>
     </div>
@@ -145,11 +146,11 @@
         <span class="eyebrow">Advocacia · Veltria Jurídico Essencial</span>
         <h2 id="t-juridico" class="sec-title">Nenhum prazo perdido, <em>mesmo longe do escritório.</em></h2>
         <ol class="cf-dia"><li class="reveal" style="--i:0"><b>8h</b><div><strong>Prazos do dia</strong><p>Cada prazo mostra quantos dias úteis faltam, já sem fins de semana, feriados nacionais e o recesso.</p></div></li><li class="reveal" style="--i:1"><b>10h</b><div><strong>Intimação explicada</strong><p>Um toque explica a intimação em português simples, pronta para mandar ao cliente, e outro cria o prazo.</p></div></li><li class="reveal" style="--i:2"><b>14h</b><div><strong>Audiências</strong><p>As audiências ficam numa lista própria, ligadas ao processo e ao cliente.</p></div></li><li class="reveal" style="--i:3"><b>17h</b><div><strong>Honorários</strong><p>Os honorários em aberto aparecem com a cobrança pronta para mandar pelo WhatsApp.</p></div></li></ol>
-        <div class="ctas reveal">
+        <div class="ctas">
           <a class="btn btn-primary" href="app/juridicoessencial/" data-teste="juridicoessencial" data-teste-nome="Veltria Jurídico Essencial" data-teste-mensal="89">Testar 7 dias grátis</a>
           <a class="btn btn-ghost" href="veltria-juridico.html">Conhecer o Veltria Jurídico</a>
         </div>
-        <p class="cf-preco reveal">Versão Essencial: <b>R$&nbsp;89/mês</b> · 7 dias grátis · sem fidelidade</p>
+        <p class="cf-preco">Versão Essencial: <b>R$&nbsp;89/mês</b> · 7 dias grátis · sem fidelidade</p>
       </div>
       <figure class="cf-tela pd-moldura"><img src="img/sistemas/juridico-essencial.webp?v=8" width="1200" height="750" loading="lazy" alt="Tela do Veltria Jurídico Essencial com dados de exemplo"></figure>
     </div>
@@ -160,11 +161,11 @@
         <span class="eyebrow">Quem atende com hora marcada · Veltria Agenda Essencial</span>
         <h2 id="t-agenda" class="sec-title">O dia inteiro <em>num relógio.</em></h2>
         <ol class="cf-dia"><li class="reveal" style="--i:0"><b>8h</b><div><strong>O dia num mostrador</strong><p>Os horários das 8h às 20h aparecem numa volta do relógio, com o que está livre.</p></div></li><li class="reveal" style="--i:1"><b>10h</b><div><strong>Confirmações</strong><p>Você manda a confirmação de cada horário pelo WhatsApp, com a mensagem já escrita.</p></div></li><li class="reveal" style="--i:2"><b>13h</b><div><strong>Encaixe</strong><p>Abriu um horário? A lista de espera mostra quem queria encaixe.</p></div></li><li class="reveal" style="--i:3"><b>19h</b><div><strong>Caixa e retorno</strong><p>O caixa do dia fechado e a lista de quem já devia ter voltado.</p></div></li></ol>
-        <div class="ctas reveal">
+        <div class="ctas">
           <a class="btn btn-primary" href="app/agendaessencial/" data-teste="agendaessencial" data-teste-nome="Veltria Agenda Essencial" data-teste-mensal="49">Testar 7 dias grátis</a>
           <a class="btn btn-ghost" href="veltria-agenda.html">Conhecer o Veltria Agenda</a>
         </div>
-        <p class="cf-preco reveal">Versão Essencial: <b>R$&nbsp;49/mês</b> · 7 dias grátis · sem fidelidade</p>
+        <p class="cf-preco">Versão Essencial: <b>R$&nbsp;49/mês</b> · 7 dias grátis · sem fidelidade</p>
       </div>
       <figure class="cf-tela pd-moldura"><img src="img/sistemas/agenda-essencial.webp?v=7" width="1200" height="750" loading="lazy" alt="Tela do Veltria Agenda Essencial com dados de exemplo"></figure>
     </div>
@@ -175,11 +176,11 @@
         <span class="eyebrow">Autônomo e MEI · Veltria Financeiro Essencial</span>
         <h2 id="t-financeiro" class="sec-title">Cada real no pote certo, <em>antes de gastar.</em></h2>
         <ol class="cf-dia"><li class="reveal" style="--i:0"><b>8h</b><div><strong>O resumo do dia</strong><p>Quanto há em cada pote: imposto, contas, seu salário e a reserva.</p></div></li><li class="reveal" style="--i:1"><b>10h</b><div><strong>Entrou um pagamento</strong><p>O valor é dividido sozinho entre os potes, do jeito que você configurou.</p></div></li><li class="reveal" style="--i:2"><b>14h</b><div><strong>Cobrança e recibo</strong><p>A cobrança sai com PIX e lembrete no WhatsApp, e o recibo na hora.</p></div></li><li class="reveal" style="--i:3"><b>18h</b><div><strong>O MEI em dia</strong><p>Quanto falta para o limite do MEI e o DAS do mês, à vista.</p></div></li></ol>
-        <div class="ctas reveal">
+        <div class="ctas">
           <a class="btn btn-primary" href="app/financeiroessencial/" data-teste="financeiroessencial" data-teste-nome="Veltria Financeiro Essencial" data-teste-mensal="59">Testar 7 dias grátis</a>
           <a class="btn btn-ghost" href="veltria-financeiro.html">Conhecer o Veltria Financeiro</a>
         </div>
-        <p class="cf-preco reveal">Versão Essencial: <b>R$&nbsp;59/mês</b> · 7 dias grátis · sem fidelidade</p>
+        <p class="cf-preco">Versão Essencial: <b>R$&nbsp;59/mês</b> · 7 dias grátis · sem fidelidade</p>
       </div>
       <figure class="cf-tela pd-moldura"><img src="img/sistemas/financeiro-essencial.webp?v=7" width="1200" height="750" loading="lazy" alt="Tela do Veltria Financeiro Essencial com dados de exemplo"></figure>
     </div>

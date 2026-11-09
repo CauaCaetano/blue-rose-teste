@@ -58,7 +58,7 @@ main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background
 .np-trilha a::before { content: ""; width: 7px; height: 7px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-right: 2px; opacity: .7; }
 .np-trilha a:hover { background: color-mix(in srgb, currentColor 18%, transparent); transform: translateY(-1px); box-shadow: 0 6px 16px -8px rgba(20, 24, 32, .35); border-color: color-mix(in srgb, currentColor 40%, transparent); }
 .np-trilha a:active { transform: translateY(0) scale(.97); }
-.np-trilha a:focus-visible { outline: 3px solid color-mix(in srgb, var(--sis, #6b5bd2) 55%, transparent); outline-offset: 2px; }
+.np-trilha a:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent-unico) 55%, transparent); outline-offset: 2px; }
 .np-trilha > span { display: inline-flex; align-items: center; min-height: var(--alvo-min); padding: 0 6px; font-weight: 600; opacity: .75; }
 
 .sis-mais, .vs-demo, .vs-pos-bt, .np-comparar p > a { display: inline-flex; align-items: center; gap: 8px; min-height: var(--alvo-min); padding: 0 18px; border-radius: var(--r-btn); border: 1px solid color-mix(in srgb, currentColor 30%, transparent); background: color-mix(in srgb, currentColor 8%, transparent); font-weight: 600; text-decoration: none !important; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
@@ -71,10 +71,10 @@ main > section:nth-of-type(odd):not(.ini-hero):not(.lx-hero)::after { background
 .np-faq summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; min-height: 58px; font-size: 16.5px; line-height: 1.35; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .np-faq summary::-webkit-details-marker { display: none; }
 .np-faq summary::marker { content: ""; }
-.np-faq summary::after { content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%; background: color-mix(in srgb, var(--sis, #6b5bd2) 14%, #fff) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") center / 16px no-repeat; transition: transform .25s ease, background-color .2s ease; }
+.np-faq summary::after { content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%; background: color-mix(in srgb, var(--accent-unico) 14%, #fff) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") center / 16px no-repeat; transition: transform .25s ease, background-color .2s ease; }
 .np-faq details[open] summary::after { transform: rotate(180deg); }
-.np-faq summary:hover::after { background-color: color-mix(in srgb, var(--sis, #6b5bd2) 24%, #fff); }
-.np-faq summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--sis, #6b5bd2) 50%, transparent); outline-offset: -3px; border-radius: 14px; }
+.np-faq summary:hover::after { background-color: color-mix(in srgb, var(--accent-unico) 24%, #fff); }
+.np-faq summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent-unico) 50%, transparent); outline-offset: -3px; border-radius: 14px; }
 .np-faq details p { margin: 0 !important; padding: 0 22px 20px; max-width: 75ch; }
 .np-faq details[open] summary { padding-bottom: 12px; }
 @media (max-width: 720px) {
@@ -131,7 +131,7 @@ p, li, dd, figcaption { overflow-wrap: break-word; }
 .t-label { font-size: var(--fs-label); font-weight: 600; letter-spacing: .02em; }
 .t-aux { font-size: var(--fs-aux); }
 /* rótulo pequeno acima do título: espaçamento menor (o de 0,32em quebrava em 3 linhas no celular) */
-.eyebrow { font-family: var(--font-texto); font-size: var(--fs-aux); font-weight: 600; line-height: 1.5; letter-spacing: var(--ls-rotulo); margin-bottom: var(--esp-rotulo-titulo); max-width: 100%; }
+.eyebrow { font-family: var(--font-texto); font-size: var(--fs-label); font-weight: 600; line-height: 1.5; letter-spacing: var(--ls-rotulo); margin-bottom: var(--esp-rotulo-titulo); max-width: 100%; }
 @media (max-width: 600px) { .eyebrow { letter-spacing: .1em; } }
 
 /* ---------- ritmo vertical único ---------- */
@@ -156,7 +156,7 @@ section { padding-block: var(--sec-y); }
   min-height: var(--btn-h); min-width: var(--alvo-min); padding: 0 var(--btn-px);
   border: var(--borda) solid var(--btn-bd) !important; border-radius: var(--r-btn);
   background: var(--btn-bg) !important; color: var(--btn-fg) !important; -webkit-text-fill-color: currentColor !important; box-shadow: none !important;
-  font: 600 var(--btn-fs)/1.2 var(--font-texto); letter-spacing: var(--ls-botao); text-transform: uppercase; text-align: center; text-decoration: none !important;
+  font: 600 var(--btn-fs)/1.2 var(--font-texto); letter-spacing: var(--btn-ls); text-transform: uppercase; text-align: center; text-decoration: none !important;
   white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent;
   transition: background-color var(--dur-rapida) ease, border-color var(--dur-rapida) ease, color var(--dur-rapida) ease, transform var(--dur-rapida) ease;
 }
@@ -234,6 +234,84 @@ section { padding-block: var(--sec-y); }
 img, video, canvas, iframe { max-width: 100%; }
 @media (max-width: 380px) {
   :root { --gutter: 14px; }
-  .btn { white-space: normal; }
 }
 [tabindex="-1"]:focus { outline: none; }
+
+/* =============================================================
+   RODADA 3 · P1 global (08/11/2026)
+   ============================================================= */
+
+/* ---------- botões nunca quebram linha; abaixo de 360 px ficam mais compactos ---------- */
+.btn { white-space: nowrap; max-width: 100%; }
+@media (max-width: 359px) {
+  :root { --btn-px-s: 12px; --btn-px-m: 16px; --btn-px-l: 20px; --btn-fs: .75rem; --btn-ls: .05em; }
+}
+
+/* ---------- um primário por bloco ----------
+   No mesmo grupo de botões só o primeiro .btn-primary fica cheio; os seguintes viram contorno sozinhos.
+   Exceção consciente: o aviso de cookies (Recusar e Aceitar com o mesmo peso). Para manter dois cheios: .btn-manter. */
+.btn-primary ~ .btn-primary:not(.btn-manter) { --btn-bg: transparent; --btn-fg: var(--c-marinho); --btn-bd: var(--c-taupe-escuro); --btn-bg-h: rgba(216, 200, 174, .35); --btn-bd-h: var(--c-marinho); }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-primary ~ .btn-primary:not(.btn-manter) { --btn-fg: var(--c-creme); --btn-bd: rgba(216, 200, 174, .55); --btn-bg-h: rgba(216, 200, 174, .12); --btn-bd-h: var(--c-areia); }
+.aviso-cookies .btn-primary ~ .btn-primary { --btn-bg: var(--c-creme); --btn-fg: var(--c-marinho); --btn-bd: var(--c-creme); --btn-bg-h: var(--c-creme-2); --btn-bd-h: var(--c-creme-2); }
+
+/* ---------- um destaque só (numeração, ícones de lista, realces): ultramar, sem a cor de cada produto ---------- */
+.np-num, .t-num { color: var(--accent-unico) !important; }
+.sis li .ico, .np .sis-duas li .ico, .np .sis-tres li .ico, .np-comparar a, .sis-mais { color: var(--accent-unico); }
+:is(.np-hero, .lx-hero, .p-hero, .cf-hero, .sobre-escuro) :is(.np-num, .t-num) { color: var(--c-azul-claro) !important; }
+
+/* ---------- miniaturas 16/10 com recorte (object-fit: cover) ---------- */
+.thumb, .prod-foto { aspect-ratio: var(--thumb-proporcao); overflow: hidden; }
+.thumb > img, .thumb > video, .thumb > picture > img, .prod-foto > img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+
+/* ---------- elevação dos cartões no fundo bege ---------- */
+.cartao, .preco2, .prod-c, .sis, .caminho, .sis-duas > div, .np-grade, .np-faq details, .ini-mais, .ini-oferta, .orc, .ini-calc-card, .tambem-grade article, .entrega {
+  border: var(--borda-card); border-radius: var(--r-card); box-shadow: var(--sombra-card);
+}
+.cartao { background: var(--c-creme-claro); padding: var(--card-p); }
+.preco2:hover, .prod-c:hover, .caminho:hover, .cartao:is(a, [tabindex]):hover { box-shadow: var(--sombra-card-hover); }
+/* dentro das faixas marinho o cartão não leva a borda areia */
+:is(.lx-hero, .p-hero, .np-hero, .cf-hero, .sobre-escuro) :is(.cartao, .preco2, .prod-c, .sis) { border-color: rgba(216, 200, 174, .24); box-shadow: none; }
+
+/* ---------- alvos de 44 px em tudo que é controle (links soltos do rodapé e do aviso também) ---------- */
+.rodape-site a, .ck-rodape, .ck-link { display: inline-flex; align-items: center; justify-content: center; min-height: var(--alvo-min); min-width: var(--alvo-min); padding-block: 0; }
+.nav .brand { min-height: var(--alvo-min); }
+.rodape-site nav { row-gap: 0; }
+summary { min-height: var(--alvo-min); }
+main :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="range"]):not([type="color"]):not([type="file"]), select, textarea) { min-height: var(--alvo-min); }
+
+/* ---------- o assistente nunca cobre o fim da página ----------
+   Com o assistente na tela (html.va-ativo, posto pelo assistente.js) o fim do rodapé (ou do main, se não houver rodapé)
+   ganha o espaço da pílula: rolando até o fundo, nada fica embaixo dela. */
+html.va-ativo .rodape-site { padding-bottom: var(--va-reserva, 88px); }
+html.va-ativo main:not(:has(~ footer)) { padding-bottom: var(--va-reserva, 88px); }
+
+/* ---------- grupos de botões: sempre com espaço entre eles ---------- */
+.ctas, .t-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--esp-3); }
+
+/* ---------- títulos sem animação de entrada (regra do dono) ----------
+   O luxo.js ainda monta títulos palavra por palavra (.lx-p) e o .reveal entra com deslize e desfoque: nos títulos, nada disso. */
+.lx-p > span { transform: none !important; transition: none !important; }
+.js :is(h1, h2, h3, .sec-title).reveal, .js .reveal:has(> :is(h1, h2, h3, .sec-title)) { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+
+/* ---------- pedidos globais da rodada 3 (P2) ---------- */
+.contato-alt a, .demo-tabs button, .demo-tabs [role="tab"], .sites-filtro button { min-height: var(--alvo-min); }
+/* sobrelinha acima do H1 dos topos: 14 px (as das seções seguem com 13 px) */
+:is(.hero, .np-hero, .p-hero, .cf-hero, .lx-hero, .hn-topo, .aq-topo) .eyebrow { font-size: var(--fs-legenda); }
+.aviso-cookies p a { display: inline; min-height: 0; padding-block: 6px; }   /* link dentro da frase: alvo por espaçamento (exceção de texto corrido, WCAG 2.5.8) */
+
+/* ---------- rodada 3 (integração): "ou assine agora, sem teste" é link de texto discreto, não 3º botão ----------
+   O conta.js injeta .np-direto em cada .np-cta com teste; o clique continua abrindo a assinatura direta (data-assinar-app). */
+.np-cta .np-direto { border: 0 !important; background: none !important; box-shadow: none !important; transform: none !important; min-height: var(--alvo-min); padding: 0 var(--esp-2); font: 500 var(--fs-corpo-p)/1.2 var(--font-texto); letter-spacing: 0; text-transform: none; color: var(--ink-2); }
+.np-cta .np-direto:hover { background: none !important; color: var(--ink); text-decoration: underline !important; text-underline-offset: 3px; }
+:is(.np-hero, .sobre-escuro, [data-fundo="escuro"]) .np-cta .np-direto { color: var(--c-areia); }
+:is(.np-hero, .sobre-escuro, [data-fundo="escuro"]) .np-cta .np-direto:hover { color: var(--c-creme); }
+
+/* ---------- integração rodada 3: conferência em 320/390/768/1440 ---------- */
+/* título nunca espera a rolagem: bloco .reveal que tem título dentro (cartões de sistemas, casos do portfólio) já aparece */
+.js .reveal:has(:is(h1, h2, h3, .sec-title)) { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+/* vitrine do portfólio (projetos.html): filtros, aparelho e sites com alvo de 44 px */
+.vitrine-barra .grupo-botoes button { min-height: var(--alvo-min); }
+/* lista do ecossistema (projetos.html) não vaza em 320 px */
+.grupo { min-width: 0; }
+.grupo ul { grid-template-columns: minmax(0, 1fr); }
+.grupo li { overflow-wrap: anywhere; }

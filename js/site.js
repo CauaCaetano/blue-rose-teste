@@ -54,10 +54,10 @@
   /* ---------------- simulador de automações ---------------- */
   var T = EN ? {
     rodar: 'Run automation', denovo: 'Run again', rodando: 'Running…',
-    vazio: 'Press “Run automation” to watch each step happen.',
+    vazio: 'Pick a scenario and click “Run automation”.',
   } : {
     rodar: 'Rodar automação', denovo: 'Rodar de novo', rodando: 'Rodando…',
-    vazio: 'Aperte “Rodar automação” para ver cada etapa acontecer.',
+    vazio: 'Escolha um cenário e clique em “Rodar automação”.',
   };
 
   var DIAS = EN ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];

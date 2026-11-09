@@ -29,7 +29,7 @@
 .va-chamada:focus-visible { outline: 3px solid var(--va-azul); outline-offset: 3px; }
 .va-av {
   flex: none; display: block; width: var(--va-av); height: var(--va-av); margin: calc((var(--va-h) - var(--va-av)) / 2 - 2px) 0 calc((var(--va-h) - var(--va-av)) / 2 - 2px) -6px;
-  border-radius: 50%; border: 3px solid var(--va-azul); background: #0b1630; overflow: hidden;
+  border-radius: 50%; border: 3px solid var(--va-azul); background: #0f141b; overflow: hidden;
   box-shadow: 0 0 0 2px var(--va-fundo);
 }
 .va-av img { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; image-rendering: crisp-edges; }
@@ -148,27 +148,27 @@ body:has(:is(input:not([type="checkbox"]):not([type="radio"]):not([type="button"
 .va-av { position: relative; }
 .va-sp {
   position: absolute; inset: 0; border-radius: 50%; opacity: 0; pointer-events: none;
-  background: #0d1729 no-repeat 0 0 / calc(var(--n, 6) * 100%) 100%;   /* mesmo tom escuro do fundo das poses */
+  background: #0f141b no-repeat 0 0 / calc(var(--n, 6) * 100%) 100%;   /* mesmo tom escuro do fundo das poses */
   image-rendering: pixelated; image-rendering: crisp-edges;
   transition: opacity .15s ease;
 }
 /* com as folhas carregadas, os quadros ficam por cima da foto */
 .va-anima .va-sp { opacity: 1; }
 .va-anima .va-sp, .va-anima[data-anim="neutro"] .va-sp, .va-anima[data-anim="confiante"] .va-sp, .va-anima[data-anim="surpreso"] .va-sp {
-  background-image: url("../img/assistente/expressoes.webp?v=1"); --n: 6;
+  background-image: url("../img/assistente/expressoes.webp?v=2"); --n: 6;
 }
 .va-anima[data-anim="confiante"] .va-sp { background-position-x: 40%; }
 .va-anima[data-anim="surpreso"] .va-sp { background-position-x: 80%; }
-.va-anima[data-anim="abrindo"] .va-sp { background-image: url("../img/assistente/expressoes.webp?v=1"); --n: 6; background-position-x: 100%; }   /* animado */
-.va-anima[data-anim="falando"] .va-sp { background-image: url("../img/assistente/fala.webp?v=1"); --n: 6; animation: va-quadros .6s steps(6, jump-none) infinite; }
-.va-anima[data-anim="pensando"] .va-sp { background-image: url("../img/assistente/pensando.webp?v=1"); --n: 4; animation: va-quadros .8s steps(4, jump-none) infinite; }
-.va-anima[data-anim="ideia"] .va-sp { background-image: url("../img/assistente/ideia.webp?v=1"); --n: 4; animation: va-quadros .72s steps(4, jump-none) 1 both; }
-.va-anima[data-anim="joinha"] .va-sp { background-image: url("../img/assistente/joinha.webp?v=1"); --n: 4; animation: va-quadros .8s steps(4, jump-none) 1 both; }
-.va-anima[data-anim="gesto"] .va-sp { background-image: url("../img/assistente/gesto.webp?v=1"); --n: 3; animation: va-quadros .6s steps(3, jump-none) 1 both; }
+.va-anima[data-anim="abrindo"] .va-sp { background-image: url("../img/assistente/expressoes.webp?v=2"); --n: 6; background-position-x: 100%; }   /* animado */
+.va-anima[data-anim="falando"] .va-sp { background-image: url("../img/assistente/fala.webp?v=2"); --n: 6; animation: va-quadros .6s steps(6, jump-none) infinite; }
+.va-anima[data-anim="pensando"] .va-sp { background-image: url("../img/assistente/pensando.webp?v=2"); --n: 4; animation: va-quadros .8s steps(4, jump-none) infinite; }
+.va-anima[data-anim="ideia"] .va-sp { background-image: url("../img/assistente/ideia.webp?v=2"); --n: 4; animation: va-quadros .72s steps(4, jump-none) 1 both; }
+.va-anima[data-anim="joinha"] .va-sp { background-image: url("../img/assistente/joinha.webp?v=2"); --n: 4; animation: va-quadros .8s steps(4, jump-none) 1 both; }
+.va-anima[data-anim="gesto"] .va-sp { background-image: url("../img/assistente/gesto.webp?v=2"); --n: 3; animation: va-quadros .6s steps(3, jump-none) 1 both; }
 @keyframes va-quadros { from { background-position-x: 0%; } to { background-position-x: 100%; } }
 /* mouse ou teclado na chamada fechada: sorri (um quadro só, 10 KB, carrega no primeiro hover) */
 .va:not([data-aberto="true"]) .va-chamada:is(:hover, :focus-visible) .va-sp {
-  opacity: 1; animation: none; background-image: url("../img/assistente/sorrindo.webp?v=1"); background-size: 100% 100%; background-position: 0 0;
+  opacity: 1; animation: none; background-image: url("../img/assistente/sorrindo.webp?v=2"); background-size: 100% 100%; background-position: 0 0;
 }
 /* reduzir movimento: só poses paradas (último quadro das animações de uma vez, primeiro das de loop) */
 @media (prefers-reduced-motion: reduce) {

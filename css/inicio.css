@@ -294,3 +294,51 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 @media (max-width: 600px) {
   .sv .sv-outra .btn, .sv .sv-faq-pe .btn { width: 100%; justify-content: center; }
 }
+
+/* =============================================================
+   Rodada 3 (P2, 08/11): preço de entrada logo abaixo do H1, rótulos fortes das duas portas,
+   resultado final da simulação em destaque, aviso de demonstração neutro.
+   ============================================================= */
+/* home: o notebook agora ocupa 4 linhas (sobrelinha, título, preço, texto) */
+.hn-topo .wrap > .hn-note { grid-row: 1 / span 4; }
+.hn-preco-topo, .sv .sv-preco-topo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: var(--esp-titulo-sub, 18px) 0 0; font: 500 var(--fs-corpo-g, 18px)/1.4 var(--font-texto, 'Geist', system-ui, sans-serif); }
+.hn-preco-topo { color: #c5cddc; }
+.hn-preco-topo b, .sv .sv-preco-topo b { font-weight: 700; color: #f4ebdd; white-space: nowrap; }
+.hn-preco-sep, .sv .sv-preco-sep { color: #6cc4ff; }
+.hn .hn-topo .hn-sub { margin-top: 14px; }
+/* rótulo forte: pronto x feito do zero, igual nas duas páginas */
+.hn .hn-topo .hn-rotulo, .sv .sv-rotulo { display: inline-flex; align-items: center; align-self: flex-start; min-height: 32px; padding: 4px 12px; border: 1px solid rgba(108, 196, 255, .55); border-radius: var(--r-pill, 999px); font: 600 var(--fs-label, 13px)/1.2 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #6cc4ff; background: rgba(108, 196, 255, .08); }
+.sv .sv-rotulo { display: flex; width: max-content; max-width: 100%; margin: 0 0 10px; }
+.sv .sv-preco-topo { color: #c5cddc; }
+.sv .hero .sub { margin-top: 14px; }
+@media (max-width: 1000px) {
+  .hn-topo .wrap > .hn-note { grid-row: auto; }
+}
+@media (max-width: 480px) {
+  .hn-preco-topo, .sv .sv-preco-topo { flex-direction: column; gap: 2px; font-size: 17px; }
+  .hn-preco-sep, .sv .sv-preco-sep { display: none; }
+}
+
+/* servicos: aviso de demonstração em tom neutro e menor */
+.sv .sv-aviso { margin: 16px 0 0; padding: 2px 0 2px 12px; border: 0; border-left: 2px solid rgba(16, 27, 54, .28); border-radius: 0; background: none; color: var(--ink-3, #625a4c); font-size: var(--fs-legenda, 14px); line-height: 1.5; }
+
+/* servicos: simulação. Estado vazio que diz o que fazer; resultado final em destaque */
+.sv .chat-vazio[data-p2] { display: grid; gap: 6px; max-width: 34ch; color: var(--ink-3, #625a4c); font-size: var(--fs-legenda, 14px); line-height: 1.5; }
+.sv .chat-vazio[data-p2] b { color: #101b36; font-size: var(--fs-corpo, 16px); font-weight: 600; }
+.sv .msg.resultado.sv-final { border: 2px solid #2f4c8a; background: #fff; }
+.sv .sv-entrega { margin-top: var(--esp-6, 24px); padding: var(--card-p, 24px); border: 1px solid rgba(16, 27, 54, .18); border-left: 4px solid #2f4c8a; border-radius: var(--r-card, 6px); background: #fbf6ee; box-shadow: var(--sombra-2, 0 12px 32px -20px rgba(16, 27, 54, .3)); color: #101b36; }
+.sv .sv-entrega[hidden] { display: none; }
+.sv .sv-entrega-tag { margin: 0; font: 600 var(--fs-label, 13px)/1.3 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #2f4c8a; }
+.sv .sv-entrega h3 { margin: 6px 0 0; font: 500 var(--fs-h3, 26px)/1.15 'Cormorant Garamond', Georgia, serif; color: #101b36; }
+.sv .sv-entrega dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px 24px; margin: 16px 0 0; }
+.sv .sv-entrega dl > div { padding-top: 10px; border-top: 1px solid rgba(16, 27, 54, .14); }
+.sv .sv-entrega dt { font-size: var(--fs-label, 13px); color: var(--ink-3, #625a4c); }
+.sv .sv-entrega dd { margin: 2px 0 0; font-size: var(--fs-corpo, 16px); font-weight: 600; color: #101b36; overflow-wrap: anywhere; }
+.sv .sv-entrega-livre { grid-column: 1 / -1; }
+.sv .sv-entrega-pe { margin: 16px 0 0; font-size: var(--fs-legenda, 14px); line-height: 1.5; color: var(--ink-3, #625a4c); }
+.sv .demo-nota { font-size: var(--fs-legenda, 14px); }
+/* servicos: sobrelinha do topo legível (14 px) e alvos de 44 px nas abas da simulação, filtros e contatos */
+body.sv main .hero .eyebrow { font-size: var(--fs-legenda, 14px); letter-spacing: .06em; color: #d8c8ae; }
+body.sv .demo-tabs [role="tab"], body.sv .sites-filtro button { min-height: var(--alvo-min, 44px); }
+body.sv .contato-alt a, body.hn .contato-alt a { min-height: var(--alvo-min, 44px); display: inline-flex; align-items: center; }
+.sv .sv-preco-topo { flex-direction: column; gap: 2px; } .sv .sv-preco-sep { display: none; }
