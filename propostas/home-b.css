@@ -1,0 +1,235 @@
+/* Blue Rose · proposta B — luxo editorial escuro */
+@font-face { font-family: "Cormorant BR"; src: url("../fonts/cormorant-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant BR"; src: url("../fonts/cormorant-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant BR"; src: url("../fonts/cormorant-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist BR"; src: url("../fonts/geist-latin.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+  --marinho: #101b36;
+  --fundo: #0b1429;
+  --fundo-2: #0e1830;
+  --creme: #f4ebdd;
+  --creme-2: #cfc6b8;           /* texto de apoio, AA sobre o fundo */
+  --prata: #c9ced8;
+  --prata-linha: rgba(201, 206, 216, .28);
+  --prata-fina: rgba(201, 206, 216, .16);
+  --acao: #6cc4ff;
+  --serif: "Cormorant BR", "Cormorant Garamond", Georgia, serif;
+  --sans: "Geist BR", "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --lado: clamp(16px, 5vw, 88px);
+  --largura: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--creme);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spacing: -.01em; }
+p { margin: 0; }
+a { color: inherit; }
+
+:focus-visible { outline: 2px solid var(--prata); outline-offset: 4px; border-radius: 6px; }
+
+.pular {
+  position: absolute; left: 16px; top: -60px; z-index: 10;
+  background: var(--creme); color: var(--fundo); padding: 10px 16px; border-radius: 8px; text-decoration: none;
+}
+.pular:focus { top: 12px; }
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 22px;
+  border-radius: 999px;
+  font: 500 .95rem/1 var(--sans);
+  text-decoration: none; white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-acao { background: var(--acao); color: #0a1326; min-height: 52px; padding: 0 30px; font-size: 1rem; }
+.btn-acao:hover { background: #8fd3ff; }
+.btn-linha { border: 1px solid var(--prata-linha); color: var(--creme); background: transparent; }
+.btn-linha:hover { border-color: var(--prata); background: rgba(201, 206, 216, .08); }
+.btn-grande { min-height: 52px; padding: 0 30px; }
+
+/* ---------- topo ---------- */
+.topo {
+  position: absolute; inset: 0 0 auto 0; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 22px var(--lado);
+}
+.marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.marca img { width: 36px; height: 36px; }
+.marca span { font: 600 1.45rem/1 var(--serif); }
+.menu { display: flex; gap: clamp(14px, 2.6vw, 36px); }
+.menu a { text-decoration: none; color: var(--creme-2); font-size: .94rem; padding: 10px 0; }
+.menu a:hover { color: var(--creme); }
+
+/* ---------- abertura ---------- */
+.abertura {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 40px;
+  padding: 120px var(--lado) 80px;
+  background:
+    radial-gradient(70% 80% at 78% 45%, rgba(108, 196, 255, .10), transparent 60%),
+    linear-gradient(180deg, var(--marinho) 0%, var(--fundo) 100%);
+  border-bottom: 1px solid var(--prata-fina);
+  overflow: hidden;
+}
+.abertura h1 {
+  font-size: clamp(3rem, 7.4vw, 7.6rem);
+  line-height: .96;
+  font-weight: 500;
+  max-width: 11ch;
+}
+.preco-linha {
+  margin: clamp(22px, 3vw, 36px) 0 clamp(26px, 3.4vw, 40px);
+  color: var(--creme-2);
+  font-size: 1.02rem;
+  padding-top: 18px;
+  border-top: 1px solid var(--prata-linha);
+  max-width: 26rem;
+}
+.abertura-peca { position: relative; justify-self: center; width: min(100%, 520px); aspect-ratio: 1; display: grid; place-items: center; }
+.abertura-peca img { position: relative; width: 78%; filter: drop-shadow(0 30px 60px rgba(0, 0, 0, .45)); }
+.anel {
+  position: absolute; inset: 0;
+  border: 1px solid var(--prata-linha); border-radius: 50%;
+}
+.anel::after {
+  content: ""; position: absolute; inset: 7%;
+  border: 1px solid var(--prata-fina); border-radius: 50%;
+}
+
+/* ---------- seções ---------- */
+.secao {
+  padding: clamp(80px, 11vw, 150px) var(--lado);
+  max-width: calc(var(--largura) + 2 * var(--lado));
+  margin: 0 auto;
+}
+.cabeca { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; margin-bottom: clamp(36px, 5vw, 60px); }
+.cabeca h2 { font-size: clamp(2.5rem, 5vw, 4.4rem); line-height: 1; }
+.cabeca p { color: var(--creme-2); max-width: 30rem; }
+
+.preco { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; line-height: 1; white-space: nowrap; }
+.preco span { font-family: var(--sans); font-size: .85rem; font-weight: 400; color: var(--creme-2); margin-left: 3px; }
+
+/* ---------- sistemas ---------- */
+.lista {
+  list-style: none; margin: 0; padding: 0 calc(42% + 48px) 0 0;
+  position: relative;
+  border-top: 1px solid var(--prata-linha);
+  min-height: 560px;
+}
+.item { border-bottom: 1px solid var(--prata-linha); }
+.linha {
+  display: grid; grid-template-columns: minmax(0, auto) 1fr auto auto; align-items: center; gap: 24px;
+  padding: 24px 0;
+  transition: padding-left .25s ease;
+}
+.item h3 { font-size: clamp(1.6rem, 2.1vw, 2rem); line-height: 1.1; white-space: nowrap; min-width: 11ch; }
+.quem { color: var(--creme-2); font-size: .95rem; }
+.item.ativo .linha { padding-left: 14px; }
+.item.ativo h3 { color: #fff; }
+.item.ativo .linha { box-shadow: inset 2px 0 0 var(--prata); }
+
+.print {
+  margin: 0;
+  position: absolute; top: 0; right: 0; width: 42%;
+  aspect-ratio: 39 / 40;
+  border: 1px solid var(--prata-linha); border-radius: 18px;
+  padding: 10px; background: var(--fundo-2);
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
+}
+.print img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px; }
+.item.ativo .print { opacity: 1; visibility: visible; transition: opacity .3s ease, visibility 0s; }
+
+.nota { margin-top: 28px; color: var(--creme-2); font-size: .92rem; }
+
+/* ---------- sob medida ---------- */
+.medida-grade {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 36px);
+}
+.mini { margin: 0; border: 1px solid var(--prata-linha); border-radius: 16px; padding: 8px; background: var(--fundo-2); }
+.mini img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; }
+.oferta { display: flex; flex-direction: column; gap: 22px; }
+.oferta-linha {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 20px;
+  padding-top: 20px; border-top: 1px solid var(--prata-linha);
+}
+.oferta-nome { font: 500 1.7rem/1.1 var(--serif); grid-column: 1 / -1; }
+.oferta-linha .preco span { margin: 0 4px 0 0; }
+.oferta-linha .btn { justify-self: end; }
+
+/* ---------- como começar ---------- */
+.comecar { text-align: left; }
+.passos { list-style: none; margin: 0 0 clamp(40px, 5vw, 56px); padding: 0; border-top: 1px solid var(--prata-linha); }
+.passos li {
+  display: flex; align-items: baseline; gap: clamp(18px, 3vw, 40px);
+  padding: clamp(20px, 2.6vw, 30px) 0; border-bottom: 1px solid var(--prata-linha);
+  font: 500 clamp(1.5rem, 3vw, 2.4rem)/1.2 var(--serif);
+}
+.num { font: 400 1rem/1 var(--sans); color: var(--prata); width: 2.4em; height: 2.4em; flex: none; display: inline-grid; place-items: center; border: 1px solid var(--prata-linha); border-radius: 50%; transform: translateY(-.2em); }
+
+/* ---------- rodapé ---------- */
+.rodape {
+  border-top: 1px solid var(--prata-fina);
+  background: #09111f;
+  padding: 56px var(--lado) 40px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px 40px;
+}
+.rodape-marca { display: flex; align-items: center; gap: 10px; font: 600 1.4rem/1 var(--serif); }
+.rodape-marca img { width: 36px; height: 36px; }
+.rodape nav { display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: center; }
+.rodape nav a { text-decoration: none; color: var(--creme-2); font-size: .9rem; padding: 8px 0; }
+.rodape nav a:hover { color: var(--creme); }
+.direitos { color: var(--creme-2); font-size: .85rem; }
+
+/* ---------- telas médias ---------- */
+@media (max-width: 1100px) {
+  .linha { grid-template-columns: 1fr auto; gap: 6px 20px; }
+  .linha h3 { grid-column: 1; }
+  .quem { grid-column: 1; grid-row: 2; }
+  .linha .preco { grid-column: 2; grid-row: 1; justify-self: end; }
+  .linha .btn { grid-column: 2; grid-row: 2; justify-self: end; }
+}
+
+/* ---------- celular e tablet: print abaixo de cada sistema ---------- */
+@media (max-width: 860px) {
+  .abertura { grid-template-columns: 1fr; padding-top: 110px; gap: 8px; align-content: center; }
+  .abertura-peca { order: -1; width: min(62vw, 300px); justify-self: start; }
+  .abertura h1 { max-width: 12ch; }
+  .menu a:not(:first-child) { display: none; }
+
+  .lista { padding-right: 0; min-height: 0; }
+  .item.ativo .linha { padding-left: 0; box-shadow: none; }
+  .print {
+    position: static; width: 100%; max-width: 420px;
+    opacity: 1; visibility: visible;
+    margin: 0 0 24px; aspect-ratio: 4 / 4.2;
+  }
+  .medida-grade, .ofertas { grid-template-columns: 1fr; }
+  .rodape { grid-template-columns: 1fr; justify-items: start; }
+  .rodape nav { justify-content: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .linha { grid-template-columns: 1fr auto; }
+  .preco { font-size: 1.45rem; }
+  .ofertas li { gap: 12px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
