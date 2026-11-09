@@ -423,3 +423,10 @@
 }
 /* celular: o botão de pausa sai de cima do vídeo e fica logo abaixo, à direita */
 @media (max-width: 640px) { .hv-pausa { position: static; display: block; margin: 10px 0 0 auto; } }
+
+/* 09/11: celular usa o comercial em pé (js/comercial.js troca o src): moldura 9:16, largura total
+   e no máximo ~80% da altura da tela, centralizada; o botão de pausa continua logo abaixo do vídeo */
+@media (max-width: 640px) {
+  .hv-quadro { aspect-ratio: auto; overflow: visible; background: none; border-radius: 0; width: 100%; width: min(100%, calc(80vh * 9 / 16)); width: min(100%, calc(80svh * 9 / 16)); margin-inline: auto; }
+  .hv-video { aspect-ratio: 9 / 16; height: auto; border-radius: 14px; background: #101b36; }
+}

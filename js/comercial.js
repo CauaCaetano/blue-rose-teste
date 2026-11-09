@@ -19,6 +19,31 @@
     if (p && p.catch) p.catch(function () { marcar(); });
   }
 
+  /* 09/11: celular (até 640 px) usa o comercial em pé (1080x1920); computador, o horizontal.
+     <video> não aceita <source media> de forma confiável, então o src e o pôster trocam aqui. */
+  var FONTES = {
+    deitado: { src: 'video/home/comercial.mp4?v=2', poster: 'img/home/comercial-capa.webp', w: 1600, h: 900 },
+    empe: { src: 'video/home/comercial-vertical.mp4?v=1', poster: 'img/home/comercial-vertical-capa.webp', w: 1080, h: 1920 }
+  };
+  var celular = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
+  function escolher() {
+    var f = celular && celular.matches ? FONTES.empe : FONTES.deitado;
+    if (video.getAttribute('src') === f.src) return;
+    var tocava = !video.paused;
+    video.setAttribute('poster', f.poster);
+    video.setAttribute('width', f.w);
+    video.setAttribute('height', f.h);
+    video.setAttribute('src', f.src);
+    video.load();
+    if (tocava && !pausadoPeloUsuario) tocar();
+    marcar();
+  }
+  escolher();
+  if (celular) {
+    if (celular.addEventListener) celular.addEventListener('change', escolher);
+    else if (celular.addListener) celular.addListener(escolher);
+  }
+
   botao.hidden = false;
   video.addEventListener('play', marcar);
   video.addEventListener('pause', marcar);
