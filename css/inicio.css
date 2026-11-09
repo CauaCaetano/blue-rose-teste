@@ -391,3 +391,11 @@ body.sv .sites-filtro button[aria-pressed="true"] { background: #101b36; border-
 
 /* fim da simulação: link para Segurança e dados */
 .sv .sv-dados { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: var(--ritmo-p, 32px) 0 0; font-size: var(--fs-corpo-p, 15px); color: #101b36; }
+
+/* rodada 5: o botão do notebook leva à Vitrine; seta em vez de play, menor e mais discreto */
+.hn-play-bola { width: 60px; height: 60px; background: rgba(244, 235, 221, .86); box-shadow: 0 0 0 6px rgba(16, 27, 54, .22); }
+.hn-play-bola svg { width: 24px; height: 24px; }
+/* rodada 5: esqueleto da conversa com brilho sutil */
+.sv .sv-esqueleto i { background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%); background-size: 220% 100%; animation: sv-brilho 2.4s ease-in-out infinite; }
+@keyframes sv-brilho { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+@media (prefers-reduced-motion: reduce) { .sv .sv-esqueleto i { animation: none; background-image: none; } }

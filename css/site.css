@@ -1623,3 +1623,8 @@ html.leve body::after { display: none !important; }
 html.leve ::backdrop { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 html.leve .ini-rosa img, html.leve .ini-aviso, html.leve .ini-note, html.leve .ini-selo i, html.leve .perso-tag::before, html.leve .va-ponto::after { animation: none !important; }
 html.leve .eyebrow::before { filter: none; }
+
+/* rodada 5: cartões de dores respondem ao cursor (sem animação de entrada) */
+.np-tres > div { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+@media (hover: hover) { .np-tres > div:hover { transform: translateY(-2px); border-color: var(--ink-3, #8a93a6); box-shadow: 0 10px 24px -18px rgba(16, 27, 54, .45); } }
+li, dd, figcaption { text-wrap: pretty; }

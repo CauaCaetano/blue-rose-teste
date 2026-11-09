@@ -213,3 +213,6 @@ body.vt .vt-topo .vt-voltar:hover { background: var(--creme); color: #101b36; }
 @media (max-width: 900px) {
   .vt-js .vt-cena { padding-bottom: calc(66px + 62px + 48px); }
 }
+
+/* rodada 5: a trilha rola; o fim esmaece para não parecer cortado */
+.vt-trilha { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent); padding-right: 48px; }
