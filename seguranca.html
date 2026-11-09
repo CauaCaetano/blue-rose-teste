@@ -25,17 +25,17 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=67">
+<link rel="stylesheet" href="css/site.css?v=68">
 <link rel="stylesheet" href="css/luxo.css?v=22">
 <link rel="stylesheet" href="css/creme.css?v=2"><link rel="stylesheet" href="css/areia.css?v=4">
-<link rel="stylesheet" href="css/tinta.css?v=10">
-<link rel="stylesheet" href="css/pg-seguranca.css?v=1">
+<link rel="stylesheet" href="css/tinta.css?v=11">
+<link rel="stylesheet" href="css/pg-seguranca.css?v=2">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
-<script src="js/site.js?v=24" defer></script>
+<script src="js/site.js?v=25" defer></script>
 <script src="js/conta.js?v=11" defer></script>
-<link rel="stylesheet" href="css/assistente.css?v=9">
-<script src="js/assistente.js?v=32" defer></script>
+<link rel="stylesheet" href="css/assistente.css?v=10">
+<script src="js/assistente.js?v=34" defer></script>
 <script src="js/cookies.js?v=4" defer></script>
 </head>
 <body>
@@ -82,7 +82,7 @@
 
   <nav class="sg-indice" aria-label="Nesta página">
     <div class="wrap">
-      <a href="#tratamento">Tratamento</a><a href="#onde">Onde ficam</a><a href="#acesso">Acesso</a><a href="#pagamentos">Pagamentos</a><a href="#teste">Teste grátis</a><a href="#exportacao">Exportação</a><a href="#cancelamento">Cancelamento</a><a href="#lgpd">LGPD</a><a href="#empresa">Quem somos</a><a href="#perguntas">Perguntas</a>
+      <a href="#tratamento">Tratamento</a><a href="#onde">Onde ficam</a><a href="#acesso">Acesso</a><a href="#pagamentos">Pagamentos</a><a href="#teste">Teste grátis</a><a href="#exportacao">Exportação</a><a href="#cancelamento">Cancelamento</a><a href="#lgpd">LGPD</a><a href="#suporte">Suporte e falhas</a><a href="#empresa">Quem somos</a><a href="#perguntas">Perguntas</a>
     </div>
   </nav>
 
@@ -126,6 +126,21 @@
         <h2 id="t-acesso">Quem consegue acessar</h2>
       </div>
       <div class="sg-texto">
+        <figure class="sg-diagrama" aria-labelledby="iso-legenda">
+          <picture>
+            <source media="(max-width: 760px)" srcset="img/seguranca/isolamento-celular.svg?v=1" width="360" height="700">
+            <img src="img/seguranca/isolamento.svg?v=2" width="780" height="400" loading="lazy" decoding="async" alt="Diagrama: a pessoa da Empresa A entra com e-mail e senha; a cada leitura e gravação, as regras do banco (RLS) conferem se o login faz parte da empresa; a Empresa A lê e grava os próprios dados e da Empresa B nada volta.">
+          </picture>
+          <figcaption id="iso-legenda">
+            <p class="sg-diagrama-t">Empresa A não vê a Empresa B</p>
+            <ol>
+              <li><b>Entrar.</b> Cada pessoa entra com o próprio e-mail e senha.</li>
+              <li><b>Conferir no banco.</b> A cada leitura e gravação, o banco confere se aquele login faz parte da empresa. A regra fica no banco de dados, não só na tela, e está ligada em todas as tabelas.</li>
+              <li><b>Só o seu espaço.</b> Quem é da Empresa A lê e grava só os dados da Empresa A. Da Empresa B, nada volta e nada é gravado.</li>
+            </ol>
+            <p class="sg-diagrama-obs">Para gravar, também é preciso que a assinatura ou o teste esteja em dia e que a pessoa não esteja marcada como “só leitura” no Painel do dono.</p>
+          </figcaption>
+        </figure>
         <ul class="sg-lista">
           <li><b>Login por pessoa.</b> Cada pessoa entra com o próprio e-mail e senha. A senha é guardada cifrada pelo serviço de login do Supabase: nós não temos acesso a ela.</li>
           <li><b>Senha vazada é recusada.</b> Ao criar ou trocar a senha, o navegador confere se ela já apareceu em vazamentos públicos (Have I Been Pwned). Só os 5 primeiros caracteres de um código gerado a partir dela são consultados; a senha não sai do aparelho.</li>
@@ -227,10 +242,29 @@
     </div>
   </section>
 
-  <section class="sg-bloco" id="empresa" aria-labelledby="t-empresa">
+  <section class="sg-bloco" id="suporte" aria-labelledby="t-suporte">
     <div class="wrap sg-duas">
       <div class="sg-cab">
         <p class="sg-num">09</p>
+        <h2 id="t-suporte">Suporte e se algo cair</h2>
+      </div>
+      <div class="sg-texto">
+        <dl class="sg-tabela">
+          <div><dt>Para quem já usa</dt><dd>Abra um chamado em <a href="conta.html#suporte">Minha conta, em Suporte e chamados</a>, escolhendo o sistema e o tipo do problema. A resposta aparece no próprio chamado. Respondemos em até 1 dia útil.</dd></div>
+          <div><dt>Para quem ainda não usa</dt><dd>O <a href="./#contato">formulário de contato</a>, de segunda a sexta, das 8h às 18h.</dd></div>
+          <div><dt>Se a internet cair no meio do uso</dt><dd>O que você lançar fica salvo no aparelho. A faixa de cima do sistema mostra “Não salvou na nuvem” e o sistema tenta enviar de novo a cada 30 segundos. Na próxima vez que abrir, o que ficou no aparelho é juntado com o que está na nuvem.</dd></div>
+          <div><dt>Se o servidor não responder</dt><dd>Para abrir o sistema, a entrada confere o login e a assinatura no servidor. Se ele não responder, aparece “Não foi possível abrir”, com o link Tentar de novo. Nada é apagado por isso: os dados continuam no banco.</dd></div>
+          <div><dt>Pagamento</dt><dd>Se a confirmação do Mercado Pago não chegar na volta do pagamento, o sistema confere de novo de hora em hora.</dd></div>
+          <div><dt>Página de status</dt><dd>Ainda não temos uma página de status própria. O banco e o login rodam no Supabase, que mostra a situação do serviço dele em <a href="https://status.supabase.com/" target="_blank" rel="noopener">status.supabase.com</a>.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-bloco sg-claro" id="empresa" aria-labelledby="t-empresa">
+    <div class="wrap sg-duas">
+      <div class="sg-cab">
+        <p class="sg-num">10</p>
         <h2 id="t-empresa">Quem somos</h2>
       </div>
       <div class="sg-texto">
@@ -247,7 +281,7 @@
   <section class="sg-bloco" id="perguntas" aria-labelledby="t-perguntas">
     <div class="wrap">
       <div class="sg-cab sg-cab-linha">
-        <p class="sg-num">10</p>
+        <p class="sg-num">11</p>
         <h2 id="t-perguntas">Perguntas frequentes</h2>
       </div>
       <div class="sg-faq">

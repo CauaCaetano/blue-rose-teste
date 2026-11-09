@@ -52,15 +52,18 @@
   /* ---------- espaçamento (base 4) ---------- */
   --esp-1: 4px; --esp-2: 8px; --esp-3: 12px; --esp-4: 16px; --esp-5: 24px;
   --esp-6: 32px; --esp-7: 48px; --esp-8: 64px; --esp-9: 96px; --esp-10: 128px;
-  /* ritmo vertical */
-  --sec-y: clamp(4rem, 3rem + 4vw, 6.5rem);              /* 64 → 104 · respiro de cima/baixo de cada seção */
-  --sec-y-topo: clamp(3rem, 2.2rem + 3.4vw, 6rem);       /* topo (hero) das páginas internas */
-  --esp-rotulo-titulo: var(--esp-4);                     /* eyebrow → título */
-  --esp-titulo-sub: clamp(0.875rem, 0.7rem + 0.6vw, 1.25rem);  /* título → linha fina (14 → 20) */
-  --esp-sub-conteudo: clamp(2rem, 1.5rem + 2vw, 3rem);   /* linha fina → conteúdo (32 → 48) */
-  --esp-conteudo-acoes: var(--esp-6);                    /* texto → botões */
-  --card-p: clamp(1.25rem, 1rem + 1vw, 2rem);            /* 20 → 32 · padding interno de cartão */
-  --grade-gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);       /* entre cartões */
+  /* ritmo vertical: só três passos, 32 / 48 / 64 (rodada 3) */
+  --ritmo-p: 32px;                                       /* dentro de um bloco: texto → botões, título → lista */
+  --ritmo-m: 48px;                                       /* entre blocos de uma seção; linha fina → conteúdo */
+  --ritmo-g: 64px;                                       /* entre seções */
+  --sec-y: var(--ritmo-g);                               /* respiro de cima/baixo de cada seção (48 no celular) */
+  --sec-y-topo: var(--ritmo-g);                          /* topo (hero) das páginas internas */
+  --esp-rotulo-titulo: var(--esp-4);                     /* eyebrow → título (16) */
+  --esp-titulo-sub: var(--esp-4);                        /* título → linha fina (16) */
+  --esp-sub-conteudo: var(--ritmo-m);                    /* linha fina → conteúdo */
+  --esp-conteudo-acoes: var(--ritmo-p);                  /* texto → botões */
+  --card-p: var(--ritmo-p);                              /* padding interno de cartão (24 no celular) */
+  --grade-gap: var(--esp-5);                             /* entre cartões (24) */
   --lista-gap: var(--esp-3);
   --form-gap: var(--esp-4);
   --gutter: 16px;                                        /* margem lateral mínima no celular */
@@ -80,6 +83,14 @@
   --sombra-1: 0 1px 2px rgba(16, 27, 54, 0.06);
   --sombra-2: 0 1px 2px rgba(16, 27, 54, 0.05), 0 18px 40px -28px rgba(16, 27, 54, 0.32);
   --sombra-3: 0 2px 6px rgba(16, 27, 54, 0.08), 0 30px 70px -30px rgba(16, 27, 54, 0.45);
+  /* cartão no fundo bege: borda areia + sombra curta e visível (elevação, rodada 3) */
+  --borda-card: 1px solid #cdbb9c;
+  --sombra-card: 0 1px 2px rgba(16, 27, 54, 0.07), 0 8px 24px -12px rgba(16, 27, 54, 0.28);
+  --sombra-card-hover: 0 2px 4px rgba(16, 27, 54, 0.08), 0 16px 36px -14px rgba(16, 27, 54, 0.36);
+  /* um destaque só: números, ícones de lista e realces usam esta cor (sem a cor de cada produto) */
+  --accent-unico: var(--c-ultramar);
+  /* miniaturas */
+  --thumb-proporcao: 16 / 10;
 
   /* ---------- camadas (z-index) ---------- */
   --z-base: 1;
@@ -108,6 +119,10 @@
   --btn-h-m: 48px; --btn-px-m: 24px;
   --btn-h-l: 56px; --btn-px-l: 32px;
   --btn-fs: 0.8125rem;
+  --btn-ls: var(--ls-botao);
+}
+@media (max-width: 760px) {
+  :root { --sec-y: var(--ritmo-m); --sec-y-topo: var(--ritmo-m); --esp-sub-conteudo: var(--ritmo-p); --card-p: var(--esp-5); }
 }
 @media (prefers-reduced-motion: reduce) {
   :root { --dur-rapida: 0ms; --dur-media: 0ms; --dur-lenta: 0ms; }

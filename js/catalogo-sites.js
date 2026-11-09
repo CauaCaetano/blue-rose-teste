@@ -295,7 +295,7 @@
         (obj ? '<dt>Objetivo</dt><dd>' + esc(obj) + '</dd>' : '') +
         '<dt>Recursos</dt><dd><ul>' + (s.recursos || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></dd>' +
         '<dt>Páginas</dt><dd>' + s.paginas + '</dd></dl>' +
-        '<div class="pd-ficha-acoes"><a class="btn btn-primary" data-site-link="' + s.slug + '" href="' + url(s) + '">Abrir o exemplo' + ico('arrow-up-right') + '</a></div></div></li>';
+        '<div class="pd-ficha-acoes"><a class="btn btn-outline btn-s" data-site-link="' + s.slug + '" href="' + url(s) + '">Abrir o exemplo' + ico('arrow-up-right') + '</a></div></div></li>';
     }).join('');
     var filtrar = function (id) {
       filtros.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === id)); });
@@ -310,6 +310,7 @@
   var vit = document.querySelector('[data-vitrine-sites]');
   if (vit) {
     var barraCat = vit.querySelector('[data-v-cats]'), barraSites = vit.querySelector('[data-v-sites]'), palco = vit.querySelector('.vitrine-palco'), frame = palco.querySelector('iframe'), abrirTela = vit.querySelector('[data-v-abrir]');
+    if (window.brEstado) window.brEstado.iframe(frame, { texto: 'Abrindo o site de exemplo…' });   // estado de carregando/erro; o data-estado do HTML cobre o caso de o confianca.js carregar depois
     var mostrar = function (s) {
       frame.src = url(s); frame.title = s.nome; abrirTela.href = url(s);
       barraSites.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-slug') === s.slug); });

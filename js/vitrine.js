@@ -17,12 +17,31 @@
   var onda = document.createElement('div'); onda.className = 'vt-onda';
   corpo.insertBefore(fundo, corpo.firstChild); corpo.insertBefore(onda, fundo.nextSibling);
 
+  // a trilha vem separada por grupo (Sistemas | Sites de exemplo | Projetos para clientes | Arquitetura), com o nome do grupo em cima
+  var CURTO = { 'Sistemas prontos': 'Sistemas', 'Projetos para clientes': 'Projetos', 'Plataforma de arquitetura': 'Arquitetura' };
+  var grupoAtual = null, caixaGrupo = null;
   var botoes = cenas.map(function (c, i) {
+    var g = c.dataset.grupo || '';
+    if (g !== grupoAtual) {
+      grupoAtual = g;
+      caixaGrupo = document.createElement('div');
+      caixaGrupo.className = 'vt-trilha-grupo';
+      var rot = document.createElement('span');
+      rot.className = 'vt-trilha-rot';
+      var solo = g === 'Início' || g === 'Próximo passo';
+      rot.textContent = solo ? '' : (CURTO[g] || g);
+      if (solo) caixaGrupo.classList.add('vt-trilha-solo');
+      caixaGrupo.appendChild(rot);
+      var fila = document.createElement('div'); fila.className = 'vt-trilha-fila';
+      caixaGrupo.appendChild(fila);
+      trilha.appendChild(caixaGrupo);
+    }
     var b = document.createElement('button');
     b.type = 'button'; b.innerHTML = '<span></span><i></i>';
     b.querySelector('span').textContent = c.dataset.nome;
+    if (g && g !== 'Início' && g !== 'Próximo passo') b.setAttribute('aria-label', c.dataset.nome + ' (' + (CURTO[g] || g) + ')');
     b.addEventListener('click', function (e) { pararAuto(); ir(i, e); });
-    trilha.appendChild(b);
+    caixaGrupo.querySelector('.vt-trilha-fila').appendChild(b);
     return b;
   });
 

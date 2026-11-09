@@ -178,3 +178,22 @@ body.vt .vt-topo .br-idi > button { min-height: 44px; padding: 0 14px; color: va
 @media (prefers-reduced-motion: reduce) {
   .vt-dlg li button { transition: none; }
 }
+
+/* 08/11/2026 · P4 rodada 3: "Voltar ao site" evidente, trilha separada por grupo e raios iguais aos do site (6 px) */
+body.vt .vt-topo .vt-voltar { gap: 8px; padding: 0 18px 0 14px; border-radius: 6px; background: rgba(10, 16, 32, .6); box-shadow: inset 0 0 0 1.5px rgba(244, 235, 221, .8); color: var(--creme); font-weight: 600; transition: background-color .2s, color .2s; }
+body.vt .vt-topo .vt-voltar svg { flex: none; }
+body.vt .vt-topo .vt-voltar:hover { background: var(--creme); color: #101b36; }
+.vt-abrir, .vt-trocas, .vt-trocas button, .vt-ctrl button, .vt-mais { border-radius: 6px; }
+.vt-mais { border-color: rgba(244, 235, 221, .6); background: transparent; }
+.vt-mais:hover { background: rgba(244, 235, 221, .12); }
+
+.vt-trilha { align-items: flex-end; gap: 0; }
+.vt-trilha-grupo { display: flex; flex-direction: column; flex: 0 0 auto; margin-left: 10px; padding-left: 10px; border-left: 1px solid rgba(244, 235, 221, .24); }
+.vt-trilha-grupo:first-child { margin-left: 0; padding-left: 0; border-left: 0; }
+.vt-trilha-rot { min-height: 18px; padding: 0 10px; color: var(--apoio); font: 600 11px/18px 'Geist', system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.vt-trilha-fila { display: flex; gap: 4px; }
+.vt-js .vt-cena { padding-bottom: 136px; }
+@media (max-width: 900px) {
+  .vt-js .vt-cena { padding-bottom: 160px; }
+  .vt-trilha-grupo { margin-left: 6px; padding-left: 6px; }
+}

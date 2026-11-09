@@ -100,4 +100,63 @@
 }
 /* título da seção do catálogo não encosta no parágrafo (o parágrafo tem margem negativa inline) */
 .sis-comparar .sec-title + .planos-nota { margin-top: 6px !important; }
-@media (prefers-reduced-motion: reduce) { .pp-indice-grade a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .pp-indice-grade a, .pp-ramos a { transition: none; } }
+
+/* ===================== rodada 3 (P3 · 08/11) ===================== */
+/* um accent só: numeração e marcadores no ultramar do site (a cor do produto fica no logo e na borda) */
+.np .np-num, .pp-passos li::before { color: var(--accent, #2f4c8a); }
+.pp-testar li::before { background: var(--accent, #2f4c8a); }
+.pp-limites .pp-sim li::before { border-color: var(--accent, #2f4c8a); }
+.pp-inclui .pp-ico { background: var(--accent-soft, rgba(47, 76, 138, .1)); color: var(--accent, #2f4c8a); }
+.pp-dados li .ico { color: var(--accent, #2f4c8a); }
+
+/* preço logo abaixo do H1 */
+.pp-preco-h1 { margin: 0 0 var(--esp-4, 16px); font-size: var(--fs-corpo-g, 18px); line-height: 1.4; color: var(--ink-2); }
+.pp-preco-h1 b { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.p-hero h1 + .pp-preco-h1 { margin-top: var(--esp-4, 16px); }
+:is(.np-hero, .p-hero) .pp-preco-h1 { color: color-mix(in srgb, var(--c-creme, #f4ebdd) 82%, transparent); }
+:is(.np-hero, .p-hero) .pp-preco-h1 b { color: var(--c-creme, #f4ebdd); }
+
+/* logo do produto menor: o título é a estrela */
+.np-hero-txt .np-logo { width: clamp(104px, 11vw, 140px); padding: 10px 12px; border-radius: 14px; margin-bottom: var(--esp-3, 12px); }
+.np-hero-txt .np-logo.np-logo-largo { width: clamp(150px, 16vw, 200px); max-width: 70%; padding: 0; margin: 4px 0 var(--esp-3, 12px) -4px; background: none; box-shadow: none; border-radius: 0; }
+
+/* escolher por ramo em 1 clique (sistemas.html) */
+.pp-ramos { margin-top: var(--esp-6, 24px); }
+.pp-ramos p { margin: 0 0 var(--esp-2, 8px); font-size: var(--fs-label, 13px); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: color-mix(in srgb, var(--c-creme, #f4ebdd) 80%, transparent); }
+.pp-ramos ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--esp-2, 8px); }
+.pp-ramos a { display: inline-flex; align-items: center; min-height: var(--alvo-min, 44px); padding: 0 16px; border-radius: var(--r-pill, 999px);
+  border: 1px solid color-mix(in srgb, var(--c-creme, #f4ebdd) 40%, transparent); color: var(--c-creme, #f4ebdd); text-decoration: none; font-size: var(--fs-corpo-p, 15px); font-weight: 500; white-space: nowrap;
+  transition: background var(--dur-rapida, 150ms) ease, border-color var(--dur-rapida, 150ms) ease; }
+.pp-ramos a:hover { background: color-mix(in srgb, var(--c-creme, #f4ebdd) 12%, transparent); border-color: var(--c-creme, #f4ebdd); }
+.pp-ramos a:focus-visible { outline: var(--foco-largura, 3px) solid var(--c-azul-claro, #6cc4ff); outline-offset: var(--foco-offset, 2px); }
+.sis { scroll-margin-top: 96px; }
+
+/* demonstração: fluxo principal em 15 s */
+.pp-fluxo-t { margin: 0 0 var(--esp-3, 12px); font-size: var(--fs-h4, 19px); font-weight: 650; color: var(--ink); line-height: 1.3; }
+.pp-mais-t { margin: var(--esp-8, 32px) 0 var(--esp-2, 8px); font: 600 var(--fs-label, 13px)/1.3 var(--font-texto, inherit); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.pp-mais { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--esp-2, 8px); }
+.pp-mais li { font-size: var(--fs-corpo-p, 15px); line-height: 1.5; color: var(--ink-2); padding-left: 14px; border-left: 2px solid var(--line); }
+.pp-mais li b { color: var(--ink); font-weight: 650; }
+.pp-mais a { display: inline-flex; align-items: center; min-height: var(--alvo-min, 44px); padding: 0 4px; margin: -12px 0; color: var(--accent, #2f4c8a); font-weight: 600; }
+
+/* nota fiscal hoje (Peplo) */
+.pp-nf { margin-top: var(--grade-gap, 16px); padding: var(--card-p, 22px); border-radius: var(--r-card, 6px); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent, #2f4c8a); box-shadow: var(--sombra-1, none); }
+.pp-nf h3 { margin: 0 0 6px; font-size: 18px; font-weight: 650; font-family: var(--font-texto, inherit); color: var(--ink); }
+.pp-nf p { margin: 0 0 10px; color: var(--ink-2); font-size: 15.5px; }
+.pp-nf ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 15.5px; line-height: 1.5; color: var(--ink); max-width: 75ch; }
+.pp-limites li b { font-weight: 650; }
+
+/* cartões dos sistemas: link de texto embaixo, largura toda */
+.sis-botoes .btn-texto { grid-column: 1 / -1; }
+
+/* celular: cartões da mesma lista com a mesma altura */
+@media (max-width: 760px) {
+  .np-tres, .pp-passos, .pp-indice-grade { grid-auto-rows: 1fr; }
+  .pp-inclui li { min-height: 88px; }
+  .pp-ramos ul { gap: 6px; }
+  .pp-ramos a { padding: 0 14px; font-size: 14.5px; }
+}
+
+/* sistemas.html: respiro entre o topo escuro e o índice por ramo */
+.p-hero + .pp-indice { padding-top: var(--esp-sub-conteudo, 40px); }

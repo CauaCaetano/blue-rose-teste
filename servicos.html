@@ -28,25 +28,26 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=67">
+<link rel="stylesheet" href="css/site.css?v=68">
 <script src="js/luxo.js?v=5" defer></script>
-<link rel="stylesheet" href="css/inicio.css?v=31">
+<link rel="stylesheet" href="css/inicio.css?v=32">
 <link rel="stylesheet" href="css/luxo.css?v=22">
 <link rel="stylesheet" href="css/creme.css?v=2"><link rel="stylesheet" href="css/areia.css?v=4">
-<link rel="stylesheet" href="css/tinta.css?v=10">
+<link rel="stylesheet" href="css/tinta.css?v=11">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="js/leads-config.js?v=6" defer></script>
-<script src="js/site.js?v=24" defer></script>
+<script src="js/site.js?v=25" defer></script>
 <script src="js/planos.js?v=4" defer></script>
 <script src="js/paypal-config.js?v=1" defer></script>
 <script src="js/contratar.js?v=13" defer></script>
 <script src="js/videos.js?v=9" defer></script>
 <script src="js/conta.js?v=11" defer></script>
-<link rel="stylesheet" href="css/assistente.css?v=9">
-<script src="js/assistente.js?v=32" defer></script>
-<script src="js/confianca.js?v=1" defer></script>
+<link rel="stylesheet" href="css/assistente.css?v=10">
+<script src="js/assistente.js?v=34" defer></script>
+<script src="js/confianca.js?v=2" defer></script>
 <script src="js/cookies.js?v=4" defer></script>
+<script src="js/inicio.js?v=29" defer></script>
 </head>
 <body class="sv">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -73,11 +74,12 @@
   <section class="hero" aria-labelledby="titulo">
     <div class="wrap hero-grid">
       <div>
-      <p class="eyebrow">Projetos sob medida · pagamento único</p>
+      <p class="eyebrow">Feito do zero · pagamento único</p>
       <h1 id="titulo">Um site que traz cliente e um WhatsApp que <span class="serif">responde sozinho.</span></h1>
-      <p class="sub">Sites a partir de R$ 690, prontos em 2 dias úteis. Automação de WhatsApp a partir de R$ 890, pronta em 3. Pagamento único, com preço fechado por escrito antes de começar.</p>
+      <p class="sv-preco-topo"><span>Sites a partir de <b>R$&nbsp;690</b></span><span class="sv-preco-sep" aria-hidden="true">·</span><span>Automação de WhatsApp a partir de <b>R$&nbsp;890</b></span></p>
+      <p class="sub">Site pronto em 2 dias úteis, automação em 3. Pagamento único, com preço fechado por escrito antes de começar.</p>
       <div class="ctas"><a class="btn btn-primary" href="#monte">Solicitar orçamento <svg class="ico ico-move" aria-hidden="true"><use href="img/icones.svg#i-arrow-right"/></svg></a><a class="btn btn-ghost" href="#precos">Ver os preços</a></div>
-      <div class="sv-outra"><p>Procura um sistema pronto, pago por mês? Isso é a <b>Veltria</b>, a partir de R$ 49/mês.</p><a class="btn btn-ghost" href="sistemas.html">Ver os sistemas Veltria</a></div>
+      <div class="sv-outra"><p><span class="sv-rotulo">Pronto para usar · mensal</span>Procura um sistema pronto, pago por mês? Isso é a <b>Veltria</b>, a partir de R$&nbsp;49/mês.</p><a class="btn btn-ghost" href="sistemas.html">Ver os sistemas Veltria</a></div>
       </div>
       <div class="palco" role="img" aria-label="Sites de exemplo da Blue Rose no computador e no celular">
         <div class="palco-dash"><img src="img/sites/henrique-sato.webp?v=20261108e" width="1200" height="750" alt="" fetchpriority="high"></div>
@@ -140,7 +142,7 @@
       <div class="demo-head">
         <span class="eyebrow">Simulação</span>
         <h2 id="t-demo" class="sec-title">Veja uma automação trabalhando.</h2>
-        <p class="sec-lede">Escolha um cenário e aperte rodar. Cada etapa acende quando acontece, com as mesmas regras dos scripts reais.</p>
+        <p class="sec-lede">Escolha um cenário e clique em Rodar automação. Cada etapa acende quando acontece e, no fim, aparece o resumo que chega ao dono ou ao corretor.</p>
       </div>
       <div class="demo" data-demo>
         <div class="demo-tabs" role="tablist" aria-label="Cenários">
@@ -163,6 +165,7 @@
           </div>
         </div>
       </div>
+      <div class="sv-entrega" data-entrega hidden></div>
       <p class="demo-nota">Simulação no navegador: nenhuma mensagem real é enviada. Na entrega, a automação usa a API oficial do WhatsApp (Meta) ou a ferramenta indicada na proposta, como está nos <a class="link" href="termos.html#whatsapp">Termos</a>. O script Python original roda no <a class="link" href="laboratorio.html">Laboratório</a>.</p>
     </div>
   </section>
@@ -173,7 +176,7 @@
         <span class="eyebrow">Sites de demonstração</span>
         <h2 id="t-rolo" class="sec-title">Sites que já fizemos para mostrar o trabalho.</h2>
         <p class="sec-lede">Com agenda, calculadora de orçamento e botão de WhatsApp. Abra e navegue como um cliente faria.</p>
-        <p class="sv-aviso"><b>São demonstrações.</b> As marcas, as pessoas, os depoimentos e os preços dentro desses sites são fictícios; nenhum deles é cliente da Blue Rose.</p>
+        <p class="sv-aviso">Sites de demonstração: marcas, pessoas, depoimentos e preços dentro deles são fictícios e nenhum é cliente da Blue Rose.</p>
       </div>
       <a class="btn btn-ghost" href="exemplos.html">Ver todos os exemplos<svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-arrow-right"/></svg></a>
     </div>
@@ -281,7 +284,7 @@
         <h3>Seu site totalmente personalizado</h3>
         <p class="preco2-d">Conte o que você precisa e receba a proposta por escrito, com o valor e o prazo fechados antes de começar.</p>
         <ul><li><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-check"/></svg><span>Feito do zero para o seu negócio</span></li><li><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-check"/></svg><span>Pronto para aparecer no Google e no Bing</span></li><li><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-check"/></svg><span>Botão do WhatsApp e pedido de avaliação no Google</span></li><li><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-check"/></svg><span>Testado no computador e no celular</span></li><li><svg class="ico" aria-hidden="true"><use href="img/icones.svg#i-check"/></svg><span>Política de privacidade e aviso de cookies</span></li></ul>
-        <div class="preco2-acao"><a class="btn btn-primary" href="#contato" data-plano="Olá! Quero um orçamento de site totalmente personalizado.">Peça o orçamento</a></div>
+        <div class="preco2-acao"><a class="btn btn-outline" href="#contato" data-plano="Olá! Quero um orçamento de site totalmente personalizado.">Peça o orçamento</a></div>
       </article>
       <div class="precos2-extras"><div><strong>Plano de cuidado (opcional)</strong><b>R$ 79/mês</b><span>Hospedagem, cópias de segurança, até 1 hora de ajustes por mês e relatório de visitas.</span></div><div><strong>Ajuste avulso</strong><b>R$ 70/hora</b><span>Para mudanças depois das rodadas incluídas.</span></div><div><strong>Contratou pelo site?</strong><b>Começa em 1 dia útil</b><span>Você recebe um e-mail para levantarmos o que precisa. Tudo o que for além do plano é orçado antes.</span></div></div>
       <p class="planos-nota">Sites e automações no pagamento único: entrada de 50% (aqui no site ou depois da proposta) e 50% na entrega. PIX, cartão em até 6x ou boleto. O que foi construído é seu.</p>

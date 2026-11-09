@@ -21,9 +21,9 @@
   window.__assistenteBR = true;
 
   var CFG = {
-    avatar: 'img/assistente-avatar.webp?v=1',
+    avatar: 'img/assistente-avatar.webp?v=2',
     folhas: ['expressoes', 'fala', 'pensando', 'ideia', 'joinha', 'gesto'],   // img/assistente/<nome>.webp
-    versaoFolhas: 1,
+    versaoFolhas: 2,
     dados: 'js/assistente-dados.json?v=18',
   };
   var reduzMov = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -141,6 +141,8 @@
     this.painel = el('div', { classe: 'va-painel', id: 'va-painel', role: 'dialog', 'aria-modal': 'false', 'aria-labelledby': 'va-titulo', hidden: '' }, [cab, this.lista, rodape]);
     raiz.appendChild(this.painel); raiz.appendChild(this.balao); raiz.appendChild(this.botao); raiz.appendChild(this.status);
     document.body.appendChild(raiz);
+    // reserva o espaço da pílula no fim da página (tinta.css: html.va-ativo): rolando até o fundo, ela não cobre nada
+    document.documentElement.classList.add('va-ativo');
 
     // eventos
     this.botao.addEventListener('click', function () { self.alternar(); });
@@ -514,7 +516,9 @@
     setTimeout(agendar, 400);
     setInterval(agendar, 2000);     // conteúdo que aparece com animação ou carrega depois
   };
-  VirtualAssistant.prototype.cobre = function (r) {
+  var temTexto = function (e) { for (var n = e.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.nodeValue.trim()) return true; return false; };
+  // qualquerTexto: para o balão, que é maior, também não pode ficar por cima de texto
+  VirtualAssistant.prototype.cobre = function (r, qualquerTexto) {
     if (!r || !r.width || !r.height) return false;
     // grade de pontos que vai até perto das bordas: pega também o botão que só encosta num canto (integração 08/11)
     var xs = [r.left + 2, r.left + r.width * .25, r.left + r.width * .5, r.left + r.width * .75, r.right - 2],
@@ -530,7 +534,7 @@
         var e = pilha[k];
         if (raiz.contains(e)) continue;
         if (e === document.body || e === document.documentElement) break;
-        if (e.closest && e.closest(INTERATIVO)) { alvo = e; break; }
+        if ((e.closest && e.closest(INTERATIVO)) || (qualquerTexto && temTexto(e))) { alvo = e; break; }
         var cs = getComputedStyle(e);
         if (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none') break;   // fundo opaco: o que vem embaixo não aparece
       }
@@ -545,9 +549,10 @@
     // mede onde a chamada fica no lugar normal (desconta o deslocamento de quando está recuada: fica só uma borda de 14 px na margem)
     var r = this.botao.getBoundingClientRect();
     if (this.raiz.classList.contains('va-recua')) { var dx = r.width + 2; r = { left: r.left - dx, right: r.right - dx, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; }
-    var cobre = this.cobre(r) || (!this.balao.hidden && this.cobre(this.balao.getBoundingClientRect()));
+    var cobre = this.cobre(r);
     this.raiz.classList.toggle('va-recua', cobre);
-    if (cobre && !this.balao.hidden) this.esconderBalao();
+    if (!this.balao.hidden && this.cobre(this.balao.getBoundingClientRect(), true)) this.esconderBalao();
+    if (cobre && !this.balao.hidden) this.esconderBalao();   // recuada, a fala também some
   };
 
   function iniciar() {
