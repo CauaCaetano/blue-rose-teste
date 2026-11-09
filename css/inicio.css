@@ -18,7 +18,7 @@
    Home
    ============================================================= */
 .hn {
-  --hn-tinta: #101b36; --hn-tinta-2: #22345a; --hn-papel: #f4ebdd; --hn-folha: #fbf6ee; --hn-rosa: #2f4c8a;
+  --hn-tinta: #101b36; --hn-tinta-2: #22345a; --hn-papel: #f4ebdd; --hn-folha: #fbf6ee; --hn-rosa: #101b36;
   --hn-grafite: #4a4f5c; --hn-terracota: #9a4a31; --hn-linha: #d9cbb3; --hn-salvia: #3e6b4f;
   --hn-sombra: 0 1px 2px rgba(16, 27, 54, .06), 0 12px 32px -20px rgba(16, 27, 54, .25);
   --hn-r: 6px;
@@ -81,7 +81,7 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-porta .hn-acoes { margin-top: auto; padding-top: 24px; }
 /* topo marinho: notebook com telas reais em movimento; o play leva a um site interativo de exemplo */
 .hn-topo::before, .hn-topo::after { content: none; }
-.hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f4ebdd; --topo-apoio: #c5cddc; --topo-azul: #6cc4ff; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
+.hn main > section.hn-topo { --topo: #101b36; --topo-texto: #f4ebdd; --topo-apoio: #c5cddc; --topo-azul: #d8c8ae; z-index: 1; overflow: hidden; padding: 40px 0 72px; background: var(--topo); color: var(--topo-texto); }
 .hn-topo .wrap { display: grid; grid-template-columns: minmax(0, 1fr) min(40vw, 600px); column-gap: 40px; }
 .hn-topo .wrap > * { grid-column: 1; }
 .hn-topo .eyebrow { justify-self: start; }
@@ -192,7 +192,7 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-tabela tr:last-child th, .hn-tabela tr:last-child td { border-bottom: 1px solid var(--hn-linha); }
 .hn-tabela th { font-weight: 500; color: var(--hn-tinta); padding-right: 16px; }
 .hn-tabela td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--hn-tinta); font-weight: 600; }
-.hn-medida td a { color: #2f4c8a; text-decoration: underline; text-underline-offset: 3px; white-space: normal; }
+.hn-medida td a { color: #101b36; text-decoration: underline; text-underline-offset: 3px; white-space: normal; }
 .hn-medida td a:hover { color: var(--hn-tinta); }
 .hn-preco-col .hn-lista { margin-top: 20px; }
 .hn-preco-col .hn-acoes { margin-top: auto; padding-top: 28px; }
@@ -283,9 +283,9 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .sv .sv-faq-lista details { border-bottom: 1px solid rgba(16, 27, 54, .2); }
 .sv .sv-faq-lista summary { position: relative; display: block; min-height: 44px; padding: 18px 44px 18px 0; cursor: pointer; list-style: none; font: 500 clamp(22px, 2vw, 26px)/1.25 'Cormorant Garamond', Georgia, serif; color: #101b36; }
 .sv .sv-faq-lista summary::-webkit-details-marker { display: none; }
-.sv .sv-faq-lista summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 400 26px/1 var(--font, 'Geist', system-ui, sans-serif); color: #2f4c8a; }
+.sv .sv-faq-lista summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 400 26px/1 var(--font, 'Geist', system-ui, sans-serif); color: #101b36; }
 .sv .sv-faq-lista details[open] summary::after { content: "\2212"; }
-.sv .sv-faq-lista summary:focus-visible { outline: 2px solid #2f4c8a; outline-offset: 2px; }
+.sv .sv-faq-lista summary:focus-visible { outline: 2px solid #101b36; outline-offset: 2px; }
 .sv .sv-faq-lista p { margin: 0 0 20px; max-width: 68ch; font-size: 16px; line-height: 1.6; color: #464c58; }
 .sv .sv-faq-pe { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
 @media (max-width: 900px) {
@@ -304,10 +304,10 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 .hn-preco-topo, .sv .sv-preco-topo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: var(--esp-titulo-sub, 18px) 0 0; font: 500 var(--fs-corpo-g, 18px)/1.4 var(--font-texto, 'Geist', system-ui, sans-serif); }
 .hn-preco-topo { color: #c5cddc; }
 .hn-preco-topo b, .sv .sv-preco-topo b { font-weight: 700; color: #f4ebdd; white-space: nowrap; }
-.hn-preco-sep, .sv .sv-preco-sep { color: #6cc4ff; }
+.hn-preco-sep, .sv .sv-preco-sep { color: #d8c8ae; }
 .hn .hn-topo .hn-sub { margin-top: 14px; }
 /* rótulo forte: pronto x feito do zero, igual nas duas páginas */
-.hn .hn-topo .hn-rotulo, .sv .sv-rotulo { display: inline-flex; align-items: center; align-self: flex-start; min-height: 32px; padding: 4px 12px; border: 1px solid rgba(108, 196, 255, .55); border-radius: var(--r-pill, 999px); font: 600 var(--fs-label, 13px)/1.2 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #6cc4ff; background: rgba(108, 196, 255, .08); }
+.hn .hn-topo .hn-rotulo, .sv .sv-rotulo { display: inline-flex; align-items: center; align-self: flex-start; min-height: 32px; padding: 4px 12px; border: 1px solid rgba(216, 200, 174, .55); border-radius: var(--r-pill, 999px); font: 600 var(--fs-label, 13px)/1.2 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #d8c8ae; background: rgba(216, 200, 174, .08); }
 .sv .sv-rotulo { display: flex; width: max-content; max-width: 100%; margin: 0 0 10px; }
 .sv .sv-preco-topo { color: #c5cddc; }
 .sv .hero .sub { margin-top: 14px; }
@@ -325,10 +325,10 @@ html.js .hn .reveal.visto { opacity: 1; transform: none; }
 /* servicos: simulação. Estado vazio que diz o que fazer; resultado final em destaque */
 .sv .chat-vazio[data-p2] { display: grid; gap: 6px; max-width: 34ch; color: var(--ink-3, #625a4c); font-size: var(--fs-legenda, 14px); line-height: 1.5; }
 .sv .chat-vazio[data-p2] b { color: #101b36; font-size: var(--fs-corpo, 16px); font-weight: 600; }
-.sv .msg.resultado.sv-final { border: 2px solid #2f4c8a; background: #fff; }
-.sv .sv-entrega { margin-top: var(--esp-6, 24px); padding: var(--card-p, 24px); border: 1px solid rgba(16, 27, 54, .18); border-left: 4px solid #2f4c8a; border-radius: var(--r-card, 6px); background: #fbf6ee; box-shadow: var(--sombra-2, 0 12px 32px -20px rgba(16, 27, 54, .3)); color: #101b36; }
+.sv .msg.resultado.sv-final { border: 2px solid #101b36; background: #fff; }
+.sv .sv-entrega { margin-top: var(--esp-6, 24px); padding: var(--card-p, 24px); border: 1px solid rgba(16, 27, 54, .18); border-left: 4px solid #101b36; border-radius: var(--r-card, 6px); background: #fbf6ee; box-shadow: var(--sombra-2, 0 12px 32px -20px rgba(16, 27, 54, .3)); color: #101b36; }
 .sv .sv-entrega[hidden] { display: none; }
-.sv .sv-entrega-tag { margin: 0; font: 600 var(--fs-label, 13px)/1.3 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #2f4c8a; }
+.sv .sv-entrega-tag { margin: 0; font: 600 var(--fs-label, 13px)/1.3 var(--font-texto, 'Geist', system-ui, sans-serif); letter-spacing: .06em; text-transform: uppercase; color: #101b36; }
 .sv .sv-entrega h3 { margin: 6px 0 0; font: 500 var(--fs-h3, 26px)/1.15 'Cormorant Garamond', Georgia, serif; color: #101b36; }
 .sv .sv-entrega dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px 24px; margin: 16px 0 0; }
 .sv .sv-entrega dl > div { padding-top: 10px; border-top: 1px solid rgba(16, 27, 54, .14); }
@@ -342,3 +342,17 @@ body.sv main .hero .eyebrow { font-size: var(--fs-legenda, 14px); letter-spacing
 body.sv .demo-tabs [role="tab"], body.sv .sites-filtro button { min-height: var(--alvo-min, 44px); }
 body.sv .contato-alt a, body.hn .contato-alt a { min-height: var(--alvo-min, 44px); display: inline-flex; align-items: center; }
 .sv .sv-preco-topo { flex-direction: column; gap: 2px; } .sv .sv-preco-sep { display: none; }
+
+/* =============================================================
+   Rodada 4 (P2, 09/11): destino explícito do "Ver o que já construímos" (Vitrine)
+   e ritmo do topo de Serviços: 48 px depois da linha de preço, 64 px antes dos botões.
+   ============================================================= */
+.hn-play-dest { padding: 2px 10px; border-radius: 4px; background: rgba(16, 27, 54, .82); color: #d8c8ae; font-size: var(--fs-aux, 12px); font-weight: 500; letter-spacing: .02em; }
+.sv .hero .sv-preco-topo + .sub { margin-top: var(--ritmo-m, 48px); }
+.sv .hero .sub + .ctas { margin-top: var(--ritmo-g, 64px); }
+@media (max-width: 480px) { .hn-play-bola { width: 52px; height: 52px; } .hn-play { gap: 6px; } }
+@media (max-width: 760px) {
+  .sv .hero .sv-preco-topo + .sub { margin-top: var(--ritmo-p, 32px); }
+  .sv .hero .sub + .ctas { margin-top: var(--ritmo-m, 48px); }
+  .hn-play-dest { font-size: 11px; padding: 1px 8px; }
+}

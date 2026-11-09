@@ -24,8 +24,8 @@
 .nb::before { display: none !important; }
 
 /* um azul só (04/11/2026): marinho nas faixas, ultramar sobre claro e azul-claro sobre marinho */
-:root { --accent: #2f4c8a; --accent-solid: #2f4c8a; --accent-soft: rgba(47, 76, 138, .1); }
-::selection { background: #2f4c8a; color: #fff; }
+:root { --accent: #101b36; --accent-solid: #101b36; --accent-soft: rgba(16, 27, 54, .06); }   /* rodada 4: azul só na ação principal (--acao, tokens.css) */
+::selection { background: rgba(216, 200, 174, .85); color: #101b36; }
 .conta-fundo { background: none !important; }
 .conta-avatar { background: #101b36 !important; }
 .palco-dash { background: #101b36 !important; }
@@ -315,3 +315,67 @@ html.va-ativo main:not(:has(~ footer)) { padding-bottom: var(--va-reserva, 88px)
 .grupo { min-width: 0; }
 .grupo ul { grid-template-columns: minmax(0, 1fr); }
 .grupo li { overflow-wrap: anywhere; }
+
+/* =============================================================
+   RODADA 4 · P1 global (09/11/2026)
+   1) azul exclusivo da ação principal; links, selos e ações secundárias em neutro
+   2) realce temporário (~2 s) do cartão/seção aberto por um chip (site.js: BlueRose.destacar)
+   3) miniaturas 16:10 e espaço só 32/48/64 (utilitários .esp-p/.esp-m/.esp-g, .cartao-igual)
+   ============================================================= */
+
+/* ---------- 1. azul só na ação principal ---------- */
+.btn-primary { --btn-bg: var(--acao); --btn-fg: var(--acao-texto); --btn-bd: var(--acao); --btn-bg-h: var(--acao-h); --btn-bd-h: var(--acao-h); }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-primary { --btn-bg: var(--acao-escuro); --btn-fg: var(--acao-escuro-texto); --btn-bd: var(--acao-escuro); --btn-bg-h: var(--acao-escuro-h); --btn-bd-h: var(--acao-escuro-h); }
+/* o 2º primário do mesmo grupo continua virando contorno (regra da rodada 3 repetida depois desta) */
+.btn-primary ~ .btn-primary:not(.btn-manter) { --btn-bg: transparent; --btn-fg: var(--c-marinho); --btn-bd: var(--c-taupe-escuro); --btn-bg-h: rgba(216, 200, 174, .35); --btn-bd-h: var(--c-marinho); }
+:is(.nav, .lx-hero, .p-hero, .np-hero, .np-trilha, main > .hero, .hero, .cf-hero, .rodape-site, .sobre-escuro, [data-fundo="escuro"], .hn-topo, .aq-topo, .aq-fim) .btn-primary ~ .btn-primary:not(.btn-manter) { --btn-bg: transparent; --btn-fg: var(--c-creme); --btn-bd: rgba(216, 200, 174, .55); --btn-bg-h: rgba(216, 200, 174, .12); --btn-bd-h: var(--c-areia); }
+/* aviso de cookies: Recusar e Aceitar com o mesmo peso, em creme (não é a ação principal do site) */
+.aviso-cookies .btn-primary, .aviso-cookies .btn-primary ~ .btn-primary { --btn-bg: var(--c-creme); --btn-fg: var(--c-marinho); --btn-bd: var(--c-creme); --btn-bg-h: var(--c-creme-2); --btn-bd-h: var(--c-creme-2); }
+.aviso-cookies a { color: var(--neutro-link-escuro); }
+/* ênfase em itálico dos títulos: taupe escuro no claro, areia no marinho (sem azul) */
+.serif, h1 em, h2 em, .sec-title em, .serif .lx-p > span, h1 em .lx-p > span, h2 em .lx-p > span, .lx-numeros b, .fatos b, .hero h1 em { color: var(--c-taupe-escuro) !important; }
+.nav .serif,
+:is(.lx-hero, .p-hero, .np-hero, main > .hero, .hero, .cf-hero, .rodape-site, .sobre-escuro, [data-fundo="escuro"])
+  :is(.serif, h1 em, h2 em, .sec-title em, .serif .lx-p > span, h1 em .lx-p > span, h2 em .lx-p > span, .lx-numeros b, .fatos b) { color: var(--c-areia) !important; }
+/* numeração no marinho: areia */
+:is(.np-hero, .lx-hero, .p-hero, .cf-hero, .sobre-escuro) :is(.np-num, .t-num) { color: var(--c-areia) !important; }
+/* links de texto dentro do conteúdo: neutros e sublinhados */
+main :is(p, li, dd, td, figcaption, small) a:not(.btn):not([class]):not(nav a):not([role="tab"]) { color: var(--neutro-link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+main :is(p, li, dd, td, figcaption, small) a:not(.btn):not([class]):not(nav a):not([role="tab"]):hover { text-decoration-thickness: 2px; }
+:is(.lx-hero, .p-hero, .np-hero, main > .hero, .hero, .cf-hero, .sobre-escuro, [data-fundo="escuro"]) :is(p, li, dd, small) a:not(.btn):not([class]):not(nav a):not([role="tab"]) { color: var(--neutro-link-escuro); }
+/* selos e etiquetas: neutros (sem a cor do produto) */
+.sis-foto span { background: var(--c-marinho) !important; color: var(--c-creme) !important; }
+.sis-foto { box-shadow: var(--sombra-card) !important; border: var(--borda-card) !important; }
+/* chips (atalhos de ramo e de passo): neutros */
+.cf-atalhos a, .pp-ramos a { color: var(--c-marinho); }
+:is(.lx-hero, .p-hero, .np-hero, main > .hero, .hero, .cf-hero) :is(.cf-atalhos a, .pp-ramos a) { color: var(--c-creme); }
+
+/* ---------- 2. realce temporário (~2 s) ----------
+   Âncora com data-destaque (ou dentro de [data-destaque-chips], .pp-ramos, .cf-atalhos) rola até o alvo e o realça.
+   Por código: BlueRose.destacar(elemento). Sem azul: contorno marinho + anel areia que some. */
+.is-realce, .is-realce[tabindex="-1"]:focus { outline: 2px solid var(--c-marinho); outline-offset: 6px; animation: br-realce var(--realce-dur) var(--ease-saida) both; }
+:is(.sobre-escuro, [data-fundo="escuro"], .lx-hero, .p-hero, .np-hero, .cf-hero).is-realce, :is(.sobre-escuro, [data-fundo="escuro"]) .is-realce { outline-color: var(--c-creme); }
+@keyframes br-realce {
+  0% { box-shadow: 0 0 0 0 var(--realce-anel); outline-color: var(--c-marinho); }
+  25% { box-shadow: 0 0 0 12px var(--realce-anel); }
+  80% { box-shadow: 0 0 0 12px transparent; outline-color: var(--c-marinho); }
+  100% { box-shadow: 0 0 0 12px transparent; outline-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .is-realce { animation: none; box-shadow: 0 0 0 6px var(--realce-anel); } }
+/* o alvo de uma âncora não fica escondido atrás do menu fixo */
+:where(main [id]) { scroll-margin-top: 96px; }
+
+/* ---------- 3. miniaturas 16:10 e ritmo 32/48/64 ---------- */
+.sis-foto, .thumb-16x10 { aspect-ratio: var(--thumb-proporcao); overflow: hidden; }
+.sis-foto > img, .thumb-16x10 > img, .thumb-16x10 > video { width: 100%; height: 100% !important; object-fit: cover; object-position: top center; }
+.esp-p { margin-top: var(--ritmo-p) !important; }
+.esp-m { margin-top: var(--ritmo-m) !important; }
+.esp-g { margin-top: var(--ritmo-g) !important; }
+/* cartões lado a lado com a mesma altura e padding 32 (uso: .cartao-igual em cada cartão da grade) */
+.cartao-igual { height: 100%; display: flex; flex-direction: column; padding: var(--ritmo-p); }
+.cartao-igual > :last-child:is(.btn, .ctas, .t-acoes, a) { margin-top: auto; }
+/* selos e etiquetas (rodada 4): neutros, sem a cor de cada produto; mesma letra em todas as páginas */
+.sis-tag, .prod-tag, .preco2-tag { background: rgba(216, 200, 174, .45) !important; color: var(--c-marinho) !important; border: 1px solid rgba(110, 96, 75, .28); font-family: var(--font-texto) !important; font-weight: 600; font-size: var(--fs-aux) !important; letter-spacing: .08em; }
+:is(.lx-hero, .p-hero, .np-hero, .cf-hero, .sobre-escuro, [data-fundo="escuro"]) :is(.sis-tag, .prod-tag, .preco2-tag) { background: rgba(216, 200, 174, .14) !important; color: var(--c-creme) !important; border-color: rgba(216, 200, 174, .35); }
+/* pedido de P2 (rodada 4): .btn-texto como 1º item de uma fila alinha o texto com a coluna (alinhamento óptico) */
+:is(.ctas, .t-acoes) > .btn-texto:first-child { margin-left: calc(-1 * var(--esp-3)); }

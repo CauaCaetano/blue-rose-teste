@@ -549,7 +549,9 @@
     // mede onde a chamada fica no lugar normal (desconta o deslocamento de quando está recuada: fica só uma borda de 14 px na margem)
     var r = this.botao.getBoundingClientRect();
     if (this.raiz.classList.contains('va-recua')) { var dx = r.width + 2; r = { left: r.left - dx, right: r.right - dx, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; }
-    var cobre = this.cobre(r);
+    // em qualquer largura (integração da rodada 4) não pode ficar sobre texto: no celular cobria o fim das linhas dos passos e no tablet/computador o fim de listas
+    var celular = true;
+    var cobre = this.cobre(r, celular);
     this.raiz.classList.toggle('va-recua', cobre);
     if (!this.balao.hidden && this.cobre(this.balao.getBoundingClientRect(), true)) this.esconderBalao();
     if (cobre && !this.balao.hidden) this.esconderBalao();   // recuada, a fala também some

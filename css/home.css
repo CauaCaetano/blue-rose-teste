@@ -1,6 +1,6 @@
 /* Resto da home: tudo em creme com texto marinho (pedido do dono em 04/11); cada seção muda só a composição.
    Carregada depois de tinta.css. Marinho #101b36, ultramar #2f4c8a, azul-claro #6cc4ff, creme #f4ebdd. */
-.hn { --q-marinho: #101b36; --q-creme: #f4ebdd; --q-apoio: #d9d4c8; --q-claro: #6cc4ff; --q-ultramar: #2f4c8a; --q-papel: #fbf6ee; --q-texto: #464c58; }
+.hn { --q-marinho: #101b36; --q-creme: #f4ebdd; --q-apoio: #d9d4c8; --q-claro: #d8c8ae; --q-ultramar: #101b36; --q-papel: #fbf6ee; --q-texto: #464c58; }
 .hn main { background: var(--q-creme); }
 .hn main > section { padding: clamp(64px, 8vw, 112px) 0; border-top: 0; }
 .hn main > section.hn-topo { padding: 40px 0 72px; }
@@ -233,3 +233,9 @@
 .hq-site img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center top; background: #fff; }
 .hq-medida-pe .hq-aviso { padding: 2px 0 2px 12px; border: 0; border-left: 2px solid rgba(16, 27, 54, .28); border-radius: 0; background: none; font-size: 14px; line-height: 1.5; color: var(--q-texto); }
 .hn .hn-contato .contato-alt a { min-height: 44px; }
+
+/* Rodada 4 (P2, 09/11): 32 px entre o texto e os botões das demonstrações e 48 px depois deles;
+   miniaturas dos cartões sempre em 16:10 (telas reais das versões Essencial) */
+.hq-testar .hq-demos { margin-top: var(--ritmo-p, 32px); }
+.hq-testar .hq-nota-demo { margin-top: var(--ritmo-m, 48px); }
+.hq-p > img, .hq-o > img { aspect-ratio: var(--thumb-proporcao, 16 / 10); object-fit: cover; object-position: left top; }

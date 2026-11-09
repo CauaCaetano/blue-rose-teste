@@ -88,7 +88,19 @@
   --sombra-card: 0 1px 2px rgba(16, 27, 54, 0.07), 0 8px 24px -12px rgba(16, 27, 54, 0.28);
   --sombra-card-hover: 0 2px 4px rgba(16, 27, 54, 0.08), 0 16px 36px -14px rgba(16, 27, 54, 0.36);
   /* um destaque só: números, ícones de lista e realces usam esta cor (sem a cor de cada produto) */
-  --accent-unico: var(--c-ultramar);
+  --accent-unico: var(--c-marinho);                     /* rodada 4: numeração, ícones e realces em neutro (azul só na ação principal) */
+  /* azul exclusivo da AÇÃO PRINCIPAL (rodada 4): botão .btn-primary e o assistente. Links, selos e ações secundárias em neutro. */
+  --acao: var(--c-ultramar);                             /* fundo do primário no claro (creme em cima: 7,0:1) */
+  --acao-h: #263f74;
+  --acao-texto: var(--c-creme-2);
+  --acao-escuro: #3d63b8;                                /* fundo do primário sobre marinho (branco em cima: 5,9:1) */
+  --acao-escuro-h: #4a70c6;
+  --acao-escuro-texto: #ffffff;
+  --neutro-link: var(--c-marinho);                       /* links de texto e selos no claro */
+  --neutro-link-escuro: var(--c-creme);                  /* idem sobre marinho */
+  /* realce temporário de um cartão/seção aberto por um chip ou âncora (site.js: BlueRose.destacar) */
+  --realce-dur: 2s;
+  --realce-anel: rgba(181, 165, 141, .55);
   /* miniaturas */
   --thumb-proporcao: 16 / 10;
 
