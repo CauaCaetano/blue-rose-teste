@@ -95,7 +95,7 @@ function iniciar() {
   }, undefined, () => semTresD());
 
   // poeira de luz em volta
-  const N = innerWidth < 1024 ? 700 : 1500;
+  const N = innerWidth < 820 ? 700 : 1500;
   const pg = new THREE.BufferGeometry(), pp = new Float32Array(N * 3), pc = new Float32Array(N * 3);
   const verde = new THREE.Color(0.2, 1, 0.45), roxo = new THREE.Color(0.55, 0.25, 1), tmp = new THREE.Color();
   for (let i = 0; i < N; i++) {
@@ -184,7 +184,7 @@ function iniciar() {
 
   function tamanho() {
     const w = innerWidth, h = innerHeight;
-    celular = w < 1024;
+    celular = w < 820;
     renderer.setPixelRatio(pixelRatio(1.6));
     renderer.setSize(w, h, false);
     composer.setPixelRatio(renderer.getPixelRatio());
