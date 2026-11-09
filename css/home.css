@@ -430,3 +430,7 @@
   .hv-quadro { aspect-ratio: auto; overflow: visible; background: none; border-radius: 0; width: 100%; width: min(100%, calc(80vh * 9 / 16)); width: min(100%, calc(80svh * 9 / 16)); margin-inline: auto; }
   .hv-video { aspect-ratio: 9 / 16; height: auto; border-radius: 14px; background: #101b36; }
 }
+/* 09/11: 6 demonstrações em grade 3x2 alinhada (celular 2 colunas) */
+.hq-demos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 560px; }
+.hq-demos .btn { width: 100%; justify-content: center; }
+@media (max-width: 640px) { .hq-demos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
