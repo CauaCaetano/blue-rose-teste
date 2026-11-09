@@ -37,7 +37,7 @@
 
   function achar(id) { for (var i = 0; i < IDIOMAS.length; i++) if (IDIOMAS[i].id === id) return IDIOMAS[i]; return null; }
   // pacote suspenso no site oficial (31/10, decisão do dono): só o site de teste e o local mostram outros idiomas
-  var SUSPENSO = !/(^|\.)github\.io$|^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+  var SUSPENSO = true; // 08/11: pacote de idiomas desligado também no teste, a pedido do dono (para religar: voltar à checagem de github.io/localhost)
   var pedido = SUSPENSO ? null : params.get('lang');
   var salvo = null;
   try { if (SUSPENSO) localStorage.removeItem('br-idioma'); else salvo = localStorage.getItem('br-idioma'); } catch (e) {}
