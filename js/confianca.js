@@ -10,7 +10,8 @@
       brEstado.limpar(el)                                 tira o estado
       brEstado.rodar(el, fn, { texto, erro })             carregando enquanto a promessa de fn() corre; erro com nova tentativa
       brEstado.iframe(frame, { tempo })                   o mesmo que data-estado, para iframes criados por script
-   + <script src="js/confianca.js?v=2" defer></script> (ajuste o caminho em subpastas).
+   3) Índice com a seção atual destacada: <nav data-indice> (seguranca.html).
+   + <script src="js/confianca.js?v=3" defer></script> (ajuste o caminho em subpastas).
    O CSS (css/pg-seguranca.css, classes .cft-* e .br-estado*) é carregado sozinho se a página não tiver.
    Os textos dos blocos foram conferidos no código (nexo-pagamentos, camada.js, conta-pagina.js) e no Supabase em 08/11/2026.
    Não acrescente afirmação sem conferir: veja relatorios/site-teste-avaliacao/p5-blocos.md. */
@@ -18,7 +19,8 @@
   var eu = document.currentScript && document.currentScript.src;
   var raiz = eu ? new URL('../', eu).href : '/';
   var pg = raiz + 'seguranca.html';
-  var VERSAO_CSS = 2;
+  var VERSAO_CSS = 3;
+  var SUPORTE = raiz + '#contato'; // formulário de contato da home (atendimento de segunda a sexta, das 8h às 18h)
 
   var B = {
     teste: {
@@ -32,13 +34,13 @@
       a: '#pagamentos', m: 'Detalhes do pagamento'
     },
     cancelamento: {
-      t: 'Sem fidelidade',
+      t: 'Cancele quando quiser',
       l: ['Cancele em Minha conta, sem multa.', 'O acesso continua até o fim do período já pago.', 'Os dados ficam guardados por 90 dias e depois são apagados.'],
       a: '#cancelamento', m: 'Como cancelar'
     },
     exportacao: {
       t: 'Os dados são seus',
-      l: ['Exportar tudo para o Excel (.xlsx), de dentro do sistema.', 'Uma aba para cada lista: clientes, agenda, lançamentos e o resto.', 'Importa planilhas do Excel ou CSV para começar.'],
+      l: ['Os dados saem em planilha, de dentro do sistema.', 'Abre no Excel, no Google Planilhas ou no LibreOffice.', 'Dá para começar importando uma planilha ou o extrato do banco.'],
       a: '#exportacao', m: 'Como exportar'
     },
     'quem-somos': {
@@ -114,7 +116,9 @@
       '<p class="br-estado-t">' + esc(o.titulo || 'Não deu certo agora.') + '</p>' +
       '<p>' + esc(o.texto || 'Pode ser a conexão. Tente de novo em instantes.') + '</p>' +
       (o.tentar ? '<button type="button" class="br-estado-bt">' + esc(o.botao || 'Tentar de novo') + '</button>' : '') +
-      (o.link && o.link.href ? '<a class="br-estado-link" href="' + esc(o.link.href) + '"' + (o.link.novaAba ? ' target="_blank" rel="noopener"' : '') + '>' + esc(o.link.texto || 'Abrir em outra aba') + '</a>' : '');
+      ((o.link && o.link.href) || o.suporte !== false ? '<p class="br-estado-links">' +
+        (o.link && o.link.href ? '<a class="br-estado-link" href="' + esc(o.link.href) + '"' + (o.link.novaAba ? ' target="_blank" rel="noopener"' : '') + '>' + esc(o.link.texto || 'Abrir em outra aba') + '</a>' : '') +
+        (o.suporte !== false ? '<a class="br-estado-link" href="' + esc(o.suporte || SUPORTE) + '" target="_top">Falar com o suporte</a>' : '') + '</p>' : '');
     alvo.removeAttribute('aria-busy');
     var bt = c.querySelector('.br-estado-bt');
     if (bt) bt.addEventListener('click', function () { o.tentar(); });
@@ -201,7 +205,44 @@
     if (frame.getAttribute('src') && !pronto()) comecar();
   }
 
+  /* ---------------------------------------------------------------- índice da página com a seção atual destacada
+     <nav data-indice> com links para #ids: o link da seção que está na tela ganha aria-current="location".
+     No celular o índice rola de lado: o link atual é trazido para dentro da faixa (só a faixa rola, nunca a página). */
+  function indice(nav) {
+    var links = [].slice.call(nav.querySelectorAll('a[href^="#"]'));
+    var secoes = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); });
+    if (!links.length || secoes.some(function (s) { return !s; })) return;
+    var faixa = nav.querySelector('.wrap') || nav, atual = -2;
+    function marcar(i) {
+      if (i === atual) return;
+      atual = i;
+      links.forEach(function (a, k) { if (k === i) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+      if (i < 0 || faixa.scrollWidth <= faixa.clientWidth + 1) return;
+      var a = links[i], esq = a.offsetLeft - faixa.offsetLeft, alvo = Math.max(0, esq - 16);
+      if (esq < faixa.scrollLeft || esq + a.offsetWidth > faixa.scrollLeft + faixa.clientWidth - 32) {
+        var suave = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        try { faixa.scrollTo({ left: alvo, behavior: suave ? 'smooth' : 'auto' }); } catch (e) { faixa.scrollLeft = alvo; }
+      }
+    }
+    var pendente = false;
+    function medir() {
+      pendente = false;
+      var linha = nav.getBoundingClientRect().bottom + 24, i = -1;
+      secoes.forEach(function (s, k) { if (s.getBoundingClientRect().top <= linha) i = k; });
+      // no fim da página a última seção (curta) também fica marcada
+      if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) {
+        for (var k = secoes.length - 1; k >= 0; k--) { if (secoes[k].getBoundingClientRect().top < innerHeight) { i = k; break; } }
+      }
+      marcar(i);
+    }
+    function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(medir); } }
+    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('resize', pedir);
+    medir();
+  }
+
   function iniciar() {
+    [].forEach.call(document.querySelectorAll('nav[data-indice]'), indice);
     var els = document.querySelectorAll('[data-confianca]');
     if (els.length) { garantirCss(); [].forEach.call(els, montar); }
     [].forEach.call(document.querySelectorAll('iframe[data-estado]'), function (f) { iframe(f); });

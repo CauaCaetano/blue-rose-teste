@@ -18,7 +18,7 @@
   corpo.insertBefore(fundo, corpo.firstChild); corpo.insertBefore(onda, fundo.nextSibling);
 
   // a trilha vem separada por grupo (Sistemas | Sites de exemplo | Projetos para clientes | Arquitetura), com o nome do grupo em cima
-  var CURTO = { 'Sistemas prontos': 'Sistemas', 'Projetos para clientes': 'Projetos', 'Plataforma de arquitetura': 'Arquitetura' };
+  var CURTO = { 'Sistemas prontos': 'Sistemas', 'Projetos para clientes': 'Para clientes', 'Plataforma de arquitetura': 'Arquitetura' };
   var grupoAtual = null, caixaGrupo = null;
   var botoes = cenas.map(function (c, i) {
     var g = c.dataset.grupo || '';
