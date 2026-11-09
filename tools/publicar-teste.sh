@@ -22,8 +22,15 @@ if [ ! -d "$PAG/.git" ] && [ ! -f "$PAG/.git" ]; then
   git fetch -q origin gh-pages 2>/dev/null && git worktree add -q "$PAG" gh-pages || git worktree add -q --orphan -b gh-pages "$PAG"
 fi
 find "$PAG" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+# (09/11/2026) o que o teste não serve fica fora da gh-pages: com ~670 MB o deploy do Pages estourava o tempo.
+#   video/sistemas/  (69 MB): nenhuma página usa (o js/videos.js só abre ids com hífen, que ficam em video/versoes/)
+#   video/tutoriais/ (122 MB): só a página da conta abre, e ela precisa de login, que fica desligado no teste
+# Antes de publicar, o passo em Python confere que nenhuma página cita pelo nome um arquivo excluído.
+FORA_DO_TESTE=(video/sistemas video/tutoriais)
+EXCL=(); for x in "${FORA_DO_TESTE[@]}"; do EXCL+=(--exclude="./$x"); done
 tar -cf - --exclude='./.git' --exclude='./.pagina' --exclude='./tools' --exclude='./README.md' --exclude='./.gitignore' \
-  --exclude='./google*.html' --exclude='./[0-9a-f]*.txt' --exclude='./CNAME' . | (cd "$PAG" && tar -xf -)
+  --exclude='./.github' --exclude='./google*.html' --exclude='./[0-9a-f]*.txt' --exclude='./CNAME' "${EXCL[@]}" . | (cd "$PAG" && tar -xf -)
+export FORA_DO_TESTE="${FORA_DO_TESTE[*]}" RAIZ
 
 python - "$PAG" <<'PY'
 import glob, os, re, sys
@@ -61,10 +68,61 @@ sobrou = [f for ext in ('js', 'mjs', 'json', 'html', 'webmanifest', 'css', 'txt'
 if sobrou:
     print('PUBLICAÇÃO CANCELADA: ainda há referência ao banco de produção em', sobrou[:5])
     sys.exit(1)
+# nenhuma página publicada pode citar pelo nome um arquivo que ficou fora do teste
+raiz = os.environ['RAIZ']
+fora = []
+for pasta in os.environ.get('FORA_DO_TESTE', '').split():
+    for f in glob.glob(os.path.join(raiz, pasta, '**', '*.*'), recursive=True):
+        fora.append(os.path.relpath(f, raiz).replace(os.sep, '/'))
+if fora:
+    citados = set()
+    for ext in ('html', 'js', 'mjs', 'json', 'css', 'webmanifest'):
+        for f in glob.glob(os.path.join(d, '**', '*.' + ext), recursive=True):
+            s = open(f, encoding='utf-8', errors='ignore').read()
+            for x in fora:
+                if x in s: citados.add((x, os.path.relpath(f, d)))
+    if citados:
+        print('PUBLICAÇÃO CANCELADA: página cita arquivo que ficou fora do teste:', sorted(citados)[:5])
+        sys.exit(1)
 open(os.path.join(d, 'teste.css'), 'w').write('.site-de-teste{position:fixed;left:12px;bottom:12px;z-index:2147483647;padding:6px 12px;border-radius:999px;background:#c0392b;color:#fff;font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none}\n')
 open(os.path.join(d, 'robots.txt'), 'w').write('User-agent: *\nDisallow: /\n')
 open(os.path.join(d, '.nojekyll'), 'w').write('')
 PY
+
+# (09/11/2026) o Pages publica por GitHub Actions (fonte "GitHub Actions" nas configurações do repo de teste):
+# o deploy tem 30 min de prazo em vez dos 10 do build automático, que estourava com o site grande.
+mkdir -p "$PAG/.github/workflows"
+cat > "$PAG/.github/workflows/pages.yml" <<'YML'
+name: Publica o site de teste
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
+YML
 
 cd "$PAG"
 git add -A
