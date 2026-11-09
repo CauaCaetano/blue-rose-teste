@@ -24,17 +24,17 @@
 <link rel="apple-touch-icon" href="/blue-rose-teste/img/apple-touch-icon.png?v=2">
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=69">
+<link rel="stylesheet" href="css/site.css?v=70">
 <link rel="stylesheet" href="css/luxo.css?v=22">
 <link rel="stylesheet" href="css/creme.css?v=2"><link rel="stylesheet" href="css/areia.css?v=4">
 <link rel="stylesheet" href="css/tinta.css?v=12">
-<link rel="stylesheet" href="css/pg-seguranca.css?v=3">
+<link rel="stylesheet" href="css/pg-seguranca.css?v=4">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/contato.js?v=9" defer></script>
 <script src="js/site.js?v=26" defer></script>
 <script src="js/conta.js?v=12" defer></script>
-<link rel="stylesheet" href="css/assistente.css?v=10">
-<script src="js/assistente.js?v=35" defer></script>
+<link rel="stylesheet" href="css/assistente.css?v=11">
+<script src="js/assistente.js?v=36" defer></script>
 <script src="js/cookies.js?v=4" defer></script>
 <script src="js/confianca.js?v=3" defer></script>
 <link rel="stylesheet" href="/blue-rose-teste/teste.css">
@@ -119,13 +119,13 @@
       <div class="sg-duas sg-acesso-detalhe">
         <div class="sg-cab"><p class="sg-sub-cab">Em detalhe</p></div>
         <div class="sg-texto">
-        <ul class="sg-lista">
-          <li><b>Login por pessoa.</b> Cada pessoa entra com o próprio e-mail e senha. A senha é guardada cifrada pelo serviço de login do Supabase: nós não temos acesso a ela.</li>
-          <li><b>Senha vazada é recusada.</b> Ao criar ou trocar a senha, o navegador confere se ela já apareceu em vazamentos públicos (Have I Been Pwned). Só os 5 primeiros caracteres de um código gerado a partir dela são consultados; a senha não sai do aparelho.</li>
-          <li><b>Cada empresa separada.</b> Todas as tabelas do banco têm regras de acesso por linha ligadas: cada login só lê e grava nas empresas de que faz parte.</li>
-          <li><b>Você decide a equipe.</b> No Painel do dono, você convida pessoas, escolhe quem é administrador e o que cada uma pode ver, editar ou excluir. Quem saiu da empresa, você remove.</li>
-          <li><b>Chaves guardadas cifradas.</b> Chaves de integração e de IA ficam cifradas no banco e só o servidor consegue ler.</li>
-          <li><b>Excluir a conta pede login recente.</b> Para apagar a conta, é preciso ter entrado nos últimos 15 minutos e digitar EXCLUIR, para uma sessão esquecida aberta não apagar tudo.</li>
+        <ul class="sg-lista sg-lista-ico">
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-login"/></svg><b>Login por pessoa.</b> Cada pessoa entra com o próprio e-mail e senha. A senha é guardada cifrada pelo serviço de login do Supabase: nós não temos acesso a ela.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-senha"/></svg><b>Senha vazada é recusada.</b> Ao criar ou trocar a senha, o navegador confere se ela já apareceu em vazamentos públicos (Have I Been Pwned). Só os 5 primeiros caracteres de um código gerado a partir dela são consultados; a senha não sai do aparelho.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-isolamento"/></svg><b>Cada empresa separada.</b> Todas as tabelas do banco têm regras de acesso por linha no banco (RLS) ligadas: cada login só lê e grava nas empresas de que faz parte.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-equipe"/></svg><b>Você decide a equipe.</b> No Painel do dono, você convida pessoas, escolhe quem é administrador e o que cada uma pode ver, editar ou excluir. Quem saiu da empresa, você remove.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-chave"/></svg><b>Chaves guardadas cifradas.</b> Chaves de integração e de IA ficam cifradas no banco e só o servidor consegue ler.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-excluir"/></svg><b>Excluir a conta pede login recente.</b> Para apagar a conta, é preciso ter entrado nos últimos 15 minutos e digitar EXCLUIR, para uma sessão esquecida aberta não apagar tudo.</li>
         </ul>
         <p class="sg-nota">Nenhum sistema na internet é totalmente imune a ataques. Por isso, contamos também com você: use uma senha só para esta conta, não compartilhe o token de dono e mantenha o aparelho atualizado.</p>
         </div>
@@ -174,11 +174,11 @@
       </div>
       <div class="sg-texto">
         <p>No Brasil, a assinatura é paga pelo <b>Mercado Pago</b>: no cartão de crédito (cobrança automática por mês ou por ano) ou por <b>Pix</b> (sem cobrança automática; cada Pix vale um período e o QR Code vale por 24 horas). Fora do Brasil, o pagamento é feito pelo PayPal.</p>
-        <ul class="sg-lista">
-          <li><b>O número do cartão não passa por nós.</b> Você digita o cartão no Mercado Pago. Recebemos a confirmação, o valor, o plano, o e-mail do pagador e dois códigos internos do Mercado Pago (da conta e do cartão), usados só para o teste grátis valer uma vez.</li>
-          <li><b>Só pagamento aprovado libera.</b> O sistema confere no Mercado Pago quando você volta do pagamento e, depois, de hora em hora. Tentativa recusada não conta como paga.</li>
-          <li><b>Cobrança recusada.</b> O sistema avisa e você pode pagar de novo. Há <b>5 dias de tolerância</b>; depois disso, o acesso trava até a renovação. Os dados ficam guardados por 90 dias.</li>
-          <li><b>Troca de plano sem cobrança em dobro.</b> Quando um plano novo do mesmo sistema começa, o anterior é cancelado sozinho.</li>
+        <ul class="sg-lista sg-lista-ico">
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-cartao"/></svg><b>O número do cartão não passa por nós.</b> Você digita o cartão no Mercado Pago. Recebemos a confirmação, o valor, o plano, o e-mail do pagador e dois códigos internos do Mercado Pago (da conta e do cartão), usados só para o teste grátis valer uma vez.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-aprovado"/></svg><b>Só pagamento aprovado libera.</b> O sistema confere no Mercado Pago quando você volta do pagamento e, depois, de hora em hora. Tentativa recusada não conta como paga.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-alerta"/></svg><b>Cobrança recusada.</b> O sistema avisa e você pode pagar de novo. Há <b>5 dias de tolerância</b>; depois disso, o acesso trava até a renovação. Os dados ficam guardados por 90 dias.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-troca"/></svg><b>Troca de plano sem cobrança em dobro.</b> Quando um plano novo do mesmo sistema começa, o anterior é cancelado sozinho.</li>
         </ul>
       </div>
     </div>
@@ -234,12 +234,12 @@
         <h2 id="t-cancelamento">Cancelamento</h2>
       </div>
       <div class="sg-texto">
-        <ul class="sg-lista">
-          <li><b>Cancele quando quiser, sem multa.</b> Cancele em <a href="conta.html">Minha conta</a>, no botão Cancelar da assinatura. A cobrança automática é desligada no Mercado Pago na hora.</li>
-          <li><b>Até quando vale.</b> O acesso continua até o fim do período já pago (ou do teste). Nada mais é cobrado.</li>
-          <li><b>Arrependimento.</b> Pedindo em até 7 dias depois da primeira cobrança, devolvemos o valor integral dessa mensalidade (<a href="termos.html#cancelamento">Termos, item 14</a>).</li>
-          <li><b>Os dados depois.</b> Terminado o período, o acesso trava e os dados ficam guardados por 90 dias, para você voltar se quiser. Depois, uma rotina diária apaga as empresas que passaram desse prazo.</li>
-          <li><b>Excluir na hora.</b> Em Minha conta, <b>Excluir minha conta</b> cancela as cobranças e apaga as empresas, a equipe e o login na mesma hora. Ficam só os registros de pagamento, pelo prazo da lei fiscal.</li>
+        <ul class="sg-lista sg-lista-ico">
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-cancelar"/></svg><b>Cancele quando quiser, sem multa.</b> Cancele em <a href="conta.html">Minha conta</a>, no botão Cancelar da assinatura. A cobrança automática é desligada no Mercado Pago na hora.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-calendario"/></svg><b>Até quando vale.</b> O acesso continua até o fim do período já pago (ou do teste). Nada mais é cobrado.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-devolver"/></svg><b>Arrependimento.</b> Pedindo em até 7 dias depois da primeira cobrança, devolvemos o valor integral dessa mensalidade (<a href="termos.html#cancelamento">Termos, item 14</a>).</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-arquivo"/></svg><b>Os dados depois.</b> Terminado o período, o acesso trava e os dados ficam guardados por 90 dias, para você voltar se quiser. Depois, uma rotina diária apaga as empresas que passaram desse prazo.</li>
+          <li><svg class="sg-ico" aria-hidden="true"><use href="img/seguranca/diretrizes.svg?v=1#d-excluir"/></svg><b>Excluir na hora.</b> Em Minha conta, <b>Excluir minha conta</b> cancela as cobranças e apaga as empresas, a equipe e o login na mesma hora. Ficam só os registros de pagamento, pelo prazo da lei fiscal.</li>
         </ul>
       </div>
     </div>
@@ -257,7 +257,7 @@
           <div><dt>Para quê</dt><dd>Fazer o sistema funcionar, oferecer o teste, cobrar a assinatura e cumprir obrigações fiscais (execução de contrato e obrigação legal, art. 7º da LGPD).</dd></div>
           <div><dt>Com quem</dt><dd>Supabase (banco e login), Mercado Pago e PayPal (pagamento), GitHub (site), Google (e-mails e Assistente IA) e Anthropic (respostas ao formulário). A lista completa está no <a href="privacidade.html#compartilhamento">item 4 da Política de Privacidade</a>.</dd></div>
           <div><dt>Por quanto tempo</dt><dd>Cadastros de teste não assinado e de assinatura encerrada: 90 dias. Conta de login sem uso: até 12 meses. Registros de pagamento: prazos fiscais.</dd></div>
-          <div><dt>Seus direitos</dt><dd>Confirmação, acesso, correção, anonimização, portabilidade, eliminação e revogação do consentimento (art. 18). Respondemos em até 15 dias.</dd></div>
+          <div><dt>Demonstrações abertas</dt><dd>As demonstrações abrem sem cadastro e sem login: os dados de exemplo e o que você digitar ficam salvos só no seu navegador e não vão para o nosso servidor nem para o banco. Só saem do aparelho, para bases públicas, o número de um CEP ou CNPJ que você digitar (para preencher o endereço) e, no Annona, o código de barras (para achar o nome do produto). Na demonstração, o Assistente IA responde com um exemplo pronto, sem enviar a pergunta.</dd></div><div><dt>Seus direitos</dt><dd>Confirmação, acesso, correção, anonimização, portabilidade, eliminação e revogação do consentimento (art. 18). Respondemos em até 15 dias.</dd></div>
           <div><dt>Canal</dt><dd>O <a href="./#contato">formulário de contato</a>, começando a mensagem com “Privacidade”. Você também pode reclamar à ANPD.</dd></div>
         </dl>
         <p class="sg-nota">Se acontecer um incidente de segurança que possa afetar os dados da sua empresa, avisamos você em até 2 dias úteis depois de confirmá-lo, com o que aconteceu e o que foi feito.</p>

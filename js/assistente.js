@@ -517,6 +517,9 @@
     setInterval(agendar, 2000);     // conteúdo que aparece com animação ou carrega depois
   };
   var temTexto = function (e) { for (var n = e.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.nodeValue.trim()) return true; return false; };
+  // rodada 4: o balão (e a chamada) também não podem ficar sobre mídia: foto, vídeo, ilustração ou maquete
+  var MIDIA = 'img, picture, video, canvas, iframe, svg:not(.ico), figure, [role="img"]';
+  var ehMidia = function (e) { return !!(e.closest && e.closest(MIDIA)); };
   // qualquerTexto: para o balão, que é maior, também não pode ficar por cima de texto
   VirtualAssistant.prototype.cobre = function (r, qualquerTexto) {
     if (!r || !r.width || !r.height) return false;
@@ -534,7 +537,7 @@
         var e = pilha[k];
         if (raiz.contains(e)) continue;
         if (e === document.body || e === document.documentElement) break;
-        if ((e.closest && e.closest(INTERATIVO)) || (qualquerTexto && temTexto(e))) { alvo = e; break; }
+        if ((e.closest && e.closest(INTERATIVO)) || (qualquerTexto && (temTexto(e) || ehMidia(e)))) { alvo = e; break; }
         var cs = getComputedStyle(e);
         if (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none') break;   // fundo opaco: o que vem embaixo não aparece
       }
@@ -547,8 +550,14 @@
     if (this.trazido && this.raiz.matches(':hover, :focus-within')) return;
     this.trazido = false;
     // mede onde a chamada fica no lugar normal (desconta o deslocamento de quando está recuada: fica só uma borda de 14 px na margem)
-    var r = this.botao.getBoundingClientRect();
-    if (this.raiz.classList.contains('va-recua')) { var dx = r.width + 2; r = { left: r.left - dx, right: r.right - dx, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; }
+    var r = this.botao.getBoundingClientRect(), tela = innerWidth + 'x' + innerHeight;
+    if (this.raiz.classList.contains('va-recua')) {
+      // rodada 4: usa a última medida no lugar normal (no celular a aba recuada muda de tamanho); sem ela, desconta o deslocamento
+      if (this.rNormal && this.rNormalTela === tela) r = this.rNormal;
+      else { var dx = r.width + 2; r = { left: r.left - dx, right: r.right - dx, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; }
+    } else if (r.width && getComputedStyle(this.raiz).transform === 'none') {
+      this.rNormal = { left: r.left, right: r.right, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; this.rNormalTela = tela;
+    }
     // em qualquer largura (integração da rodada 4) não pode ficar sobre texto: no celular cobria o fim das linhas dos passos e no tablet/computador o fim de listas
     var celular = true;
     var cobre = this.cobre(r, celular);

@@ -198,3 +198,54 @@
 .np .vs .vs-pos { margin-top: 0; }
 .pp-passos { grid-auto-rows: 1fr; }
 .pp-passos li { padding: var(--ritmo-p, 32px); height: 100%; box-sizing: border-box; }
+
+/* ===================== rodada 4 · banca Gemini (09/11) ===================== */
+/* selos de confiança junto dos botões: teste grátis (só nos Veltria) e demonstração (todas).
+   Herdam a cor do bloco: funcionam no creme e no topo marinho. Textos conferidos em termos.html e em demos/sistemas/base. */
+.pp-selo { display: inline-flex; align-items: flex-start; gap: var(--esp-2, 8px); margin: var(--esp-4, 16px) 0 0; padding: 10px 14px; max-width: 100%; box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent); border-radius: var(--r-card, 6px); background: color-mix(in srgb, currentColor 5%, transparent);
+  font-size: var(--fs-corpo-p, 15px); line-height: 1.45; font-weight: 500; color: inherit; list-style: none; }
+.pp-selo b { font-weight: 700; }
+.pp-selo-ico { flex: none; width: 20px; height: 20px; margin-top: 1px; color: var(--accent-unico, #2f4c8a); }
+.np-hero .pp-selo { color: var(--c-creme, #f4ebdd); }
+.np-hero .pp-selo-ico { color: var(--c-azul-claro, #6cc4ff); }
+.pp-selo + .np-nota { margin-top: var(--esp-2, 8px); }
+.np-final .pp-selo { margin-top: var(--esp-6, 24px); }
+.pp-bts + .pp-selo { margin-top: var(--esp-3, 12px); }
+.pp-selos { display: grid; gap: var(--esp-2, 8px); margin: var(--esp-4, 16px) 0 0; padding: 0; list-style: none; }
+.pp-selos .pp-selo { margin: 0; display: flex; font-size: var(--fs-legenda, 14px); padding: 8px 12px; }
+.pp-selos .pp-selo-ico { width: 18px; height: 18px; }
+
+/* "Depois, teste também": lista de atalhos num cartão, cada atalho com o seu botão */
+.pp-mais { gap: 0; border: var(--borda-card, 1px solid var(--line)); border-radius: var(--r-card, 6px); background: var(--surface); box-shadow: var(--sombra-card, none); overflow: hidden; }
+.pp-mais li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--esp-3, 12px) var(--esp-4, 16px);
+  padding: var(--esp-4, 16px); border-left: 0; }
+.pp-mais li + li { border-top: 1px solid var(--line); }
+.pp-mais-txt { min-width: 0; }
+.pp-mais a.btn { margin: 0; min-height: var(--btn-h-s, 44px); padding: 0 var(--btn-px-s, 16px); color: var(--ink); }
+@media (max-width: 480px) {
+  .pp-mais li { grid-template-columns: minmax(0, 1fr); }
+  .pp-mais a.btn { justify-self: start; }
+}
+
+/* celular: 16 px de respiro lateral iguais nos cartões de preço e nos chips de ramo */
+@media (max-width: 480px) {
+  .sis { padding: 16px; }
+  .sis-precos > div { padding: 12px 16px; }
+  .pp-indice-grade a { padding-inline: 16px; }
+}
+@media (max-width: 379px) {
+  .pp-ramos ul { gap: 8px; }
+  .pp-ramos li { max-width: 100%; }
+  .pp-ramos a { padding: 0 16px; max-width: 100%; box-sizing: border-box; }
+  .pp-selo { padding: 10px 12px; }
+}
+
+/* cartões que abrem a demonstração: hover sutil (borda e sombra, sem movimento) */
+.sis, .sis-foto, .pp-demo-foto { transition: border-color var(--dur-rapida, 150ms) ease, box-shadow var(--dur-media, 250ms) ease; }
+.sis-foto:hover img { transform: none; }
+@media (hover: hover) {
+  .sis:hover { border-color: color-mix(in srgb, var(--accent-unico, #2f4c8a) 35%, var(--line)); box-shadow: var(--sombra-card-hover, 0 10px 28px -18px rgba(16, 27, 54, .45)); }
+  .sis-foto:hover, .pp-demo-foto:hover { box-shadow: 0 12px 30px -18px rgba(16, 27, 54, .55) !important; border-color: color-mix(in srgb, var(--accent-unico, #2f4c8a) 45%, var(--line)) !important; }
+}
+@media (prefers-reduced-motion: reduce) { .sis, .sis-foto, .pp-demo-foto { transition: none; } }

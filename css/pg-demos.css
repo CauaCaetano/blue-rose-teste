@@ -241,3 +241,24 @@
 .pd-ficha-preco { margin: 0; color: var(--ink-2); font-size: var(--fs-legenda); }
 .pd-ficha-preco b { color: var(--ink); font-weight: 650; font-size: var(--fs-corpo); }
 .pd-ficha-acoes .btn-primary { --btn-h: var(--btn-h-s); --btn-px: var(--btn-px-s); }
+
+/* =====================================================================
+   Rodada 4 · banca Gemini (09/11/2026), só como-funciona.html:
+   selos de confiança junto dos botões (mesmo desenho do css/pg-produtos.css) e hover sutil
+   nos cartões que abrem a demonstração (borda e sombra; sem movimento).
+   ===================================================================== */
+.pp-selo { display: inline-flex; align-items: flex-start; gap: var(--esp-2); margin: var(--esp-4) 0 0; padding: 10px 14px; max-width: 100%; box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent); border-radius: var(--r-card); background: color-mix(in srgb, currentColor 5%, transparent);
+  font-size: var(--fs-corpo-p); line-height: 1.45; font-weight: 500; color: var(--ink); }
+.pp-selo b { font-weight: 700; color: var(--ink); }
+.pp-selo-ico { flex: none; width: 20px; height: 20px; margin-top: 1px; color: var(--accent-unico); }
+.cf-ramo .cf-preco.pp-selo { margin-top: var(--esp-4); }
+.pd-15s-card > .pp-selo { margin-top: var(--esp-3); font-size: var(--fs-legenda); padding: 8px 12px; }
+.pd-15s-card > .pp-selo .pp-selo-ico { width: 18px; height: 18px; }
+@media (max-width: 379px) { .pp-selo { padding: 10px 12px; } }
+
+.pd-15s-card { transition: border-color var(--dur-rapida) ease, box-shadow var(--dur-media) ease; }
+@media (hover: hover) {
+  .pd-15s-card:hover { border-color: color-mix(in srgb, var(--accent-unico) 35%, var(--line)); box-shadow: var(--sombra-card-hover); }
+}
+@media (prefers-reduced-motion: reduce) { .pd-15s-card { transition: none; } }

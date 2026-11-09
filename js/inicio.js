@@ -67,6 +67,10 @@
       if (el.getAttribute('data-p2')) return;
       el.setAttribute('data-p2', '1');
       el.textContent = '';
+      // rodada 4: esqueleto apagado de uma conversa, para o espaço vazio já parecer um chat
+      var esq = document.createElement('span'); esq.className = 'sv-esqueleto'; esq.setAttribute('aria-hidden', 'true');
+      ['c', 'b', 'c', 'b'].forEach(function (q) { var m = document.createElement('i'); m.className = 'sv-esq-' + q; esq.appendChild(m); });
+      el.appendChild(esq);
       var t = document.createElement('b'); t.textContent = 'Escolha um cenário e clique em Rodar automação.';
       var d = document.createElement('span'); d.textContent = 'A conversa aparece aqui, passo a passo. No fim, o resumo entregue fica em destaque logo abaixo.';
       el.appendChild(t); el.appendChild(d);
