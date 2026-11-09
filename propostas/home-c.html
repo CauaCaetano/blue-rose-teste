@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue Rose · proposta C</title>
+<meta name="description" content="Escolha o seu ramo e veja o sistema certo, com preço e demonstração aberta. 7 dias grátis nos sistemas Veltria.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.ico">
+<link rel="preload" href="../fonts/cormorant-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="home-c.css">
+<script>document.documentElement.className += ' js'</script>
+<script src="home-c.js" defer></script>
+<link rel="stylesheet" href="/blue-rose-teste/teste.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="faixa">
+    <a class="marca" href="../index.html" aria-label="Blue Rose, página inicial">
+      <img src="../img/blue-rose-logo.png" alt="" width="32" height="32">Blue Rose
+    </a>
+    <button class="menu-bt" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="../sistemas.html">Sistemas</a>
+      <a href="../servicos.html">Sites e automação</a>
+      <a href="../exemplos.html">Exemplos</a>
+      <a href="../como-funciona.html">Como funciona</a>
+      <a class="menu-contato" href="../index.html#contato">Falar com a equipe</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="escolha" aria-labelledby="pergunta">
+    <div class="escolha-lado">
+      <h1 id="pergunta">Qual é o seu negócio?</h1>
+      <p class="escolha-sub">Escolha e veja o sistema certo, com o preço.</p>
+      <div class="ramos" role="group" aria-label="Escolha o seu ramo">
+        <button type="button" class="ramo" data-ramo="agenda" aria-pressed="true" aria-controls="painel">Salão e estética</button>
+        <button type="button" class="ramo" data-ramo="obras" aria-pressed="false" aria-controls="painel">Obras e reformas</button>
+        <button type="button" class="ramo" data-ramo="financeiro" aria-pressed="false" aria-controls="painel">Autônomo e MEI</button>
+        <button type="button" class="ramo" data-ramo="juridico" aria-pressed="false" aria-controls="painel">Advocacia</button>
+        <button type="button" class="ramo" data-ramo="peplo" aria-pressed="false" aria-controls="painel">Loja de roupas</button>
+        <button type="button" class="ramo" data-ramo="annona" aria-pressed="false" aria-controls="painel">Mercadinho</button>
+        <button type="button" class="ramo" data-ramo="outro" aria-pressed="false" aria-controls="painel">Outro negócio</button>
+        <button type="button" class="ramo" data-ramo="contab" aria-pressed="false" aria-controls="painel">Contabilidade ou academia</button>
+      </div>
+    </div>
+
+    <section class="painel" id="painel" aria-live="polite" aria-labelledby="p-nome">
+      <div class="painel-in" data-painel>
+        <figure class="p-fig p-fig-cel">
+          <img src="../img/resultados/agenda.webp" width="780" height="800" alt="Demonstração do Veltria Agenda: confirmação de horário pronta para enviar no WhatsApp">
+        </figure>
+        <div class="p-info">
+          <p class="p-tipo">Veltria · para quem atende sozinha</p>
+          <h2 id="p-nome">Veltria Agenda</h2>
+          <p class="p-frase">Confirma o horário no WhatsApp e cobra sinal no PIX.</p>
+          <p class="p-preco"><b>R$ 49</b><span>/mês</span></p>
+          <div class="p-bts">
+            <a class="bt bt-principal" href="../demos/sistemas/agenda-essencial/?celular=1" target="_blank" rel="noopener">Abrir demonstração</a>
+            <a class="bt bt-sec" href="../veltria-agenda.html#versoes">Testar 7 dias grátis</a>
+          </div>
+          <p class="p-cond">Nada é cobrado no teste · cancele quando quiser</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="sites" aria-labelledby="sites-tit">
+    <div class="sites-in">
+      <div class="sites-txt">
+        <h2 id="sites-tit">Sites sob medida a partir de <span class="nowrap">R$ 690</span></h2>
+        <a class="bt bt-sec" href="../exemplos.html">Ver os sites de exemplo</a>
+      </div>
+      <ul class="sites-mini">
+        <li><img src="../img/home/site-vertice.webp" width="560" height="350" loading="lazy" alt="Site de exemplo Vértice, prédio com vista para o mar"></li>
+        <li><img src="../img/home/site-lumi-odonto.webp" width="560" height="350" loading="lazy" alt="Site de exemplo Lumi Odonto, clínica odontológica"></li>
+        <li><img src="../img/home/site-aguiar-monteiro.webp" width="560" height="350" loading="lazy" alt="Site de exemplo Aguiar Monteiro, escritório de advocacia"></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <a class="marca" href="../index.html"><img src="../img/blue-rose-logo.png" alt="" width="28" height="28" loading="lazy">Blue Rose</a>
+    <nav aria-label="Rodapé">
+      <a href="../sistemas.html">Sistemas</a>
+      <a href="../servicos.html">Sites e automação</a>
+      <a href="../exemplos.html">Exemplos</a>
+      <a href="../seguranca.html">Segurança e dados</a>
+      <a href="../termos.html">Termos</a>
+      <a href="../privacidade.html">Privacidade</a>
+      <a href="https://www.instagram.com/blue.rose.express/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p>© 2026 Blue Rose Express · segunda a sexta, 8h às 18h</p>
+  </div>
+</footer>
+<div class="site-de-teste" role="note">Site de teste · nada aqui vale de verdade</div>
+</body>
+</html>
